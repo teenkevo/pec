@@ -1,28 +1,31 @@
-import React from "react";
-import { HeroFlippingText } from "./hero-flipping-text";
-import { Announcement } from "./announcement";
-import { Features } from "./features";
-// import { LoginButton } from "@/components/auth/login-button";
+"use client";
 
-export function Landing() {
+import { BackgroundImage } from "./hero/background-image";
+import { Navigation } from "./hero/navigation";
+import { HeroContent } from "./hero/hero-content";
+
+export default function Landing() {
+  const navigationItems = [
+    { label: "Industries", href: "#industries" },
+    { label: "Expertise", href: "#expertise" },
+    { label: "Careers", href: "#careers" },
+    { label: "Investors", href: "#investors" },
+    { label: "News", href: "#news" },
+    { label: "About us", href: "#about" },
+  ];
+
   return (
-    <div className="h-auto w-full dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative justify-center">
-      {/* Radial gradient for the container to give a faded look */}
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_90%,black)]"></div>
-      <div className="pt-24 items-center justify-center px-5 md:px-28">
-        <Announcement />
-        <HeroFlippingText />
-        <h2 className="text-md font-normal text-muted-foreground max-w-2xl">
-          Reduce operational costs, grow revenue, and run your geotechnical
-          laboratory more efficiently. Use GIMS to handle all your
-          automation-related needs, increase data quality and accelerate R&D
-        </h2>
-        {/* <div className="my-10">
-          <LoginButton variant="default" text="Get Started" />
-        </div> */}
+    <div className="relative h-[90vh] w-full">
+      {/* Background Image with Gradient Overlays */}
+      <BackgroundImage
+        imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_60/v1742072212/IMG_7398_yum9au.webp"
+        alt="Ocean view with offshore structures"
+      />
 
-        <Features />
-      </div>
+      {/* Navigation and Content */}
+
+      <Navigation items={navigationItems} />
+      <HeroContent title="Engineering tomorrow's solutions today" />
     </div>
   );
 }
