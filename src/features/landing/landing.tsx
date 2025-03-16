@@ -3,15 +3,16 @@
 import { BackgroundImage } from "./hero/background-image";
 import { Navigation } from "./hero/navigation";
 import { HeroContent } from "./hero/hero-content";
+import { megaMenuData } from "./mega-menu/menu-data";
 
 export default function Landing() {
   const navigationItems = [
-    { label: "Industries", href: "#industries" },
-    { label: "Expertise", href: "#expertise" },
-    { label: "Careers", href: "#careers" },
-    { label: "Investors", href: "#investors" },
-    { label: "News", href: "#news" },
-    { label: "About us", href: "#about" },
+    { label: "Industries", href: "#industries", key: "industries" },
+    { label: "Expertise", href: "#expertise", key: "expertise" },
+    { label: "Careers", href: "#careers", key: "careers" },
+    { label: "Investors", href: "#investors", key: "investors" },
+    { label: "News", href: "#news", key: "news" },
+    { label: "About us", href: "#about", key: "about-us" },
   ];
 
   return (
@@ -24,7 +25,10 @@ export default function Landing() {
 
       {/* Navigation and Content */}
 
-      <Navigation items={navigationItems} />
+      <Navigation
+        navigationItems={navigationItems}
+        megaMenuData={megaMenuData}
+      />
       <HeroContent title="Engineering tomorrow's solutions today" />
     </div>
   );

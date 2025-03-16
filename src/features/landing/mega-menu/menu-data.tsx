@@ -31,7 +31,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "Mining", href: "#mining" },
     ],
     featuredImage: {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       alt: "Industry solutions",
       caption: "Innovative industry solutions",
     },
@@ -46,7 +46,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "Solutions", href: "#solutions" },
     ],
     featuredImage: {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       alt: "Technical expertise",
       caption: "Advanced technical capabilities",
     },
@@ -61,7 +61,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "Benefits", href: "#benefits" },
     ],
     featuredImage: {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       alt: "Career opportunities",
       caption: "Build your career with us",
     },
@@ -76,7 +76,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "Governance", href: "#governance" },
     ],
     featuredImage: {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       alt: "Investor relations",
       caption: "Sustainable growth and value",
     },
@@ -91,7 +91,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "Media Library", href: "#media" },
     ],
     featuredImage: {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       alt: "News and updates",
       caption: "Stay informed with our latest news",
     },
@@ -110,7 +110,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "Our locations", href: "#locations" },
     ],
     featuredImage: {
-      src: "/placeholder.svg?height=400&width=600",
+      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       alt: "About Fugro",
       caption: "Leading geo-data specialist",
     },

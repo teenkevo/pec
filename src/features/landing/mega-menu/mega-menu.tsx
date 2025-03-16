@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { MegaMenuData } from "./menu-data";
+import { motion } from "framer-motion";
 
 interface MegaMenuProps {
   activeMenu: string | null;
@@ -15,11 +16,11 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
   const menuData = data[activeMenu];
 
   return (
-    <div className="absolute left-0 right-0 bg-white shadow-lg z-50 transition-all duration-300 ease-in-out transform origin-top">
-      <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="absolute left-0 right-0 bg-white shadow-lg z-90 transition-all duration-300 ease-in-out transform origin-top pt-20">
+      <div className="mx-auto px-4 py-10 md:px-14 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Left section - Title and description */}
         <div className="col-span-1">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-2">
             {menuData.title}
           </h2>
           {menuData.description && (
@@ -37,17 +38,22 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
         </div>
 
         {/* Middle section - Menu items */}
-        <div className="col-span-1">
+        <div className="col-span-1 border-l pl-10 border-l-gray-400">
           <ul className="space-y-4">
-            {menuData.items.map((item) => (
-              <li key={item.href}>
+            {menuData.items.map((item, index) => (
+              <motion.li
+                key={item.href}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
                 <Link
                   href={item.href}
-                  className="text-gray-700 hover:text-gray-900 hover:underline"
+                  className="text-gray-700 text-xl font-semibold hover:text-gray-900 hover:underline"
                 >
                   {item.title}
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
@@ -55,7 +61,7 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
         {/* Right section - Featured image */}
         {menuData.featuredImage && (
           <div className="col-span-1 relative">
-            <div className="relative h-60 w-full overflow-hidden rounded-lg">
+            <div className="relative h-80 w-full overflow-hidden rounded-lg">
               <Image
                 src={menuData.featuredImage.src || "/placeholder.svg"}
                 alt={menuData.featuredImage.alt}

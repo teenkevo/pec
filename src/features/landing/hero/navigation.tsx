@@ -44,58 +44,53 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
         animate={{
           backgroundColor: isNavbarWhite ? "#ffffff" : "transparent",
         }}
-        transition={{ duration: 0.1, ease: "easeInOut" }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        <div className="container mx-auto px-4 py-6 md:px-8">
+        <div className="mx-auto px-4 py-6 md:px-14">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <motion.span
-                className="text-3xl font-bold"
-                animate={{
-                  color: isNavbarWhite ? "#111827" : "#ffffff",
-                }}
-                transition={{ duration: 0.3 }}
-              >
+            <div className="flex space-x-10">
+              {/* Logo */}
+              <Link href="/" className="flex items-center">
                 <Image
                   src={
                     isNavbarWhite
                       ? "/PEC-logo-on-light.svg"
                       : "/PEC-logo-on-dark.svg"
                   }
-                  width={200}
-                  height={200}
+                  width={150}
+                  height={150}
                   alt="PEC logo"
+                  priority
                 />
-              </motion.span>
-            </Link>
+              </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              {navigationItems.map((item) => (
-                <div
-                  key={item.key}
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter(item.key)}
-                >
-                  <Link href={item.href} className="py-2">
-                    <motion.span
-                      className={`${activeMenu === item.key ? "border-b-2 border-blue-600 font-medium" : ""}`}
-                      animate={{
-                        color: isNavbarWhite ? "#374151" : "#ffffff",
-                      }}
-                      whileHover={{ color: "#111827" }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {item.label}
-                    </motion.span>
-                  </Link>
-                </div>
-              ))}
-            </nav>
+              {/* Desktop Navigation */}
+              <nav className="hidden xl:flex items-center space-x-8">
+                {navigationItems.map((item) => (
+                  <div
+                    key={item.key}
+                    className="relative"
+                    onMouseEnter={() => handleMouseEnter(item.key)}
+                  >
+                    <Link href={item.href} className="py-2">
+                      <motion.span
+                        className={`${activeMenu === item.key ? "border-b-2 border-blue-600 font-medium" : ""}`}
+                        animate={{
+                          color: isNavbarWhite ? "#374151" : "#ffffff",
+                        }}
+                        whileHover={{ color: "#111827" }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {item.label}
+                      </motion.span>
+                    </Link>
+                  </div>
+                ))}
+              </nav>
+            </div>
 
             {/* Right Side Icons and Button */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden xl:flex items-center space-x-4">
               <motion.button
                 aria-label="Search"
                 animate={{
@@ -133,7 +128,7 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden"
+              className="xl:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               animate={{
@@ -150,17 +145,27 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
           </div>
         </div>
       </motion.header>
+      <hr
+        className={`border-t ${isNavbarWhite ? "border-gray-600" : "border-white"} md:mx-14`}
+      />
 
       {/* Mega Menu with Framer Motion */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {activeMenu && (
           <motion.div
-            className="absolute left-0 right-0 w-full bg-white shadow-lg z-40"
-            initial={{ opacity: 0, y: -200 }}
+            className="fixed left-0 right-0 w-full bg-white shadow-lg z-40"
+            initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0.5, y: -300, transition: { duration: 0.2 } }}
+            exit={{
+              y: "-100%",
+              opacity: 0,
+              transition: {
+                duration: 0.35,
+                ease: [0.4, 0, 0.2, 1],
+              },
+            }}
             transition={{
-              duration: 0.4,
+              duration: 0.8,
               ease: [0.16, 1, 0.3, 1],
               y: {
                 type: "spring",
@@ -168,7 +173,10 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
                 damping: 30,
               },
             }}
-            style={{ marginTop: "-1px", backgroundColor: "red" }}
+            style={{
+              top: 0,
+              paddingTop: "calc(var(--header-height, 30px))",
+            }}
           >
             <MegaMenu activeMenu={activeMenu} data={megaMenuData} />
           </motion.div>
@@ -179,7 +187,7 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden absolute top-full left-0 right-0 bg-black/90 p-4 z-30"
+            className="xl:hidden absolute top-full left-0 right-0 bg-black/90 p-4 z-30"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
