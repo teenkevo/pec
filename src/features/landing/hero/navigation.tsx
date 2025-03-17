@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Search, User, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,9 +24,15 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isNavbarWhite, setIsNavbarWhite] = useState(false);
+  const scrollPositionRef = useRef(0);
+  const navRef = useRef<HTMLDivElement>(null);
 
   // Handle mouse enter on navigation item
   const handleMouseEnter = (key: string) => {
+    // Only store scroll position when first opening the menu
+    if (!activeMenu) {
+      scrollPositionRef.current = window.scrollY;
+    }
     setActiveMenu(key);
     setIsNavbarWhite(true);
   };
@@ -37,8 +43,41 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
     setIsNavbarWhite(false);
   };
 
+  // Disable/enable scrolling when mega menu is open/closed
+  useEffect(() => {
+    const disableScroll = () => {
+      // Add styles to body to prevent scrolling
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollPositionRef.current}px`;
+      document.body.style.width = "100%";
+    };
+
+    const enableScroll = () => {
+      // Remove styles from body
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollPositionRef.current);
+    };
+
+    if (activeMenu) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+
+    // Cleanup function to ensure scrolling is re-enabled
+    return () => {
+      if (document.body.style.position === "fixed") {
+        enableScroll();
+      }
+    };
+  }, [activeMenu]);
+
   return (
-    <div className="relative" onMouseLeave={handleMouseLeave}>
+    <div className="relative" onMouseLeave={handleMouseLeave} ref={navRef}>
       <motion.header
         className={`relative z-50 ${isNavbarWhite ? "bg-white" : "bg-transparent"}`}
         animate={{
