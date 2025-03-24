@@ -43,7 +43,7 @@ const industries = [
     industry: "Materials and Geotechnics",
     href: "/industries/materials",
     title:
-      "Building strong foundations with innovative geotechnical and materials solutions",
+      "Building strong foundations with innovative geotechnical & materials solutions",
     description: "Tailored solutions for foundations of every complexity",
     image:
       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1726662738/IMG_20240817_112347_umok4y.webp", // Replace with actual urban image
@@ -113,7 +113,7 @@ export function IndustriesSection() {
                     isActive
                       ? "bg-white"
                       : "bg-gray-900/40 border backdrop-blur-sm"
-                  } p-8 flex flex-col h-full cursor-pointer transition-colors duration-300 min-w-[320px] md:min-w-0 flex-1 mx-2 snap-start`}
+                  } p-6 flex flex-col h-full cursor-pointer transition-colors duration-300 min-w-[320px] md:min-w-0 flex-1 mx-2 snap-start`}
                   onClick={() => setActiveIndustry(industry.id)}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}

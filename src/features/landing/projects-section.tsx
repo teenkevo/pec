@@ -49,7 +49,7 @@ export function ProjectsSection({
           transition={{ duration: 0.6 }}
         >
           {/* Featured Case Study (Left) */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 group">
             {projects
               .filter((project) => project.featured)
               .map((project) => (
@@ -75,7 +75,7 @@ export function ProjectsSection({
                       <span className="text-sm text-gray-500">
                         {project.industry}
                       </span>
-                      <h3 className="text-2xl tracking-tight font-bold text-gray-900 mt-1">
+                      <h3 className="text-2xl tracking-tight font-bold line-clamp-4 text-gray-900 mt-1">
                         {project.title}
                       </h3>
                       <p className="text-xs text-black mt-1">
@@ -86,7 +86,7 @@ export function ProjectsSection({
                 </Link>
               ))}
             {/* Divider */}
-            <div className="border-t border-gray-200 mt-5"></div>
+            <div className="border-t border-gray-200 group-hover:border-black group-hover:-translate-y-2 transition-all mt-5"></div>
           </div>
 
           {/* Regular Case Studies (Right) */}
@@ -116,7 +116,7 @@ export function ProjectsSection({
                         <span className="text-sm text-gray-500">
                           {project.industry}
                         </span>
-                        <h3 className="text-xl font-bold text-gray-900 mt-1">
+                        <h3 className="text-xl font-bold line-clamp-4 text-gray-900 mt-1">
                           {project.title}
                         </h3>
                         <p className="text-xs text-black mt-1">
@@ -125,7 +125,7 @@ export function ProjectsSection({
                       </div>
                     </motion.div>
                     {/* Divider */}
-                    <div className="border-t border-gray-200 mt-5"></div>
+                    <div className="border-t border-gray-200 group-hover:border-black group-hover:-translate-y-2 transition-all mt-5"></div>
                   </Link>
                 </div>
               ))}
