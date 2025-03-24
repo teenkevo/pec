@@ -124,9 +124,7 @@ export function SecondaryNav({
   return (
     <div
       ref={navRef}
-      className={`w-full border-b border-gray-200 bg-white ${className} ${
-        isSticky ? "sticky top-0 z-30 shadow-sm" : ""
-      }`}
+      className="w-full border-b sticky top-0 z-50 border-gray-200 bg-white"
     >
       <div className="mx-auto px-4 md:px-14">
         <nav className="flex items-center overflow-x-auto">
