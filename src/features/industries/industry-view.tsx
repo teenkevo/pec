@@ -1,6 +1,7 @@
 import type React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { IndustryLead } from "./industry-lead";
 
 interface ContentSectionProps {
   id?: string;
@@ -13,19 +14,22 @@ interface ContentSectionProps {
   contentClassName?: string;
   linkClassName?: string;
   backgroundColor?: string;
+  industryLeadTitle: string;
+  industryLeadImageUrl: string;
+  industryLeadName: string;
 }
 
-export function ContentSection({
+export function IndustryView({
   id,
   heading,
   content,
-  linkText,
-  linkUrl = "#",
   className = "",
   headingClassName = "",
   contentClassName = "",
-  linkClassName = "",
   backgroundColor = "bg-white",
+  industryLeadTitle,
+  industryLeadImageUrl,
+  industryLeadName,
 }: ContentSectionProps) {
   return (
     <section id={id} className={`py-16 ${backgroundColor} ${className}`}>
@@ -52,15 +56,11 @@ export function ContentSection({
               <div className={`mb-6 ${contentClassName}`}>{content}</div>
             )}
 
-            {linkText && (
-              <Link
-                href={linkUrl}
-                className={`inline-flex items-center text-[#EB3300]/90 hover:text-black transition-colors ${linkClassName}`}
-              >
-                <span className="font-medium">{linkText}</span>
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            )}
+            <IndustryLead
+              title={industryLeadTitle}
+              imageUrl={industryLeadImageUrl}
+              name={industryLeadName}
+            />
           </div>
         </div>
       </div>

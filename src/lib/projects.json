@@ -1,0 +1,810 @@
+{
+  "Projects": {
+    "Transportation Engineering": [
+      {
+        "Project Name": "Consultancy Services for the Emergency Reconstruction of Ssezibwa Bridge (1.6 Km) along Kalagi – Kayunga Road Under Design and Build",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Jun 2024",
+        "End Date": "To date",
+        "Value": { "Amount": 4138975753, "Currency": "UGX" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "Design review and supervision of the design and build contract for reconstruction of the bridge and approach roads (1.6 Km).",
+          "The new bridge and approach roads will be designed to be climate-resilient, capable of withstanding a design flood event of 1 in 200 years.",
+          "Measures will include elevated road levels and increasing the number of water crossing points.",
+          "The main bridge structure will span 60 meters.",
+          "The bridge will be complemented by multi-barrel box culverts on either side."
+        ]
+      },
+      {
+        "Project Name": "Design Update and Transaction Advisory for Kampala – Malaba Standard Gauge Railway (SGR) Line (Mainline - 232 Km and Loop lines and Sidings - 40 Km)",
+        "Client": "Ministry of Works and Transport, Uganda",
+        "Funder": "Government of Uganda",
+        "Start Date": "Mar 2024",
+        "End Date": "Dec 2024",
+        "Value": { "Amount": 840172.58, "Currency": "EUR" },
+        "Role": "JV Partner",
+        "Associated Consultant": "SSF Ingenieure AG",
+        "Description": [
+          "Update of the existing preliminary design of the Kampala – Malaba Standard Gauge Railway (SGR) Line.",
+          "Revision of the cost estimate and comprehensive update of the traffic and market study.",
+          "Substantial update of the financial and economic analysis.",
+          "Preparation of an investment report.",
+          "Revision of the legal, regulatory, and institutional framework.",
+          "Provision of transaction advisory services, assisting the client in negotiations with the contractor for successful project delivery."
+        ]
+      },
+      {
+        "Project Name": "Feasibility Study and Detailed Engineering Design for the Upgrading of Link 1: Rwimi – Dura – Kamwenge (58.6 Km), and Link 2: Nyakabirizi – Nyakashaka – Nsiika (48.3 Km)",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Oct 2023",
+        "End Date": "To date",
+        "Value": { "Amount": 2633232259, "Currency": "UGX" },
+        "Role": "JV Partner",
+        "Associated Consultant": "Norken International Ltd",
+        "Description": [
+          "Feasibility study, preliminary, and detailed engineering design for the upgrading of the project roads.",
+          "Includes Environmental and Social Impact Assessment (ESIA), Resettlement Action Plan (RAP), cost estimation, and economic appraisal.",
+          "The roads traverse rolling to hilly terrain and are characterized by sharp horizontal and vertical curves.",
+          "Crosses environmentally sensitive areas such as swamps and game reserves."
+        ]
+      },
+      {
+        "Project Name": "Feasibility Study and Detailed Engineering Design of Six Selected National Roads - Lot 1: Kabwohe – Bugongi – Kitagata – Kabira – Rukungiri/ Ruhinda – Kashenshero – Mitooma Road (99.2 Km)",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Mar 2023",
+        "End Date": "To date",
+        "Value": { "Amount": 2079434000, "Currency": "UGX" },
+        "Role": "JV Partner",
+        "Associated Consultant": "KKATT Consult Ltd",
+        "Description": [
+          "Feasibility study, preliminary, and detailed engineering design for the upgrading of the project road.",
+          "Includes Environmental and Social Impact Assessment (ESIA), Resettlement Action Plan (RAP), cost estimation, and economic appraisal.",
+          "The project road traverses rolling to hilly terrain and is characterized by sharp horizontal and vertical curves.",
+          "The road crosses a number of swamps."
+        ]
+      },
+      {
+        "Project Name": "Pre-Feasibility Study of the Standard Gauge Railway (SGR) Northern Route Tororo – Gulu – Pakwach (504 Km)",
+        "Client": "International Contractors Association of Korea & Ministry of Works and Transport, Uganda",
+        "Funder": "Ministry of Land, Infrastructure and Transport, Korea",
+        "Start Date": "Dec 2023",
+        "End Date": "Nov 2024",
+        "Value": { "Amount": 80000, "Currency": "USD" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "Dong Myeong Engineering Consultants and Architecture Company Limited (DMEC)",
+        "Description": [
+          "Conducted traffic and market studies.",
+          "Performed Environmental and Social Impact Assessment (ESIA).",
+          "Collected critical data for the pre-feasibility study.",
+          "Prepared and presented the pre-feasibility study report."
+        ]
+      },
+      {
+        "Project Name": "Rehabilitation of the Kampala – Malaba Meter Gauge Railway (MGR) Line (234 Km), Including Jinja Pier Line (3.2 Km), Jinja Pier Yard (0.5 Km), Crossing Lines (8 Km), and Naigombwa Swamp Drainage Improvement (Box Culverts)",
+        "Client": "Uganda Railways Corporation",
+        "Funder": "Government of Uganda",
+        "Start Date": "Sep 2022",
+        "End Date": "Aug 2023",
+        "Value": { "Amount": 1319240000, "Currency": "UGX" },
+        "Role": "Lead JV Partner",
+        "Associated Consultant": "UB Consulting Engineers Ltd",
+        "Description": [
+          "Renewal of the meter gauge track, including re-laying of rails, replacing damaged ties, and adding and compacting ballast.",
+          "Inspection and rehabilitation of critical bridges and culverts.",
+          "Strengthening of embankments in selected sections to enhance structural integrity and safety."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for Detailed Engineering Design of GKMA Lot 1 Roads: Rashid Khamis Road (0.8 Km), Kira Road (5 Km), Old Kampala Ring Road (1.2 Km) And Ben Kiwanuka Street (1.2 Km)",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Mar 2023",
+        "End Date": "Mar 2024",
+        "Value": { "Amount": 478484100, "Currency": "UGX" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "Preliminary and detailed engineering design for the upgrading of several road links (8.2 Km) within Kampala Central Business District.",
+          "Environmental and social impact assessment.",
+          "Preparation of the Resettlement Action Plan (RAP).",
+          "Cost estimate for the project."
+        ]
+      },
+      {
+        "Project Name": "Preliminary and Detailed Engineering Design of Selected Road Links (14.8Km) in Makindye Ssabagabo Municipality",
+        "Client": "Makindye Ssabagabo Municipal Council",
+        "Funder": "Government of Uganda",
+        "Start Date": "Jan 2023",
+        "End Date": "Dec 2023",
+        "Value": { "Amount": 262828.88, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "Preliminary and detailed engineering design for the upgrading of several road links (14.8 Km) within Makindye Ssabagabo Municipality.",
+          "Environmental and social impact assessment.",
+          "Preparation of the Resettlement Action Plan (RAP).",
+          "Cost estimate for the project."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for Detailed Engineering Design of Mpererwe – Kiteezi – Kiti Road (9.7 Km)",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Jun 2022",
+        "End Date": "Dec 2022",
+        "Value": { "Amount": 223837.81, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "Design review and update of an earlier design of Mpererwe – Kiteezi Road in Kawempe Division.",
+          "Detailed engineering design of Kiteezi – Kiti road section.",
+          "Environmental and social impact assessment.",
+          "Preparation of the Resettlement Action Plan (RAP).",
+          "Cost estimate for the works."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Civil Works for Infrastructure Sub-projects in Cluster 4 under the World Bank Funded USMID-AF Project - Jinja City Council: Clive & Clerk Roads (1.891 Km); Bell Avenue East & West (1.466 Km); Busoga Avenue (0.75 Km); and Drainage Improvement of Kamagara and Nafiri Channels (0.56 Km)",
+        "Client": "Jinja City Council",
+        "Funder": "The World Bank",
+        "Start Date": "Jun 2022",
+        "End Date": "Jun 2024",
+        "Value": { "Amount": 709762483, "Currency": "UGX" },
+        "Role": "Lead JV Partner",
+        "Associated Consultant": "UB Consulting Engineers Ltd",
+        "Description": [
+          "Reviewing the Design Consultant’s designs and updating the bills of quantities.",
+          "Supervising all civil works and providing technical and contractual advice.",
+          "The paving material for all the roads was Asphalt Concrete.",
+          "The roadside drains were reinforced concrete longitudinal pipe culverts.",
+          "Independent drainage channels (Kamagara and Nafiri) included designs like stone masonry wall open channel with reinforced concrete base, and reinforced concrete lined trapezoidal open channel.",
+          "Installation of 1 No. box culvert along Nafiri Channel."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Civil Works for Infrastructure Sub-projects in Cluster 4 under the World Bank Funded USMID-AF Project – Lugazi Municipal Council: Ntenga Road (1.452 Km); Station Road (0.937 Km); Hassan Zirabamuzale Road (0.18 Km); Sempala Road (0.753 Km); Church Road (0.37 Km); Gitta Road (0.313 Km); Adventist Road (0.72 Km); Cathedral 1 Road (1.131 Km); Cathedral 2 Road (0.216 Km); UMEA Road (0.16 Km); Kinyoro 2 Road (0.386 Km); Nalule Miyodi Road (0.104 Km); Namengo – Kibubu Road (1.07 Km); Drainage Improvement of Nakazate Channel (1.596 Km); and Installation of 250 No. Street Lights along Kampala – Jinja Highway (for the section with Lugazi Municipality)",
+        "Client": "Lugazi Municipal Council",
+        "Funder": "The World Bank",
+        "Start Date": "June 2022",
+        "End Date": "June 2024",
+        "Value": { "Amount": 720585693, "Currency": "UGX" },
+        "Role": "Lead JV Partner",
+        "Associated Consultant": "UB Consulting Engineer Ltd",
+        "Description": [
+          "The project involved reviewing the design consultant’s designs, updating the bills of quantities, supervising all civil works, and providing technical and contractual advice to the client. The paving material for all the roads was Asphalt Concrete. The roadside drains were reinforced concrete longitudinal pipe culverts, while the independent drainage channel (Nakazate) had multiple design options including: (a) trapezoidal earth open channel with a rock fill base, (b) stone masonry wall open channel with a reinforced concrete base and upstand, (c) stone masonry wall covered channel, (d) reinforced concrete lined U-shaped covered channel, and (e) reinforced concrete lined trapezoidal open channel. Three box culverts were installed along Nakazate channel. Additionally, 250 street lights were installed along the Kampala-Jinja Highway section within Lugazi Municipality."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Civil Works for Infrastructure Sub-projects in Cluster 4 under the World Bank Funded USMID-AF Project – Kamuli Municipal Council",
+        "Client": "Kamuli Municipal Council",
+        "Funder": "The World Bank",
+        "Start Date": "Jun 2022",
+        "End Date": "Jun 2024",
+        "Value": { "Amount": 317341763, "Currency": "UGX" },
+        "Role": "Lead JV Partner",
+        "Associated Consultant": "UB Consulting Engineers Ltd",
+        "Description": [
+          "Reviewing the Design Consultant’s designs, updating the bills of quantities, supervising all the civil works, and providing technical and contractual advice.",
+          "The paving material for all the roads was Asphalt Concrete.",
+          "The roadside drains comprised reinforced concrete longitudinal pipe culverts and stone pitched open channels."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Infrastructure Sub-projects under the World Bank Funded USMID-AF Project, Batch 2, Lot 2 – Entebbe Municipal Council",
+        "Client": "Entebbe Municipal Council",
+        "Funder": "The World Bank",
+        "Start Date": "Jul 2022",
+        "End Date": "Jul 2024",
+        "Value": { "Amount": 779672000, "Currency": "UGX" },
+        "Role": "JV Partner",
+        "Associated Consultant": "UB Consulting Engineers Ltd",
+        "Description": [
+          "Reviewing the Design Consultant’s designs, updating the bills of quantities, supervising all the civil works, and providing technical and contractual advice.",
+          "The paving material for all the roads was Asphalt Concrete.",
+          "The roadside drains were reinforced concrete longitudinal pipe culverts, and the independent drainage channels had several designs including reinforced concrete U-shaped open channels and trapezoidal stone pitched channels."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Infrastructure Sub-projects under the World Bank Funded USMID-AF Project, Batch 2, Lot 2 – Masaka City Council",
+        "Client": "Masaka City Council",
+        "Funder": "The World Bank",
+        "Start Date": "Jul 2022",
+        "End Date": "Jul 2024",
+        "Value": { "Amount": 185456500, "Currency": "UGX" },
+        "Role": "JV Partner",
+        "Associated Consultant": "UB Consulting Engineers Ltd",
+        "Description": [
+          "Reviewing the Design Consultant’s designs, updating the bills of quantities, supervising all the civil works, and providing technical and contractual advice.",
+          "The paving material for all the roads was Asphalt Concrete.",
+          "The roadside drains were reinforced concrete longitudinal pipe culverts."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Infrastructure Sub-projects under the World Bank Funded USMID-AF Project, Batch 2, Lot 2 – Mubende Municipal Council",
+        "Client": "Mubende Municipal Council",
+        "Funder": "The World Bank",
+        "Start Date": "Jul 2022",
+        "End Date": "Jul 2024",
+        "Value": { "Amount": 299391000, "Currency": "UGX" },
+        "Role": "JV Partner",
+        "Associated Consultant": "UB Consulting Engineers Ltd",
+        "Description": [
+          "Reviewing the Design Consultant’s designs, updating the bills of quantities, supervising all the civil works, and providing technical and contractual advice.",
+          "The paving material for all the roads was Asphalt Concrete.",
+          "The roadside drains included reinforced concrete lined trapezoidal and U-shaped open channels and reinforced concrete longitudinal pipe culverts."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Works for Selected Infrastructure Sub-Projects in Mbarara City under USMID–AF Infrastructure Investment Program-Batch 2",
+        "Client": "Mbarara City Council",
+        "Funder": "The World Bank",
+        "Start Date": "Aug 2022",
+        "End Date": "Jun 2024",
+        "Value": { "Amount": 509980000, "Currency": "UGX" },
+        "Role": "JV Partner",
+        "Associated Consultant": "UB Consulting Engineers Ltd",
+        "Description": [
+          "Reviewing the Design Consultant’s designs, updating the bills of quantities, supervising all the civil works, and providing technical and contractual advice.",
+          "The paving material for all the roads was Asphalt Concrete.",
+          "The roadside drains were reinforced concrete U-shaped covered drains."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of 70.3Km of Gravel Roads in Kikuube District under World Bank funded Albertine Region Sustainable Development Project (ARSDP)",
+        "Client": "Ministry of Lands, Housing and Urban Development",
+        "Funder": "The World Bank",
+        "Start Date": "Mar 2022",
+        "End Date": "Dec 2022",
+        "Value": { "Amount": 875670000, "Currency": "UGX" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "Design review and construction supervision of six gravel roads (70.3 Km) in Kikuube District.",
+          "Side drains were generally earth lined with stone pitching along steep sections only (9 km)."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Mwanga II Road (1.1 Km) in Kampala City",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Mar 2022",
+        "End Date": "Nov 2022",
+        "Value": { "Amount": 506291980, "Currency": "UGX" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "Reviewing the Design Consultant’s designs, updating the bills of quantities, supervising all the civil works, and providing technical and contractual advice to the Client."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for Construction Supervision of the Design and Build Contract for the Upgrading of Kira-Matugga Road (21.3 Km) and Improvement of 5 No. Junctions – Lot 1",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Aug 2021",
+        "End Date": "Ongoing",
+        "Value": { "Amount": 9872040605, "Currency": "UGX" },
+        "Role": "Lead JV Partner",
+        "Associated Consultant": "KKATT Consult Ltd",
+        "Description": [
+          "The project involves design review and supervision of the design and build contract for upgrading Kira – Kasangati – Matugga and Buwate Spur road sections from unpaved to paved standard, capacity improvement of Kyaliwajalla – Kira road section, and capacity improvements of several junctions.",
+          "The proposed paving material for the road is Asphalt Concrete."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for Construction Supervision for the Upgrading of Tirinyi-Pallisa-Kumi/Pallisa-Kamonkoli Road (111.25Km)",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Islamic Development Bank",
+        "Start Date": "Apr 2021",
+        "End Date": "Dec 2022",
+        "Value": { "Amount": 526611, "Currency": "USD" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "M/S Abuljebain Engineering Consulting Office (AECO)",
+        "Description": [
+          "The project involves upgrading the existing gravel road to a Class II bituminous paved road standard."
+        ]
+      },
+      {
+        "Project Name": "Construction supervision of Road Upgrading and Junction Improvement Works in Kampala City under Batch 1A, KIIDP2",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "The World Bank",
+        "Start Date": "Jun 2015",
+        "End Date": "Apr 2018",
+        "Value": { "Amount": 1560000, "Currency": "USD" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "Korea Engineering Consultants Ltd (KECC)",
+        "Description": [
+          "The project involved supervising construction works for road upgrading, road reconstruction, and improvement of junctions across various road sections.",
+          "The paving material for all the roads was Asphalt Concrete."
+        ]
+      },
+      {
+        "Project Name": "Construction Supervision of Design and Build Contracts for the Upgrading of Archer Road, Mengo Hill Road, Nakivubo Channel Road, etc. – Lot 1",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Feb 2017",
+        "End Date": "Mar 2020",
+        "Value": { "Amount": 577661.88, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved reviewing the Design and Build Contractor’s designs, supervising all civil works, and providing technical and contractual advice to the Client.",
+          "The paving material for all the roads was Asphalt Concrete."
+        ]
+      },
+      {
+        "Project Name": "Construction Supervision of Design and Build Contracts for the Upgrading of Magambo Road, Dembe-Kilowoza Road, etc. – Lot 4",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Feb 2017",
+        "End Date": "Mar 2020",
+        "Value": { "Amount": 558501.02, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved reviewing the Design and Build Contractor’s designs, supervising all civil works, and providing technical and contractual advice to the Client.",
+          "The paving material for all the roads was Asphalt Concrete."
+        ]
+      },
+      {
+        "Project Name": "Design Review and Construction Supervision of Rehabilitation of Selected National Roads – Lot 7: Nakalama – Tirinyi - Mbale Road (102Km)",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "May 2015",
+        "End Date": "Nov 2016",
+        "Value": { "Amount": 822790.99, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved design review and supervision of rehabilitation works, including asphalt overlay and reconstruction of failed shoulders, with bus bays and road reserve marker posts installation.",
+          "The paving material was Asphalt Concrete."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for the Design Review and Construction Supervision for the Capacity Improvement of the Kampala Northern Bypass – Phase 2 (17.5 Km)",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "The European Union",
+        "Start Date": "Jun 2014",
+        "End Date": "Nov 2018",
+        "Value": { "Amount": 961904.08, "Currency": "EUR" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "COWI A/S and COWI Uganda",
+        "Description": [
+          "The project involved capacity improvement of the Kampala Northern Bypass, including construction of a second carriageway, sidewalks, grade-separated junctions, and associated works.",
+          "The total length of road section improved was 17.5 Km."
+        ]
+      },
+      {
+        "Project Name": "Construction Supervision of the Staged Reconstruction of Lots D & E: Tororo-Mbale (49 Km) and Mbale-Soroti Roads (103 Km)",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Jun 2013",
+        "End Date": "Dec 2015",
+        "Value": { "Amount": 990300, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved the continuation of supervision for the staged reconstruction of Tororo-Mbale road (49Km) and Mbale-Soroti road (103Km), modifying pavement layers, drainage works, and redesigning the road for vertical alignment improvements in town sections."
+        ]
+      },
+      {
+        "Project Name": "Construction supervision of Jinja – Kamuli road periodic maintenance works",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Jan 2011",
+        "End Date": "Dec 2014",
+        "Value": { "Amount": 1188574, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved supervising the reconstruction of approximately 58km of Jinja-Kamuli road, including reprocessing, cement stabilization, base construction, and asphalt concrete surfacing, along with drainage works."
+        ]
+      },
+      {
+        "Project Name": "Construction supervision of the Design and Build Contract for Rehabilitation / Strengthening of Nakasero road, Lumumba Avenue, Lourdel road, Buganda road, Wandegeya road and Queens lane.",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Dec 2012",
+        "End Date": "Dec 2014",
+        "Value": { "Amount": 512686.14, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved design review and supervision of the reconstruction works of approximately 5.45km of city roads, including modifications to sub-base, base construction, asphalt surfacing, drainage, and street lighting."
+        ]
+      },
+      {
+        "Project Name": "Review and Update of Engineering Designs for Dualling of Roads (9.2 Km), Improvement of Junctions (6 No.) and Improvement of Selected Major Drainage Channels (8 km) in Kampala",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Sep 2013",
+        "End Date": "Dec 2013",
+        "Value": { "Amount": 228398.99, "Currency": "USD" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "MBW Consulting Ltd",
+        "Description": [
+          "The project involved reviewing and updating engineering designs for selected road links, junctions, and major drainage channels within Kampala."
+        ]
+      },
+      {
+        "Project Name": "Construction Supervision of Upgrading Road Gravel Roads to Bitumen Standard: Soweto, Salaama, Kimera, Kalerwe – Tula, Kawempe – Mpererwe, and Bukoto – Kisasi Roads (12.1 Km) and completion of supervision of the drainage improvement works on Lubigi channel.",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "The World Bank",
+        "Start Date": "Apr 2012",
+        "End Date": "Dec 2013",
+        "Value": { "Amount": 984000, "Currency": "USD" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "MBW Consulting Ltd",
+        "Description": [
+          "The project involved supervision of upgrading 6 road links from gravel to bitumen standard and drainage improvement works on Lubigi Channel in Kampala, under the KIIDP project funded by the World Bank."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for Feasibility Study and Detailed Engineering Design of Kampala-Bombo Express Highway project",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Jul 2015",
+        "End Date": "Dec 2024",
+        "Value": { "Amount": 460467.86, "Currency": "USD" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "Aurecon Amei Ltd",
+        "Description": [
+          "The project involves conducting a feasibility study, preliminary and detailed engineering design, environmental and social impact assessment, preparation of the Resettlement Action Plan, and preparation of tender documentation for the Kampala-Bombo express highway (30 km). The road design includes elements for urban road design due to some road sections passing through urban areas."
+        ]
+      },
+      {
+        "Project Name": "Feasibility Study and Detailed Engineering Design for the Capacity Improvement of Kampala – Jinja Road (72Km)",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Sep 2010",
+        "End Date": "Oct 2014",
+        "Value": { "Amount": 635000, "Currency": "USD" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "URS Scott Wilson",
+        "Description": [
+          "This project involved selecting alternative route options, conducting a feasibility study, providing detailed engineering design, and tender assistance for the capacity improvement of the Kampala-Jinja road (72 km). Elements of urban road design were incorporated due to certain road sections passing through urban areas."
+        ]
+      },
+      {
+        "Project Name": "Detailed Engineering Design of Roads in the North Estates at Kampala Industrial and Business Park – Phase 1",
+        "Client": "Uganda Investment Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Feb 2016",
+        "End Date": "May 2016",
+        "Value": { "Amount": 108757.06, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved the detailed engineering design of roads in the North Estates of Kampala Industrial and Business Park, Namanve, for the Design and Build Contractor."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for the Dual Standard Design of Gayaza Road (section between Chainage 0+000 and 1+300)",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Aug 2009",
+        "End Date": "Apr 2010",
+        "Value": { "Amount": 28404.98, "Currency": "USD" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "Norconsult International AS",
+        "Description": [
+          "The project involved developing different design options for the dual carriageway, including considerations for business access, pedestrian facilities, drainage, and traffic flow, followed by preparation of the options report, detailed designs, cost estimates, and relevant specifications."
+        ]
+      },
+      {
+        "Project Name": "Construction supervision of The Kampala Northern Bypass Project – Phase 1 (21 Km).",
+        "Client": "Uganda National Roads Authority",
+        "Funder": "The European Union",
+        "Start Date": "Sep 2009",
+        "End Date": "Dec 2010",
+        "Value": { "Amount": 90241.09, "Currency": "EUR" },
+        "Role": "Sub-Consultant",
+        "Associated Consultant": "Egis BCEOM International",
+        "Description": [
+          "The project involved supervising the construction of 21 km of road, including 17.5 km of single carriageway and 3.5 km of dual carriageway, along with the construction of roadworks, drainage, and bridge works associated with the bypass. Asphalt Concrete was used for the paving material."
+        ]
+      },
+      {
+        "Project Name": "Construction supervision of the Reconstruction of Kafumbe Mukasa and Kisenyi roads in Kampala – Phase 1 and 2",
+        "Client": "Kampala Capital City Authority",
+        "Funder": "Government of Uganda",
+        "Start Date": "Apr 2011",
+        "End Date": "Jun 2012",
+        "Value": { "Amount": 384979.66, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved supervising the reconstruction of 1.38 km of Kafumbe Mukasa and Kisenyi roads, including lime stabilised sub-bases, crushed stone bases, asphalt concrete surfacing, drainage works, street lighting, and ancillary works."
+        ]
+      }
+    ],
+    "Water and Sanitation Engineering": [
+      {
+        "Project Name": "Consultancy Services for the Design and Supervision of Proposed Optimization Works in Water Supply Areas of Zone 1 of Bidi-bidi Refugee Settlement in Yumbe district",
+        "Client": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH represented by German Development Cooperation GIZ",
+        "Funder": "German Development Cooperation GIZ",
+        "Start Date": "Nov 2024",
+        "End Date": "To date",
+        "Value": { "Amount": 265952.43, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Description": [
+          "The project involves the following works:",
+          "Design Phase: This includes Preliminary and Detailed Design studies, Environmental and Social Impact Assessment (ESIA) studies, detailed field investigations including topographical surveys, water quality analyses, among others. Following approval of the proposed designs, preparation of the bid documents in compliance with GIZ procurement guidelines. The main outputs of this phase included the inception report, preliminary design report, and detailed design report and bid documents.",
+          "Construction Supervision Phase: This phase primarily consists of construction supervision services, which can broadly be categorised into cost control, time control, and quality control of the various construction activities. In addition to the hydraulic components set-up, missing or broken solar PV modules were replaced, and in some schemes, entirely new solar PV systems and all associated electromechanical components are to be set up. The main outputs of this phase are monthly construction progress reports, monthly supervision reports, substantial project completion report, monthly monitoring reports as well as a completion report at the end of the defects liability period."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for the Design and Supervision of Rehabilitation Works for 06 No. Predominantly Solar Powered Water Supply Systems in Refugee Hosting Districts of Terego, Madi-Okollo and Yumbe",
+        "Client": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH represented by German Development Cooperation GIZ",
+        "Funder": "German Development Cooperation GIZ",
+        "Start Date": "Oct 2024",
+        "End Date": "To date",
+        "Value": { "Amount": 252789.95, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Description": [
+          "The Project covers the 3 refugee settlements of BidiBidi, Rhino Camp, and Imvepi in Arua, Terego, Madi-Okollo, and Yumbe districts. The project involves the following works:",
+          "Design Phase: This includes Preliminary and Detailed Design studies, Environmental and Social Impact Assessment (ESIA) studies, detailed field investigations including topographical surveys, water quality analyses, among others. Following approval of the proposed designs, preparation of the bid documents in compliance with GIZ procurement guidelines. The main outputs of this phase included the inception report, preliminary design report, and detailed design report and bid documents.",
+          "Construction Supervision Phase: This phase primarily consists of construction supervision services, which can broadly be categorised into cost control, time control, and quality control of the various construction activities. In addition to the hydraulic components set-up, missing or broken solar PV modules were replaced, and in some schemes, entirely new solar PV systems and all associated electromechanical components are to be set up. The main outputs of this phase are monthly construction progress reports, monthly supervision reports, substantial project completion report, monthly monitoring reports as well as a completion report at the end of the defects liability period."
+        ]
+      },
+      {
+        "Project Name": "Consultancy for Construction Supervision of 4 ADA Water Supply Systems in Refugee Hosting Areas in the Districts of Terego and Yumbe",
+        "Client": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH represented by German Development Cooperation GIZ",
+        "Funder": "German Development Cooperation GIZ",
+        "Start Date": "Aug 2023",
+        "End Date": "To date (under DLP)",
+        "Value": { "Amount": 108000.0, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Description": [
+          "The Project covers the 2 refugee settlements of BidiBidi, Rhino Camp, and Imvepi in Terego and Yumbe districts. The project involves the following works:",
+          "Construction Supervision Phase: This phase primarily consists of construction supervision services, which can broadly be categorised into cost control, time control, and quality control of the various construction activities. In addition to the hydraulic components set-up, missing or broken solar PV modules were replaced, and in some schemes, entirely new solar PV systems and all associated electromechanical components were set up. The main outputs of this phase are monthly construction progress reports, monthly supervision reports, substantial project completion report, monthly monitoring reports as well as a completion report at the end of the defects liability period."
+        ]
+      },
+      {
+        "Project Name": "Consultancy for Design and Supervision of Rehabilitation Works for Over 20 Water Supply Systems in Refugee Hosting Areas in the Districts of Arua (Terego/Madi-Okollo) and Yumbe",
+        "Client": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH represented by German Development Cooperation GIZ",
+        "Funder": "German Development Cooperation GIZ",
+        "Start Date": "Jul 2021",
+        "End Date": "Mar 2023",
+        "Value": { "Amount": 567823.0, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Description": [
+          "The Project covers the 3 refugee settlements of BidiBidi, Rhino Camp, and Imvepi in Arua, Terego, Madi-Okollo, and Yumbe districts. The project involves the following works:",
+          "Design Phase: This includes Preliminary and Detailed Design studies, Environmental and Social Impact Assessment (ESIA) studies, detailed field investigations including topographical surveys, water quality analyses, among others. Following approval of the proposed designs, preparation of the bid documents in compliance with GIZ procurement guidelines. The main outputs of this phase included the inception report, preliminary design report, and detailed design report and bid documents. About 19 solar pumped water schemes are part of the existing water supply facilities. Solar system electromechanical components assessment and consequent rehabilitation measure proposals formed part of the design process.",
+          "Construction Supervision Phase: This phase primarily consists of construction supervision services, which can broadly be categorised into cost control, time control, and quality control of the various construction activities. In addition to the hydraulic components set-up, missing or broken solar PV modules were replaced, and in some schemes, entirely new solar PV systems and all associated electromechanical components were set up. The main outputs of this phase are monthly construction progress reports, monthly supervision reports, substantial project completion report, monthly monitoring reports as well as a completion report at the end of the defects liability period."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for Preliminary Assessment and Detailed Design of Soil and Water Conservation/River Training Structures for Wadelai, Doho, and Ngenge Irrigation Schemes Under FIEFOC Program-Project 2",
+        "Client": "Ministry of Water and Environment",
+        "Funder": "African Development Bank",
+        "Start Date": "Nov 2021",
+        "End Date": "Apr 2022",
+        "Value": { "Amount": 47114.0, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Description": [
+          "The project involved the following tasks:",
+          "Carrying out relevant technical investigations and studies comprising but not limited to topographical survey, hydrological assessments including sediment transport analysis and preliminary geotechnical investigations along the selected river reaches to be protected from scouring, erosion or sediment deposition.",
+          "Preparing engineering designs for river training and flood protection structures.",
+          "Preparation of Environmental and Social Management Plan (ESMP) and Project Brief.",
+          "Preparing tender documents for implementation of the works in accordance with the African Development Bank procurement and safeguard policies and guidelines as well as with the latest Multilateral Development Bank (MDB) harmonised version of the FIDIC conditions of contract."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for Feasibility Studies and Detailed Design of Medium and Large Scale Irrigation Schemes Covering Lot 2: South Western Highlands",
+        "Client": "Ministry of Water and Environment",
+        "Funder": "The World Bank",
+        "Start Date": "Jun 2021",
+        "End Date": "To date",
+        "Value": { "Amount": 827229.5, "Currency": "USD" },
+        "Role": "JV Partner",
+        "Associated Consultant": "Tertiary Consulting Engineers (TCE) Ltd Kenya",
+        "Description": [
+          "The Project covered a number of districts in the South Western Highlands with the contract works including the following tasks:",
+          "Hydrological analysis such as rainfall-runoff modelling to estimate reservoir yield, inflow design flood to facilitate the design and sizing of hydraulic structures.",
+          "Determination of flow duration curves.",
+          "Flood routing through the downstream channel and floodplain to enable evaluation of effects in the event of excessive spills.",
+          "Sediment analysis: assessment of the sediment regime and total sediment transport of the river system in the project area.",
+          "Water quality and quantity assessment.",
+          "Irrigation potential assessment.",
+          "Irrigation system engineering design.",
+          "Storage dam design, design of the associated irrigation infrastructure including canals, pipelines, structures, etc.",
+          "Design of monitoring systems, including dam safety monitoring systems."
+        ]
+      },
+      {
+        "Project Name": "Consultancy for Water Supply Systems’ Assets Inventory and Condition Assessment of the Water Supply Systems in the Refugee Settlements in Arua (Terego), Madi-Okollo, and Yumbe District",
+        "Client": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH represented by German Development Cooperation GIZ",
+        "Funder": "German Development Cooperation GIZ",
+        "Start Date": "Oct 2020",
+        "End Date": "Nov 2021",
+        "Value": { "Amount": 212670.0, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Description": [
+          "The Project covered the 2 refugee settlements of BidiBidi, Rhino Camp, and Imvepi in Arua, Terego, Madi-Okollo, and Yumbe districts. The project involved the following works:",
+          "Conducting the assessment of the condition of solar-powered water systems and hybrid systems in the refugee settlements of Arua, Terego, Madi-Okollo, and Yumbe.",
+          "This involved evaluation of electromechanical components, including existing solar panels and solar pumping systems, checking their current operational status, identifying any defects, failures, or damage, and recommending the rehabilitation or replacement measures.",
+          "Preparing an asset inventory, which includes detailed descriptions of each water system, including the type of system, location, components (solar panel capacity, pump size, etc.), and its current operational status."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services to Conduct Technical Feasibility Studies for the Enhancement of Biogas Production at National Water and Sewerage Corporation Nakivubo Wastewater Treatment Plant",
+        "Client": "National Water and Sewerage Cooperation (NWSC)",
+        "Funder": "Government of Uganda",
+        "Start Date": "Apr 2020",
+        "End Date": "Mar 2022",
+        "Value": { "Amount": 98991.0, "Currency": "USD" },
+        "Role": "JV Partner",
+        "Associated Consultant": "Savimaxx Ltd",
+        "Description": [
+          "The project covered the Kampala center project area with the contract works including the following tasks:",
+          "Assess the characteristics, availability, amount, management, and logistical arrangements/requirements for acquisition of potential feedstock, including abattoir waste, wastewater (faecal and sewage sludge), agro-processing waste, and farm waste such as cow-dung and pig-dung.",
+          "Assess the technical feasibility of the existing biogas digester, including design and suggesting appropriate technological options to enhance biogas production as well as operation and maintenance requirements for the plant.",
+          "Carry out an environmental and social impact assessment (ESIA) study for technological options that can enhance biogas production at the plant, including assessment of the auxiliary equipment to be considered for co-digestion of feedstock at the biogas plant as well as the evacuation of the electricity generated to the national grid. The impact assessment will identify potential impacts associated with all stages of the proposed technological options (construction/installation, operation, and decommissioning of required equipment), suggest mitigation measures, and develop an environment and social management plan (ESMP).",
+          "Assess the financial and economic feasibility of construction/installation, operation, and maintenance of technological options considered for the biogas demonstration plant, taking into consideration the capital expenditure (CAPEX), operational expenditure (OPEX), revenues for the proposed plant, and assess potential sources of co-financing for the plant.",
+          "Carry out an in-depth analysis of the legal ramifications associated with the enhancement of the demonstration biogas plant at the selected site, taking into consideration pertinent laws and regulations affecting the plant, transportation and storage of other feedstock, and any related issues thereof.",
+          "Carry out grid impact studies so that electricity evacuation provisions and requirements can be fully assessed."
+        ]
+      },
+      {
+        "Project Name": "Detailed Design and Construction Supervision for the Development of Water and Sanitation Infrastructure for the Mbarara & Masaka Areas – Package 2: Mbarara",
+        "Client": "National Water and Sewerage Cooperation (NWSC)",
+        "Funder": "French Development Agency (AFD)",
+        "Start Date": "Jun 2019",
+        "End Date": "To date",
+        "Value": { "Amount": 664105.0, "Currency": "USD" },
+        "Role": "Sub-consultant",
+        "Associated Consultant": "Nicholas O’ Dwyer",
+        "Description": [
+          "The Project covers Mbarara Town and surrounding municipal areas and involves the following works:",
+          "Rehabilitation and upgrading of the expansion of the Ruharo Water Treatment Plants (WTP) from 8,000m3/day to 21,000m3/day.",
+          "Rehabilitation and expansion of the transmission mains and distribution system including upgrades of 13.43Km of transmission mains (DN150 - DN300) and 27.215Km of distribution networks (DN150 - DN300mm pipelines); and proposed reservoir tank upgrades to 100m3 (Kaliro), 300m3 (Ruti) and 550m3 (Nsikye).",
+          "Rehabilitation and expansion of the sewerage network and existing wastewater treatment facilities. This included proposed upgrades of approximately 8.27Km of undersized sewer networks (to OD225mm pipeline), construction of over 215 manholes, and design upgrades to the Victor-Bwana sewerage pumping station. It also involves design improvements to the 3Nr. Waste Stabilisation Ponds (each consisting of 1 facultative & 2 maturation ponds) at Kizungu, Katete & Kakoba; as well as design of a faecal sludge treatment plant (50m3/day).",
+          "Water and sanitation facilities in informal settlements, including proposed increase in public stand posts and introduction of pre-paid advanced water metering systems.",
+          "Environmental and social impact assessment and resettlement action plan for the entire project."
+        ]
+      },
+      {
+        "Project Name": "Engineering Supervision of Construction Works for Rwebisengo-Kanara Phase I Gravity Flow Scheme",
+        "Client": "Ministry of Water and Environment",
+        "Funder": "African Development Bank",
+        "Start Date": "Aug 2017",
+        "End Date": "Jun 2020",
+        "Value": { "Amount": 573195.0, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Description": [
+          "The project covered Rwebisengo-Kanara project area in Ntoroko district and Lukalu-Kabadanda in Butambala district. The contract works included the Engineering design review and supervision of construction works, which comprised of the following:",
+          "For Ntoroko District:",
+          "River Abstraction Intake Works and Raw Water Transmission Main (1.8km of DN250 - DN300mm Ductile Iron).",
+          "Water Treatment Plant (334m3/hr or 8,016m3/day) capacity with Pre-Sedimentation Tanks, Coagulation and Flocculation Units, Sedimentation tanks, Gravity Sand Filters, Wastewater Recovery Units, Chemical House, Pump house, and other auxiliary buildings.",
+          "Installation of 3Nr. Elevated Steel Reservoir Tanks (270m3,72m3,72m3) & 2Nr. Break Pressure Tanks.",
+          "57Km Transmission (OD250 – OD350mm pipelines) and 66km Distribution Pipelines (OD32 – OD160mm pipelines) of uPVC/HDPE.",
+          "Installation of SCADA System for the Water Treatment Plant.",
+          "Installation of 508 Nr. Water connections.",
+          "Construction of 2Nr. Waterborne Public Toilets in Karugutu and Kanara Town Council.",
+          "For Lukalu-Kabasanda in Butambala district:",
+          "Spring development and protection works (4m3/hr); and 5.4Km of distribution pipework.",
+          "2Nr. Borehole pumping station installations (13.38m3/hr at Lukalu borehole & 5.35m3/hr at Kasana borehole) with solar photovoltaic installations at the Kasana borehole site.",
+          "Installation of 100m3 Steel Reservoir Tank: including chlorination facilities and booster station.",
+          "5.5km Transmission Mains (OD110 - OD90mm pipelines); and 28km of distribution main (OD160 - OD32mm pipelines) of uPVC/HDPE.",
+          "Water Office at Kalamba Subcounty Headquarters.",
+          "3Nr. Water Kiosks in Mirembe, Kabasanda, and Seeta areas.",
+          "3Nr. 6-stance waterborne toilets in Mirembe, Kabasanda, and Kalamba areas."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services to Conduct Technical Feasibility Studies for the Enhancement of Biogas Production at National Water and Sewerage Corporation Nakivubo Wastewater Treatment Plant",
+        "Client": "National Water and Sewerage Cooperation (NWSC)",
+        "Funder": "Government of Uganda",
+        "Start Date": "Apr 2020",
+        "End Date": "Mar 2022",
+        "Value": { "Amount": 98991.0, "Currency": "USD" },
+        "Role": "JV Partner",
+        "Associated Consultant": "Savimaxx Ltd",
+        "Description": [
+          "The project covered the Kampala center project area with the contract works including the following tasks:",
+          "Assess the characteristics, availability, amount, management, and logistical arrangements/requirements for acquisition of potential feedstock, including abattoir waste, wastewater (faecal and sewage sludge), agro-processing waste, and farm waste such as cow-dung and pig-dung.",
+          "Assess the technical feasibility of the existing biogas digester, including design and suggesting appropriate technological options to enhance biogas production as well as operation and maintenance requirements for the plant.",
+          "Carry out an environmental and social impact assessment (ESIA) study for technological options that can enhance biogas production at the plant, including assessment of the auxiliary equipment to be considered for co-digestion of feedstock at the biogas plant as well as the evacuation of the electricity generated to the national grid. The impact assessment will identify potential impacts associated with all stages of the proposed technological options (construction/installation, operation, and decommissioning of required equipment), suggest mitigation measures, and develop an environment and social management plan (ESMP).",
+          "Assess the financial and economic feasibility of construction/installation, operation, and maintenance of technological options considered for the biogas demonstration plant, taking into consideration the capital expenditure (CAPEX), operational expenditure (OPEX), revenues for the proposed plant, and assess potential sources of co-financing for the plant.",
+          "Carry out an in-depth analysis of the legal ramifications associated with the enhancement of the demonstration biogas plant at the selected site, taking into consideration pertinent laws and regulations affecting the plant, transportation and storage of other feedstock, and any related issues thereof.",
+          "Carry out grid impact studies so that electricity evacuation provisions and requirements can be fully assessed."
+        ]
+      },
+      {
+        "Project Name": "Detailed Design and Construction Supervision for the Development of Water and Sanitation Infrastructure for the Mbarara & Masaka Areas – Package 2: Mbarara",
+        "Client": "National Water and Sewerage Cooperation (NWSC)",
+        "Funder": "French Development Agency (AFD)",
+        "Start Date": "Jun 2019",
+        "End Date": "To date",
+        "Value": { "Amount": 664105.0, "Currency": "USD" },
+        "Role": "Sub-consultant",
+        "Associated Consultant": "Nicholas O’ Dwyer",
+        "Description": [
+          "The Project covers Mbarara Town and surrounding municipal areas and involves the following works:",
+          "Rehabilitation and upgrading of the expansion of the Ruharo Water Treatment Plants (WTP) from 8,000m3/day to 21,000m3/day.",
+          "Rehabilitation and expansion of the transmission mains and distribution system including upgrades of 13.43Km of transmission mains (DN150 - DN300) and 27.215Km of distribution networks (DN150 - DN300mm pipelines); and proposed reservoir tank upgrades to 100m3 (Kaliro), 300m3 (Ruti) and 550m3 (Nsikye).",
+          "Rehabilitation and expansion of the sewerage network and existing wastewater treatment facilities. This included proposed upgrades of approximately 8.27Km of undersized sewer networks (to OD225mm pipeline), construction of over 215 manholes, and design upgrades to the Victor-Bwana sewerage pumping station. It also involves design improvements to the 3Nr. Waste Stabilisation Ponds (each consisting of 1 facultative & 2 maturation ponds) at Kizungu, Katete & Kakoba; as well as design of a faecal sludge treatment plant (50m3/day).",
+          "Water and sanitation facilities in informal settlements, including proposed increase in public stand posts and introduction of pre-paid advanced water metering systems.",
+          "Environmental and social impact assessment and resettlement action plan for the entire project."
+        ]
+      },
+      {
+        "Project Name": "Engineering Supervision of Construction Works for Rwebisengo-Kanara Phase I Gravity Flow Scheme",
+        "Client": "Ministry of Water and Environment",
+        "Funder": "African Development Bank",
+        "Start Date": "Aug 2017",
+        "End Date": "Jun 2020",
+        "Value": { "Amount": 573195.0, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Description": [
+          "The project covered Rwebisengo-Kanara project area in Ntoroko district and Lukalu-Kabadanda in Butambala district. The contract works included the Engineering design review and supervision of construction works, which comprised of the following:",
+          "For Ntoroko District:",
+          "River Abstraction Intake Works and Raw Water Transmission Main (1.8km of DN250 - DN300mm Ductile Iron).",
+          "Water Treatment Plant (334m3/hr or 8,016m3/day) capacity with Pre-Sedimentation Tanks, Coagulation and Flocculation Units, Sedimentation tanks, Gravity Sand Filters, Wastewater Recovery Units, Chemical House, Pump house, and other auxiliary buildings.",
+          "Installation of 3Nr. Elevated Steel Reservoir Tanks (270m3,72m3,72m3) & 2Nr. Break Pressure Tanks.",
+          "57Km Transmission (OD250 – OD350mm pipelines) and 66km Distribution Pipelines (OD32 – OD160mm pipelines) of uPVC/HDPE.",
+          "Installation of SCADA System for the Water Treatment Plant.",
+          "Installation of 508 Nr. Water connections.",
+          "Construction of 2Nr. Waterborne Public Toilets in Karugutu and Kanara Town Council.",
+          "For Lukalu-Kabasanda in Butambala district:",
+          "Spring development and protection works (4m3/hr); and 5.4Km of distribution pipework.",
+          "2Nr. Borehole pumping station installations (13.38m3/hr at Lukalu borehole & 5.35m3/hr at Kasana borehole) with solar photovoltaic installations at the Kasana borehole site.",
+          "Installation of 100m3 Steel Reservoir Tank: including chlorination facilities and booster station.",
+          "5.5km Transmission Mains (OD110 - OD90mm pipelines); and 28km of distribution main (OD160 - OD32mm pipelines) of uPVC/HDPE.",
+          "Water Office at Kalamba Subcounty Headquarters.",
+          "3Nr. Water Kiosks in Mirembe, Kabasanda, and Seeta areas.",
+          "3Nr. 6-stance waterborne toilets in Mirembe, Kabasanda, and Kalamba areas."
+        ]
+      }
+    ],
+    "Structural Engineering": [
+      {
+        "Project Name": "Consultancy Services for Supervision of Neonatal Intensive Care Unit (NICU) at Mbarara Regional Referral Hospital",
+        "Client": "Ministry of Health",
+        "Funder": "The World Bank",
+        "Start Date": "May 2024",
+        "End Date": "To date",
+        "Value": { "Amount": 100619.55, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involves design review and construction supervision of the 5-floor Neonatal Intensive Care Unit (NICU) facility.",
+          "The unit is designed to provide comprehensive care for new-born, particularly focusing on those who are born prematurely, have breathing difficulties, or face other critical health challenges at birth."
+        ]
+      },
+      {
+        "Project Name": "Consultancy Services for Supervision of Ambulance Call and Dispatch Centre (CDC) at Mbarara Regional Referral Hospital",
+        "Client": "Ministry of Health",
+        "Funder": "The World Bank",
+        "Start Date": "May 2024",
+        "End Date": "To date",
+        "Value": { "Amount": 85619.55, "Currency": "USD" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involves design review and construction supervision of the 4-floor Ambulance Call and Dispatch Centre responsible for managing emergency medical calls and coordinating the deployment of ambulances to respond to those calls.",
+          "The facility is to have maintenance and disinfection areas, emergency staff donning and doffing areas, emergency staff offices and rest areas, simulation room, emergency call centre and radio control rooms, emergency decision/situation rooms, staff offices and training facilities among others."
+        ]
+      },
+      {
+        "Project Name": "Design review and Construction Supervision of Walukuba Market in Buliisa District under World Bank funded Albertine Region Sustainable Development Project (ARSDP)",
+        "Client": "Ministry of Lands, Housing and Urban Development",
+        "Funder": "The World Bank",
+        "Start Date": "Mar 2022",
+        "End Date": "Dec 2022",
+        "Value": { "Amount": 583780000, "Currency": "UGX" },
+        "Role": "Sole Consultant",
+        "Associated Consultant": "None",
+        "Description": [
+          "The project involved design review and construction supervision of Walukuba Market in Buliisa District.",
+          "The scope of work comprised construction of the main market shed (concrete foundation/floor and steel superstructure), kitchens, waste collection areas, VIP latrines, water borne toilets, fish cleaning area, single-sided lock-ups, the cold room, electrical installations, mechanical installations, and external works (landscaping)."
+        ]
+      }
+    ]
+  }
+}

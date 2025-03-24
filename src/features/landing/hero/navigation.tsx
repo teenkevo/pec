@@ -113,7 +113,7 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
                   >
                     <Link href={item.href} className="py-2">
                       <motion.span
-                        className={`${activeMenu === item.key ? "border-b-2 border-blue-600 font-medium" : ""}`}
+                        className={`${activeMenu === item.key ? "border-b-2 border-[#EB3301] font-medium" : ""}`}
                         animate={{
                           color: isNavbarWhite ? "#374151" : "#ffffff",
                         }}
@@ -158,7 +158,7 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
                 className={
                   isNavbarWhite
                     ? "bg-blue-600 text-white hover:bg-blue-700"
-                    : "text-white border-white hover:bg-white/10"
+                    : "text-white border-white hover:bg-white"
                 }
               >
                 Get in touch
@@ -185,7 +185,7 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
         </div>
       </motion.header>
       <hr
-        className={`border-t ${isNavbarWhite ? "border-gray-600" : "border-white"} md:mx-14`}
+        className={`border-t ${isNavbarWhite ? "border-gray-600" : "border-white"} mx-4 md:mx-14`}
       />
 
       {/* Mega Menu with Framer Motion */}

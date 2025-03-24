@@ -1,0 +1,156 @@
+"use client";
+
+import { ContentSection } from "@/features/landing/content-section";
+import { BackgroundImage } from "@/features/landing/hero/background-image";
+import { Navigation } from "@/features/landing/hero/navigation";
+import { megaMenuData } from "@/features/landing/mega-menu/menu-data";
+import { SecondaryNav } from "@/features/landing/secondary-nav";
+import { IndustryBanner } from "../industry-banner";
+import { ProjectsSection } from "@/features/landing/projects-section";
+import { CareersSection } from "@/features/landing/careers-section";
+import { Footer } from "@/features/landing/footer";
+import { HeroContent } from "../hero-content";
+import { IndustryLead } from "../industry-lead";
+import { IndustryView } from "../industry-view";
+import { IndustryTopProjectBanner } from "../industry-top-project-banner";
+import { ProjectsSection2 } from "@/features/landing/projects-section-2";
+import { NewsSection } from "@/features/landing/news-section";
+import { TechnicalPapers } from "../industry-technical-papers";
+import { IndustryContactSection } from "../industry-contact";
+
+export default function Structures() {
+  const navigationItems = [
+    { label: "Industries", href: "/industries", key: "industries" },
+    { label: "Services", href: "/services", key: "services" },
+    { label: "Careers", href: "/careers", key: "careers" },
+    { label: "Investors", href: "/investors", key: "investors" },
+    { label: "News", href: "/news", key: "news" },
+    { label: "About us", href: "/about-us", key: "about-us" },
+  ];
+
+  const secondaryNavigationItems = [
+    { label: "Our view", href: "#our-view" },
+    { label: "Projects", href: "#projects" },
+    { label: "Publications", href: "#publications" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  // Content for the "What we do" section
+  const ourView =
+    "In regions like Uganda, where rapid development meets diverse environmental conditions, structural integrity is key to long-lasting infrastructure. Our structural engineering team combines technical expertise with practical insights to deliver safe, efficient, and resilient designs. We assess materials, account for environmental challenges, and apply innovative solutions to ensure each structure stands strong for years to come.";
+
+  // Define the case studies data
+  const projects = [
+    {
+      id: "river-basin",
+      title: "Kızılırmak river basin hydrogeological investigation",
+      image:
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
+      location: "Kampala, Uganda",
+      featured: true,
+      industry: "Hydrology",
+    },
+    {
+      id: "pipeline-surveys",
+      title: "Beyond tradition: redefining pipeline surveys with remote...",
+      image:
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1742072211/IMG_7455_2_i3bpiw.webp",
+      location: "Kampala, Uganda",
+      featured: false,
+      industry: "Surveying",
+    },
+    {
+      id: "seismic-refraction",
+      title: "Seismic Refraction: 85% Faster Island Data",
+      image:
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
+      location: "Fortportal, Uganda",
+      featured: false,
+      industry: "Geophysics",
+    },
+  ];
+
+  return (
+    <>
+      <div className="relative h-[60vh] md:h-[90vh] w-full">
+        {/* Background Image with Gradient Overlays */}
+        <BackgroundImage
+          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1742339703/DJI_0013-UG_1_wrmkeg.webp"
+          alt="Ocean view with offshore structures"
+        />
+
+        {/* Navigation and Content */}
+
+        <Navigation
+          navigationItems={navigationItems}
+          megaMenuData={megaMenuData}
+        />
+        <HeroContent
+          title="Designing strong, safe and resilient structures"
+          industry="Structures"
+        />
+      </div>
+      <SecondaryNav
+        initialActiveItem="#our-view"
+        navItems={secondaryNavigationItems}
+      />
+      {/* What We Do Section */}
+      <div id="our-view">
+        <IndustryView
+          id="our-view"
+          heading="Our view on structures"
+          content={ourView}
+          linkText="Read about our purpose"
+          linkUrl="/about-us/what-we-do"
+          industryLeadTitle="Industry lead - Structures"
+          industryLeadImageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_56/v1742405809/elizeu-dias-2EGNqazbAMk-unsplash_ofwryg.webp"
+          industryLeadName="Dr. Sam Bulolo"
+        />
+      </div>
+      <div id="water" className="px-4 md:px-14">
+        <IndustryTopProjectBanner
+          industry="Structures"
+          description="Engineering supervision of construction works for Bugologi sewerage treatment plant"
+          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_57/v1742414942/ivan-bandura-Ac97OqAWDvg-unsplash_nfb7zo.webp"
+          iconText="View project"
+        />
+      </div>
+      <div id="projects">
+        <ProjectsSection
+          projects={projects}
+          title="Water projects"
+          linkText="All water projects"
+        />
+      </div>
+      {/* Divider */}
+      <div className="border-t border-gray-200 mt-10"></div>
+
+      <div id="publications">
+        <TechnicalPapers />
+      </div>
+      {/* News Section */}
+      <div id="news-highlights">
+        <NewsSection />
+      </div>
+      {/* Divider */}
+      <div className="border-t border-gray-200 mt-10"></div>
+      <div id="contact">
+        <IndustryContactSection
+          industry="Water"
+          contactPerson={{
+            title: "Industry lead - Water",
+            imageUrl:
+              "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_56/v1742405809/elizeu-dias-2EGNqazbAMk-unsplash_ofwryg.webp",
+            name: "Eng. Thomas Isanga",
+          }}
+        />
+      </div>
+      {/* Divider */}
+      <div className="border-t border-gray-200 my-10"></div>
+      <div id="careers">
+        <CareersSection />
+      </div>
+      <Footer />
+    </>
+  );
+}

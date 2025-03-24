@@ -3,17 +3,17 @@ import { Header } from "@/features/landing/header";
 import Landing from "@/features/landing/landing";
 
 export const metadata: Metadata = {
-  title: "GIMS by GETLAB: Unlock the power of your geotechnical data.",
+  title: "Professional Engineering Consultants (PEC) Limited",
   description:
-    "Improve Lab Automation, Increase Data Quality, Accelerate R&D and Stay Cutting Edge.",
+    "PEC transforms industries with innovative civil engineering and geotechnical solutions.",
   metadataBase: new URL("https://next-learn-dashboard.vercel.sh"),
   openGraph: {
-    title: "GIMS by GETLAB: Unlock the power of your geotechnical data.",
+    title: "Professional Engineering Consultants Limited",
     description:
-      "Unlock the power of your Geotechnical Data. Improve Lab Automation, Increase Data Quality, Accelerate R&D and Stay Cutting Edge.",
+      "PEC transforms industries with innovative civil engineering and geotechnical solutions.",
     images: [
       {
-        url: "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1719500024/GIMS-og-image_anv5il.png",
+        url: "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742780530/og-pec_1_nuscap.png",
       },
     ],
   },

@@ -7,11 +7,13 @@ import { usePathname } from "next/navigation";
 interface SecondaryNavProps {
   className?: string;
   initialActiveItem?: string;
+  navItems: { label: string; href: string }[];
 }
 
 export function SecondaryNav({
   className = "",
   initialActiveItem = "#what-we-do",
+  navItems,
 }: SecondaryNavProps) {
   const [isSticky, setIsSticky] = useState(false);
   const [activeItem, setActiveItem] = useState(initialActiveItem);
@@ -21,16 +23,6 @@ export function SecondaryNav({
 
   // Separate "Jump to" from the navigation items
   const jumpToLabel = { label: "Jump to", hasDropdown: true };
-
-  const navItems = [
-    { label: "What we do", href: "#what-we-do" },
-    { label: "Our industries", href: "#our-industries" },
-    { label: "Projects", href: "#projects" },
-    { label: "Organisation", href: "#organisation" },
-    { label: "Careers", href: "#careers" },
-    { label: "News highlights", href: "#news-highlights" },
-    { label: "History", href: "#history" },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,6 +92,9 @@ export function SecondaryNav({
     e.preventDefault();
     setActiveItem(href);
 
+    // Update the browser's address bar
+    window.history.pushState(null, "", href);
+
     // Set scrolling flag to prevent intersection observer from changing active item during programmatic scroll
     scrollingRef.current = true;
 
@@ -145,8 +140,8 @@ export function SecondaryNav({
             <div key={index} className="relative">
               <Link
                 href={item.href}
-                className={`whitespace-nowrap py-4 px-4 text-gray-700 hover:text-[#EB3300] transition-colors block ${
-                  activeItem === item.href ? "text-[#EB3300]" : ""
+                className={`whitespace-nowrap py-4 px-4  hover:text-[#EB3301] transition-colors font-medium block ${
+                  activeItem === item.href ? "text-[#EB3300]" : "text-gray-700"
                 }`}
                 onClick={(e) => handleNavClick(item.href, e)}
               >

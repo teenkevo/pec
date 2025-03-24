@@ -37,3 +37,14 @@ export function toTitleCase(text: string) {
     .toLowerCase()
     .replace(/(?<!\S)\S/gu, (match) => match.toUpperCase());
 }
+
+export function createSlug(sentence: string): string {
+  return sentence
+    .toLowerCase() // Convert to lowercase
+    .replace(/[^a-z0-9\s]/g, "") // Remove non-alphanumeric characters
+    .trim() // Trim whitespace
+    .replace(/\s+/g, "-"); // Replace spaces with hyphens
+}
+
+// Example usage
+console.log(createSlug("Create URL Slug from Sentence in LOWERCASE!"));

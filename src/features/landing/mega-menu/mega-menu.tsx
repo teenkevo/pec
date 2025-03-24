@@ -15,6 +15,8 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
 
   const menuData = data[activeMenu];
 
+  console.log(activeMenu);
+
   return (
     <div className="absolute left-0 right-0 bg-white shadow-lg z-90 transition-all duration-300 ease-in-out transform origin-top pt-20">
       <div className="mx-auto px-4 py-10 md:px-14 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -29,7 +31,7 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
 
           {/* Main link to section */}
           <Link
-            href={`#${activeMenu}`}
+            href={`/${activeMenu}`}
             className="inline-flex items-center text-gray-900 border border-gray-300 px-4 py-2 rounded hover:bg-gray-50"
           >
             <span>{menuData.title}</span>
@@ -48,7 +50,7 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 <Link
-                  href={item.href}
+                  href={`/industries/${item.href}`}
                   className="text-gray-700 text-xl font-semibold hover:text-gray-900 hover:underline"
                 >
                   {item.title}

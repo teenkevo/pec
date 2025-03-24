@@ -25,10 +25,11 @@ export const megaMenuData: MegaMenuData = {
     title: "Industries",
     description: "Explore our industry solutions",
     items: [
-      { title: "Energy", href: "#energy" },
-      { title: "Infrastructure", href: "#infrastructure" },
-      { title: "Marine", href: "#marine" },
-      { title: "Mining", href: "#mining" },
+      { title: "Transport", href: "transport" },
+      { title: "Water and Sanitation", href: "water" },
+      { title: "Structures", href: "structures" },
+      { title: "Materials & Geotechnics", href: "materials" },
+      { title: "Surveying", href: "surveying" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
@@ -36,8 +37,8 @@ export const megaMenuData: MegaMenuData = {
       caption: "Innovative industry solutions",
     },
   },
-  expertise: {
-    title: "Expertise",
+  services: {
+    title: "Services",
     description: "Our technical capabilities",
     items: [
       { title: "Data Acquisition", href: "#data-acquisition" },
@@ -56,7 +57,7 @@ export const megaMenuData: MegaMenuData = {
     description: "Join our global team",
     items: [
       { title: "Open Positions", href: "#positions" },
-      { title: "Working at Fugro", href: "#working" },
+      { title: "Working at PEC", href: "#working" },
       { title: "Development", href: "#development" },
       { title: "Benefits", href: "#benefits" },
     ],
@@ -111,7 +112,7 @@ export const megaMenuData: MegaMenuData = {
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
-      alt: "About Fugro",
+      alt: "About PEC",
       caption: "Leading geo-data specialist",
     },
   },
