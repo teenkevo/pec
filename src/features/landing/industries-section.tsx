@@ -5,6 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+const hideScrollbarStyle = `
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+`;
+
 // Define industry data
 const industries = [
   {
@@ -52,8 +62,9 @@ export function IndustriesSection() {
   return (
     <section
       id="our-industries"
-      className="relative w-full h-[1000px] md:h-[700px] overflow-hidden"
+      className="relative w-full h-[700px] md:h-[700px] overflow-hidden"
     >
+      <style>{hideScrollbarStyle}</style>
       {/* Background Images with Animation */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -91,7 +102,7 @@ export function IndustriesSection() {
       {/* Cards Container */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <div className=" mx-auto px-4 md:px-14 pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="flex overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory hide-scrollbar">
             {industries.map((industry, index) => {
               const isActive = activeIndustry === industry.id;
 
@@ -102,7 +113,7 @@ export function IndustriesSection() {
                     isActive
                       ? "bg-white"
                       : "bg-gray-900/40 border backdrop-blur-sm"
-                  } p-8 flex flex-col h-full cursor-pointer transition-colors duration-300`}
+                  } p-8 flex flex-col h-full cursor-pointer transition-colors duration-300 min-w-[320px] md:min-w-0 flex-1 mx-2 snap-start`}
                   onClick={() => setActiveIndustry(industry.id)}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}

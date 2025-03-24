@@ -12,7 +12,7 @@ const buttonVariants = cva(
         sideNav:
           "bg-primary/10 text-primary-background shadow hover:bg-primary/20 border-r-4 border-primary",
         default:
-          "bg-gradient-to-b from-primary/80 to-[#0a692d] text-white shadow hover:bg-primary/90",
+          "bg-gradient-to-b from-[#128191]/90 to-[#185d82] text-white shadow hover:bg-[#128191]/90",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:

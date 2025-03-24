@@ -4,7 +4,7 @@ import { CareersSection } from "../landing/careers-section";
 import { ContentSection } from "../landing/content-section";
 import { Footer } from "../landing/footer";
 import { BackgroundImage } from "../landing/hero/background-image";
-import { HeroContent } from "../landing/hero/hero-content";
+import { HeroContent } from "./hero-content";
 import { Navigation } from "../landing/hero/navigation";
 import { megaMenuData } from "../landing/mega-menu/menu-data";
 import { ProjectsSection } from "../landing/projects-section";

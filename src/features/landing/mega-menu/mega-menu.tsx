@@ -70,17 +70,26 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
-                <div className="text-white">
-                  <span className="text-xs uppercase tracking-wider bg-white/20 px-2 py-1 rounded-sm mb-2 inline-block">
-                    {menuData.title}
-                  </span>
-                  <p className="text-lg font-medium">
-                    {menuData.featuredImage.caption}
-                  </p>
-                  <button className="mt-2 p-2 border border-white rounded-sm">
-                    <ArrowRight className="h-4 w-4 text-white" />
-                  </button>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
+                <div className="flex space-x-4 items-center">
+                  <div className="text-white">
+                    <span className="text-xs uppercase tracking-wider bg-white/20 px-2 py-1 rounded-sm mb-2 inline-block">
+                      {menuData.title}
+                    </span>
+                    <p className="text-lg font-medium">
+                      {menuData.featuredImage.caption}
+                    </p>
+                  </div>
+                  <div className="mt-5">
+                    <Link
+                      href="/industries"
+                      className={`inline-flex items-center text-white font-medium group`}
+                    >
+                      <span className="group-hover:bg-white border border-white p-1 group-hover:translate-x-1 transition-transform mr-5">
+                        <ArrowRight className="group-hover:text-[#EB3300]" />
+                      </span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

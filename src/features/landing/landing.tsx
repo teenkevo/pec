@@ -1,6 +1,6 @@
 "use client";
 
-import { BackgroundImage } from "./hero/background-image";
+import { BackgroundImageSlideshow } from "./hero/background-image-slide-show";
 import { Navigation } from "./hero/navigation";
 import { HeroContent } from "./hero/hero-content";
 import { megaMenuData } from "./mega-menu/menu-data";
@@ -70,14 +70,66 @@ export default function Landing() {
     },
   ];
 
+  const heroSlides = [
+    {
+      title: "Engineering tomorrow's solutions today",
+      description:
+        "Consultancy services for construction supervision of the design and build contract for the upgrading of Kira-Matugga road (21.3 Km) and improvement of 5 No. junctions – Lot 1",
+      industry: "Transport",
+      industryUrl: "transport",
+    },
+    {
+      title: "Engineering tomorrow's solutions today",
+      description:
+        "Consultancy services to conduct technical feasibility studies for the enhancement of biogas production at National Water and Sewerage Corporation Nakivubo wastewater treatment plant",
+      industry: "Water and Sanitation",
+      industryUrl: "water",
+    },
+    {
+      title: "Engineering tomorrow's solutions today",
+      description:
+        "Geotechnical Investigations Along the East Africa Crude Oil Pipeline (MLBV/LLHT) Substations",
+      industry: "Materials and Geotechnics",
+      industryUrl: "materials",
+    },
+    {
+      title: "Engineering tomorrow's solutions today",
+      description:
+        "Consultancy services to conduct technical feasibility studies for the enhancement of biogas production at National Water and Sewerage Corporation Nakivubo wastewater treatment plant",
+      industry: "Structures",
+      industryUrl: "structures",
+    },
+  ];
+
+  // Define background images that will change with slides
+  const backgroundImages = [
+    {
+      imageUrl:
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_60/v1742072212/IMG_7398_yum9au.webp",
+      alt: "Kiira-Matugga Road PEC",
+    },
+    {
+      imageUrl:
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1742339704/02_1_zckrbq.webp",
+      alt: "NWSC Nakivubo Sewerage Treatment Plant",
+    },
+    {
+      imageUrl:
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1726662738/IMG_20240817_112347_umok4y.webp",
+      alt: "EACOP Pipeline investigations GETLAB-PEC",
+    },
+    {
+      imageUrl:
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1742339703/DJI_0013-UG_1_wrmkeg.webp",
+      alt: "NWSC Nakivubo Sewerage Treatment Plant",
+    },
+  ];
+
   return (
     <>
-      <div className="relative h-[60vh] md:h-[90vh] w-full">
-        {/* Background Image with Gradient Overlays */}
-        <BackgroundImage
-          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_60/v1742072212/IMG_7398_yum9au.webp"
-          alt="Ocean view with offshore structures"
-        />
+      <div className="relative h-[620px] md:h-[90vh] w-full">
+        {/* Background Image Slideshow with Gradient Overlays */}
+        <BackgroundImageSlideshow images={backgroundImages} interval={5000} />
 
         {/* Navigation and Content */}
 
@@ -85,7 +137,7 @@ export default function Landing() {
           navigationItems={navigationItems}
           megaMenuData={megaMenuData}
         />
-        <HeroContent title="Engineering tomorrow's solutions today" />
+        <HeroContent slides={heroSlides} />
       </div>
       <SecondaryNav
         initialActiveItem="#what-we-do"

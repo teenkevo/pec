@@ -34,7 +34,8 @@ export const megaMenuData: MegaMenuData = {
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       alt: "Industry solutions",
-      caption: "Innovative industry solutions",
+      caption:
+        "Delivering sustainable infrastructure that connects people, businesses, and communities",
     },
   },
   services: {

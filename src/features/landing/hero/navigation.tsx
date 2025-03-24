@@ -157,7 +157,7 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
                 variant={isNavbarWhite ? "default" : "outline"}
                 className={
                   isNavbarWhite
-                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    ? "bg-[#128191] text-white hover:bg-[#128191]"
                     : "text-white border-white hover:bg-white"
                 }
               >
@@ -258,7 +258,7 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
               </div>
               <Button
                 variant="outline"
-                className="text-white border-white hover:bg-white/10 mt-4"
+                className="text-white border-white hover:bg-[#128191] mt-4"
               >
                 Get in touch
               </Button>
