@@ -62,9 +62,9 @@ export function IndustriesSection() {
   return (
     <section
       id="our-industries"
-      className="relative w-full h-[700px] md:h-[700px] overflow-hidden"
+      className="relative w-full h-[900px] md:h-[700px] overflow-hidden"
     >
-      <style>{hideScrollbarStyle}</style>
+      {/* <style>{hideScrollbarStyle}</style> */}
       {/* Background Images with Animation */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -89,7 +89,7 @@ export function IndustriesSection() {
       {/* Section Title */}
       <div className="relative z-10 mx-auto px-4 md:px-14 pt-16">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white mb-8"
+          className="text-2xl md:text-3xl font-bold text-white mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -102,7 +102,7 @@ export function IndustriesSection() {
       {/* Cards Container */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <div className=" mx-auto px-4 md:px-14 pb-16">
-          <div className="flex overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory hide-scrollbar">
+          <div className="flex overflow-x-auto pb-4 -mx-6 px-4 hide-scrollbar">
             {industries.map((industry, index) => {
               const isActive = activeIndustry === industry.id;
 
@@ -119,10 +119,6 @@ export function IndustriesSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.2 },
-                  }}
                 >
                   <span
                     className={`${isActive ? "text-[#EB3300]" : "text-white"} font-bold text-lg mb-4 inline-block`}
@@ -131,15 +127,16 @@ export function IndustriesSection() {
                   </span>
 
                   <h3
-                    className={`text-2xl font-bold mb-4 tracking-tight ${isActive ? "text-gray-900" : "text-white"}`}
+                    className={`text-xl md:text-2xl font-bold mb-4 tracking-tight ${isActive ? "text-gray-900" : "text-white"}`}
                   >
                     {industry.title}
                   </h3>
                   <p
-                    className={`mb-8 flex-grow ${isActive ? "text-gray-700" : "text-gray-200"}`}
+                    className={`mb-8 flex-grow h-[100px] overflow-hidden ${isActive ? "text-gray-700" : "text-gray-200"}`}
                   >
                     {industry.description}
                   </p>
+
                   <div>
                     <Link
                       href={industry.href}

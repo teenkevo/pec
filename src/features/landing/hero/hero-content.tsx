@@ -50,7 +50,7 @@ export function HeroContent({ slides }: HeroContentProps) {
 
   return (
     <div className="px-4 md:px-14 absolute bottom-5 md:bottom-16 w-full z-20">
-      <div className="flex flex-col md:flex-row justify-between items-end gap-4 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-end md:gap-4 w-full">
         <div className="w-full md:w-[55%]">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white tracking-tighter leading-10">
             {currentSlideData.title}
@@ -61,7 +61,7 @@ export function HeroContent({ slides }: HeroContentProps) {
           {/* Divider */}
           <motion.div
             key={`descii-${currentSlide}`}
-            className="border-t border-gray-200 md:my-10 my-5"
+            className="border-t border-gray-300 md:my-10 my-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -87,7 +87,7 @@ export function HeroContent({ slides }: HeroContentProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 1 }}
-            className="text-white text-sm md:text-sm mb-6 h-[100px] md:h-auto"
+            className="text-white text-sm md:text-sm mb-1 md:mb-6 h-[100px] md:h-auto"
           >
             {currentSlideData.description}
           </motion.p>

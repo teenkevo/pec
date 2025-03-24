@@ -34,7 +34,7 @@ export function ContentSection({
           {/* Heading - takes up 1/4 of the space on desktop */}
           <div className="md:col-span-1">
             <h2
-              className={`text-2xl font-semibold md:text-3xl md:font-bold text-gray-900 ${headingClassName}`}
+              className={`text-2xl md:text-3xl font-semibold  md:font-bold text-gray-900 ${headingClassName}`}
             >
               {heading}
             </h2>

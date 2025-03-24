@@ -159,7 +159,7 @@ export default function Landing() {
       <div id="projects">
         <ProjectsSection
           projects={projects}
-          title="Some of our projects"
+          title="Projects"
           linkText="All projects"
         />
       </div>

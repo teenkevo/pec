@@ -28,7 +28,9 @@ export function ProjectsSection({
       <div className="mx-auto px-4 md:px-14">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
+          <h2 className="text-2xl md:text-3xl leading-tight font-bold text-gray-900">
+            {title}
+          </h2>
           <Link
             href="/case-studies"
             className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center"
