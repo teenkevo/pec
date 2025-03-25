@@ -23,8 +23,7 @@ export default function ProjectExamplePage() {
       {
         src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1742868484/IMG_7460_wmbhev.webp",
         alt: "Cooling system installation",
-        description:
-          "Installation of key components for the Hinkley Point C cooling system",
+        description: "Dual carriage way along the bypass",
       },
       {
         src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742072211/IMG_7560_3_imaovc.jpg",

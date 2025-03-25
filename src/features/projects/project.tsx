@@ -144,6 +144,7 @@ export function ProjectPage({ project }: ProjectPageProps) {
                 alt={project.imageAlt}
                 fill
                 className="object-cover"
+                priority
               />
             </div>
           </div>

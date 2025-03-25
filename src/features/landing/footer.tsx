@@ -34,34 +34,40 @@ export function Footer() {
                   Industries
                 </Link>
                 <Link
-                  href="#services"
+                  href="/expertise"
                   className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
                 >
-                  Services
+                  Expertise
                 </Link>
                 <Link
-                  href="#careers"
+                  href="/projects"
+                  className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
+                >
+                  Projects
+                </Link>
+                <Link
+                  href="/clients"
+                  className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
+                >
+                  Clients
+                </Link>
+                <Link
+                  href="/about-us"
+                  className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
+                >
+                  About us
+                </Link>
+                <Link
+                  href="/careers"
                   className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
                 >
                   Careers
                 </Link>
                 <Link
-                  href="#investors"
-                  className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
-                >
-                  Investors
-                </Link>
-                <Link
-                  href="#news"
+                  href="/newsnews"
                   className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
                 >
                   News
-                </Link>
-                <Link
-                  href="#about-us"
-                  className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
-                >
-                  About us
                 </Link>
               </nav>
             </div>
