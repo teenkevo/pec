@@ -94,7 +94,7 @@ export function HeroContent({ slides }: HeroContentProps) {
 
           <div>
             <Link
-              href={`/services/projects/${createSlug(currentSlideData.description)}-PEC`}
+              href={`/project`}
               className={`inline-flex items-center text-white font-medium group`}
             >
               <span className="group-hover:bg-white border border-white p-2 group-hover:translate-x-1 transition-transform mr-5">
