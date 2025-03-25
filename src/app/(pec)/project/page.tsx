@@ -74,6 +74,7 @@ export default function ProjectExamplePage() {
         expertise: [],
       },
     },
+    industry: "Transport",
   };
 
   return <ProjectPage project={projectData} />;

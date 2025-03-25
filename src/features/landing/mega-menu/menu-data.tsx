@@ -38,14 +38,12 @@ export const megaMenuData: MegaMenuData = {
         "Delivering sustainable infrastructure that connects people, businesses, and communities",
     },
   },
-  services: {
-    title: "Services",
+  expertise: {
+    title: "Expertise",
     description: "Our technical capabilities",
     items: [
-      { title: "Data Acquisition", href: "#data-acquisition" },
-      { title: "Analysis", href: "#analysis" },
-      { title: "Consulting", href: "#consulting" },
-      { title: "Solutions", href: "#solutions" },
+      { title: "Expertise", href: "#expertise" },
+      { title: "Publications", href: "#publications" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
@@ -68,21 +66,21 @@ export const megaMenuData: MegaMenuData = {
       caption: "Build your career with us",
     },
   },
-  investors: {
-    title: "Investors",
-    description: "Information for investors",
-    items: [
-      { title: "Financial Results", href: "#results" },
-      { title: "Annual Reports", href: "#reports" },
-      { title: "Shareholder Information", href: "#shareholders" },
-      { title: "Governance", href: "#governance" },
-    ],
-    featuredImage: {
-      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
-      alt: "Investor relations",
-      caption: "Sustainable growth and value",
-    },
-  },
+  // investors: {
+  //   title: "Investors",
+  //   description: "Information for investors",
+  //   items: [
+  //     { title: "Financial Results", href: "#results" },
+  //     { title: "Annual Reports", href: "#reports" },
+  //     { title: "Shareholder Information", href: "#shareholders" },
+  //     { title: "Governance", href: "#governance" },
+  //   ],
+  //   featuredImage: {
+  //     src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
+  //     alt: "Investor relations",
+  //     caption: "Sustainable growth and value",
+  //   },
+  // },
   news: {
     title: "News",
     description: "Latest updates and insights",

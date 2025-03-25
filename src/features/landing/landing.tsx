@@ -17,12 +17,12 @@ import { Footer } from "./footer";
 export default function Landing() {
   const navigationItems = [
     { label: "Industries", href: "/industries", key: "industries" },
-    { label: "Services", href: "/services", key: "services" },
+    { label: "Expertise", href: "/expertise", key: "expertise" },
     { label: "Projects", href: "/projects", key: "projects" },
-    { label: "Careers", href: "/careers", key: "careers" },
-    { label: "Investors", href: "/investors", key: "investors" },
-    { label: "News", href: "/news", key: "news" },
+    { label: "Clients", href: "/clients", key: "clients" },
     { label: "About us", href: "/about-us", key: "about-us" },
+    { label: "Careers", href: "/careers", key: "careers" },
+    { label: "News", href: "/news", key: "news" },
   ];
 
   const secondaryNavigationItems = [

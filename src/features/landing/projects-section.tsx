@@ -55,7 +55,7 @@ export function ProjectsSection({
               .map((project) => (
                 <Link
                   key={project.id}
-                  href={`/case-studies/${project.id}`}
+                  href={`/project`}
                   className="block group"
                 >
                   <motion.div
@@ -95,10 +95,7 @@ export function ProjectsSection({
               .filter((project) => !project.featured)
               .map((project) => (
                 <div key={project.id}>
-                  <Link
-                    href={`/case-studies/${project.id}`}
-                    className="block group"
-                  >
+                  <Link href={`/project`} className="block group">
                     <motion.div
                       className="relative aspect-[4/3] w-full"
                       whileHover={{ y: -5 }}

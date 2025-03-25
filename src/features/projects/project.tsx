@@ -44,6 +44,7 @@ export interface Project {
     description: string;
   }[];
   stageDetails: Record<ProjectStage, StageDetails>;
+  industry: string;
 }
 
 interface ProjectPageProps {
@@ -62,12 +63,12 @@ export function ProjectPage({ project }: ProjectPageProps) {
 
   const navigationItems = [
     { label: "Industries", href: "/industries", key: "industries" },
-    { label: "Services", href: "/services", key: "services" },
+    { label: "Expertise", href: "/expertise", key: "expertise" },
     { label: "Projects", href: "/projects", key: "projects" },
-    { label: "Careers", href: "/careers", key: "careers" },
-    { label: "Investors", href: "/investors", key: "investors" },
-    { label: "News", href: "/news", key: "news" },
+    { label: "Clients", href: "/clients", key: "clients" },
     { label: "About us", href: "/about-us", key: "about-us" },
+    { label: "Careers", href: "/careers", key: "careers" },
+    { label: "News", href: "/news", key: "news" },
   ];
 
   // State for the expertise sheet
@@ -124,7 +125,9 @@ export function ProjectPage({ project }: ProjectPageProps) {
             {/* Left Column - Text */}
             <div>
               <div className="mb-4">
-                <span className="inline-block text-navy-800">Project</span>
+                <span className="inline-block text-navy-800">
+                  Project: {project.industry}
+                </span>
               </div>
               <h1 className="text-2xl md:text-4xl font-semibold md:font-semibold text-navy-800 mb-6">
                 {project.title}

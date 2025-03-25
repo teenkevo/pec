@@ -28,7 +28,7 @@ export function Footer() {
               <div className="md:hidden h-px bg-gray-300 mb-8"></div>
               <nav className="space-y-4">
                 <Link
-                  href="#industries"
+                  href="/industries"
                   className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
                 >
                   Industries
