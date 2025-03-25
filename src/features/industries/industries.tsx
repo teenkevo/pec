@@ -32,7 +32,7 @@ export default function Landing() {
 
   // Content for the "What we do" section
   const introduction =
-    "With our wide range of assets, skills, and solutions tailored to our clients, we serve customers in our three key markets: energy, water and infrastructure. Together with our partners and clients, we're building a safer and more liveable world.";
+    "With our wide range of assets, skills, and solutions tailored to our clients, we serve customers in our 4 key markets: transport, water and sanitation, materials and geotechnics, and structures. Together with our partners and clients, we're pushing for excellence.";
 
   // Define the case studies data
   const projects = [
