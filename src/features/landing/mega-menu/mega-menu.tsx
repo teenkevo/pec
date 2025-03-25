@@ -44,13 +44,13 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
           <ul className="space-y-4">
             {menuData.items.map((item, index) => (
               <motion.li
-                key={item.href}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 <Link
-                  href={`/industries/${item.href}`}
+                  href={`/${item.href}`}
                   className="text-gray-700 text-xl font-semibold hover:text-gray-900 hover:underline"
                 >
                   {item.title}
@@ -71,7 +71,7 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
-                <div className="flex space-x-4 items-center">
+                <div className="flex space-x-4 justify-between items-center">
                   <div className="text-white">
                     <span className="text-xs uppercase tracking-wider bg-white/20 px-2 py-1 rounded-sm mb-2 inline-block">
                       {menuData.title}

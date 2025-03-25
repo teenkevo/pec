@@ -21,7 +21,7 @@ export function GraphicSection({
   linkUrl,
 }: GraphicSectionProps) {
   return (
-    <section className="w-full px-4 md:px-14">
+    <section className="w-full px-4 mt-5 md:px-14">
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Left side - Image */}
         <motion.div

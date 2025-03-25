@@ -44,30 +44,33 @@ export default function Structures() {
   const projects = [
     {
       id: "river-basin",
-      title: "Kızılırmak river basin hydrogeological investigation",
+      title:
+        "Consultancy Services for the Design Review and Construction Supervision for the Capacity Improvement of the Kampala Northern Bypass – Phase 2 (17.5 Km)",
       image:
         "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       location: "Kampala, Uganda",
       featured: true,
-      industry: "Hydrology",
+      industry: "Transport",
     },
     {
       id: "pipeline-surveys",
-      title: "Beyond tradition: redefining pipeline surveys with remote...",
+      title:
+        "Geotechnical Investigations Along the EACOP Pipeline (MLBV/LLHT) Substations",
       image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1742072211/IMG_7455_2_i3bpiw.webp",
-      location: "Kampala, Uganda",
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_62/v1726663404/IMG_20240821_145954_2_uozsb8.webp",
+      location: "Rakai, Uganda",
       featured: false,
-      industry: "Surveying",
+      industry: "Materials and Geotechnics",
     },
     {
       id: "seismic-refraction",
-      title: "Seismic Refraction: 85% Faster Island Data",
+      title:
+        "Design review and Construction Supervision of Walukuba Market in Buliisa District under World Bank funded Albertine Region Sustainable Development Project (ARSDP)",
       image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742858084/Picture_1_fyqvib.webp",
       location: "Fortportal, Uganda",
       featured: false,
-      industry: "Geophysics",
+      industry: "Structures",
     },
   ];
 

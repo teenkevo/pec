@@ -45,31 +45,32 @@ export default function Materials() {
     {
       id: "river-basin",
       title:
-        "UNRA investigates the cause of premature pavement failure on Kyenjojo-Fort Portal road with GETLAB",
+        "Consultancy Services for the Design Review and Construction Supervision for the Capacity Improvement of the Kampala Northern Bypass – Phase 2 (17.5 Km)",
       image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742489567/e3b802_592332a93ff44fd8b2c0e98c83f1914d_mv2_hntrxr.webp",
-      location: "Fortportal, Uganda",
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
+      location: "Kampala, Uganda",
       featured: true,
-      industry: "Materials",
+      industry: "Transport",
     },
     {
       id: "pipeline-surveys",
       title:
-        "GETLAB helped AURECON carry out geotechnical and material testing for Kampala Bombo Express Highway",
+        "Geotechnical Investigations Along the EACOP Pipeline (MLBV/LLHT) Substations",
       image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_59/v1742490240/e3b802_93ead4e5e9a74838bbb311579e4ff538_mv2_lumoev.webp",
-      location: "Kampala, Uganda",
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_62/v1726663404/IMG_20240821_145954_2_uozsb8.webp",
+      location: "Rakai, Uganda",
       featured: false,
-      industry: "Materials",
+      industry: "Materials and Geotechnics",
     },
     {
       id: "seismic-refraction",
-      title: "Seismic Refraction: 85% Faster Island Data",
+      title:
+        "Design review and Construction Supervision of Walukuba Market in Buliisa District under World Bank funded Albertine Region Sustainable Development Project (ARSDP)",
       image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742858084/Picture_1_fyqvib.webp",
       location: "Fortportal, Uganda",
       featured: false,
-      industry: "Materials",
+      industry: "Structures",
     },
   ];
 
