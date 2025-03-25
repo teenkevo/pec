@@ -83,7 +83,7 @@ export default function Landing() {
         <HeroContent title="Creating a safe and liveable world" />
       </div>
       <SecondaryNav
-        initialActiveItem="#what-we-do"
+        initialActiveItem="#introduction"
         navItems={secondaryNavigationItems}
       />
       {/* What We Do Section */}
