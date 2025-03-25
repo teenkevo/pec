@@ -44,7 +44,7 @@ export function ContentSection({
           <div className="md:col-span-3 max-w-2xl">
             {typeof content === "string" ? (
               <p
-                className={` md:text-lg text-black leading-relaxed tracking-tight mb-6 ${contentClassName}`}
+                className={`md:text-lg text-black leading-relaxed tracking-tight mb-6 ${contentClassName}`}
               >
                 {content}
               </p>

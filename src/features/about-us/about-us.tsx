@@ -53,7 +53,7 @@ export default function AboutUs() {
         />
       </div>
       <SecondaryNav
-        initialActiveItem="#our-view"
+        initialActiveItem="#what-we-do"
         navItems={secondaryNavigationItems}
       />
       {/* What We Do Section */}

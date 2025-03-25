@@ -31,12 +31,12 @@ export function Section({
         <div className="space-y-4">
           <span className="text-gray-700">{section}</span>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-navy-800 leading-normal">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-navy-800">
             {title}
           </h2>
 
           <div className="pt-4">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="md:text-lg text-black tracking-tight leading-relaxed">
               {description}
             </p>
           </div>
