@@ -12,6 +12,7 @@ interface ProjectsSectionProps {
     image?: string;
     industry: string;
     location: string;
+    // TODO: Allow multiple projects to be featured and possibly schedule the change timing
     featured: boolean;
   }>;
   title: string;

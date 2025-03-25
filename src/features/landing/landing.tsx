@@ -58,7 +58,7 @@ export default function Landing() {
       image:
         "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_62/v1726663404/IMG_20240821_145954_2_uozsb8.webp",
       location: "Rakai, Uganda",
-      featured: false,
+      featured: true,
       industry: "Materials and Geotechnics",
     },
     {
