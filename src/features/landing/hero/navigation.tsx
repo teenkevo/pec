@@ -226,7 +226,7 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="xl:hidden absolute top-full left-0 right-0 bg-black/90 p-4 z-30"
+            className="xl:hidden absolute top-full left-0 right-0 bg-black p-4 z-30"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
