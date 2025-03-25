@@ -19,7 +19,7 @@ export function IndustryBanner({
   iconText,
 }: IndustryBannerProps) {
   return (
-    <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden p-10">
+    <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden ">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -34,7 +34,7 @@ export function IndustryBanner({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto h-full flex flex-col justify-end px-4">
+      <div className="relative z-10 container mx-auto h-full flex flex-col justify-end px-4 py-10">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ export function IndustryBanner({
               {industry}
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
+            <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
               {description}
             </h2>
 

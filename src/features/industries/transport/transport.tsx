@@ -119,7 +119,7 @@ export default function Transport() {
         <ProjectsSection
           projects={projects}
           title="Transport projects"
-          linkText="All transport projects"
+          linkText="Explore all"
         />
       </div>
       <div id="projects">

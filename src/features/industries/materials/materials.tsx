@@ -121,7 +121,7 @@ export default function Materials() {
         <ProjectsSection
           projects={projects}
           title="Materials projects"
-          linkText="All materials projects"
+          linkText="Explore all"
         />
       </div>
 

@@ -119,7 +119,7 @@ export default function Water() {
         <ProjectsSection
           projects={projects}
           title="Water projects"
-          linkText="All water projects"
+          linkText="Explore all"
         />
       </div>
       {/* Divider */}

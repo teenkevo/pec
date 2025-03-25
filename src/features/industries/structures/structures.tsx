@@ -119,7 +119,7 @@ export default function Structures() {
         <ProjectsSection
           projects={projects}
           title="Water projects"
-          linkText="All water projects"
+          linkText="Explore all"
         />
       </div>
       {/* Divider */}

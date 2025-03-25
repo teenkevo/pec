@@ -108,7 +108,7 @@ export default function Landing() {
         <ProjectsSection
           projects={projects}
           title="Transport projects"
-          linkText="All transport projects"
+          linkText="Explore all"
         />
       </div>
       <div id="water" className="px-4 md:px-14">
@@ -123,7 +123,7 @@ export default function Landing() {
         <ProjectsSection
           projects={projects}
           title="Water projects"
-          linkText="All water projects"
+          linkText="Explore all"
         />
       </div>
       <div id="materials" className="px-4 md:px-14">
@@ -137,8 +137,8 @@ export default function Landing() {
       <div id="projects">
         <ProjectsSection
           projects={projects}
-          title="Materials & Geotechnics projects"
-          linkText="All materials & geotechnics projects"
+          title="Materials projects"
+          linkText="Explore all"
         />
       </div>
       <div id="structures" className="px-4 md:px-14">
@@ -153,7 +153,7 @@ export default function Landing() {
         <ProjectsSection
           projects={projects}
           title="Structures projects"
-          linkText="All structures projects"
+          linkText="Explore all"
         />
       </div>
       <div id="surveying" className="px-4 md:px-14">
