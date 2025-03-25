@@ -54,7 +54,7 @@ export function GraphicSection({
             </h2>
           </div>
 
-          <div className="mt-auto pt-16 border-t border-gray-200">
+          <div className="mt-5 pt-16 border-t border-gray-200">
             <Link
               href={linkUrl}
               className="inline-flex items-center text-white group"

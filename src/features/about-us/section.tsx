@@ -20,7 +20,7 @@ export function Section({
   linkUrl,
 }: SectionProps) {
   return (
-    <section className="py-16 bg-white">
+    <section className="pt-10 bg-white">
       <motion.div
         className="px-4 md:px-14 max-w-4xl"
         initial={{ opacity: 0 }}
@@ -31,7 +31,7 @@ export function Section({
         <div className="space-y-4">
           <span className="text-gray-700">{section}</span>
 
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-navy-800">
+          <h2 className="text-3xl md:text-5xl font-medium tracking-tighter text-navy-800">
             {title}
           </h2>
 

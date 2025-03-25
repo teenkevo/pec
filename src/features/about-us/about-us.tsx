@@ -78,7 +78,7 @@ export default function AboutUs() {
       </div>
       <CompanyStats />
       {/* Divider */}
-      <div className="border-t border-gray-200 mt-10"></div>
+      <div className="border-t border-gray-200 mt-5"></div>
       <div id="mission">
         <Section
           section="Mission"

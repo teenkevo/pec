@@ -42,13 +42,13 @@ export function CompanyStats() {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-10 bg-white">
       <div className=" px-4 md:px-14">
         <div className="space-y-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="grid grid-cols-1 md:grid-cols-4 gap-8 py-8 border-t border-gray-200"
+              className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-4 pt-8 border-t border-gray-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
