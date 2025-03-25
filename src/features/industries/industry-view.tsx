@@ -32,13 +32,13 @@ export function IndustryView({
   industryLeadName,
 }: ContentSectionProps) {
   return (
-    <section id={id} className={`py-16 ${backgroundColor} ${className}`}>
+    <section id={id} className={`py-10 ${backgroundColor} ${className}`}>
       <div className=" mx-auto px-4 md:px-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Heading - takes up 1/4 of the space on desktop */}
           <div className="md:col-span-1">
             <h2
-              className={`text-3xl font-bold text-gray-900 ${headingClassName}`}
+              className={`text-2xl md:text-3xl font-bold text-gray-900 ${headingClassName}`}
             >
               {heading}
             </h2>
@@ -48,7 +48,7 @@ export function IndustryView({
           <div className="md:col-span-3 max-w-2xl">
             {typeof content === "string" ? (
               <p
-                className={`text-lg text-gray-700 leading-relaxed mb-6 ${contentClassName}`}
+                className={`md:text-lg text-black leading-relaxed tracking-tight mb-6 ${contentClassName}`}
               >
                 {content}
               </p>
