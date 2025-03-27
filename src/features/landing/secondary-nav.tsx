@@ -129,7 +129,7 @@ export function SecondaryNav({
       <div className="mx-auto px-4 md:px-14">
         <nav className="flex items-center overflow-x-auto">
           {/* Jump to label (not a link) */}
-          <div className="whitespace-nowrap py-4 pr-4 pl-0 font-semibold text-black flex items-center">
+          <div className="whitespace-nowrap py-4 pr-4 pl-0 font-semibold text-black tracking-tight flex items-center">
             {jumpToLabel.label}
           </div>
 
@@ -138,7 +138,7 @@ export function SecondaryNav({
             <div key={index} className="relative">
               <Link
                 href={item.href}
-                className={`whitespace-nowrap py-4 px-4  hover:text-[#EB3301] transition-colors font-medium block ${
+                className={`whitespace-nowrap py-4 px-4  hover:text-[#EB3301] transition-colors font-medium block tracking-tight ${
                   activeItem === item.href ? "text-[#EB3300]" : "text-gray-700"
                 }`}
                 onClick={(e) => handleNavClick(item.href, e)}
