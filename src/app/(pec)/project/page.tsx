@@ -74,7 +74,7 @@ export default function ProjectExamplePage() {
       },
     },
     industry: "Transport",
-    valueOfServices: 96190408,
+    valueOfServices: 961904.08,
     currency: "EUR",
   };
 
