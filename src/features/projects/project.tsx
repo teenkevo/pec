@@ -2,10 +2,21 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Plus, Minus, X } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Plus,
+  Minus,
+  X,
+  LocateIcon,
+  Wallet,
+  BriefcaseBusiness,
+  DollarSign,
+} from "lucide-react";
 import { Navigation } from "../landing/hero/navigation";
 import { megaMenuData } from "../landing/mega-menu/menu-data";
 import { Footer } from "../landing/footer";
+import { NumericFormat } from "react-number-format";
 
 // Define the project stages
 export type ProjectStage =
@@ -45,6 +56,8 @@ export interface Project {
   }[];
   stageDetails: Record<ProjectStage, StageDetails>;
   industry: string;
+  valueOfServices: number;
+  currency: string;
 }
 
 interface ProjectPageProps {
@@ -132,8 +145,9 @@ export function ProjectPage({ project }: ProjectPageProps) {
               <h1 className="text-2xl md:text-4xl font-semibold md:font-semibold text-navy-800 mb-6">
                 {project.title}
               </h1>
-              <div className="text-navy-800 border-t border-gray-300 pt-4 mt-8">
-                {project.location}
+              <div className="flex space-x-2 text-navy-800 border-t border-gray-300 pt-4 mt-8">
+                <LocateIcon />
+                <p>{project.location}</p>
               </div>
             </div>
 
@@ -155,18 +169,39 @@ export function ProjectPage({ project }: ProjectPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Client Info */}
             <div>
-              <h2 className="text-navy-800 font-medium mb-1">Client</h2>
+              <div className="flex space-x-2 text-navy-800">
+                <BriefcaseBusiness />
+                <h2 className="text-navy-800 font-bold mb-1">Client</h2>
+              </div>
               <p className="text-navy-800 tracking-tight">
                 {project.clientName}
               </p>
               {project.funder && (
                 <>
-                  <h2 className="text-navy-800 font-medium mt-4 mb-1">
-                    Funder
-                  </h2>
+                  <div className="flex space-x-2 text-navy-800 mt-6">
+                    <Wallet />
+                    <h2 className="text-navy-800 font-bold mb-1">Funder</h2>
+                  </div>
                   <p className="text-navy-800 tracking-tight">
                     {project.funder}
                   </p>
+                </>
+              )}
+              {project.valueOfServices && (
+                <>
+                  <div className="flex space-x-2 text-navy-800 mt-6">
+                    <DollarSign />
+                    <h2 className="text-navy-800 font-bold mb-1">
+                      Value of services
+                    </h2>
+                  </div>
+
+                  <NumericFormat
+                    thousandSeparator={true}
+                    displayType="text"
+                    prefix={"EUR "}
+                    value={project.valueOfServices}
+                  />
                 </>
               )}
             </div>
