@@ -74,8 +74,8 @@ export default function ProjectExamplePage() {
       },
     },
     industry: "Transport",
-    valueOfServices: 961904.08,
-    currency: "EUR",
+    valueOfServices: 1036918.17,
+    currency: "USD",
   };
 
   return <ProjectPage project={projectData} />;
