@@ -48,7 +48,7 @@ export default function Landing() {
       image:
         "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       location: "Kampala, Uganda",
-      featured: true,
+      featured: false,
       industry: "Transport",
     },
     {
@@ -58,7 +58,7 @@ export default function Landing() {
       image:
         "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_62/v1726663404/IMG_20240821_145954_2_uozsb8.webp",
       location: "Rakai, Uganda",
-      featured: true,
+      featured: false,
       industry: "Materials and Geotechnics",
     },
     {

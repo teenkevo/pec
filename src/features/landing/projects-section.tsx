@@ -24,8 +24,11 @@ export function ProjectsSection({
   title,
   linkText,
 }: ProjectsSectionProps) {
+  // Check if there are any featured projects
+  const hasFeaturedProjects = projects.some((project) => project.featured);
+
   return (
-    <section className="py-16">
+    <section className="md:py-16 py-5">
       <div className="mx-auto px-4 md:px-14">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-8">
@@ -49,16 +52,11 @@ export function ProjectsSection({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Featured Case Study (Left) */}
-          <div className="lg:col-span-6 group">
-            {projects
-              .filter((project) => project.featured)
-              .map((project) => (
-                <Link
-                  key={project.id}
-                  href={`/project`}
-                  className="block group"
-                >
+          {/* Regular Case Studies (Right) */}
+          <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <div key={project.id}>
+                <Link href={`/project`} className="block group">
                   <motion.div
                     className="relative aspect-[4/3] w-full"
                     whileHover={{ y: -5 }}
@@ -73,10 +71,11 @@ export function ProjectsSection({
                       />
                     </div>
                     <div className="mt-4">
-                      <span className="text-sm text-gray-500">
+                      <span className="flex items-center text-sm text-gray-600 tracking-tight">
+                        <div className="w-2 h-2 bg-gray-300 font-bold mr-4"></div>
                         {project.industry}
                       </span>
-                      <h3 className="text-2xl tracking-tight font-bold line-clamp-4 text-gray-900 mt-1">
+                      <h3 className="text-xl tracking-tight font-bold line-clamp-4 text-gray-900 mt-1">
                         {project.title}
                       </h3>
                       <p className="text-xs text-black mt-1">
@@ -84,49 +83,11 @@ export function ProjectsSection({
                       </p>
                     </div>
                   </motion.div>
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 group-hover:border-black group-hover:-translate-y-2 transition-all mt-5"></div>
                 </Link>
-              ))}
-            {/* Divider */}
-            <div className="border-t border-gray-200 group-hover:border-black group-hover:-translate-y-2 transition-all mt-5"></div>
-          </div>
-
-          {/* Regular Case Studies (Right) */}
-          <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects
-              .filter((project) => !project.featured)
-              .map((project) => (
-                <div key={project.id}>
-                  <Link href={`/project`} className="block group">
-                    <motion.div
-                      className="relative aspect-[4/3] w-full"
-                      whileHover={{ y: -5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <div className="relative aspect-[4/3] w-full">
-                        <Image
-                          src={project.image || "/placeholder.svg"}
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="mt-4">
-                        <span className="text-sm text-gray-500">
-                          {project.industry}
-                        </span>
-                        <h3 className="text-xl font-bold line-clamp-4 text-gray-900 mt-1">
-                          {project.title}
-                        </h3>
-                        <p className="text-xs text-black mt-1">
-                          {project.location}
-                        </p>
-                      </div>
-                    </motion.div>
-                    {/* Divider */}
-                    <div className="border-t border-gray-200 group-hover:border-black group-hover:-translate-y-2 transition-all mt-5"></div>
-                  </Link>
-                </div>
-              ))}
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

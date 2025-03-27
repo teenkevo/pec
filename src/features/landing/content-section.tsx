@@ -28,7 +28,10 @@ export function ContentSection({
   backgroundColor = "bg-white",
 }: ContentSectionProps) {
   return (
-    <section id={id} className={`py-16 ${backgroundColor} ${className}`}>
+    <section
+      id={id}
+      className={`md:py-16 py-5 ${backgroundColor} ${className}`}
+    >
       <div className=" mx-auto px-4 md:px-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Heading - takes up 1/4 of the space on desktop */}

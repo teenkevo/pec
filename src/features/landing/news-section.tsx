@@ -73,7 +73,7 @@ export function NewsSection() {
   };
 
   return (
-    <section className="py-10 bg-white">
+    <section className="md:py-10 py-0 bg-white">
       <motion.div
         className="mx-auto px-4 md:px-14"
         initial={{ opacity: 0 }}

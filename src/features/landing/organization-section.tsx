@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export function OrganisationSection() {
   return (
-    <section className="py-10">
+    <section className="md:py-10 py-5">
       <motion.div
         className=" mx-auto px-4 md:px-14"
         initial={{ opacity: 0 }}
@@ -15,7 +15,7 @@ export function OrganisationSection() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">
+        <h2 className="text-2xl md:text-3xl leading-tight font-bold text-gray-900 mb-8">
           Our organisation
         </h2>
 
@@ -26,7 +26,7 @@ export function OrganisationSection() {
               {/* Text Content - Left Side */}
               <div className="md:w-1/2 bg-[#128191] p-8 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl tracking-tight font-bold text-white mb-4">
+                  <h3 className="text-xl tracking-tight font-bold text-white mb-4">
                     Our purpose
                   </h3>
                   <p className="text-white">
@@ -68,7 +68,7 @@ export function OrganisationSection() {
                 Sustainability initiatives
               </span>
 
-              <h3 className="text-2xl tracking-tight font-bold text-gray-900 mt-4">
+              <h3 className="text-xl tracking-tight font-bold text-gray-900 mt-4">
                 Net Zero
               </h3>
               <p className="text-green-500 font-medium flex items-center mt-1">
@@ -98,7 +98,7 @@ export function OrganisationSection() {
           {/* Leadership Card - Bottom Left */}
           <div className="lg:col-span-4 border border-gray-200 rounded-sm p-8">
             <div>
-              <h3 className="text-2xl tracking-tight font-bold text-gray-900">
+              <h3 className="text-xl tracking-tight font-bold text-gray-900">
                 Leadership
               </h3>
 
@@ -122,7 +122,7 @@ export function OrganisationSection() {
           {/* Certifications Card */}
           <div className="lg:col-span-4 border border-gray-200 rounded-sm p-8">
             <div>
-              <h3 className="text-2xl tracking-tight font-bold text-gray-900">
+              <h3 className="text-xl tracking-tight font-bold text-gray-900">
                 Our certifications
               </h3>
 
