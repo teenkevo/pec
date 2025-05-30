@@ -36,7 +36,7 @@ const industries = [
     description:
       "We're dedicated to improving access to clean water with sustainable supply, drainage, and treatment solutions",
     image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1742339704/02_1_zckrbq.webp", // Replace with actual ocean image
+      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1743528565/69790D60-4A3D-4638-96B5-DAF4243A17D2_1_201_a_soin4z.webp", // Replace with actual ocean image
   },
   {
     id: "materials",
@@ -62,7 +62,7 @@ export function IndustriesSection() {
   return (
     <section
       id="our-industries"
-      className="relative w-full h-[900px] md:h-[700px] overflow-hidden"
+      className="relative w-full h-[900px] md:h-[900px] overflow-hidden"
     >
       {/* <style>{hideScrollbarStyle}</style> */}
       {/* Background Images with Animation */}

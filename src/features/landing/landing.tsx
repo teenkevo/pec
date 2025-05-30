@@ -84,7 +84,7 @@ export default function Landing() {
     {
       title: "Engineering tomorrow's solutions today",
       description:
-        "Consultancy services to conduct technical feasibility studies for the enhancement of biogas production at National Water and Sewerage Corporation Nakivubo wastewater treatment plant",
+        "Consultancy Services for the Design and Supervision of Proposed Optimization Works in Water Supply Areas of Zone 1 of Bidi-bidi Refugee Settlement in Yumbe district",
       industry: "Water and Sanitation",
       industryUrl: "water",
     },
@@ -113,7 +113,7 @@ export default function Landing() {
     },
     {
       imageUrl:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1742339704/02_1_zckrbq.webp",
+        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1743528565/69790D60-4A3D-4638-96B5-DAF4243A17D2_1_201_a_soin4z.webp",
       alt: "NWSC Nakivubo Sewerage Treatment Plant",
     },
     {

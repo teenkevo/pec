@@ -81,7 +81,7 @@ export default function Landing() {
           navigationItems={navigationItems}
           megaMenuData={megaMenuData}
         />
-        <HeroContent title="Creating a safe and liveable world" />
+        <HeroContent title="Our industries of specialization" />
       </div>
       <SecondaryNav
         initialActiveItem="#introduction"

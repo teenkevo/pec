@@ -29,22 +29,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`${spaceGrotesk.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Suspense fallback={<Loading />}>
-            <QueryProvider>
-              <ScrollToTop />
-              {children}
-              <SanityLive />
-            </QueryProvider>
-          </Suspense>
+        <Suspense fallback={<Loading />}>
+          <QueryProvider>
+            <ScrollToTop />
+            {children}
+            <SanityLive />
+          </QueryProvider>
+        </Suspense>
 
-          <Toaster />
-        </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
