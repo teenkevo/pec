@@ -36,7 +36,6 @@ export default function RootLayout({
             <SanityLive />
           </QueryProvider>
         </Suspense>
-
         <Toaster />
       </body>
     </html>
