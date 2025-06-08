@@ -1,53 +1,67 @@
-import type { StructureResolver } from "sanity/structure";
+import { StructureResolver } from "sanity/structure";
+import {
+  ProjectsIcon,
+  CaseIcon,
+  BulbOutlineIcon,
+  UsersIcon,
+  InfoOutlineIcon,
+  DocumentIcon,
+  FolderIcon,
+} from "@sanity/icons";
 
-// https://www.sanity.io/docs/structure-builder-cheat-sheet
+const SINGLETON_TYPES = new Set(["aboutUs"]);
+
+const ABOUT_US_ID = "aboutUs";
+
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("GIMS Modules")
+    .title("PEC Content")
     .items([
-      S.documentTypeListItem("project").title("Projects"),
+      // SINGLETONS 
       S.listItem()
-        .title("Labs")
+        .title("About Us")
+        .id(ABOUT_US_ID)
+        .icon(InfoOutlineIcon)
         .child(
-          S.list()
-            .title("Labs")
-            .items([
-              S.documentTypeListItem("lab").title("Labs"),
-              S.documentTypeListItem("personnel").title("Lab Personnel"),
-              S.documentTypeListItem("equipment").title("Lab Equipment"),
-              S.documentTypeListItem("maintenanceLog").title(
-                "Lab Maintenance Logs"
-              ),
-              S.documentTypeListItem("labApprovalWorkflow").title(
-                "Lab Approval Workflows"
-              ),
-            ])
+          S.document()
+            .schemaType("aboutUs")
+            .documentId(ABOUT_US_ID)
+            .title("About Us")
         ),
 
-      S.listItem()
-        .title("Clients")
-        .child(
-          S.list()
-            .title("Clients")
-            .items([
-              S.documentTypeListItem("client").title("Clients"),
-              S.documentTypeListItem("contactPerson").title("Contact Persons"),
-              S.documentTypeListItem("clientFeedback").title("Client Feedback"),
-            ])
-        ),
+      S.divider(),
 
-      S.listItem()
-        .title("Services")
-        .child(
-          S.list()
-            .title("Services")
-            .items([
-              S.documentTypeListItem("standard").title("Standards"),
-              S.documentTypeListItem("testMethod").title("Test Methods"),
-              S.documentTypeListItem("sampleClass").title("Sample Classes"),
-              S.documentTypeListItem("labTest").title("Lab Tests"),
-              S.documentTypeListItem("fieldTest").title("Field Tests"),
-            ])
-        ),
-      S.documentTypeListItem("rfi").title("Requests for Information (RFIs)"),
+      //MAIN CONTENT 
+      S.documentTypeListItem("project").title("Projects").icon(ProjectsIcon),
+
+      S.documentTypeListItem("industry").title("Industries").icon(CaseIcon),
+
+      S.documentTypeListItem("expertise")
+        .title("Areas of Expertise")
+        .icon(BulbOutlineIcon),
+
+      S.divider(),
+
+      //PEOPLE & ORGANIZATIONS
+      S.documentTypeListItem("team").title("Team Members").icon(UsersIcon),
+
+      S.documentTypeListItem("client").title("Clients").icon(FolderIcon),
+
+      S.divider(),
+
+      // OTHER CONTENT TYPES 
+
+      ...S.documentTypeListItems().filter(
+        (listItem) =>
+          ![
+            "project",
+            "industry",
+            "expertise",
+            "team",
+            "client",
+            "aboutUs",
+          ].includes(listItem.getId()!)
+      ),
     ]);
+
+export { SINGLETON_TYPES };
