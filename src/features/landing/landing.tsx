@@ -1,7 +1,7 @@
 "use client";
 
 import { BackgroundImageSlideshow } from "./hero/background-image-slide-show";
-import { Navigation } from "./hero/navigation";
+import { Navigation } from "../../components/layout/navigation";
 import { HeroContent } from "./hero/hero-content";
 import { megaMenuData } from "./mega-menu/menu-data";
 import { SecondaryNav } from "./secondary-nav";
@@ -12,7 +12,6 @@ import { OrganisationSection } from "./organization-section";
 import { CareersSection } from "./careers-section";
 import { NewsSection } from "./news-section";
 import { HistorySection } from "./history-section";
-import { Footer } from "./footer";
 
 export default function Landing() {
   const navigationItems = [
@@ -184,7 +183,6 @@ export default function Landing() {
       <div id="history">
         <HistorySection />
       </div>
-      <Footer />
     </>
   );
 }

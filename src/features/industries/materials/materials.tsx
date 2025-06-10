@@ -2,13 +2,13 @@
 
 import { ContentSection } from "@/features/landing/content-section";
 import { BackgroundImage } from "@/features/landing/hero/background-image";
-import { Navigation } from "@/features/landing/hero/navigation";
+import { Navigation } from "@/components/layout/navigation";
 import { megaMenuData } from "@/features/landing/mega-menu/menu-data";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
 import { IndustryBanner } from "../industry-banner";
 import { ProjectsSection } from "@/features/landing/projects-section";
 import { CareersSection } from "@/features/landing/careers-section";
-import { Footer } from "@/features/landing/footer";
+
 import { HeroContent } from "../hero-content";
 import { IndustryLead } from "../industry-lead";
 import { IndustryView } from "../industry-view";
@@ -154,7 +154,6 @@ export default function Materials() {
       <div id="careers">
         <CareersSection />
       </div>
-      <Footer />
     </>
   );
 }

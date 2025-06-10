@@ -13,9 +13,9 @@ import {
   BriefcaseBusiness,
   DollarSign,
 } from "lucide-react";
-import { Navigation } from "../landing/hero/navigation";
+import { Navigation } from "../../components/layout/navigation";
 import { megaMenuData } from "../landing/mega-menu/menu-data";
-import { Footer } from "../landing/footer";
+import { Footer } from "../../components/layout/footer";
 import { NumericFormat } from "react-number-format";
 
 // Define the project stages
@@ -487,7 +487,6 @@ export function ProjectPage({ project }: ProjectPageProps) {
           </div>
         )}
       </div>
-      <Footer />
     </>
   );
 }

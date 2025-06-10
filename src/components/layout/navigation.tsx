@@ -5,8 +5,8 @@ import Link from "next/link";
 import { Search, User, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MegaMenu } from "../mega-menu/mega-menu";
-import type { MegaMenuData } from "../mega-menu/menu-data";
+import { MegaMenu } from "../../features/landing/mega-menu/mega-menu";
+import type { MegaMenuData } from "../../features/landing/mega-menu/menu-data";
 import Image from "next/image";
 
 interface NavigationItem {

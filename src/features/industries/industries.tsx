@@ -2,10 +2,9 @@
 
 import { CareersSection } from "../landing/careers-section";
 import { ContentSection } from "../landing/content-section";
-import { Footer } from "../landing/footer";
 import { BackgroundImage } from "../landing/hero/background-image";
 import { HeroContent } from "./hero-content";
-import { Navigation } from "../landing/hero/navigation";
+import { Navigation } from "../../components/layout/navigation";
 import { megaMenuData } from "../landing/mega-menu/menu-data";
 import { ProjectsSection } from "../landing/projects-section";
 import { SecondaryNav } from "../landing/secondary-nav";

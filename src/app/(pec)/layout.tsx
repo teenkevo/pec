@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/footer";
 import { Metadata } from "next";
 
 //TODO: work on per page metadata below, this layout is shared
@@ -12,5 +13,10 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  return <main>{children}</main>;
+  return (
+    <main>
+      {children}
+      <Footer />
+    </main>
+  );
 }

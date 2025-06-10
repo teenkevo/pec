@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { Header } from "@/features/landing/header";
 import Landing from "@/features/landing/landing";
 
 export const metadata: Metadata = {
