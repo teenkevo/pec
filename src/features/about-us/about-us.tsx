@@ -3,7 +3,6 @@
 import { ContentSection } from "@/features/landing/content-section";
 import { BackgroundImage } from "@/features/landing/hero/background-image";
 import { Navigation } from "@/components/layout/navigation";
-import { megaMenuData } from "@/features/landing/mega-menu/menu-data";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
 import { ProjectsSection } from "@/features/landing/projects-section";
 import { CareersSection } from "@/features/landing/careers-section";
@@ -36,7 +35,7 @@ export default function AboutUs() {
         {/* Navigation and Content */}
 
         <Navigation
-          megaMenuData={megaMenuData}
+  
         />
         <HeroContent
           title="A leading engineering consultancy in Uganda "

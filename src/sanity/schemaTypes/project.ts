@@ -1,11 +1,11 @@
 import { defineField, defineType } from "sanity";
 
 const PROJECT_PHASES = [
-  { value: "planning", title: "01 Planning, feasibility, conceptual design" },
-  { value: "design", title: "02 Design" },
-  { value: "construction", title: "03 Construction" },
-  { value: "operations", title: "04 Operations and maintenance" },
-  { value: "decommissioning", title: "05 Decommissioning" },
+  { value: "planning", title: "Planning, feasibility, conceptual design" },
+  { value: "design", title: "Design" },
+  { value: "construction", title: "Construction" },
+  { value: "operations", title: "Operations and maintenance" },
+  { value: "decommissioning", title: "Decommissioning" },
 ];
 
 export const project = defineType({
@@ -26,6 +26,15 @@ export const project = defineType({
       options: {
         source: "title",
         maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "mainImage",
+      title: "Main Project Image",
+      type: "image",
+      options: {
+        hotspot: true,
       },
       validation: (Rule) => Rule.required(),
     }),
@@ -54,6 +63,37 @@ export const project = defineType({
       description: "Example: EUR 1,036,918.17",
     }),
     defineField({
+      name: "location",
+      title: "Project Location",
+      type: "object",
+      fields: [
+        defineField({
+          name: "country",
+          title: "Country",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "city",
+          title: "City",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+      preview: {
+        select: {
+          country: "country",
+          city: "city",
+        },
+        prepare({ country, city }) {
+          return {
+            title: `${city}, ${country}`,
+            subtitle: "Project Location",
+          };
+        },
+      },
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",
@@ -70,12 +110,12 @@ export const project = defineType({
     }),
     defineField({
       name: "images",
-      title: "Main Project Gallery",
+      title: "Project Gallery",
+      description: "Additional project images (maximum 4)",
       type: "array",
       of: [{ type: "galleryImage" }],
+      validation: (Rule) => Rule.max(4).error("Maximum 4 images allowed"),
     }),
-
-
     defineField({
       name: "involvedPhases",
       title: "Project Phases We Were Involved In",
@@ -104,38 +144,8 @@ export const project = defineType({
               type: "array",
               of: [
                 {
-                  type: "object",
-                  fields: [
-                    defineField({
-                      name: "expertise",
-                      title: "Expertise",
-                      type: "reference",
-                      to: [{ type: "expertise" }],
-                      validation: (Rule) => Rule.required(),
-                    }),
-                    defineField({
-                      name: "images",
-                      title: "Work Images for This Expertise",
-                      description:
-                        "Images showing this expertise being applied in this phase.",
-                      type: "array",
-                      of: [{ type: "galleryImage" }],
-                    }),
-                  ],
-                  preview: {
-                    select: {
-                      title: "expertise.title",
-                      subtitle: "images.length",
-                      media: "images[0].image",
-                    },
-                    prepare({ title, subtitle, media }) {
-                      return {
-                        title: title || "Untitled Expertise",
-                        subtitle: subtitle ? `${subtitle} images` : "No images",
-                        media,
-                      };
-                    },
-                  },
+                  type: "reference",
+                  to: [{ type: "expertise" }],
                 },
               ],
               validation: (Rule) =>
@@ -167,7 +177,7 @@ export const project = defineType({
     select: {
       title: "title",
       subtitle: "client.name",
-      media: "images[0].image",
+      media: "mainImage",
     },
   },
 });

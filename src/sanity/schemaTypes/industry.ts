@@ -12,6 +12,16 @@ export const industry = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "subtitle",
       title: "Subtitle",
       type: "string",
@@ -27,29 +37,41 @@ export const industry = defineType({
     defineField({
       name: "ourView",
       title: "Our View",
-      type: "text",
-    }),
-    defineField({
-      name: "author",
-      title: "Author",
-      type: "reference",
-      to: [{ type: "team" }],
+      type: "object",
+      fields: [
+        defineField({
+          name: "content",
+          title: "Our View Content",
+          type: "text",
+          description: "The main content describing your view on this industry",
+        }),
+        defineField({
+          name: "author",
+          title: "Author",
+          type: "reference",
+          to: [{ type: "team" }],
+          description: "Team member who represents this view",
+        }),
+      ],
+      preview: {
+        select: {
+          content: "content",
+          authorName: "author.name",
+        },
+        prepare(selection) {
+          const { content, authorName } = selection;
+          return {
+            title: content ? `${content.substring(0, 50)}...` : "Our View",
+            subtitle: authorName ? `By ${authorName}` : "No author selected",
+          };
+        },
+      },
     }),
     defineField({
       name: "featuredProject",
       title: "Featured Project",
       type: "reference",
       to: [{ type: "project" }],
-    }),
-    defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

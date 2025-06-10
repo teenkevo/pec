@@ -3,7 +3,6 @@
 import { ContentSection } from "@/features/landing/content-section";
 import { BackgroundImage } from "@/features/landing/hero/background-image";
 import { Navigation } from "@/components/layout/navigation";
-import { megaMenuData } from "@/features/landing/mega-menu/menu-data";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
 import { ProjectsSection } from "@/features/landing/projects-section";
 import { CareersSection } from "@/features/landing/careers-section";
@@ -17,7 +16,6 @@ import { ValuesSection } from "../about-us/values";
 import { AreasOfExpertise } from "./areas-of-expertise";
 
 export default function Expertise() {
-
   const secondaryNavigationItems = [
     { label: "Areas of expertise", href: "#areas-of-expertise" },
     { label: "Publications", href: "#publications" },
@@ -34,9 +32,7 @@ export default function Expertise() {
 
         {/* Navigation and Content */}
 
-        <Navigation
-          megaMenuData={megaMenuData}
-        />
+        <Navigation />
         <HeroContent
           title="PEC: An all-round quality civil engineering consultancy"
           page="Expertise"

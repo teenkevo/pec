@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { QueryProvider } from "@/components/query-provider";
 import { SanityLive } from "@/sanity/lib/live";
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "./_loading";
 import ScrollToTop from "@/components/scroll-to-top";
 
 export const metadata: Metadata = {
@@ -29,13 +29,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`${spaceGrotesk.className} antialiased`}>
-        <Suspense fallback={<Loading />}>
-          <QueryProvider>
-            <ScrollToTop />
-            {children}
-            <SanityLive />
-          </QueryProvider>
-        </Suspense>
+        {/* <Suspense fallback={<Loading />}>
+          <QueryProvider> */}
+        <ScrollToTop />
+        {children}
+        <SanityLive />
+        {/* </QueryProvider>
+        </Suspense> */}
         <Toaster />
       </body>
     </html>

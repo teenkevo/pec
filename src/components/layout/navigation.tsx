@@ -1,13 +1,15 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
+
 import { Search, User, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
 import { Button } from "@/components/ui/button";
-import { MegaMenu } from "../../features/landing/mega-menu/mega-menu";
-import type { MegaMenuData } from "../../features/landing/mega-menu/menu-data";
-import Image from "next/image";
+import { MegaMenu } from "@/features/landing/mega-menu/mega-menu";
+import { megaMenuData, type MegaMenuData } from "@/features/landing/mega-menu/menu-data";
 
 interface NavigationItem {
   label: string;
@@ -29,7 +31,7 @@ interface NavigationProps {
   megaMenuData: MegaMenuData;
 }
 
-export function Navigation({ megaMenuData }: NavigationProps) {
+export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isNavbarWhite, setIsNavbarWhite] = useState(false);
@@ -39,7 +41,7 @@ export function Navigation({ megaMenuData }: NavigationProps) {
   // Handle mouse enter on navigation item
   const handleMouseEnter = (key: string) => {
     // Only store scroll position when first opening the menu
-    if (!activeMenu) {
+    if (!activeMenu && typeof window !== "undefined") {
       scrollPositionRef.current = window.scrollY;
     }
     setActiveMenu(key);
@@ -54,6 +56,8 @@ export function Navigation({ megaMenuData }: NavigationProps) {
 
   // Disable/enable scrolling when mega menu is open/closed
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     const disableScroll = () => {
       // Add styles to body to prevent scrolling
       document.body.style.overflow = "hidden";
@@ -79,13 +83,11 @@ export function Navigation({ megaMenuData }: NavigationProps) {
 
     // Cleanup function to ensure scrolling is re-enabled
     return () => {
-      if (document.body.style.position === "fixed") {
+      if (typeof window !== "undefined" && document.body.style.position === "fixed") {
         enableScroll();
       }
     };
   }, [activeMenu]);
-
-  console.log(activeMenu)
 
   return (
     <div className="relative" onMouseLeave={handleMouseLeave} ref={navRef}>
