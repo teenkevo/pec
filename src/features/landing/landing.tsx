@@ -14,15 +14,6 @@ import { NewsSection } from "./news-section";
 import { HistorySection } from "./history-section";
 
 export default function Landing() {
-  const navigationItems = [
-    { label: "Industries", href: "/industries", key: "industries" },
-    { label: "Expertise", href: "/expertise", key: "expertise" },
-    { label: "Projects", href: "/projects", key: "projects" },
-    { label: "Clients", href: "/clients", key: "clients" },
-    { label: "About us", href: "/about-us", key: "about-us" },
-    { label: "Careers", href: "/careers", key: "careers" },
-    { label: "News", href: "/news", key: "news" },
-  ];
 
   const secondaryNavigationItems = [
     { label: "What we do", href: "#what-we-do" },
@@ -136,7 +127,6 @@ export default function Landing() {
         {/* Navigation and Content */}
 
         <Navigation
-          navigationItems={navigationItems}
           megaMenuData={megaMenuData}
         />
         <HeroContent slides={heroSlides} />

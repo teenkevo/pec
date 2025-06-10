@@ -74,15 +74,6 @@ export function ProjectPage({ project }: ProjectPageProps) {
     "Decommissioning",
   ];
 
-  const navigationItems = [
-    { label: "Industries", href: "/industries", key: "industries" },
-    { label: "Expertise", href: "/expertise", key: "expertise" },
-    { label: "Projects", href: "/projects", key: "projects" },
-    { label: "Clients", href: "/clients", key: "clients" },
-    { label: "About us", href: "/about-us", key: "about-us" },
-    { label: "Careers", href: "/careers", key: "careers" },
-    { label: "News", href: "/news", key: "news" },
-  ];
 
   // State for the expertise sheet
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -127,7 +118,6 @@ export function ProjectPage({ project }: ProjectPageProps) {
     <>
       <div className="relative w-full bg-black">
         <Navigation
-          navigationItems={navigationItems}
           megaMenuData={megaMenuData}
         />
       </div>

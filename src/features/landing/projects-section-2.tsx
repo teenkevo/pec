@@ -36,6 +36,7 @@ export function ProjectsSection2({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+     
           {/* Left Card */}
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-1 gap-6">
             {nonFeaturedProjects[0] && (

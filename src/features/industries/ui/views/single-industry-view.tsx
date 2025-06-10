@@ -5,19 +5,17 @@ import { BackgroundImage } from "@/features/landing/hero/background-image";
 import { Navigation } from "@/components/layout/navigation";
 import { megaMenuData } from "@/features/landing/mega-menu/menu-data";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
-import { IndustryBanner } from "../industry-banner";
 import { ProjectsSection } from "@/features/landing/projects-section";
 import { CareersSection } from "@/features/landing/careers-section";
-import { HeroContent } from "../hero-content";
-import { IndustryLead } from "../industry-lead";
-import { IndustryView } from "../industry-view";
-import { IndustryTopProjectBanner } from "../industry-top-project-banner";
+import { HeroContent } from "../../hero-content";
+import { IndustryView } from "../../industry-view";
+import { IndustryTopProjectBanner } from "../../industry-top-project-banner";
 import { ProjectsSection2 } from "@/features/landing/projects-section-2";
 import { NewsSection } from "@/features/landing/news-section";
-import { TechnicalPapers } from "../industry-technical-papers";
-import { IndustryContactSection } from "../industry-contact";
+import { TechnicalPapers } from "../../industry-technical-papers";
+import { IndustryContactSection } from "../../industry-contact";
 
-export default function Structures() {
+export function SingleIndustryView() {
 
   const secondaryNavigationItems = [
     { label: "Our view", href: "#our-view" },
@@ -28,7 +26,7 @@ export default function Structures() {
 
   // Content for the "What we do" section
   const ourView =
-    "In regions like Uganda, where rapid development meets diverse environmental conditions, structural integrity is key to long-lasting infrastructure. Our structural engineering team combines technical expertise with practical insights to deliver safe, efficient, and resilient designs. We assess materials, account for environmental challenges, and apply innovative solutions to ensure each structure stands strong for years to come.";
+    "Efficient and reliable transportation networks are vital for economic growth and community well-being. As urbanisation accelerates and mobility demands increase, the need for sustainable, innovative transport solutions has never been greater. At PEC we are committed to shaping the future of transportation by delivering sustainable infrastructure that connects people, businesses, and communities";
 
   // Define the case studies data
   const projects = [
@@ -69,7 +67,7 @@ export default function Structures() {
       <div className="relative h-[60vh] md:h-[90vh] w-full">
         {/* Background Image with Gradient Overlays */}
         <BackgroundImage
-          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1742339703/DJI_0013-UG_1_wrmkeg.webp"
+          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
           alt="Ocean view with offshore structures"
         />
 
@@ -79,8 +77,8 @@ export default function Structures() {
           megaMenuData={megaMenuData}
         />
         <HeroContent
-          title="Designing strong, safe and resilient structures"
-          industry="Structures"
+          title="Connecting cities and communities with reliable transportation corridors"
+          industry="Transport"
         />
       </div>
       <SecondaryNav
@@ -91,33 +89,39 @@ export default function Structures() {
       <div id="our-view">
         <IndustryView
           id="our-view"
-          heading="Our view on structures"
+          heading="Our view on transport"
           content={ourView}
           linkText="Read about our purpose"
           linkUrl="/about-us/what-we-do"
-          industryLeadTitle="Industry lead - Structures"
+          industryLeadTitle="Industry lead - Transport"
           industryLeadImageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_56/v1742405809/elizeu-dias-2EGNqazbAMk-unsplash_ofwryg.webp"
-          industryLeadName="Dr. Sam Bulolo"
+          industryLeadName="Eng. Bakaki Charles"
         />
       </div>
-      <div id="water" className="px-4 md:px-14">
+      <div id="transport" className="px-4 md:px-14">
         <IndustryTopProjectBanner
-          industry="Structures"
-          description="Engineering supervision of construction works for Bugologi sewerage treatment plant"
-          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_57/v1742414942/ivan-bandura-Ac97OqAWDvg-unsplash_nfb7zo.webp"
+          industry="Transport"
+          description="Consultancy services for the emergency reconstruction of Ssezibwa bridge"
+          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_60/v1742411220/alexander-schimmeck-VWDwCIITqO8-unsplash_q3qrdk.webp"
           iconText="View project"
         />
       </div>
       <div id="projects">
         <ProjectsSection
           projects={projects}
-          title="Water projects"
+          title="Transport projects"
           linkText="Explore all"
         />
       </div>
+      <div id="projects">
+        <ProjectsSection2
+          projects={projects}
+          title="Transport projects"
+          linkText="All transport projects"
+        />
+      </div>
       {/* Divider */}
-      <div className="border-t border-gray-200 mt-10"></div>
-
+      <div className="border-t border-gray-200 mt-20"></div>
       <div id="publications">
         <TechnicalPapers />
       </div>
@@ -129,12 +133,12 @@ export default function Structures() {
       <div className="border-t border-gray-200 mt-10"></div>
       <div id="contact">
         <IndustryContactSection
-          industry="Water"
+          industry="Transport"
           contactPerson={{
-            title: "Industry lead - Water",
+            title: "Industry lead - Tranport",
             imageUrl:
               "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_56/v1742405809/elizeu-dias-2EGNqazbAMk-unsplash_ofwryg.webp",
-            name: "Eng. Thomas Isanga",
+            name: "Eng. Bakaki Charles",
           }}
         />
       </div>

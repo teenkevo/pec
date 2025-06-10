@@ -16,15 +16,6 @@ import { GraphicSection } from "./graphic-section";
 import { ValuesSection } from "./values";
 
 export default function AboutUs() {
-  const navigationItems = [
-    { label: "Industries", href: "/industries", key: "industries" },
-    { label: "Expertise", href: "/expertise", key: "expertise" },
-    { label: "Projects", href: "/projects", key: "projects" },
-    { label: "Clients", href: "/clients", key: "clients" },
-    { label: "About us", href: "/about-us", key: "about-us" },
-    { label: "Careers", href: "/careers", key: "careers" },
-    { label: "News", href: "/news", key: "news" },
-  ];
 
   const secondaryNavigationItems = [
     { label: "What we do", href: "#what-we-do" },
@@ -45,7 +36,6 @@ export default function AboutUs() {
         {/* Navigation and Content */}
 
         <Navigation
-          navigationItems={navigationItems}
           megaMenuData={megaMenuData}
         />
         <HeroContent

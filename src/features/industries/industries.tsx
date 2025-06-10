@@ -11,15 +11,6 @@ import { SecondaryNav } from "../landing/secondary-nav";
 import { IndustryBanner } from "./industry-banner";
 
 export default function Landing() {
-  const navigationItems = [
-    { label: "Industries", href: "/industries", key: "industries" },
-    { label: "Expertise", href: "/expertise", key: "expertise" },
-    { label: "Projects", href: "/projects", key: "projects" },
-    { label: "Clients", href: "/clients", key: "clients" },
-    { label: "About us", href: "/about-us", key: "about-us" },
-    { label: "Careers", href: "/careers", key: "careers" },
-    { label: "News", href: "/news", key: "news" },
-  ];
 
   const secondaryNavigationItems = [
     { label: "Introduction", href: "#introduction" },
@@ -77,7 +68,6 @@ export default function Landing() {
         {/* Navigation and Content */}
 
         <Navigation
-          navigationItems={navigationItems}
           megaMenuData={megaMenuData}
         />
         <HeroContent title="Our industries of specialization" />
@@ -175,7 +165,6 @@ export default function Landing() {
       <div id="careers">
         <CareersSection />
       </div>
-      <Footer />
     </>
   );
 }

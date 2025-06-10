@@ -15,12 +15,21 @@ interface NavigationItem {
   key: string;
 }
 
+const navigationItems: NavigationItem[] = [
+  { label: "Industries", href: "/industries", key: "industries" },
+  { label: "Expertise", href: "/expertise", key: "expertise" },
+  { label: "Projects", href: "/projects", key: "projects" },
+  { label: "Clients", href: "/clients", key: "clients" },
+  { label: "About us", href: "/about-us", key: "about-us" },
+  { label: "Careers", href: "/careers", key: "careers" },
+  { label: "News", href: "/news", key: "news" },
+];
+
 interface NavigationProps {
-  navigationItems: NavigationItem[];
   megaMenuData: MegaMenuData;
 }
 
-export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
+export function Navigation({ megaMenuData }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isNavbarWhite, setIsNavbarWhite] = useState(false);
@@ -75,6 +84,8 @@ export function Navigation({ navigationItems, megaMenuData }: NavigationProps) {
       }
     };
   }, [activeMenu]);
+
+  console.log(activeMenu)
 
   return (
     <div className="relative" onMouseLeave={handleMouseLeave} ref={navRef}>
