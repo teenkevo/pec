@@ -14,7 +14,7 @@ import { NewsSection } from "@/features/landing/news-section";
 import { TechnicalPapers } from "../../industry-technical-papers";
 import { IndustryContactSection } from "../../industry-contact";
 import { PROJECT_TYPE, SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
-import { projects as mockProjects } from "@/lib/mock";
+
 import { urlFor } from "@/sanity/lib/image";
 
 interface Props {
@@ -81,7 +81,7 @@ export function SingleIndustryView({
           iconText="View project"
         />
       </div>
-      {/* <div id="projects">
+      <div id="projects">
         <ProjectsSection
           projects={projects}
           title="Transport projects"
@@ -94,7 +94,7 @@ export function SingleIndustryView({
           title="Transport projects"
           linkText="All transport projects"
         />
-      </div> */}
+      </div>
       {/* Divider */}
       <div className="border-t border-gray-200 mt-20"></div>
       <div id="publications">

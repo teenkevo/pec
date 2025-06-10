@@ -4,17 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { PROJECT_TYPE } from "../industries/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 interface ProjectsSectionProps {
-  projects: Array<{
-    id: string;
-    title: string;
-    image?: string;
-    industry: string;
-    location: string;
-    // TODO: Allow multiple projects to be featured and possibly schedule the change timing
-    featured: boolean;
-  }>;
+  projects: PROJECT_TYPE[];
   title: string;
   linkText: string;
 }
@@ -24,9 +18,6 @@ export function ProjectsSection({
   title,
   linkText,
 }: ProjectsSectionProps) {
-  // Check if there are any featured projects
-  const hasFeaturedProjects = projects.some((project) => project.featured);
-
   return (
     <section className="md:py-16 py-5">
       <div className="mx-auto px-4 md:px-14">
@@ -55,7 +46,7 @@ export function ProjectsSection({
           {/* Regular Case Studies (Right) */}
           <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <div key={project.id}>
+              <div key={project.slug}>
                 <Link href={`/project`} className="block group">
                   <motion.div
                     className="relative aspect-[4/3] w-full"
@@ -64,22 +55,28 @@ export function ProjectsSection({
                   >
                     <div className="relative aspect-[4/3] w-full">
                       <Image
-                        src={project.image || "/placeholder.svg"}
+                        src={
+                          urlFor(project.mainImage).url() || "/placeholder.svg"
+                        }
                         alt={project.title}
                         fill
                         className="object-cover"
                       />
                     </div>
                     <div className="mt-4">
-                      <span className="flex items-center text-sm text-gray-600 tracking-tight">
+                      <Link
+                        href={`industries/${project.industry.slug}`}
+                        className="flex items-center text-sm text-gray-600 tracking-tight"
+                      >
                         <div className="w-2 h-2 bg-gray-300 font-bold mr-4"></div>
-                        {project.industry}
-                      </span>
+                        {project.industry.title}
+                      </Link>
                       <h3 className="text-xl tracking-tight font-bold line-clamp-4 text-gray-900 mt-1">
                         {project.title}
                       </h3>
                       <p className="text-xs text-black mt-1">
-                        {project.location}
+                        <span>{project.location.city}</span>
+                        <span>{project.location.country}</span>
                       </p>
                     </div>
                   </motion.div>

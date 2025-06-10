@@ -36,6 +36,10 @@ export const INDUSTRY_PROJECTS_QUERY = `
     location {
       country,
       city
+    },
+    industry-> {
+      title,
+      "slug": slug.current
     }
   }
 `;
@@ -50,7 +54,7 @@ export type SINGLE_INDUSTRY_RESULT = {
     author: {
       name: string;
       image: SanityAsset;
-      role:string
+      role: string;
     };
   };
   featuredProject: {
@@ -72,5 +76,9 @@ export type PROJECT_TYPE = {
   location: {
     country: string;
     city: string;
+  };
+  industry: {
+    title: string;
+    slug: string;
   };
 };
