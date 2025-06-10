@@ -44,6 +44,7 @@ export default async function Page({ params }: Props) {
   });
 
   return (
+    //TODO: ADD AN ACTUAL LOADING COMPONENT
     <Suspense fallback={<p>Loading...data</p>}>
       <SingleIndustryView industry={industry} projects={projects} />
     </Suspense>
