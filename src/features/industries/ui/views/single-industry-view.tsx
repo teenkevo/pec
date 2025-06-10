@@ -83,14 +83,14 @@ export function SingleIndustryView({
       </div>
       <div id="projects">
         <ProjectsSection
-          projects={projects}
+          projects={projects.slice(0,3)}
           title="Transport projects"
           linkText="Explore all"
         />
       </div>
       <div id="projects">
         <ProjectsSection2
-          projects={projects}
+          projects={projects.slice(3,6)}
           title="Transport projects"
           linkText="All transport projects"
         />

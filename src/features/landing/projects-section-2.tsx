@@ -4,16 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { PROJECT_TYPE } from "../industries/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 interface ProjectsSectionProps {
-  projects: Array<{
-    id: string;
-    title: string;
-    image?: string;
-    industry: string;
-    location: string;
-    featured: boolean;
-  }>;
+  projects: PROJECT_TYPE[];
   title: string;
   linkText: string;
 }
@@ -23,8 +18,9 @@ export function ProjectsSection2({
   title,
   linkText,
 }: ProjectsSectionProps) {
-  const featuredProject = projects.find((project) => project.featured);
-  const nonFeaturedProjects = projects.filter((project) => !project.featured);
+  const [projectA, featuredProject, projectB] = projects;
+  // const featuredProject = projects.find((project) => project.featured);
+  // const nonFeaturedProjects = projects.filter((project) => !project.featured);
   return (
     <section>
       <div className="mx-auto px-4 md:px-14">
@@ -36,12 +32,11 @@ export function ProjectsSection2({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-     
           {/* Left Card */}
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-1 gap-6">
-            {nonFeaturedProjects[0] && (
+            {projectA && (
               <Link
-                href={`/case-studies/${nonFeaturedProjects[0].id}`}
+                href={`/case-studies/${projects[0].slug}`}
                 className="block group"
               >
                 <motion.div
@@ -51,21 +46,27 @@ export function ProjectsSection2({
                 >
                   <div className="relative aspect-[4/3] w-full">
                     <Image
-                      src={nonFeaturedProjects[0].image || "/placeholder.svg"}
-                      alt={nonFeaturedProjects[0].title}
+                      src={
+                        urlFor(projectA.mainImage).url() || "/placeholder.svg"
+                      }
+                      alt={projectA.title}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="mt-4">
-                    <span className="text-sm text-gray-500">
-                      {nonFeaturedProjects[0].industry}
-                    </span>
+                    <Link
+                      href={`/industries/${projectA.industry.slug}`}
+                      className="text-sm text-gray-500"
+                    >
+                      {projectA.industry.title}
+                    </Link>
                     <h3 className="text-xl font-bold text-gray-900 mt-1">
-                      {nonFeaturedProjects[0].title}
+                      {projectA.title}
                     </h3>
                     <p className="text-xs text-black mt-1">
-                      {nonFeaturedProjects[0].location}
+                      <span> {projectA.location.city}</span>,{" "}
+                      <span> {projectA.location.country}</span>
                     </p>
                   </div>
                 </motion.div>
@@ -76,10 +77,9 @@ export function ProjectsSection2({
           </div>
           {/* Featured Case Study (Left) */}
           <div className="lg:col-span-6">
-            {featuredProject && (
+            {projects[1] && (
               <Link
-                key={featuredProject.id}
-                href={`/case-studies/${featuredProject.id}`}
+                href={`/case-studies/${featuredProject.slug}`}
                 className="block group"
               >
                 <motion.div
@@ -89,21 +89,27 @@ export function ProjectsSection2({
                 >
                   <div className="relative aspect-[4/3] w-full">
                     <Image
-                      src={featuredProject.image || "/placeholder.svg"}
+                      src={
+                        urlFor(featuredProject.mainImage).url() ||
+                        "/placeholder.svg"
+                      }
                       alt={featuredProject.title}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="mt-4">
-                    <span className="text-sm text-gray-500">
-                      {featuredProject.industry}
-                    </span>
+                    <Link href={featuredProject.industry.slug}>
+                      <span className="text-sm text-gray-500">
+                        {featuredProject.industry.title}
+                      </span>
+                    </Link>
                     <h3 className="text-2xl font-bold text-gray-900 mt-1">
                       {featuredProject.title}
                     </h3>
                     <p className="text-xs text-black mt-1">
-                      {featuredProject.location}
+                      <span> {featuredProject.location.city}</span>,{" "}
+                      <span> {featuredProject.location.country}</span>
                     </p>
                   </div>
                 </motion.div>
@@ -115,9 +121,9 @@ export function ProjectsSection2({
 
           {/* Left Card */}
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-1 gap-6">
-            {nonFeaturedProjects[1] && (
+            {projectB && (
               <Link
-                href={`/case-studies/${nonFeaturedProjects[1].id}`}
+                href={`/case-studies/${projectB.slug}`}
                 className="block group"
               >
                 <motion.div
@@ -127,21 +133,26 @@ export function ProjectsSection2({
                 >
                   <div className="relative aspect-[4/3] w-full">
                     <Image
-                      src={nonFeaturedProjects[1].image || "/placeholder.svg"}
-                      alt={nonFeaturedProjects[1].title}
+                      src={
+                        urlFor(projectB.mainImage).url() || "/placeholder.svg"
+                      }
+                      alt={projectB.title}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="mt-4">
-                    <span className="text-sm text-gray-500">
-                      {nonFeaturedProjects[1].industry}
-                    </span>
+                    <Link href={projectB.industry.slug}>
+                      <span className="text-sm text-gray-500">
+                        {projectB.industry.title}
+                      </span>
+                    </Link>
                     <h3 className="text-xl font-bold text-gray-900 mt-1">
-                      {nonFeaturedProjects[1].title}
+                      {projectB.title}
                     </h3>
                     <p className="text-xs text-black mt-1">
-                      {nonFeaturedProjects[1].location}
+                      <span> {featuredProject.location.city}</span>,{" "}
+                      <span> {featuredProject.location.country}</span>
                     </p>
                   </div>
                 </motion.div>
