@@ -1,6 +1,7 @@
 import {
   PROJECT_TYPE,
   SINGLE_INDUSTRY_QUERY,
+  INDUSTRY_PROJECTS_QUERY,
   SINGLE_INDUSTRY_RESULT,
 } from "@/features/industries/lib/queries";
 import { SingleIndustryView } from "@/features/industries/ui/views/single-industry-view";
@@ -35,7 +36,7 @@ export default async function Page({ params }: Props) {
   }: {
     data: PROJECT_TYPE[];
   } = await sanityFetch({
-    query: SINGLE_INDUSTRY_QUERY,
+    query: INDUSTRY_PROJECTS_QUERY,
     params: {
       slug,
       featuredProjectId: industry.featuredProject._id,
