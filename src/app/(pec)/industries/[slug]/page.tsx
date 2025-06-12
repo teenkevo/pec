@@ -11,7 +11,6 @@ import { SingleIndustryView } from "@/features/industries/ui/views/single-indust
 import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 
-
 interface Props {
   params: Promise<{ slug: string }>;
 }
