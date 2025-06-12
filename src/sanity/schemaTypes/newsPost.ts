@@ -58,7 +58,7 @@ export default defineType({
           { title: "News", value: "news" },
           { title: "Insights", value: "insights" },
           { title: "Press Release", value: "press" },
-          { title: "Analysis", value: "analysis" },
+          { title: "Event", value: "event" },
         ],
       },
       validation: (Rule) => Rule.required(),
