@@ -14,7 +14,6 @@ import { NewsSection } from "./news-section";
 import { HistorySection } from "./history-section";
 
 export default function Landing() {
-
   const secondaryNavigationItems = [
     { label: "What we do", href: "#what-we-do" },
     { label: "Our industries", href: "#industries" },
@@ -126,9 +125,7 @@ export default function Landing() {
 
         {/* Navigation and Content */}
 
-        <Navigation
-          megaMenuData={megaMenuData}
-        />
+        <Navigation />
         <HeroContent slides={heroSlides} />
       </div>
       <SecondaryNav

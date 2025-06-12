@@ -1,3 +1,4 @@
+import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
 export const SINGLE_INDUSTRY_QUERY = `
@@ -22,6 +23,10 @@ export const SINGLE_INDUSTRY_QUERY = `
       location {
         country,
         city
+      },
+      industry-> {
+      title,
+      "slug": slug.current
       }
     }
   }
@@ -57,28 +62,5 @@ export type SINGLE_INDUSTRY_RESULT = {
       role: string;
     };
   };
-  featuredProject: {
-    _id: string;
-    title: string;
-    slug: string;
-    mainImage: SanityAsset;
-    location: {
-      country: string;
-      city: string;
-    };
-  };
-};
-
-export type PROJECT_TYPE = {
-  title: string;
-  slug: string;
-  mainImage: SanityAsset;
-  location: {
-    country: string;
-    city: string;
-  };
-  industry: {
-    title: string;
-    slug: string;
-  };
+  featuredProject: PROJECT_TYPE;
 };
