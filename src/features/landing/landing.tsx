@@ -11,8 +11,15 @@ import { OrganisationSection } from "./organization-section";
 import { CareersSection } from "./careers-section";
 import { NewsSection } from "./news-section";
 import { HistorySection } from "./history-section";
+import { PROJECT_TYPE } from "../projects/lib/queries";
+import { INDUSTRIES } from "../industries/lib/queries";
 
-export default function Landing() {
+interface Props{
+  projects:PROJECT_TYPE[]
+  industries: INDUSTRIES
+}
+
+export default function Landing({projects,industries}:Props) {
   const secondaryNavigationItems = [
     { label: "What we do", href: "#what-we-do" },
     { label: "Our industries", href: "#industries" },
@@ -28,38 +35,7 @@ export default function Landing() {
     "Professional Engineering Consultants (PEC) is a limited liability Company, established in Uganda in 2008 by a team of six (6) extensively skilled practicing consulting professionals. Since then, PEC has grown into one of the leading design, engineering and project management consultancies in Uganda, with an establishment of more than 50 staff some of whom have joined its shareholding. PEC’s success is as a result of the firm’s deliberate emphasis on professionalism, quality services and customer satisfaction.";
 
   // Define the case studies data
-  const projects = [
-    {
-      id: "river-basin",
-      title:
-        "Consultancy Services for the Design Review and Construction Supervision for the Capacity Improvement of the Kampala Northern Bypass – Phase 2 (17.5 Km)",
-      image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
-      location: "Kampala, Uganda",
-      featured: false,
-      industry: "Transport",
-    },
-    {
-      id: "pipeline-surveys",
-      title:
-        "Geotechnical Investigations Along the EACOP Pipeline (MLBV/LLHT) Substations",
-      image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_62/v1726663404/IMG_20240821_145954_2_uozsb8.webp",
-      location: "Rakai, Uganda",
-      featured: false,
-      industry: "Materials and Geotechnics",
-    },
-    {
-      id: "seismic-refraction",
-      title:
-        "Design review and Construction Supervision of Walukuba Market in Buliisa District under World Bank funded Albertine Region Sustainable Development Project (ARSDP)",
-      image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742858084/Picture_1_fyqvib.webp",
-      location: "Fortportal, Uganda",
-      featured: false,
-      industry: "Structures",
-    },
-  ];
+
 
   const heroSlides = [
     {

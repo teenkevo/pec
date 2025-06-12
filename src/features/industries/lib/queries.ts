@@ -61,6 +61,15 @@ export const INDUSTRY_PROJECTS_QUERY = `
   }
 `;
 
+export type INDUSTRIES = {
+  _id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  slug: string;
+  mainImage: SanityAsset;
+};
+
 export type SINGLE_INDUSTRY_RESULT = {
   title: string;
   subtitle: string;
