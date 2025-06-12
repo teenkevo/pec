@@ -27,6 +27,12 @@ export const industry = defineType({
       type: "string",
     }),
     defineField({
+      name: "description",
+      title: "Short Description",
+      type: "text",
+      validation: (Rule) => Rule.max(120),
+    }),
+    defineField({
       name: "mainImage",
       title: "Main Image",
       type: "image",

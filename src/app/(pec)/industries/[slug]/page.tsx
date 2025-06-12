@@ -1,10 +1,10 @@
 import {
-  PROJECT_TYPE,
   SINGLE_INDUSTRY_QUERY,
   INDUSTRY_PROJECTS_QUERY,
   SINGLE_INDUSTRY_RESULT,
 } from "@/features/industries/lib/queries";
 import { SingleIndustryView } from "@/features/industries/ui/views/single-industry-view";
+import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";

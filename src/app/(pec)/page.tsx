@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import Landing from "@/features/landing/landing";
-import { sanityFetch} from "@/sanity/lib/live";
+import { sanityFetch } from "@/sanity/lib/live";
 import { TOP_PROJECTS_QUERY } from "@/features/projects/lib/queries";
+import { Suspense } from "react";
+import { ALL_INDUSTRY_QUERY } from "@/features/industries/lib/queries";
 
 export const metadata: Metadata = {
   title: "Professional Engineering Consultants (PEC) Limited",
@@ -20,10 +22,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Page() {
+const getHomeData = async ()=>{
   const { data } = await sanityFetch({
     query: TOP_PROJECTS_QUERY,
   });
 
-  return <Landing />;
+  const { data } = await sanityFetch({
+    query: ALL_INDUSTRY_QUERY,
+  });
+
+}
+
+export default async function Page() {
+ 
+  return (
+    <Suspense fallback={<p>Loading...data</p>}>
+      <Landing />
+    </Suspense>
+  );
 }

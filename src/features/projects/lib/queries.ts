@@ -17,6 +17,7 @@ export const TOP_PROJECTS_QUERY = `
 `;
 
 export type PROJECT_TYPE = {
+  _id: string;
   title: string;
   slug: string;
   mainImage: SanityAsset;

@@ -1,6 +1,17 @@
 import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
+export const ALL_INDUSTRY_QUERY = `
+  *[_type == "industry"]{
+  _id,
+    title,
+    subtitle,
+    description,
+    "slug": slug.current,
+    mainImage,
+  }
+`;
+
 export const SINGLE_INDUSTRY_QUERY = `
   *[_type == "industry" && slug.current == $slug][0] {
     title,
@@ -35,6 +46,7 @@ export const SINGLE_INDUSTRY_QUERY = `
 // excluding featured project
 export const INDUSTRY_PROJECTS_QUERY = `
   *[_type == "project" && industry->slug.current == $slug && _id != $featuredProjectId] | order(_createdAt desc) {
+  _id,
     title,
     "slug": slug.current,
     mainImage,
