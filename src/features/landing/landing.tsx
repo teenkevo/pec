@@ -3,7 +3,6 @@
 import { BackgroundImageSlideshow } from "./hero/background-image-slide-show";
 import { Navigation } from "../../components/layout/navigation";
 import { HeroContent } from "./hero/hero-content";
-import { megaMenuData } from "./mega-menu/menu-data";
 import { SecondaryNav } from "./secondary-nav";
 import { ContentSection } from "./content-section";
 import { IndustriesSection } from "./industries-section";
