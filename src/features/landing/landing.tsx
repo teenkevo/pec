@@ -14,12 +14,12 @@ import { HistorySection } from "./history-section";
 import { PROJECT_TYPE } from "../projects/lib/queries";
 import { INDUSTRIES } from "../industries/lib/queries";
 
-interface Props{
-  projects:PROJECT_TYPE[]
-  industries: INDUSTRIES
+interface Props {
+  projects: PROJECT_TYPE[];
+  industries: INDUSTRIES;
 }
 
-export default function Landing({projects,industries}:Props) {
+export default function Landing({ projects, industries }: Props) {
   const secondaryNavigationItems = [
     { label: "What we do", href: "#what-we-do" },
     { label: "Our industries", href: "#industries" },
@@ -35,7 +35,6 @@ export default function Landing({projects,industries}:Props) {
     "Professional Engineering Consultants (PEC) is a limited liability Company, established in Uganda in 2008 by a team of six (6) extensively skilled practicing consulting professionals. Since then, PEC has grown into one of the leading design, engineering and project management consultancies in Uganda, with an establishment of more than 50 staff some of whom have joined its shareholding. PEC’s success is as a result of the firm’s deliberate emphasis on professionalism, quality services and customer satisfaction.";
 
   // Define the case studies data
-
 
   const heroSlides = [
     {
@@ -118,7 +117,7 @@ export default function Landing({projects,industries}:Props) {
         />
       </div>
       <div id="industries" className="px-4 md:px-14">
-        <IndustriesSection />
+        <IndustriesSection industries={industries} />
       </div>
       <div id="projects">
         <ProjectsSection

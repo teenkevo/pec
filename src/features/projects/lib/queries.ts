@@ -1,7 +1,7 @@
 import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
 export const TOP_PROJECTS_QUERY = `
-  *[_type == "project"] | order(_createdAt desc)[0..3] {
+  *[_type == "project"] | order(_createdAt desc)[0..2] {
     title,
     "slug": slug.current,
     mainImage,

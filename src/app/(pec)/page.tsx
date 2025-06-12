@@ -7,7 +7,7 @@ import {
 } from "@/features/projects/lib/queries";
 import { Suspense } from "react";
 import {
-  ALL_INDUSTRY_QUERY,
+  ALL_INDUSTRIES_QUERY,
   INDUSTRIES,
 } from "@/features/industries/lib/queries";
 
@@ -37,7 +37,7 @@ const getHomeData = async (): Promise<{
       query: TOP_PROJECTS_QUERY,
     }),
     sanityFetch({
-      query: ALL_INDUSTRY_QUERY,
+      query: ALL_INDUSTRIES_QUERY,
     }),
   ]);
 
