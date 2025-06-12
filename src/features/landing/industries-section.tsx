@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { INDUSTRIES } from "../industries/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 const hideScrollbarStyle = `
 .hide-scrollbar {
@@ -16,47 +18,50 @@ const hideScrollbarStyle = `
 `;
 
 // Define industry data
-const industries = [
-  {
-    id: "transport",
-    industry: "Transport",
-    href: "/industries/transport",
-    title:
-      "Connecting cities and communities with reliable transportation corridors",
-    description:
-      "We are committed delivering sustainable infrastructure that connects people, businesses, and communities",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp", // Replace with actual energy image
-  },
-  {
-    id: "water",
-    industry: "Water and Sanitation",
-    href: "/industries/water",
-    title: "Engineering sustainable water & waste water management solutions",
-    description:
-      "We're dedicated to improving access to clean water with sustainable supply, drainage, and treatment solutions",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1743528565/69790D60-4A3D-4638-96B5-DAF4243A17D2_1_201_a_soin4z.webp", // Replace with actual ocean image
-  },
-  {
-    id: "materials",
-    industry: "Materials and Geotechnics",
-    href: "/industries/materials",
-    title:
-      "Building strong foundations with innovative geotechnical & materials solutions",
-    description: "Tailored solutions for foundations of every complexity",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1726662738/IMG_20240817_112347_umok4y.webp", // Replace with actual urban image
-  },
-];
+// const industries = [
+//   {
+//     id: "transport",
+//     industry: "Transport",
+//     href: "/industries/transport",
+//     title:
+//       "Connecting cities and communities with reliable transportation corridors",
+//     description:
+//       "We are committed delivering sustainable infrastructure that connects people, businesses, and communities",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp", // Replace with actual energy image
+//   },
+//   {
+//     id: "water",
+//     industry: "Water and Sanitation",
+//     href: "/industries/water",
+//     title: "Engineering sustainable water & waste water management solutions",
+//     description:
+//       "We're dedicated to improving access to clean water with sustainable supply, drainage, and treatment solutions",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1743528565/69790D60-4A3D-4638-96B5-DAF4243A17D2_1_201_a_soin4z.webp", // Replace with actual ocean image
+//   },
+//   {
+//     id: "materials",
+//     industry: "Materials and Geotechnics",
+//     href: "/industries/materials",
+//     title:
+//       "Building strong foundations with innovative geotechnical & materials solutions",
+//     description: "Tailored solutions for foundations of every complexity",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1726662738/IMG_20240817_112347_umok4y.webp", // Replace with actual urban image
+//   },
+// ];
+interface Props {
+  industries: INDUSTRIES;
+}
 
-export function IndustriesSection() {
+export function IndustriesSection({ industries }: Props) {
   // State to track the active industry
   const [activeIndustry, setActiveIndustry] = useState("transport");
 
   // Get the active industry data
   const activeIndustryData =
-    industries.find((industry) => industry.id === activeIndustry) ||
+    industries.find((industry) => industry.slug === activeIndustry) ||
     industries[0];
 
   return (
@@ -75,7 +80,7 @@ export function IndustriesSection() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           style={{
-            backgroundImage: `url('${activeIndustryData.image}')`,
+            backgroundImage: `url('${urlFor(activeIndustryData.mainImage).url()}')`,
             backgroundPosition: "center 30%",
           }}
         >
@@ -104,17 +109,17 @@ export function IndustriesSection() {
         <div className=" mx-auto px-4 md:px-14 pb-16">
           <div className="flex overflow-x-auto pb-4 -mx-6 px-4 hide-scrollbar">
             {industries.map((industry, index) => {
-              const isActive = activeIndustry === industry.id;
+              const isActive = activeIndustry === industry.slug;
 
               return (
                 <motion.div
-                  key={industry.id}
+                  key={industry._id}
                   className={`${
                     isActive
                       ? "bg-white"
                       : "bg-gray-900/40 border backdrop-blur-sm"
                   } p-6 flex flex-col h-full cursor-pointer transition-colors duration-300 min-w-[320px] md:min-w-0 flex-1 mx-2 snap-start`}
-                  onClick={() => setActiveIndustry(industry.id)}
+                  onClick={() => setActiveIndustry(industry.slug)}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -123,13 +128,13 @@ export function IndustriesSection() {
                   <span
                     className={`${isActive ? "text-[#EB3300]" : "text-white"} font-bold text-lg mb-4 inline-block`}
                   >
-                    {industry.industry}
+                    {industry.title}
                   </span>
 
                   <h3
                     className={`text-xl md:text-2xl font-bold mb-4 tracking-tight ${isActive ? "text-gray-900" : "text-white"}`}
                   >
-                    {industry.title}
+                    {industry.subtitle}
                   </h3>
                   <p
                     className={`mb-8 flex-grow h-[100px] overflow-hidden ${isActive ? "text-gray-700" : "text-gray-200"}`}
@@ -139,7 +144,7 @@ export function IndustriesSection() {
 
                   <div>
                     <Link
-                      href={industry.href}
+                      href={`/industries/${industry.slug}`}
                       className={`inline-flex items-center ${isActive ? "text-black" : "text-white"} font-medium group`}
                     >
                       <span

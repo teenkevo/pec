@@ -68,7 +68,7 @@ export type INDUSTRIES = {
   description: string;
   slug: string;
   mainImage: SanityAsset;
-};
+}[];
 
 export type SINGLE_INDUSTRY_RESULT = {
   title: string;

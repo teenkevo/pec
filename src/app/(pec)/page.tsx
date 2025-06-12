@@ -50,8 +50,9 @@ const getHomeData = async (): Promise<{
 export default async function Page() {
   const { projects, industries } = await getHomeData();
   return (
+    //TODO ADD LOADING SKELETON
     <Suspense fallback={<p>Loading...data</p>}>
-      <Landing />
+      <Landing projects={projects} industries={industries} />
     </Suspense>
   );
 }
