@@ -10,7 +10,7 @@ import {
 import { SingleIndustryView } from "@/features/industries/ui/views/single-industry-view";
 import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
-import { ALL } from "dns";
+
 
 interface Props {
   params: Promise<{ slug: string }>;
