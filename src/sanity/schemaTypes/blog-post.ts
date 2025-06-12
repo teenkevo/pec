@@ -64,8 +64,8 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "focusArea",
-      title: "Related Focus Area",
+      name: "industry",
+      title: "Related Industry",
       type: "reference",
       to: [{ type: "focusArea" }],
     }),
@@ -75,13 +75,13 @@ export default defineType({
       title: "title",
       author: "author.name",
       media: "image",
-      focusArea: "focusArea.title",
+      category: "category.title",
     },
     prepare(selection) {
-      const { title, media, focusArea } = selection;
+      const { title, media, category } = selection;
       return {
         title,
-        subtitle: `${focusArea ? `${focusArea} | ` : ""}`,
+        subtitle: category,
         media,
       };
     },
