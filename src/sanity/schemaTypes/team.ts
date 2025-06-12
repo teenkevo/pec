@@ -17,6 +17,12 @@ export const team = defineType({
       type: "string",
     }),
     defineField({
+      name: "industries",
+      title: "Industries",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "industry" }] }],
+    }),
+    defineField({
       name: "image",
       title: "Image",
       type: "image",

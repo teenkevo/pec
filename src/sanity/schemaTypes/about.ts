@@ -15,6 +15,7 @@ export const aboutUs = defineType({
           title: "Title",
           type: "string",
           initialValue: "About us",
+          readOnly: true,
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -47,6 +48,7 @@ export const aboutUs = defineType({
           title: "Title",
           type: "string",
           initialValue: "What we do",
+          readOnly: true,
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -62,12 +64,6 @@ export const aboutUs = defineType({
           title: "Description",
           type: "text",
           validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: "callToAction",
-          title: "Call to Action Text",
-          type: "string",
-          initialValue: "Explore our specialty industries",
         }),
       ],
     }),
@@ -140,6 +136,7 @@ export const aboutUs = defineType({
           title: "Title",
           type: "string",
           initialValue: "Mission",
+          readOnly: true,
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -169,12 +166,6 @@ export const aboutUs = defineType({
           type: "string",
           description: "e.g., 'Keeping the bigger picture in mind'",
         }),
-        defineField({
-          name: "callToAction",
-          title: "Call to Action Text",
-          type: "string",
-          description: "e.g., 'More about our mission'",
-        }),
       ],
     }),
 
@@ -189,6 +180,7 @@ export const aboutUs = defineType({
           title: "Title",
           type: "string",
           initialValue: "Vision",
+          readOnly: true,
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -218,6 +210,7 @@ export const aboutUs = defineType({
           title: "Title",
           type: "string",
           initialValue: "Values",
+          readOnly: true,
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -225,6 +218,7 @@ export const aboutUs = defineType({
           title: "Subtitle",
           type: "string",
           initialValue: "Four guiding principles",
+          readOnly: true,
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -256,6 +250,11 @@ export const aboutUs = defineType({
                   type: "text",
                   validation: (Rule) => Rule.required(),
                 }),
+                defineField({
+                  name: "image",
+                  title: "Image",
+                  type: "image",
+                }),
               ],
               preview: {
                 select: {
@@ -286,6 +285,7 @@ export const aboutUs = defineType({
           title: "Title",
           type: "string",
           initialValue: "Strategy",
+          readOnly: true,
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -300,12 +300,6 @@ export const aboutUs = defineType({
           title: "Description",
           type: "text",
           validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: "callToAction",
-          title: "Call to Action Text",
-          type: "string",
-          description: "e.g., 'More about our strategy'",
         }),
       ],
     }),

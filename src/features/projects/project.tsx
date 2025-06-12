@@ -74,7 +74,6 @@ export function ProjectPage({ project }: ProjectPageProps) {
     "Decommissioning",
   ];
 
-
   // State for the expertise sheet
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [expandedStage, setExpandedStage] = useState<ProjectStage | null>(null);
@@ -117,9 +116,7 @@ export function ProjectPage({ project }: ProjectPageProps) {
   return (
     <>
       <div className="relative w-full bg-black">
-        <Navigation
-          megaMenuData={megaMenuData}
-        />
+        <Navigation />
       </div>
       <div className=" relative">
         {/* Hero Section */}

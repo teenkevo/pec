@@ -59,8 +59,33 @@ export const project = defineType({
     defineField({
       name: "valueOfService",
       title: "Value of Service",
-      type: "string",
-      description: "Example: EUR 1,036,918.17",
+      type: "object",
+      options: {
+        columns: 2,
+      },
+      fields: [
+        defineField({
+          name: "currency",
+          title: "Currency",
+          type: "string",
+          initialValue: "UGX",
+          options: {
+            list: [
+              { title: "EUR", value: "EUR" },
+              { title: "USD", value: "USD" },
+              { title: "UGX", value: "UGX" },
+            ],
+            layout: "dropdown",
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "value",
+          title: "Value",
+          type: "number",
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
     }),
     defineField({
       name: "location",

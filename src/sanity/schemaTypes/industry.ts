@@ -52,8 +52,8 @@ export const industry = defineType({
           description: "The main content describing your view on this industry",
         }),
         defineField({
-          name: "author",
-          title: "Author",
+          name: "industryLead",
+          title: "Industry Lead",
           type: "reference",
           to: [{ type: "team" }],
           description: "Team member who represents this view",
