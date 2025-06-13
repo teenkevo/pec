@@ -16,13 +16,13 @@ import {
 import { Navigation } from "@/components/layout/navigation";
 
 import { NumericFormat } from "react-number-format";
-import { SINGLE_PROJECT_RESULT } from "./lib/queries";
+import { SINGLE_PROJECT_RESULT } from "../../lib/queries";
 
 import {
   type ProjectStageTitle,
   transformProjectData,
   type TransformedProject,
-} from "./lib/utils";
+} from "../../lib/utils";
 import { PROJECT_PHASES } from "@/sanity/schemaTypes/project";
 
 interface Props {
@@ -295,11 +295,11 @@ export function ProjectView({ projectData }: Props) {
         <div className="px-4 md:px-14 py-12 border-t border-gray-300">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {project.projectImages &&
-              project.projectImages.map(({ src, alt,description }, index) => (
+              project.projectImages.map(({ src, alt, description }, index) => (
                 <div key={index} className="group relative overflow-hidden">
                   <div className="relative h-64 w-full">
                     <Image
-                      src={src|| "/placeholder.svg"}
+                      src={src || "/placeholder.svg"}
                       alt={alt || `${project.title} image`}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
