@@ -18,70 +18,33 @@ import { Navigation } from "../../components/layout/navigation";
 import { NumericFormat } from "react-number-format";
 import { SINGLE_PROJECT_RESULT } from "./lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import {
+  type ProjectStageTitle,
+  transformProjectData,
+  type TransformedProject,
+} from "./lib/utils";
+import { PROJECT_PHASES } from "@/sanity/schemaTypes/project";
 
-// Define the project stages
-export type ProjectStage =
-  | "Planning, feasibility, conceptual design"
-  | "Design"
-  | "Construction"
-  | "Operations and maintenance"
-  | "Decommissioning";
-
-// Define expertise type
-interface Expertise {
-  title: string;
-  description: string;
-  image: string;
+interface Props {
+  projectData: SINGLE_PROJECT_RESULT;
 }
 
-// Define stage details
-interface StageDetails {
-  expertise: Expertise[];
-  isInProject: boolean;
-}
+export function ProjectView({ projectData }: Props) {
+  const project: TransformedProject = transformProjectData(projectData);
 
-// Define the project interface
-export interface Project {
-  title: string;
-  location: string;
-  clientName: string;
-  funder?: string;
-  clientNarrative: string;
-  activeStage: ProjectStage;
-  imageSrc: string;
-  imageAlt: string;
-  projectImages: {
-    src: string;
-    alt: string;
-    description: string;
-  }[];
-  stageDetails: Record<ProjectStage, StageDetails>;
-  industry: string;
-  valueOfServices: number;
-  currency: string;
-}
-
-interface ProjectPageProps {
-  project: SINGLE_PROJECT_RESULT;
-}
-
-export function ProjectView({ project }: ProjectPageProps) {
-  // All possible project stages in order
-  const allStages: ProjectStage[] = [
-    "Planning, feasibility, conceptual design",
-    "Design",
-    "Construction",
-    "Operations and maintenance",
-    "Decommissioning",
-  ];
+  const allStages: ProjectStageTitle[] = PROJECT_PHASES.map(
+    (phase) => phase.title
+  );
 
   // State for the expertise sheet
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const [expandedStage, setExpandedStage] = useState<ProjectStage | null>(null);
+  const [expandedStage, setExpandedStage] = useState<ProjectStageTitle | null>(
+    null
+  );
   const [currentExpertiseIndex, setCurrentExpertiseIndex] = useState(0);
 
   // Toggle stage expansion
-  const toggleStageExpansion = (stage: ProjectStage) => {
+  const toggleStageExpansion = (stage: ProjectStageTitle) => {
     if (expandedStage === stage) {
       setExpandedStage(null);
     } else {
@@ -95,7 +58,7 @@ export function ProjectView({ project }: ProjectPageProps) {
   const navigateExpertise = (direction: "prev" | "next") => {
     if (!expandedStage) return;
 
-    const expertiseCount = project.involvedPhases[expandedStage].expertise.length;
+    const expertiseCount = project.stageDetails[expandedStage].expertise.length;
 
     if (direction === "prev") {
       setCurrentExpertiseIndex(
@@ -127,7 +90,7 @@ export function ProjectView({ project }: ProjectPageProps) {
             <div>
               <div className="mb-4">
                 <span className="inline-block text-navy-800">
-                  Project: {project.industry.title}
+                  Project: {project.industry}
                 </span>
               </div>
               <h1 className="text-2xl md:text-4xl font-semibold md:font-semibold text-navy-800 mb-6">
@@ -136,9 +99,7 @@ export function ProjectView({ project }: ProjectPageProps) {
               <div className="flex space-x-2 text-navy-800 border-t border-gray-300 pt-4 mt-8">
                 <LocateIcon />
                 <p>
-                  <span>{project.location.city}</span>
-                  {", "}
-                  <span>{project.location.country}</span>
+                  <span>{project.location}</span>
                 </p>
               </div>
             </div>
@@ -146,8 +107,8 @@ export function ProjectView({ project }: ProjectPageProps) {
             {/* Right Column - Image */}
             <div className="relative h-[300px] md:h-[400px]">
               <Image
-                src={urlFor(project.mainImage).url() || "/placeholder.svg"}
-                alt={project.title}
+                src={project.imageSrc}
+                alt={project.imageAlt}
                 fill
                 className="object-cover"
                 priority
@@ -166,7 +127,7 @@ export function ProjectView({ project }: ProjectPageProps) {
                 <h2 className="text-navy-800 font-bold mb-1">Client</h2>
               </div>
               <p className="text-navy-800 tracking-tight">
-                {project.client.name}
+                {project.clientName}
               </p>
               {project.funder && (
                 <>
@@ -179,7 +140,7 @@ export function ProjectView({ project }: ProjectPageProps) {
                   </p>
                 </>
               )}
-              {project.valueOfService && (
+              {project.valueOfServices && (
                 <>
                   <div className="flex space-x-2 text-navy-800 mt-6">
                     <DollarSign />
@@ -191,8 +152,8 @@ export function ProjectView({ project }: ProjectPageProps) {
                   <NumericFormat
                     thousandSeparator={true}
                     displayType="text"
-                    prefix={project.valueOfService.currency}
-                    value={project.valueOfService.value}
+                    prefix={project.currency}
+                    value={project.valueOfServices}
                   />
                 </>
               )}
@@ -201,7 +162,7 @@ export function ProjectView({ project }: ProjectPageProps) {
             {/* Project Summary */}
             <div className="md:col-span-3">
               <p className="text-navy-800 tracking-tight">
-                {project.description}
+                {project.clientNarrative}
               </p>
             </div>
           </div>
@@ -223,7 +184,7 @@ export function ProjectView({ project }: ProjectPageProps) {
             {/* Timeline Stages */}
             <div className="flex justify-between relative z-10">
               {allStages.map((stage, index) => {
-                const isActive = stage === project;
+                const isActive = stage === project.activeStage;
 
                 return (
                   <div key={index} className="flex flex-col items-center w-1/5">
@@ -334,19 +295,19 @@ export function ProjectView({ project }: ProjectPageProps) {
         {/* Project Images Grid */}
         <div className="px-4 md:px-14 py-12 border-t border-gray-300">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {project.images &&
-              project.images.map(({ image, caption }, index) => (
+            {project.projectImages &&
+              project.projectImages.map(({ src, alt,description }, index) => (
                 <div key={index} className="group relative overflow-hidden">
                   <div className="relative h-64 w-full">
                     <Image
-                      src={urlFor(image).url() || "/placeholder.svg"}
-                      alt={caption || `${project.title} image`}
+                      src={src|| "/placeholder.svg"}
+                      alt={alt || `${project.title} image`}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <div className="bg-white py-4">
-                    <p className="text-navy-800 text-sm">{caption}</p>
+                    <p className="text-navy-800 text-sm">{description}</p>
                   </div>
                 </div>
               ))}

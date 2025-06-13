@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
 
-const PROJECT_PHASES = [
+export const PROJECT_PHASES = [
   { value: "planning", title: "Planning, feasibility, conceptual design" },
   { value: "design", title: "Design" },
   { value: "construction", title: "Construction" },

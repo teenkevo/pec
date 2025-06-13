@@ -10,6 +10,7 @@ import { blockContentType } from "./blockContentType";
 import blogPost from "./blog-post";
 import publication from "./publication";
 
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     client,
