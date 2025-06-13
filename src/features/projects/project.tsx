@@ -14,10 +14,10 @@ import {
   DollarSign,
 } from "lucide-react";
 import { Navigation } from "../../components/layout/navigation";
-import { megaMenuData } from "../landing/mega-menu/menu-data";
-import { Footer } from "../../components/layout/footer";
+
 import { NumericFormat } from "react-number-format";
 import { SINGLE_PROJECT_RESULT } from "./lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 // Define the project stages
 export type ProjectStage =
@@ -95,7 +95,7 @@ export function ProjectView({ project }: ProjectPageProps) {
   const navigateExpertise = (direction: "prev" | "next") => {
     if (!expandedStage) return;
 
-    const expertiseCount = project.stageDetails[expandedStage].expertise.length;
+    const expertiseCount = project.involvedPhases[expandedStage].expertise.length;
 
     if (direction === "prev") {
       setCurrentExpertiseIndex(
@@ -127,7 +127,7 @@ export function ProjectView({ project }: ProjectPageProps) {
             <div>
               <div className="mb-4">
                 <span className="inline-block text-navy-800">
-                  Project: {project.industry}
+                  Project: {project.industry.title}
                 </span>
               </div>
               <h1 className="text-2xl md:text-4xl font-semibold md:font-semibold text-navy-800 mb-6">
@@ -135,15 +135,19 @@ export function ProjectView({ project }: ProjectPageProps) {
               </h1>
               <div className="flex space-x-2 text-navy-800 border-t border-gray-300 pt-4 mt-8">
                 <LocateIcon />
-                <p>{project.location}</p>
+                <p>
+                  <span>{project.location.city}</span>
+                  {", "}
+                  <span>{project.location.country}</span>
+                </p>
               </div>
             </div>
 
             {/* Right Column - Image */}
             <div className="relative h-[300px] md:h-[400px]">
               <Image
-                src={project.imageSrc || "/placeholder.svg"}
-                alt={project.imageAlt}
+                src={urlFor(project.mainImage).url() || "/placeholder.svg"}
+                alt={project.title}
                 fill
                 className="object-cover"
                 priority
@@ -162,7 +166,7 @@ export function ProjectView({ project }: ProjectPageProps) {
                 <h2 className="text-navy-800 font-bold mb-1">Client</h2>
               </div>
               <p className="text-navy-800 tracking-tight">
-                {project.clientName}
+                {project.client.name}
               </p>
               {project.funder && (
                 <>
@@ -175,7 +179,7 @@ export function ProjectView({ project }: ProjectPageProps) {
                   </p>
                 </>
               )}
-              {project.valueOfServices && (
+              {project.valueOfService && (
                 <>
                   <div className="flex space-x-2 text-navy-800 mt-6">
                     <DollarSign />
@@ -187,8 +191,8 @@ export function ProjectView({ project }: ProjectPageProps) {
                   <NumericFormat
                     thousandSeparator={true}
                     displayType="text"
-                    prefix={"EUR "}
-                    value={project.valueOfServices}
+                    prefix={project.valueOfService.currency}
+                    value={project.valueOfService.value}
                   />
                 </>
               )}
@@ -197,7 +201,7 @@ export function ProjectView({ project }: ProjectPageProps) {
             {/* Project Summary */}
             <div className="md:col-span-3">
               <p className="text-navy-800 tracking-tight">
-                {project.clientNarrative}
+                {project.description}
               </p>
             </div>
           </div>
@@ -219,7 +223,7 @@ export function ProjectView({ project }: ProjectPageProps) {
             {/* Timeline Stages */}
             <div className="flex justify-between relative z-10">
               {allStages.map((stage, index) => {
-                const isActive = stage === project.activeStage;
+                const isActive = stage === project;
 
                 return (
                   <div key={index} className="flex flex-col items-center w-1/5">
@@ -330,21 +334,22 @@ export function ProjectView({ project }: ProjectPageProps) {
         {/* Project Images Grid */}
         <div className="px-4 md:px-14 py-12 border-t border-gray-300">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {project.projectImages.map((image, index) => (
-              <div key={index} className="group relative overflow-hidden">
-                <div className="relative h-64 w-full">
-                  <Image
-                    src={image.src || "/placeholder.svg"}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+            {project.images &&
+              project.images.map(({ image, caption }, index) => (
+                <div key={index} className="group relative overflow-hidden">
+                  <div className="relative h-64 w-full">
+                    <Image
+                      src={urlFor(image).url() || "/placeholder.svg"}
+                      alt={caption || `${project.title} image`}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="bg-white py-4">
+                    <p className="text-navy-800 text-sm">{caption}</p>
+                  </div>
                 </div>
-                <div className="bg-white py-4">
-                  <p className="text-navy-800 text-sm">{image.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
 

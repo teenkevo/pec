@@ -28,7 +28,6 @@ export const SINGLE_PROJECT_QUERY = `
     images[] {
       image,
       caption,
-      description
     },
     involvedPhases[] {
       phase,
@@ -102,7 +101,6 @@ export type SINGLE_PROJECT_RESULT = {
   images?: {
     image: SanityAsset;
     caption?: string;
-    description?: string;
   }[];
   involvedPhases: {
     phase: string;
