@@ -111,7 +111,7 @@ export default defineType({
       name: "industry",
       title: "Related Industry",
       type: "reference",
-      to: [{ type: "focusArea" }],
+      to: [{ type: "industry" }],
     }),
   ],
   preview: {

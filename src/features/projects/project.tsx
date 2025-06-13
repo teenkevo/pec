@@ -17,6 +17,7 @@ import { Navigation } from "../../components/layout/navigation";
 import { megaMenuData } from "../landing/mega-menu/menu-data";
 import { Footer } from "../../components/layout/footer";
 import { NumericFormat } from "react-number-format";
+import { SINGLE_PROJECT_RESULT } from "./lib/queries";
 
 // Define the project stages
 export type ProjectStage =
@@ -61,10 +62,10 @@ export interface Project {
 }
 
 interface ProjectPageProps {
-  project: Project;
+  project: SINGLE_PROJECT_RESULT;
 }
 
-export function ProjectPage({ project }: ProjectPageProps) {
+export function ProjectView({ project }: ProjectPageProps) {
   // All possible project stages in order
   const allStages: ProjectStage[] = [
     "Planning, feasibility, conceptual design",
