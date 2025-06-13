@@ -13,11 +13,11 @@ import {
   BriefcaseBusiness,
   DollarSign,
 } from "lucide-react";
-import { Navigation } from "../../components/layout/navigation";
+import { Navigation } from "@/components/layout/navigation";
 
 import { NumericFormat } from "react-number-format";
 import { SINGLE_PROJECT_RESULT } from "./lib/queries";
-import { urlFor } from "@/sanity/lib/image";
+
 import {
   type ProjectStageTitle,
   transformProjectData,
@@ -49,7 +49,6 @@ export function ProjectView({ projectData }: Props) {
       setExpandedStage(null);
     } else {
       setExpandedStage(stage);
-      // Reset expertise index when changing stages
       setCurrentExpertiseIndex(0);
     }
   };
