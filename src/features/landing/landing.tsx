@@ -6,13 +6,13 @@ import { HeroContent } from "./hero/hero-content";
 import { SecondaryNav } from "./secondary-nav";
 import { ContentSection } from "./content-section";
 import { IndustriesSection } from "./industries-section";
-import { ProjectsSection } from "./projects-section";
 import { OrganisationSection } from "./organization-section";
 import { CareersSection } from "./careers-section";
 import { NewsSection } from "./news-section";
 import { HistorySection } from "./history-section";
 import { PROJECT_TYPE } from "../projects/lib/queries";
 import { INDUSTRIES } from "../industries/lib/queries";
+import { ProjectsSection } from "../projects/ui/components/projects-section";
 
 interface Props {
   projects: PROJECT_TYPE[];

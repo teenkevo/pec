@@ -47,7 +47,10 @@ export function ProjectsSection({
           <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {projects.map((project) => (
               <div key={project.slug}>
-                <Link href={`/projects/${project.slug}`} className="block group">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="block group"
+                >
                   <motion.div
                     className="relative aspect-[4/3] w-full"
                     whileHover={{ y: -5 }}
@@ -64,13 +67,10 @@ export function ProjectsSection({
                       />
                     </div>
                     <div className="mt-4">
-                      <Link
-                        href={`industries/${project.industry.slug}`}
-                        className="flex items-center text-sm text-gray-600 tracking-tight"
-                      >
+                      <div className="flex items-center text-sm text-gray-600 tracking-tight">
                         <div className="w-2 h-2 bg-gray-300 font-bold mr-4"></div>
                         {project.industry.title}
-                      </Link>
+                      </div>
                       <h3 className="text-xl tracking-tight font-bold line-clamp-4 text-gray-900 mt-1">
                         {project.title}
                       </h3>

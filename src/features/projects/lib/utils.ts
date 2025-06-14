@@ -96,7 +96,7 @@ export function transformProjectData(
   // Transform project images
   const projectImages =
     project.images?.map((img) => ({
-      src: urlFor(img.image).url(),
+      src: urlFor(img.image).width(300).height(300).url(),
       alt: img.caption || project.title,
       description: img.caption || "",
     })) || [];

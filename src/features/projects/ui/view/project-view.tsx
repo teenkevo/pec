@@ -89,7 +89,7 @@ export function ProjectView({ projectData }: Props) {
             <div>
               <div className="mb-4">
                 <span className="inline-block text-navy-800">
-                  Project: {project.industry}
+                  Industry: {project.industry}
                 </span>
               </div>
               <h1 className="text-2xl md:text-4xl font-semibold md:font-semibold text-navy-800 mb-6">

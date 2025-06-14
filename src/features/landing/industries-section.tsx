@@ -1,11 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { INDUSTRIES } from "../industries/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 const hideScrollbarStyle = `
 .hide-scrollbar {
@@ -17,52 +26,47 @@ const hideScrollbarStyle = `
 }
 `;
 
-// Define industry data
-// const industries = [
-//   {
-//     id: "transport",
-//     industry: "Transport",
-//     href: "/industries/transport",
-//     title:
-//       "Connecting cities and communities with reliable transportation corridors",
-//     description:
-//       "We are committed delivering sustainable infrastructure that connects people, businesses, and communities",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp", // Replace with actual energy image
-//   },
-//   {
-//     id: "water",
-//     industry: "Water and Sanitation",
-//     href: "/industries/water",
-//     title: "Engineering sustainable water & waste water management solutions",
-//     description:
-//       "We're dedicated to improving access to clean water with sustainable supply, drainage, and treatment solutions",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1743528565/69790D60-4A3D-4638-96B5-DAF4243A17D2_1_201_a_soin4z.webp", // Replace with actual ocean image
-//   },
-//   {
-//     id: "materials",
-//     industry: "Materials and Geotechnics",
-//     href: "/industries/materials",
-//     title:
-//       "Building strong foundations with innovative geotechnical & materials solutions",
-//     description: "Tailored solutions for foundations of every complexity",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_63/v1726662738/IMG_20240817_112347_umok4y.webp", // Replace with actual urban image
-//   },
-// ];
 interface Props {
   industries: INDUSTRIES;
 }
 
 export function IndustriesSection({ industries }: Props) {
   // State to track the active industry
-  const [activeIndustry, setActiveIndustry] = useState("transport");
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  //This is for the background change..
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Get the active industry data
-  const activeIndustryData =
-    industries.find((industry) => industry.slug === activeIndustry) ||
-    industries[0];
+  const activeIndustryData = industries[activeIndex] || industries[0];
+  const activeIndustry = activeIndustryData?.slug;
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    // Set initial current slide
+    const initialSlide = api.selectedScrollSnap();
+    setCurrent(initialSlide);
+    setActiveIndex(initialSlide);
+
+    const handleSelect = () => {
+      const newCurrent = api.selectedScrollSnap();
+      setCurrent(newCurrent);
+      setActiveIndex(newCurrent);
+    };
+
+    api.on("select", handleSelect);
+
+    return () => {
+      api.off("select", handleSelect);
+    };
+  }, [api]);
+
+  const handleItemClick = (index: number) => {
+    setActiveIndex(index);
+    api?.scrollTo(index);
+  };
 
   return (
     <section
@@ -106,66 +110,99 @@ export function IndustriesSection({ industries }: Props) {
 
       {/* Cards Container */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <div className=" mx-auto px-4 md:px-14 pb-16">
-          <div className="flex overflow-x-auto pb-4 -mx-6 px-4 hide-scrollbar">
+        <div className="absolute -top-20 right-0 md:right-14 z-10 flex gap-2">
+          <Button
+            onClick={() => api?.scrollPrev()}
+            disabled={!api?.canScrollPrev()}
+            size={"icon"}
+            variant={"outline"}
+            className="group hover:bg-white border p-2 group-hover:translate-x-1 transition-transform mr-5 rounded-none [&>svg]:text-white "
+          >
+            <ArrowLeft className="group-hover:text-[#EB3300]" />
+          </Button>
+          <Button
+            onClick={() => api?.scrollNext()}
+            disabled={!api?.canScrollNext()}
+            size={"icon"}
+            variant={"outline"}
+            className="group hover:bg-white border border-white p-2 group-hover:translate-x-1 transition-transform rounded-none [&>svg]:text-white"
+          >
+            <ArrowRight className="group-hover:text-[#EB3300]" />
+          </Button>
+        </div>
+        <Carousel
+          setApi={setApi}
+          className="mx-auto px-4 md:px-14 pb-16"
+          opts={{
+            align: "start",
+            loop: false,
+          }}
+        >
+          <CarouselContent className="">
             {industries.map((industry, index) => {
               const isActive = activeIndustry === industry.slug;
 
               return (
-                <motion.div
+                <CarouselItem
                   key={industry._id}
-                  className={`${
-                    isActive
-                      ? "bg-white"
-                      : "bg-gray-900/40 border backdrop-blur-sm"
-                  } p-6 flex flex-col h-full cursor-pointer transition-colors duration-300 min-w-[320px] md:min-w-0 flex-1 mx-2 snap-start`}
-                  onClick={() => setActiveIndustry(industry.slug)}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
+                  className="md:basis-1/2 lg:basis-1/3"
+                  onClick={() => handleItemClick(index)}
                 >
-                  <span
-                    className={`${isActive ? "text-[#EB3300]" : "text-white"} font-bold text-lg mb-4 inline-block`}
+                  <motion.div
+                    key={industry._id}
+                    className={`${
+                      isActive
+                        ? "bg-white"
+                        : "bg-gray-900/40 border backdrop-blur-sm"
+                    } p-6 flex flex-col h-full cursor-pointer transition-colors duration-300 min-w-[320px] md:min-w-0 flex-1 mx-2 snap-start`}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
                   >
-                    {industry.title}
-                  </span>
-
-                  <h3
-                    className={`text-xl md:text-2xl font-bold mb-4 tracking-tight ${isActive ? "text-gray-900" : "text-white"}`}
-                  >
-                    {industry.subtitle}
-                  </h3>
-                  <p
-                    className={`mb-8 flex-grow h-[100px] overflow-hidden ${isActive ? "text-gray-700" : "text-gray-200"}`}
-                  >
-                    {industry.description}
-                  </p>
-
-                  <div>
-                    <Link
-                      href={`/industries/${industry.slug}`}
-                      className={`inline-flex items-center ${isActive ? "text-black" : "text-white"} font-medium group`}
+                    <span
+                      className={`${isActive ? "text-[#EB3300]" : "text-white"} font-bold text-lg mb-4 inline-block`}
                     >
-                      <span
-                        className={` ${isActive ? "bg-[#EB3300]" : "bg-white"} p-2 group-hover:translate-x-1 transition-transform`}
+                      {industry.title}
+                    </span>
+
+                    <h3
+                      className={`text-xl md:text-2xl font-bold mb-4 tracking-tight ${isActive ? "text-gray-900" : "text-white"}`}
+                    >
+                      {industry.subtitle}
+                    </h3>
+                    <p
+                      className={`mb-8 flex-grow h-[100px] overflow-hidden ${isActive ? "text-gray-700" : "text-gray-200"}`}
+                    >
+                      {industry.description}
+                    </p>
+
+                    <div>
+                      <Link
+                        href={`/industries/${industry.slug}`}
+                        className={`inline-flex items-center ${isActive ? "text-black" : "text-white"} font-medium group`}
                       >
-                        <ArrowRight
-                          className={`h-5 w-5 ${isActive ? "text-white" : "text-[#EB3300]"}`}
-                        />
-                      </span>
-                    </Link>
-                  </div>
-                  {/* <div className="self-start mt-auto">
+                        <span
+                          className={` ${isActive ? "bg-[#EB3300]" : "bg-white"} p-2 group-hover:translate-x-1 transition-transform`}
+                        >
+                          <ArrowRight
+                            className={`h-5 w-5 ${isActive ? "text-white" : "text-[#EB3300]"}`}
+                          />
+                        </span>
+                      </Link>
+                    </div>
+                    {/* <div className="self-start mt-auto">
                     <ArrowRight
                       className={`h-5 w-5 ${isActive ? "text-[#EB3300]" : "text-white"}`}
                     />
                   </div> */}
-                </motion.div>
+                  </motion.div>
+                </CarouselItem>
               );
             })}
-          </div>
-        </div>
+          </CarouselContent>
+        </Carousel>
+        <div></div>
       </div>
     </section>
   );
