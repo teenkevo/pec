@@ -61,6 +61,7 @@ export const INDUSTRY_PROJECTS_QUERY = `
   }
 `;
 
+
 export type INDUSTRIES = {
   _id: string;
   title: string;
@@ -85,3 +86,4 @@ export type SINGLE_INDUSTRY_RESULT = {
   };
   featuredProject: PROJECT_TYPE;
 };
+

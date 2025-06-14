@@ -1,6 +1,5 @@
 import type React from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
 import { IndustryLead } from "./industry-lead";
 
 interface ContentSectionProps {

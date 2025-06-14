@@ -1,16 +1,15 @@
 "use client";
 
-import { ContentSection } from "@/features/landing/content-section";
 import { BackgroundImage } from "@/features/landing/hero/background-image";
 import { Navigation } from "@/components/layout/navigation";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
 import { CareersSection } from "@/features/landing/careers-section";
-import { HeroContent } from "../../hero-content";
-import { IndustryView } from "../../industry-view";
-import { IndustryTopProjectBanner } from "../../industry-top-project-banner";
+import { HeroContent } from "../components/hero-content";
+import { IndustryView } from "../components/industry-view";
+import { IndustryTopProjectBanner } from "../components/industry-top-project-banner";
 import { NewsSection } from "@/features/landing/news-section";
-import { TechnicalPapers } from "../../industry-technical-papers";
-import { IndustryContactSection } from "../../industry-contact";
+import { TechnicalPapers } from "../components/industry-technical-papers";
+import { IndustryContactSection } from "../components/industry-contact";
 import { SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
 
 import { urlFor } from "@/sanity/lib/image";

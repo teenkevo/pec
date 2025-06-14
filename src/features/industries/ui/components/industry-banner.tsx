@@ -4,27 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { INDUSTRIES } from "../../lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 interface IndustryBannerProps {
-  imageUrl: string;
-  industry: string;
-  description: string;
-  iconText: string;
+  industry: INDUSTRIES[0];
 }
 
 export function IndustryBanner({
-  imageUrl,
-  industry,
-  description,
-  iconText,
+ industry
 }: IndustryBannerProps) {
   return (
     <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden ">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src={imageUrl}
-          alt="Wind turbines on land and sea"
+          src={urlFor(industry.mainImage).url()}
+          alt={`${industry.title} background image`}
           fill
           className="object-cover"
           priority
@@ -43,23 +39,23 @@ export function IndustryBanner({
             viewport={{ once: true }}
           >
             <span className="inline-block bg-white text-black font-medium px-3 py-1 text-sm mb-4">
-              {industry}
+              {industry.title}
             </span>
 
             <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
-              {description}
+              {industry.subtitle}
             </h2>
 
             <div className="h-px bg-white/50 mb-6"></div>
 
             <Link
-              href={`/industries/${industry.toLowerCase()}`}
+              href={`/industries/${industry.slug}`}
               className="inline-flex items-center"
             >
               <span className="bg-[#EB3300]/90 hover:bg-[#EB3300] transition-colors p-3 mr-5">
                 <ArrowRight className="h-5 w-5 text-white" />
               </span>
-              <span className="text-white font-medium">{iconText}</span>
+              <span className="text-white font-medium">{`View ${industry.title} industry`}</span>
             </Link>
           </motion.div>
         </div>

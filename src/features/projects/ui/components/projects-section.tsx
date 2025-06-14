@@ -27,7 +27,7 @@ export function ProjectsSection({
             {title}
           </h2>
           <Link
-            href="/case-studies"
+            href="/projects"
             className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center"
           >
             <span>{linkText}</span>
