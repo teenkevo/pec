@@ -31,7 +31,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <Suspense fallback={<p>Loading...data</p>}>
-      <ProjectView project={project} />
+      <ProjectView projectData={project} />
     </Suspense>
   );
 }
