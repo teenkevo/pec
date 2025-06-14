@@ -4,28 +4,26 @@ import { ContentSection } from "@/features/landing/content-section";
 import { BackgroundImage } from "@/features/landing/hero/background-image";
 import { Navigation } from "@/components/layout/navigation";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
-import { ProjectsSection } from "@/features/landing/projects-section";
 import { CareersSection } from "@/features/landing/careers-section";
 import { HeroContent } from "../../hero-content";
 import { IndustryView } from "../../industry-view";
 import { IndustryTopProjectBanner } from "../../industry-top-project-banner";
-import { ProjectsSection2 } from "@/features/landing/projects-section-2";
 import { NewsSection } from "@/features/landing/news-section";
 import { TechnicalPapers } from "../../industry-technical-papers";
 import { IndustryContactSection } from "../../industry-contact";
-import { PROJECT_TYPE, SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
+import { SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
 
 import { urlFor } from "@/sanity/lib/image";
+import { PROJECT_TYPE } from "@/features/projects/lib/queries";
+import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
+import { ProjectsSection2 } from "@/features/projects/ui/components/projects-section-2";
 
 interface Props {
   industry: SINGLE_INDUSTRY_RESULT;
   projects: PROJECT_TYPE[];
 }
 
-export function SingleIndustryView({
-  industry,
-  projects,
-}: Props) {
+export function SingleIndustryView({ industry, projects }: Props) {
   const secondaryNavigationItems = [
     { label: "Our view", href: "#our-view" },
     { label: "Projects", href: "#projects" },
@@ -53,7 +51,7 @@ export function SingleIndustryView({
             industry.subtitle ??
             "Connecting cities and communities with reliable transportation corridors"
           }
-          industry="Transport"
+          industry={industry.title}
         />
       </div>
       <SecondaryNav
@@ -64,37 +62,38 @@ export function SingleIndustryView({
       <div id="our-view">
         <IndustryView
           id="our-view"
-          heading="Our view on transport"
+          heading={`Our view on ${industry.title}`}
           content={industry.ourView.content}
           linkText="Read about our purpose"
           linkUrl="/about-us/what-we-do"
-          industryLeadTitle={industry.ourView.author.role}
-          industryLeadImageUrl={urlFor(industry.ourView.author.image).url()}
-          industryLeadName={industry.ourView.author.name}
+          industryLeadTitle={industry.ourView?.industryLead?.role}
+          industryLeadImageUrl={urlFor(
+            industry.ourView?.industryLead?.image
+          ).url()}
+          industryLeadName={industry.ourView?.industryLead?.name}
         />
       </div>
-      <div id="transport" className="px-4 md:px-14">
-        <IndustryTopProjectBanner
-          industry="Transport"
-          description={industry.featuredProject.title}
-          imageUrl={urlFor(industry.featuredProject.mainImage).url()}
-          iconText="View project"
-        />
+      <div id={industry.slug} className="px-4 md:px-14">
+        <IndustryTopProjectBanner featuredProject={industry.featuredProject} />
       </div>
-      <div id="projects">
-        <ProjectsSection
-          projects={projects?.slice(0,3)}
-          title="Transport projects"
-          linkText="Explore all"
-        />
-      </div>
-      <div id="projects">
-        <ProjectsSection2
-          projects={projects?.slice(3,6)}
-          title="Transport projects"
-          linkText="All transport projects"
-        />
-      </div>
+      {projects && projects.length > 0 && (
+        <>
+          <div id="projects">
+            <ProjectsSection
+              projects={projects?.slice(0, 3)}
+              title={`${industry.title} projects`}
+              linkText="Explore all"
+            />
+          </div>
+          <div id="projects">
+            <ProjectsSection2
+              projects={projects?.slice(3, 6)}
+              title={`${industry.title} projects`}
+              linkText={`All ${industry.title} projects`}
+            />
+          </div>
+        </>
+      )}
       {/* Divider */}
       <div className="border-t border-gray-200 mt-20"></div>
       <div id="publications">
@@ -108,12 +107,14 @@ export function SingleIndustryView({
       <div className="border-t border-gray-200 mt-10"></div>
       <div id="contact">
         <IndustryContactSection
-          industry="Transport"
+          industry={industry.title}
           contactPerson={{
-            title: "Industry lead - Tranport",
-            imageUrl:
-              "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_56/v1742405809/elizeu-dias-2EGNqazbAMk-unsplash_ofwryg.webp",
-            name: "Eng. Bakaki Charles",
+            title: industry.ourView?.industryLead?.role,
+            imageUrl: urlFor(industry.ourView?.industryLead?.image)
+              .width(120)
+              .height(120)
+              .url(),
+            name: industry.ourView?.industryLead?.name ?? "Eng Charles Wasswa",
           }}
         />
       </div>

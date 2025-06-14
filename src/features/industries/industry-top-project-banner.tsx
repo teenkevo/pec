@@ -5,26 +5,22 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { createSlug } from "@/lib/utils";
+import { PROJECT_TYPE } from "@/features/projects/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 interface IndustryTopProjectBannerProps {
-  imageUrl: string;
-  industry: string;
-  description: string;
-  iconText: string;
+  featuredProject: PROJECT_TYPE;
 }
 
 export function IndustryTopProjectBanner({
-  imageUrl,
-  industry,
-  description,
-  iconText,
+  featuredProject,
 }: IndustryTopProjectBannerProps) {
   return (
     <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden p-10">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src={imageUrl}
+          src={urlFor(featuredProject.mainImage).url()}
           alt="Wind turbines on land and sea"
           fill
           className="object-cover"
@@ -44,19 +40,19 @@ export function IndustryTopProjectBanner({
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
-              {description}
+              {featuredProject.title}
             </h2>
 
             <div className="h-px bg-white/50 mb-6"></div>
 
             <Link
-              href={`/services/projects/${createSlug(description)}-PEC`}
+              href={`/projects/${featuredProject.slug}`}
               className="inline-flex items-center"
             >
               <span className="bg-[#EB3300]/90 hover:bg-[#EB3300] transition-colors p-3 mr-5">
                 <ArrowRight className="h-5 w-5 text-white" />
               </span>
-              <span className="text-white font-medium">{iconText}</span>
+              <span className="text-white font-medium">View project</span>
             </Link>
           </motion.div>
         </div>

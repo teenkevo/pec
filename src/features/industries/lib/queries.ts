@@ -20,7 +20,7 @@ export const SINGLE_INDUSTRY_QUERY = `
     mainImage,
     ourView {
       content,
-      author-> {
+     industryLead-> {
         name,
         image,
         role
@@ -77,7 +77,7 @@ export type SINGLE_INDUSTRY_RESULT = {
   mainImage: SanityAsset;
   ourView: {
     content: string;
-    author: {
+    industryLead: {
       name: string;
       image: SanityAsset;
       role: string;

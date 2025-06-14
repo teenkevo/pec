@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { urlFor } from "@/sanity/lib/image";
-import { PROJECT_TYPE } from "../projects/lib/queries";
+import { PROJECT_TYPE } from "../../lib/queries";
 
 interface ProjectsSectionProps {
   projects: PROJECT_TYPE[];
