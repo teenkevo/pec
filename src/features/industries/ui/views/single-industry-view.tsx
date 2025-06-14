@@ -1,0 +1,127 @@
+"use client";
+
+import { BackgroundImage } from "@/features/landing/hero/background-image";
+import { Navigation } from "@/components/layout/navigation";
+import { SecondaryNav } from "@/features/landing/secondary-nav";
+import { CareersSection } from "@/features/landing/careers-section";
+import { HeroContent } from "../components/hero-content";
+import { IndustryView } from "../components/industry-view";
+import { IndustryTopProjectBanner } from "../components/industry-top-project-banner";
+import { NewsSection } from "@/features/landing/news-section";
+import { TechnicalPapers } from "../components/industry-technical-papers";
+import { IndustryContactSection } from "../components/industry-contact";
+import { SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
+
+import { urlFor } from "@/sanity/lib/image";
+import { PROJECT_TYPE } from "@/features/projects/lib/queries";
+import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
+import { ProjectsSection2 } from "@/features/projects/ui/components/projects-section-2";
+
+interface Props {
+  industry: SINGLE_INDUSTRY_RESULT;
+  projects: PROJECT_TYPE[];
+}
+
+export function SingleIndustryView({ industry, projects }: Props) {
+  const secondaryNavigationItems = [
+    { label: "Our view", href: "#our-view" },
+    { label: "Projects", href: "#projects" },
+    { label: "Publications", href: "#publications" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <>
+      <div className="relative h-[60vh] md:h-[90vh] w-full">
+        {/* Background Image with Gradient Overlays */}
+        <BackgroundImage
+          imageUrl={
+            urlFor(industry.mainImage).url() ??
+            "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
+          }
+          alt="Ocean view with offshore structures"
+        />
+
+        {/* Navigation and Content */}
+
+        <Navigation />
+        <HeroContent
+          title={
+            industry.subtitle ??
+            "Connecting cities and communities with reliable transportation corridors"
+          }
+          industry={industry.title}
+        />
+      </div>
+      <SecondaryNav
+        initialActiveItem="#our-view"
+        navItems={secondaryNavigationItems}
+      />
+      {/* What We Do Section */}
+      <div id="our-view">
+        <IndustryView
+          id="our-view"
+          heading={`Our view on ${industry.title}`}
+          content={industry.ourView.content}
+          linkText="Read about our purpose"
+          linkUrl="/about-us/what-we-do"
+          industryLeadTitle={industry.ourView?.industryLead?.role}
+          industryLeadImageUrl={urlFor(
+            industry.ourView?.industryLead?.image
+          ).url()}
+          industryLeadName={industry.ourView?.industryLead?.name}
+        />
+      </div>
+      <div id={industry.slug} className="px-4 md:px-14">
+        <IndustryTopProjectBanner featuredProject={industry.featuredProject} />
+      </div>
+      {projects && projects.length > 0 && (
+        <>
+          <div id="projects">
+            <ProjectsSection
+              projects={projects?.slice(0, 3)}
+              title={`${industry.title} projects`}
+              linkText="Explore all"
+            />
+          </div>
+          <div id="projects">
+            <ProjectsSection2
+              projects={projects?.slice(3, 6)}
+              title={`${industry.title} projects`}
+              linkText={`All ${industry.title} projects`}
+            />
+          </div>
+        </>
+      )}
+      {/* Divider */}
+      <div className="border-t border-gray-200 mt-20"></div>
+      <div id="publications">
+        <TechnicalPapers />
+      </div>
+      {/* News Section */}
+      <div id="news-highlights">
+        <NewsSection />
+      </div>
+      {/* Divider */}
+      <div className="border-t border-gray-200 mt-10"></div>
+      <div id="contact">
+        <IndustryContactSection
+          industry={industry.title}
+          contactPerson={{
+            title: industry.ourView?.industryLead?.role,
+            imageUrl: urlFor(industry.ourView?.industryLead?.image)
+              .width(120)
+              .height(120)
+              .url(),
+            name: industry.ourView?.industryLead?.name ?? "Eng Charles Wasswa",
+          }}
+        />
+      </div>
+      {/* Divider */}
+      <div className="border-t border-gray-200 my-10"></div>
+      <div id="careers">
+        <CareersSection />
+      </div>
+    </>
+  );
+}

@@ -1,13 +1,9 @@
 "use client";
 
-import { ContentSection } from "@/features/landing/content-section";
 import { BackgroundImage } from "@/features/landing/hero/background-image";
-import { Navigation } from "@/features/landing/hero/navigation";
-import { megaMenuData } from "@/features/landing/mega-menu/menu-data";
+import { Navigation } from "@/components/layout/navigation";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
-import { ProjectsSection } from "@/features/landing/projects-section";
 import { CareersSection } from "@/features/landing/careers-section";
-import { Footer } from "@/features/landing/footer";
 import { NewsSection } from "@/features/landing/news-section";
 import { HeroContent } from "./hero-content";
 import { CompanyStats } from "./company stats";
@@ -16,15 +12,6 @@ import { GraphicSection } from "./graphic-section";
 import { ValuesSection } from "./values";
 
 export default function AboutUs() {
-  const navigationItems = [
-    { label: "Industries", href: "/industries", key: "industries" },
-    { label: "Expertise", href: "/expertise", key: "expertise" },
-    { label: "Projects", href: "/projects", key: "projects" },
-    { label: "Clients", href: "/clients", key: "clients" },
-    { label: "About us", href: "/about-us", key: "about-us" },
-    { label: "Careers", href: "/careers", key: "careers" },
-    { label: "News", href: "/news", key: "news" },
-  ];
 
   const secondaryNavigationItems = [
     { label: "What we do", href: "#what-we-do" },
@@ -44,10 +31,7 @@ export default function AboutUs() {
 
         {/* Navigation and Content */}
 
-        <Navigation
-          navigationItems={navigationItems}
-          megaMenuData={megaMenuData}
-        />
+        <Navigation/>
         <HeroContent
           title="A leading engineering consultancy in Uganda "
           page="About us"
@@ -133,7 +117,6 @@ export default function AboutUs() {
       <div id="careers">
         <CareersSection />
       </div>
-      <Footer />
     </>
   );
 }
