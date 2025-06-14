@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { PROJECT_TYPE } from "../industries/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { PROJECT_TYPE } from "../projects/lib/queries";
 
 interface ProjectsSectionProps {
   projects: PROJECT_TYPE[];
@@ -47,7 +47,7 @@ export function ProjectsSection({
           <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {projects.map((project) => (
               <div key={project.slug}>
-                <Link href={`/project`} className="block group">
+                <Link href={`/projects/${project.slug}`} className="block group">
                   <motion.div
                     className="relative aspect-[4/3] w-full"
                     whileHover={{ y: -5 }}
@@ -75,8 +75,8 @@ export function ProjectsSection({
                         {project.title}
                       </h3>
                       <p className="text-xs text-black mt-1">
-                        <span>{project.location.city}</span>
-                        <span>{project.location.country}</span>
+                        <span>{project.location?.city}</span>
+                        <span>{project.location?.country}</span>
                       </p>
                     </div>
                   </motion.div>

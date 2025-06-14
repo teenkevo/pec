@@ -12,6 +12,7 @@ export const client = createClient({
       ? `https://${process.env.VERCEL_URL}/studio`
       : `${process.env.NEXT_PUBLIC_BASE_URL}/studio`,
   },
+  perspective: "published",
 });
 
 export async function sanityFetch<const QueryString extends string>({
