@@ -39,20 +39,61 @@ export type SanityImageDimensions = {
   aspectRatio?: number;
 };
 
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
+export type Geopoint = {
+  _type: "geopoint";
+  lat?: number;
+  lng?: number;
+  alt?: number;
 };
 
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
+export type Publication = {
+  _id: string;
+  _type: "publication";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  summary?: string;
+  publicationDate?: string;
+  category?:
+    | "report"
+    | "policy-brief"
+    | "research-paper"
+    | "white-paper"
+    | "guide"
+    | "press-statement"
+    | "conference-proceedings"
+    | "technical-analysis"
+    | "other";
+  publicationType?: "internal" | "external";
+  internalFile?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    _type: "file";
+  };
+  externalUrl?: string;
+  industry?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "industry";
+  };
 };
 
 export type SanityFileAsset = {
@@ -75,6 +116,332 @@ export type SanityFileAsset = {
   path?: string;
   url?: string;
   source?: SanityAssetSourceData;
+};
+
+export type BlockContent = Array<
+  | {
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+      listItem?: "bullet";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }
+  | {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+      _key: string;
+    }
+>;
+
+export type BlogPost = {
+  _id: string;
+  _type: "blogPost";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  publishedAt?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  summary?: string;
+  content?: BlockContent;
+  category?: "news" | "insights" | "press" | "event";
+  industry?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "industry";
+  };
+};
+
+export type AboutUs = {
+  _id: string;
+  _type: "aboutUs";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  hero?: {
+    title?: string;
+    subtitle?: string;
+    heroImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+  whatWeDo?: {
+    title?: string;
+    subtitle?: string;
+    description?: string;
+  };
+  statistics?: Array<{
+    value?: string;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    _type: "statistic";
+    _key: string;
+  }>;
+  mission?: {
+    title?: string;
+    missionStatement?: string;
+    description?: string;
+    missionImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    additionalTitle?: string;
+  };
+  vision?: {
+    title?: string;
+    visionStatement?: string;
+    description?: string;
+  };
+  values?: {
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    valuesList?: Array<{
+      title?: string;
+      description?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+      _type: "value";
+      _key: string;
+    }>;
+  };
+  strategy?: {
+    title?: string;
+    subtitle?: string;
+    description?: string;
+  };
+};
+
+export type GalleryImage = {
+  _type: "galleryImage";
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  caption?: string;
+};
+
+export type Expertise = {
+  _id: string;
+  _type: "expertise";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  excerpt?: string;
+};
+
+export type Industry = {
+  _id: string;
+  _type: "industry";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  subtitle?: string;
+  description?: string;
+  mainImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  ourView?: {
+    content?: string;
+    industryLead?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "team";
+    };
+  };
+  featuredProject?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "project";
+  };
+};
+
+export type Project = {
+  _id: string;
+  _type: "project";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  mainImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  industry?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "industry";
+  };
+  client?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "client";
+  };
+  funder?: string;
+  valueOfService?: {
+    currency?: "EUR" | "USD" | "UGX";
+    value?: number;
+  };
+  location?: {
+    country?: string;
+    city?: string;
+  };
+  description?: string;
+  challenge?: string;
+  solution?: string;
+  images?: Array<
+    {
+      _key: string;
+    } & GalleryImage
+  >;
+  involvedPhases?: Array<{
+    phase?:
+      | "planning"
+      | "design"
+      | "construction"
+      | "operations"
+      | "decommissioning";
+    expertiseApplied?: Array<{
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      _key: string;
+      [internalGroqTypeReferenceTo]?: "expertise";
+    }>;
+    _type: "projectPhase";
+    _key: string;
+  }>;
+};
+
+export type Team = {
+  _id: string;
+  _type: "team";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  role?: string;
+  industries?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "industry";
+  }>;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
 };
 
 export type SanityImageAsset = {
@@ -100,6 +467,13 @@ export type SanityImageAsset = {
   source?: SanityAssetSourceData;
 };
 
+export type SanityAssetSourceData = {
+  _type: "sanity.assetSourceData";
+  name?: string;
+  id?: string;
+  url?: string;
+};
+
 export type SanityImageMetadata = {
   _type: "sanity.imageMetadata";
   location?: Geopoint;
@@ -111,43 +485,10 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type Geopoint = {
-  _type: "geopoint";
-  lat?: number;
-  lng?: number;
-  alt?: number;
-};
-
 export type Slug = {
   _type: "slug";
   current?: string;
   source?: string;
-};
-
-export type SanityAssetSourceData = {
-  _type: "sanity.assetSourceData";
-  name?: string;
-  id?: string;
-  url?: string;
-};
-
-export type ContactPerson = {
-  _id: string;
-  _type: "contactPerson";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  email?: string;
-  designation?: string;
-  phone?: string;
-  clients?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "client";
-  }>;
 };
 
 export type Client = {
@@ -157,127 +498,28 @@ export type Client = {
   _updatedAt: string;
   _rev: string;
   name?: string;
-  projects?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "project";
-  }>;
-};
-
-export type Project = {
-  _id: string;
-  _type: "project";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  priority?: "noPriority" | "urgent" | "high" | "medium" | "low";
-  startDate?: string;
-  endDate?: string;
-  clients?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "client";
-  }>;
-  contactPersons?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "contactPerson";
-  }>;
-  stagesCompleted?: Array<string>;
 };
 
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
-  | SanityImageHotspot
-  | SanityImageCrop
-  | SanityFileAsset
-  | SanityImageAsset
-  | SanityImageMetadata
   | Geopoint
-  | Slug
+  | Publication
+  | SanityFileAsset
+  | BlockContent
+  | BlogPost
+  | AboutUs
+  | GalleryImage
+  | Expertise
+  | Industry
+  | Project
+  | Team
+  | SanityImageCrop
+  | SanityImageHotspot
+  | SanityImageAsset
   | SanityAssetSourceData
-  | ContactPerson
-  | Client
-  | Project;
+  | SanityImageMetadata
+  | Slug
+  | Client;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./src/sanity/lib/clients/getAllClients.ts
-// Variable: ALL_CLIENTS_QUERY
-// Query: *[_type == "client"] {            _id,             name,        }
-export type ALL_CLIENTS_QUERYResult = Array<{
-  _id: string;
-  name: string | null;
-}>;
-
-// Source: ./src/sanity/lib/clients/getAllContacts.ts
-// Variable: ALL_CONTACTS_QUERY
-// Query: *[_type == "contactPerson"] {            _id,             name,            email,            designation,            phone,            clients[]->{              _id,            },        }
-export type ALL_CONTACTS_QUERYResult = Array<{
-  _id: string;
-  name: string | null;
-  email: string | null;
-  designation: string | null;
-  phone: string | null;
-  clients: Array<{
-    _id: string;
-  }> | null;
-}>;
-
-// Source: ./src/sanity/lib/projects/getAllProjects.ts
-// Variable: ALL_PROJECTS_QUERY
-// Query: *[_type == "project"] {          _id,          name,          startDate,           endDate,           stagesCompleted,           clients[]->{            _id,             name,          }        }
-export type ALL_PROJECTS_QUERYResult = Array<{
-  _id: string;
-  name: string | null;
-  startDate: string | null;
-  endDate: string | null;
-  stagesCompleted: Array<string> | null;
-  clients: Array<{
-    _id: string;
-    name: string | null;
-  }> | null;
-}>;
-
-// Source: ./src/sanity/lib/projects/getProjectById.ts
-// Variable: PROJECT_BY_ID_QUERY
-// Query: *[_type == "project" && _id == $projectId] {          _id,          name,           startDate,           endDate,           stagesCompleted,           contactPersons[]->{            _id,            name,            email,            phone,            designation,            clients[]->{              _id,            },          },          clients[]->{            _id,             name,          }        }
-export type PROJECT_BY_ID_QUERYResult = Array<{
-  _id: string;
-  name: string | null;
-  startDate: string | null;
-  endDate: string | null;
-  stagesCompleted: Array<string> | null;
-  contactPersons: Array<{
-    _id: string;
-    name: string | null;
-    email: string | null;
-    phone: string | null;
-    designation: string | null;
-    clients: Array<{
-      _id: string;
-    }> | null;
-  }> | null;
-  clients: Array<{
-    _id: string;
-    name: string | null;
-  }> | null;
-}>;
-
-// Query TypeMap
-import "@sanity/client";
-declare module "@sanity/client" {
-  interface SanityQueries {
-    '\n        *[_type == "client"] {\n            _id, \n            name,\n        }\n  ': ALL_CLIENTS_QUERYResult;
-    '\n        *[_type == "contactPerson"] {\n            _id, \n            name,\n            email,\n            designation,\n            phone,\n            clients[]->{\n              _id,\n            },\n\n        }\n  ': ALL_CONTACTS_QUERYResult;
-    '\n        *[_type == "project"] {\n          _id,\n          name,\n          startDate, \n          endDate, \n          stagesCompleted, \n          clients[]->{\n            _id, \n            name,\n          }\n        }\n  ': ALL_PROJECTS_QUERYResult;
-    '\n        *[_type == "project" && _id == $projectId] {\n          _id,\n          name, \n          startDate, \n          endDate, \n          stagesCompleted, \n          contactPersons[]->{\n            _id,\n            name,\n            email,\n            phone,\n            designation,\n            clients[]->{\n              _id,\n            },\n          },\n          clients[]->{\n            _id, \n            name,\n          }\n        }\n  ': PROJECT_BY_ID_QUERYResult;
-  }
-}

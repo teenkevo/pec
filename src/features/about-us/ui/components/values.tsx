@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { urlFor } from "@/sanity/lib/image";
 
 // Define the structure for our values
 interface ValueItem {
@@ -13,9 +14,13 @@ interface ValueItem {
   image: string;
 }
 
-export function ValuesSection() {
+interface Props {
+  values?: any[];
+}
+
+export function ValuesSection({ values: valuesData }: Props) {
   // Define our four values
-  const values: ValueItem[] = [
+  const defaultValues: ValueItem[] = [
     {
       id: "customer-centric",
       number: "01",
@@ -53,6 +58,14 @@ export function ValuesSection() {
         "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742777149/microsoft-365-oUbzU87d1Gc-unsplash_ekgtti.jpg",
     },
   ];
+
+  const values = valuesData ? valuesData.map((value, index) => ({
+    id: value.title?.toLowerCase().replace(/\s+/g, '-') || `value-${index}`,
+    number: String(index + 1).padStart(2, '0'),
+    title: value.title || `Value ${index + 1}`,
+    description: value.description || 'Description not available',
+    image: value.image ? urlFor(value.image).url() : defaultValues[index]?.image || "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742772760/christina-wocintechchat-com-rCyiK4_aaWw-unsplash_kukqqs.jpg",
+  })) : defaultValues;
 
   const [activeValue, setActiveValue] = useState(values[0].id);
   const sectionRef = useRef<HTMLDivElement>(null);

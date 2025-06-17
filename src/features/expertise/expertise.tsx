@@ -8,11 +8,11 @@ import { ProjectsSection } from "@/features/landing/projects-section";
 import { CareersSection } from "@/features/landing/careers-section";
 import { Footer } from "@/components/layout/footer";
 import { NewsSection } from "@/features/landing/news-section";
-import { HeroContent } from "../about-us/hero-content";
-import { CompanyStats } from "../about-us/company stats";
-import { Section } from "../about-us/section";
-import { GraphicSection } from "../about-us/graphic-section";
-import { ValuesSection } from "../about-us/values";
+import { HeroContent } from "../about-us/ui/components/hero-content";
+import { CompanyStats } from "../about-us/ui/components/company stats";
+import { Section } from "../about-us/ui/components/section";
+import { GraphicSection } from "../about-us/ui/components/graphic-section";
+import { ValuesSection } from "../about-us/ui/components/values";
 import { AreasOfExpertise } from "./areas-of-expertise";
 
 export default function Expertise() {
