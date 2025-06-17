@@ -30,7 +30,11 @@ export default function AboutView({ aboutData }: Props) {
       <div className="relative h-[60vh] md:h-[90vh] w-full">
         {/* Background Image with Gradient Overlays */}
         <BackgroundImage
-          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
+          imageUrl={
+            aboutData.hero?.heroImage
+              ? urlFor(aboutData.hero?.heroImage).url()
+              : "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
+          }
           alt="Ocean view with offshore structures"
         />
 
@@ -81,7 +85,11 @@ export default function AboutView({ aboutData }: Props) {
         />
       </div>
       <GraphicSection
-        imageUrl={aboutData?.mission?.missionImage?urlFor(aboutData?.mission?.missionImage).url():""}
+        imageUrl={
+          aboutData?.mission?.missionImage
+            ? urlFor(aboutData?.mission?.missionImage).url()
+            : ""
+        }
         section={aboutData.mission?.title ?? "Mission"}
         title={
           aboutData.mission?.additionalTitle ??

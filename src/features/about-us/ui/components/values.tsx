@@ -19,53 +19,15 @@ interface Props {
 }
 
 export function ValuesSection({ values: valuesData }: Props) {
-  // Define our four values
-  const defaultValues: ValueItem[] = [
-    {
-      id: "customer-centric",
-      number: "01",
-      title: "Customer-centric",
-      description:
-        "All our work is geared towards customer satisfaction and we undertake to continuously identify all the legitimate customer requirements and endeavour to comprehensively address them.",
-      image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742772760/christina-wocintechchat-com-rCyiK4_aaWw-unsplash_kukqqs.jpg",
-    },
-    {
-      id: "respect",
-      number: "02",
-      title: "Respect",
-      description:
-        "PEC undertakes to be and to remain sincere, fair and forthright; treating others with dignity and respecting their individual differences, feelings, and contributions",
-      image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742240490/cytonn-photography-n95VMLxqM2I-unsplash_bt9nyr.jpg",
-    },
-    {
-      id: "integrity",
-      number: "03",
-      title: "Integrity",
-      description:
-        "As we operate in an intensely competitive environment, we undertake to compete fairly, conducting our business in a professional manner that reflects favourably on the Company and on each of the individuals at PEC. We further undertake to hold ourselves to the PEC Code of Conduct dutifully, consistently and effectively.",
-      image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_61/v1742774671/christina-wocintechchat-com-rg1y72eKw6o-unsplash_m2xhqy.webp",
-    },
-    {
-      id: "shared-ownership",
-      number: "04",
-      title: "Shared Ownership",
-      description:
-        "We undertake to continuously build value for our shareholders and share the results of the Company's success with those who produce it.",
-      image:
-        "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742777149/microsoft-365-oUbzU87d1Gc-unsplash_ekgtti.jpg",
-    },
-  ];
-
-  const values = valuesData ? valuesData.map((value, index) => ({
-    id: value.title?.toLowerCase().replace(/\s+/g, '-') || `value-${index}`,
-    number: String(index + 1).padStart(2, '0'),
-    title: value.title || `Value ${index + 1}`,
-    description: value.description || 'Description not available',
-    image: value.image ? urlFor(value.image).url() : defaultValues[index]?.image || "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742772760/christina-wocintechchat-com-rCyiK4_aaWw-unsplash_kukqqs.jpg",
-  })) : defaultValues;
+  const values = valuesData
+    ? valuesData.map((value, index) => ({
+        id: value.title?.toLowerCase().replace(/\s+/g, "-") || `value-${index}`,
+        number: String(index + 1).padStart(2, "0"),
+        title: value.title || `Value ${index + 1}`,
+        description: value.description || "Description not available",
+        image: urlFor(value.image).url(),
+      }))
+    : [];
 
   const [activeValue, setActiveValue] = useState(values[0].id);
   const sectionRef = useRef<HTMLDivElement>(null);

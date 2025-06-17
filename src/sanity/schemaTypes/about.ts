@@ -263,7 +263,7 @@ export default defineType({
                 },
                 prepare({ title, subtitle }) {
                   return {
-                    title: `${subtitle} - ${title}`,
+                    title: `${title}`,
                   };
                 },
               },
