@@ -84,6 +84,6 @@ export type SINGLE_INDUSTRY_RESULT = {
       role: string;
     };
   };
-  featuredProject: PROJECT_TYPE;
+  featuredProject: PROJECT_TYPE | null;
 };
 

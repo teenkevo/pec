@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { PROJECT_TYPE } from "../industries/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { PROJECT_TYPE } from "../../lib/queries";
 
 interface ProjectsSectionProps {
   projects: PROJECT_TYPE[];

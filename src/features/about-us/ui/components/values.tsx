@@ -57,15 +57,18 @@ export function ValuesSection({ values: valuesData }: Props) {
       observerOptions
     );
 
+    // Copy the current ref value to avoid stale closure
+    const currentRefs = valueRefs.current;
+
     // Observe all value elements
-    valueRefs.current.forEach((ref) => {
+    currentRefs.forEach((ref) => {
       if (ref) {
         observer.observe(ref);
       }
     });
 
     return () => {
-      valueRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) {
           observer.unobserve(ref);
         }

@@ -61,34 +61,40 @@ export function SingleIndustryView({ industry, projects }: Props) {
       <div id="our-view">
         <IndustryView
           id="our-view"
-          heading={`Our view on ${industry.title}`}
-          content={industry.ourView.content}
+          heading={`Our view on ${industry?.title}`}
+          content={industry?.ourView?.content}
           linkText="Read about our purpose"
           linkUrl="/about-us/what-we-do"
           industryLeadTitle={industry.ourView?.industryLead?.role}
-          industryLeadImageUrl={urlFor(
+          industryLeadImageUrl={
             industry.ourView?.industryLead?.image
-          ).url()}
+              ? urlFor(industry.ourView?.industryLead?.image).url()
+              : ""
+          }
           industryLeadName={industry.ourView?.industryLead?.name}
         />
       </div>
-      <div id={industry.slug} className="px-4 md:px-14">
-        <IndustryTopProjectBanner featuredProject={industry.featuredProject} />
-      </div>
+      {industry.featuredProject && (
+        <div id={industry?.slug} className="px-4 md:px-14">
+          <IndustryTopProjectBanner
+            featuredProject={industry?.featuredProject}
+          />
+        </div>
+      )}
       {projects && projects.length > 0 && (
         <>
           <div id="projects">
             <ProjectsSection
               projects={projects?.slice(0, 3)}
-              title={`${industry.title} projects`}
+              title={`${industry?.title} projects`}
               linkText="Explore all"
             />
           </div>
           <div id="projects">
             <ProjectsSection2
               projects={projects?.slice(3, 6)}
-              title={`${industry.title} projects`}
-              linkText={`All ${industry.title} projects`}
+              title={`${industry?.title} projects`}
+              linkText={`All ${industry?.title} projects`}
             />
           </div>
         </>
@@ -109,10 +115,12 @@ export function SingleIndustryView({ industry, projects }: Props) {
           industry={industry.title}
           contactPerson={{
             title: industry.ourView?.industryLead?.role,
-            imageUrl: urlFor(industry.ourView?.industryLead?.image)
-              .width(120)
-              .height(120)
-              .url(),
+            imageUrl: industry.ourView?.industryLead?.image
+              ? urlFor(industry.ourView?.industryLead?.image)
+                  .width(120)
+                  .height(120)
+                  .url()
+              : "",
             name: industry.ourView?.industryLead?.name ?? "Eng Charles Wasswa",
           }}
         />
