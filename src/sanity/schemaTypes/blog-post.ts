@@ -56,7 +56,7 @@ export default defineType({
       options: {
         list: [
           { title: "News", value: "news" },
-          { title: "Insights", value: "insights" },
+          { title: "Insights", value: "insights"},
           { title: "Press Release", value: "press" },
           { title: "Event", value: "event" },
         ],

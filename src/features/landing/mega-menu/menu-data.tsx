@@ -66,29 +66,15 @@ export const megaMenuData: MegaMenuData = {
       caption: "Build your career with us",
     },
   },
-  // investors: {
-  //   title: "Investors",
-  //   description: "Information for investors",
-  //   items: [
-  //     { title: "Financial Results", href: "#results" },
-  //     { title: "Annual Reports", href: "#reports" },
-  //     { title: "Shareholder Information", href: "#shareholders" },
-  //     { title: "Governance", href: "#governance" },
-  //   ],
-  //   featuredImage: {
-  //     src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
-  //     alt: "Investor relations",
-  //     caption: "Sustainable growth and value",
-  //   },
-  // },
+
   news: {
-    title: "News",
+    title: "Blog",
     description: "Latest updates and insights",
     items: [
+      { title: "News", href: "#news" },
+      { title: "Insights", href: "#insights" },
       { title: "Press Releases", href: "#press" },
-      { title: "Blog", href: "#blog" },
       { title: "Events", href: "#events" },
-      { title: "Media Library", href: "#media" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",

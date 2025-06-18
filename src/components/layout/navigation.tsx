@@ -24,7 +24,7 @@ const navigationItems: NavigationItem[] = [
   { label: "Clients", href: "/clients", key: "clients" },
   { label: "About us", href: "/about-us", key: "about-us" },
   { label: "Careers", href: "/careers", key: "careers" },
-  { label: "News", href: "/news", key: "news" },
+  { label: "Blog", href: "/blog", key: "blog" },
 ];
 
 interface NavigationProps {
