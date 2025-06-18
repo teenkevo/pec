@@ -67,7 +67,7 @@ export const megaMenuData: MegaMenuData = {
     },
   },
 
-  news: {
+  blog: {
     title: "Blog",
     description: "Latest updates and insights",
     items: [
