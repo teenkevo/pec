@@ -1,10 +1,5 @@
-"use client";
-
-import { BackgroundImage } from "@/features/landing/hero/background-image";
-import { Navigation } from "@/components/layout/navigation";
-import { SecondaryNav } from "@/features/landing/secondary-nav";
 import { CareersSection } from "@/features/landing/careers-section";
-import { HeroContent } from "@/components/hero-section";
+import { HeroSection } from "@/components/hero-section";
 import { IndustryView } from "../components/industry-view";
 import { IndustryTopProjectBanner } from "../components/industry-top-project-banner";
 import { NewsSection } from "@/features/landing/news-section";
@@ -32,31 +27,20 @@ export function SingleIndustryView({ industry, projects }: Props) {
 
   return (
     <>
-      <div className="relative h-[60vh] md:h-[90vh] w-full">
-        {/* Background Image with Gradient Overlays */}
-        <BackgroundImage
-          imageUrl={
-            urlFor(industry.mainImage).url() ??
-            "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
-          }
-          alt="Ocean view with offshore structures"
-        />
-
-        {/* Navigation and Content */}
-
-        <Navigation />
-        <HeroContent
-          title={
-            industry.subtitle ??
-            "Connecting cities and communities with reliable transportation corridors"
-          }
-          page={industry.title}
-        />
-      </div>
-      <SecondaryNav
-        initialActiveItem="#our-view"
-        navItems={secondaryNavigationItems}
+      <HeroSection
+        title={
+          industry.subtitle ??
+          "Connecting cities and communities with reliable transportation corridors"
+        }
+        page={industry.title}
+        secondaryNavigationItems={secondaryNavigationItems}
+        backgroundImage={
+          urlFor(industry.mainImage).url() ??
+          "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
+        }
+        alt="Ocean view with offshore structures"
       />
+
       {/* What We Do Section */}
       <div id="our-view">
         <IndustryView

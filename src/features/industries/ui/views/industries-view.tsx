@@ -1,10 +1,7 @@
 import { CareersSection } from "@/features/landing/careers-section";
 import { ContentSection } from "../../../landing/content-section";
-import { BackgroundImage } from "../../../landing/hero/background-image";
 import { HeroSection } from "@/components/hero-section";
-import { Navigation } from "../../../../components/layout/navigation";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
-import { SecondaryNav } from "../../../landing/secondary-nav";
 import { IndustryBanner } from "../components/industry-banner";
 import { INDUSTRIES } from "../../lib/queries";
 import { PROJECT_TYPE } from "@/features/projects/lib/queries";
