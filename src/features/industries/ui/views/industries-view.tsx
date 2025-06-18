@@ -1,7 +1,7 @@
 import { CareersSection } from "@/features/landing/careers-section";
 import { ContentSection } from "../../../landing/content-section";
 import { BackgroundImage } from "../../../landing/hero/background-image";
-import { HeroContent } from "@/components/hero-content";
+import { HeroSection } from "@/components/hero-section";
 import { Navigation } from "../../../../components/layout/navigation";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
 import { SecondaryNav } from "../../../landing/secondary-nav";
@@ -29,22 +29,14 @@ export default function IndustriesView({ projects, industries }: Props) {
 
   return (
     <>
-      <div className="relative h-[60vh] md:h-[90vh] w-full">
-        {/* Background Image with Gradient Overlays */}
-        <BackgroundImage
-          imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1742327657/IMG_7837_qicjiu.webp"
-          alt="Ocean view with offshore structures"
-        />
-
-        {/* Navigation and Content */}
-
-        <Navigation />
-        <HeroContent title="Our industries of specialization" page="Industries" />
-      </div>
-      <SecondaryNav
-        initialActiveItem="#introduction"
-        navItems={secondaryNavigationItems}
+      <HeroSection
+        title="Our industries of specialization"
+        page="Industries"
+        secondaryNavigationItems={secondaryNavigationItems}
+        backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1742327657/IMG_7837_qicjiu.webp"
+        alt="Ocean view with offshore structures"
       />
+    
       {/* What We Do Section */}
       <div id="introduction">
         <ContentSection
@@ -62,9 +54,9 @@ export default function IndustriesView({ projects, industries }: Props) {
           </div>
           <div id="projects">
             <ProjectsSection
-              projects={projects.filter(
-                (project) => industry.slug === project.industry.slug
-              ).slice(0, 3)}
+              projects={projects
+                .filter((project) => industry.slug === project.industry.slug)
+                .slice(0, 3)}
               title={`${industry.title} projects`}
               linkText="Explore all"
             />

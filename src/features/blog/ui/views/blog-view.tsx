@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components/hero-content";
+import { HeroSection } from "@/components/hero-section";
 
 export const BlogView = () => {
   const secondaryNavigationItems = [

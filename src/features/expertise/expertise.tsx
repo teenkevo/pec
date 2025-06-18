@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components/hero-content";
+import { HeroSection } from "@/components/hero-section";
 import { GraphicSection } from "../about-us/ui/components/graphic-section";
 import { AreasOfExpertise } from "./areas-of-expertise";
 
@@ -14,7 +14,7 @@ export default function Expertise() {
         title="PEC: An all-round quality civil engineering consultancy"
         page="Expertise"
         secondaryNavigationItems={secondaryNavigationItems}
-        imageUrl="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_55/v1742876740/william-topa-x9AZgR25G-k-unsplash_pfi9zf.webp"
+        backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_55/v1742876740/william-topa-x9AZgR25G-k-unsplash_pfi9zf.webp"
         alt="Ocean view with offshore structures"
       />
 
