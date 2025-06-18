@@ -1,18 +1,11 @@
 "use client";
 
-import { ContentSection } from "@/features/landing/content-section";
+
 import { BackgroundImage } from "@/features/landing/hero/background-image";
 import { Navigation } from "@/components/layout/navigation";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
-import { ProjectsSection } from "@/features/landing/projects-section";
-import { CareersSection } from "@/features/landing/careers-section";
-import { Footer } from "@/components/layout/footer";
-import { NewsSection } from "@/features/landing/news-section";
-import { HeroContent } from "../about-us/hero-content";
-import { CompanyStats } from "../about-us/company stats";
-import { Section } from "../about-us/section";
-import { GraphicSection } from "../about-us/graphic-section";
-import { ValuesSection } from "../about-us/values";
+import { HeroContent } from "../about-us/ui/components/hero-content";
+import { GraphicSection } from "../about-us/ui/components/graphic-section";
 import { AreasOfExpertise } from "./areas-of-expertise";
 
 export default function Expertise() {
