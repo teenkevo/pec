@@ -1,7 +1,7 @@
 import { CareersSection } from "@/features/landing/careers-section";
 import { ContentSection } from "../../../landing/content-section";
 import { BackgroundImage } from "../../../landing/hero/background-image";
-import { HeroContent } from "../components/hero-content";
+import { HeroContent } from "@/components/hero-content";
 import { Navigation } from "../../../../components/layout/navigation";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
 import { SecondaryNav } from "../../../landing/secondary-nav";
@@ -39,7 +39,7 @@ export default function IndustriesView({ projects, industries }: Props) {
         {/* Navigation and Content */}
 
         <Navigation />
-        <HeroContent title="Our industries of specialization" />
+        <HeroContent title="Our industries of specialization" page="Industries" />
       </div>
       <SecondaryNav
         initialActiveItem="#introduction"

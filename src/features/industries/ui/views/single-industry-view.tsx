@@ -4,7 +4,7 @@ import { BackgroundImage } from "@/features/landing/hero/background-image";
 import { Navigation } from "@/components/layout/navigation";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
 import { CareersSection } from "@/features/landing/careers-section";
-import { HeroContent } from "../components/hero-content";
+import { HeroContent } from "@/components/hero-content";
 import { IndustryView } from "../components/industry-view";
 import { IndustryTopProjectBanner } from "../components/industry-top-project-banner";
 import { NewsSection } from "@/features/landing/news-section";
@@ -50,7 +50,7 @@ export function SingleIndustryView({ industry, projects }: Props) {
             industry.subtitle ??
             "Connecting cities and communities with reliable transportation corridors"
           }
-          industry={industry.title}
+          page={industry.title}
         />
       </div>
       <SecondaryNav

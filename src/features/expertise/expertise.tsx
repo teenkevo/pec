@@ -1,10 +1,9 @@
 "use client";
 
-
 import { BackgroundImage } from "@/features/landing/hero/background-image";
 import { Navigation } from "@/components/layout/navigation";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
-import { HeroContent } from "../about-us/ui/components/hero-content";
+import { HeroContent } from "@/components/hero-content";
 import { GraphicSection } from "../about-us/ui/components/graphic-section";
 import { AreasOfExpertise } from "./areas-of-expertise";
 

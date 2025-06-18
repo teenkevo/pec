@@ -5,7 +5,7 @@ import { Navigation } from "@/components/layout/navigation";
 import { SecondaryNav } from "@/features/landing/secondary-nav";
 import { CareersSection } from "@/features/landing/careers-section";
 import { NewsSection } from "@/features/landing/news-section";
-import { HeroContent } from "../components/hero-content";
+import { HeroContent } from "../../../../components/hero-content";
 import { CompanyStats } from "../components/company stats";
 import { Section } from "../components/section";
 import { GraphicSection } from "../components/graphic-section";
