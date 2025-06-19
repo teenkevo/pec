@@ -1,5 +1,5 @@
 import { CareersSection } from "@/features/home/ui/components/careers-section";
-import { HeroSection } from "@/components/hero-section";
+import { HeroSection } from "@/components/sections/hero-section";
 import { IndustryView } from "../components/industry-view";
 import { IndustryTopProjectBanner } from "../components/industry-top-project-banner";
 import { NewsSection } from "@/features/home/ui/components/news-section";
@@ -11,19 +11,25 @@ import { urlFor } from "@/sanity/lib/image";
 import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
 import { ProjectsSection2 } from "@/features/projects/ui/components/projects-section-2";
+import { BlogPosts } from "@/features/blog/lib/queries";
 
 interface Props {
-  industry: SINGLE_INDUSTRY_RESULT;
-  projects: PROJECT_TYPE[];
+  industryData: {
+    industry: SINGLE_INDUSTRY_RESULT;
+    projects: PROJECT_TYPE[];
+    posts: BlogPosts;
+  };
 }
 
-export function SingleIndustryView({ industry, projects }: Props) {
+export function SingleIndustryView({ industryData }: Props) {
   const secondaryNavigationItems = [
     { label: "Our view", href: "#our-view" },
     { label: "Projects", href: "#projects" },
     { label: "Publications", href: "#publications" },
     { label: "Contact", href: "#contact" },
   ];
+
+  const { industry, projects, posts } = industryData;
 
   return (
     <>
@@ -38,7 +44,6 @@ export function SingleIndustryView({ industry, projects }: Props) {
           urlFor(industry.mainImage).url() ??
           "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
         }
-        alt="Ocean view with offshore structures"
       />
 
       {/* What We Do Section */}
@@ -90,7 +95,7 @@ export function SingleIndustryView({ industry, projects }: Props) {
       </div>
       {/* News Section */}
       <div id="news-highlights">
-        <NewsSection />
+        <NewsSection posts={posts} />
       </div>
       {/* Divider */}
       <div className="border-t border-gray-200 mt-10"></div>

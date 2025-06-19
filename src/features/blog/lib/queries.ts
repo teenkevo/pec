@@ -32,6 +32,22 @@ export const TOP_BLOG_POSTS_QUERY = `
     }
   }
 `;
+export const INDUSTRY_BLOG_POSTS_QUERY = `
+  *[_type == "blogPost"&& industry->slug.current==$slug][0..4] | order(publishedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt,
+    summary,
+    image,
+    category,
+    author ->{
+      name,
+      image,
+      role
+    }
+  }
+`;
 
 
 export type BlogPosts = Array<{
