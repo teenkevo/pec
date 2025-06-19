@@ -8,7 +8,7 @@ import { ContentSection } from "./content-section";
 import { IndustriesSection } from "./industries-section";
 import { OrganisationSection } from "./organization-section";
 import { CareersSection } from "./careers-section";
-import { NewsSection } from "./news-section";
+import { NewsSection } from "../blog/ui/components/news-section";
 import { HistorySection } from "./history-section";
 import { PROJECT_TYPE } from "../projects/lib/queries";
 import { INDUSTRIES } from "../industries/lib/queries";

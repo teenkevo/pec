@@ -1,5 +1,5 @@
 import { CareersSection } from "@/features/landing/careers-section";
-import { NewsSection } from "@/features/landing/news-section";
+import { NewsSection } from "@/features/blog/ui/components/news-section";
 import { HeroSection } from "@/components/hero-section";
 import { CompanyStats } from "../components/company stats";
 import { Section } from "../components/section";

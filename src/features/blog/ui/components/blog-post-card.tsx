@@ -9,13 +9,10 @@ import { format } from "date-fns";
 
 interface Props {
   post: BlogPosts[number];
-  accentColor?: string;
+  isFeatured?: boolean;
 }
 
-export function BlogPostCard({ post, accentColor = "[#EB3300]" }: Props) {
-  const categoryTextColor = `text-${accentColor}`;
-  const categoryBgColor = `bg-${accentColor}`;
-  const readMoreTextColor = `text-[${accentColor}]`;
+export function BlogPostCard({ post, isFeatured = false }: Props) {
 
   const categoryMap = {
     news: "News",
@@ -27,7 +24,7 @@ export function BlogPostCard({ post, accentColor = "[#EB3300]" }: Props) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="w-full px-4 md:px-6 block group flex-shrink-0"
+      className={cn("w-full block group flex-shrink-0", !isFeatured && "border-b pb-8 border-gray-800")}
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <Image
@@ -38,13 +35,23 @@ export function BlogPostCard({ post, accentColor = "[#EB3300]" }: Props) {
         />
       </div>
       <div className="mt-4">
-        <span className={cn("text-sm text-gray-500", categoryTextColor)}>
+        <span className={cn("text-sm text-[#EB3300] font-medium", isFeatured && "text-lg")}>
           {categoryMap[post.category as keyof typeof categoryMap]}
         </span>
-        <h3 className="text-xl font-bold text-gray-900 mt-1 tracking-tight transition-colors">
+        <h3
+          className={cn(
+            "text-xl font-bold text-gray-900 mt-1 tracking-tight transition-colors",
+            isFeatured && "text-3xl"
+          )}
+        >
           {post.title}
         </h3>
-        <p className="text-gray-600 text-xs mt-2">
+        <p
+          className={cn(
+            "text-gray-600 text-sm mt-2",
+            isFeatured && "text-lg"
+          )}
+        >
           {format(new Date(post.publishedAt), "MMM d, yyyy")}
         </p>
       </div>

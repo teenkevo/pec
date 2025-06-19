@@ -4,7 +4,7 @@ export const ALL_BLOG_POSTS_QUERY = `
   *[_type == "blogPost"] | order(publishedAt desc) {
     _id,
     title,
-    "slug": slug.current,,
+    "slug": slug.current,
     publishedAt,
     summary,
     image,
