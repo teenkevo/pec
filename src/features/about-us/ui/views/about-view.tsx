@@ -1,11 +1,6 @@
-"use client";
-
-import { BackgroundImage } from "@/features/landing/hero/background-image";
-import { Navigation } from "@/components/layout/navigation";
-import { SecondaryNav } from "@/features/landing/secondary-nav";
 import { CareersSection } from "@/features/landing/careers-section";
 import { NewsSection } from "@/features/landing/news-section";
-import { HeroContent } from "../../../../components/hero-section";
+import { HeroSection } from "@/components/hero-section";
 import { CompanyStats } from "../components/company stats";
 import { Section } from "../components/section";
 import { GraphicSection } from "../components/graphic-section";
@@ -27,31 +22,21 @@ export default function AboutView({ aboutData }: Props) {
 
   return (
     <>
-      <div className="relative h-[60vh] md:h-[90vh] w-full">
-        {/* Background Image with Gradient Overlays */}
-        <BackgroundImage
-          imageUrl={
-            aboutData.hero?.heroImage
-              ? urlFor(aboutData.hero?.heroImage).url()
-              : "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
-          }
-          alt="Ocean view with offshore structures"
-        />
-
-        {/* Navigation and Content */}
-        <Navigation />
-        <HeroContent
-          title={
-            aboutData.hero?.subtitle ??
-            "A leading engineering consultancy in Uganda "
-          }
-          page={aboutData.hero?.title ?? "About us"}
-        />
-      </div>
-      <SecondaryNav
-        initialActiveItem="#what-we-do"
-        navItems={secondaryNavigationItems}
+      <HeroSection
+        title={
+          aboutData.hero?.subtitle ??
+          "A leading engineering consultancy in Uganda "
+        }
+        page={aboutData.hero?.title ?? "About us"}
+        secondaryNavigationItems={secondaryNavigationItems}
+        backgroundImage={
+          aboutData.hero?.heroImage
+            ? urlFor(aboutData.hero?.heroImage).url()
+            : "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
+        }
+        alt="Ocean view with offshore structures"
       />
+
       {/* What We Do Section */}
       <div id="what-we-do">
         <Section

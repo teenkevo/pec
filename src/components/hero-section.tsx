@@ -9,6 +9,7 @@ interface HeroSectionProps {
   initialActiveItem?: string;
   backgroundImage: string;
   alt: string;
+
 }
 
 export function HeroSection({
@@ -18,10 +19,11 @@ export function HeroSection({
   initialActiveItem,
   backgroundImage,
   alt,
+
 }: HeroSectionProps) {
   return (
     <>
-      <div className="relative h-[60vh] md:h-[90vh] w-full">
+      <div className="relative h-[60vh] md:h-[70vh] w-full">
         <BackgroundImage imageUrl={backgroundImage} alt={alt} />
         <Navigation />
         <div className="px-4 md:px-14 absolute bottom-5 md:bottom-16 max-w-5xl">
@@ -35,6 +37,7 @@ export function HeroSection({
         initialActiveItem={
           initialActiveItem ?? secondaryNavigationItems[0].href
         }
+      
         navItems={secondaryNavigationItems}
       />
     </>
