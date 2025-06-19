@@ -3,6 +3,7 @@ import { SecondaryNav } from "@/components/layout/secondary-nav";
 import { Navigation } from "@/components/layout/navigation";
 import { BackgroundImageSlideshow } from "@/features/home/hero/background-image-slide-show";
 import { HomeHeroContent } from "@/features/home/hero/hero-content";
+import { cn } from "@/lib/utils";
 
 interface SlideShowContent {
   images: { imageUrl: string; alt: string }[];
@@ -35,11 +36,16 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <>
-      <div className="relative h-[60vh] md:h-[70vh] w-full">
+      <div
+        className={cn(
+          "relative h-[60vh] w-full isolate",
+          isHome ? "md:h-[90vh]" : "md:h-[70vh]"
+        )}
+      >
         {isHome && slides ? (
           <>
-            <HomeHeroContent slides={slides.content} />
             <BackgroundImageSlideshow images={slides.images} interval={5000} />
+            <HomeHeroContent slides={slides.content} />
           </>
         ) : (
           <>

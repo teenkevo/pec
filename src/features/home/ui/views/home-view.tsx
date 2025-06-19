@@ -10,13 +10,19 @@ import { OrganisationSection } from "../components/organization-section";
 import { CareersSection } from "../components/careers-section";
 import { NewsSection } from "../components/news-section";
 import { HistorySection } from "../components/history-section";
+import { BlogPosts } from "@/features/blog/lib/queries";
 
 interface Props {
-  projects: PROJECT_TYPE[];
-  industries: INDUSTRIES;
+  homeData: {
+    projects: PROJECT_TYPE[];
+    industries: INDUSTRIES;
+    posts: BlogPosts;
+  };
 }
 
-export default function HomeView({ projects, industries }: Props) {
+export default function HomeView({ homeData }: Props) {
+  const { projects, industries, posts } = homeData;
+
   const secondaryNavigationItems = [
     { label: "What we do", href: "#what-we-do" },
     { label: "Our industries", href: "#industries" },
@@ -94,6 +100,7 @@ export default function HomeView({ projects, industries }: Props) {
           images: backgroundImages,
         }}
         initialActiveItem="#what-we-do"
+        isHome
       />
       {/* What We Do Section */}
       <div id="what-we-do">
@@ -127,9 +134,11 @@ export default function HomeView({ projects, industries }: Props) {
       </div>
 
       {/* News Section */}
-      <div id="news-highlights">
-        <NewsSection />
-      </div>
+      {posts && posts.length > 0 && (
+        <div id="news-highlights">
+          <NewsSection posts={posts} />
+        </div>
+      )}
       <div id="history">
         <HistorySection />
       </div>

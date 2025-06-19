@@ -29,7 +29,7 @@ export function BackgroundImageSlideshow({
   }, [currentImageIndex, images.length, interval]);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+    <div className="absolute inset-0 -z-10 overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         {images.map(
           (image, index) =>
