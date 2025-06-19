@@ -41,7 +41,7 @@ export default defineType({
       title: "Summary",
       type: "text",
       rows: 3,
-      validation: (Rule) => Rule.required().max(200),
+      validation: (Rule) => Rule.required().max(400),
     }),
     defineField({
       name: "content",
@@ -56,7 +56,7 @@ export default defineType({
       options: {
         list: [
           { title: "News", value: "news" },
-          { title: "Insights", value: "insights" },
+          { title: "Insights", value: "insights"},
           { title: "Press Release", value: "press" },
           { title: "Event", value: "event" },
         ],
@@ -68,6 +68,12 @@ export default defineType({
       title: "Related Industry",
       type: "reference",
       to: [{ type: "industry" }],
+    }),
+    defineField({
+      name: "author",
+      title: "Author",
+      type: "reference",
+      to: [{ type: "team" }],
     }),
   ],
   preview: {

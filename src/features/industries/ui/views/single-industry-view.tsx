@@ -1,13 +1,8 @@
-"use client";
-
-import { BackgroundImage } from "@/features/landing/hero/background-image";
-import { Navigation } from "@/components/layout/navigation";
-import { SecondaryNav } from "@/features/landing/secondary-nav";
-import { CareersSection } from "@/features/landing/careers-section";
-import { HeroContent } from "../components/hero-content";
+import { CareersSection } from "@/features/home/ui/components/careers-section";
+import { HeroSection } from "@/components/sections/hero-section";
 import { IndustryView } from "../components/industry-view";
 import { IndustryTopProjectBanner } from "../components/industry-top-project-banner";
-import { NewsSection } from "@/features/landing/news-section";
+import { NewsSection } from "@/components/sections/news-section";
 import { TechnicalPapers } from "../components/industry-technical-papers";
 import { IndustryContactSection } from "../components/industry-contact";
 import { SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
@@ -16,13 +11,17 @@ import { urlFor } from "@/sanity/lib/image";
 import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
 import { ProjectsSection2 } from "@/features/projects/ui/components/projects-section-2";
+import { BlogPosts } from "@/features/blog/lib/queries";
 
 interface Props {
-  industry: SINGLE_INDUSTRY_RESULT;
-  projects: PROJECT_TYPE[];
+  industryData: {
+    industry: SINGLE_INDUSTRY_RESULT;
+    projects: PROJECT_TYPE[];
+    posts: BlogPosts;
+  };
 }
 
-export function SingleIndustryView({ industry, projects }: Props) {
+export function SingleIndustryView({ industryData }: Props) {
   const secondaryNavigationItems = [
     { label: "Our view", href: "#our-view" },
     { label: "Projects", href: "#projects" },
@@ -30,33 +29,23 @@ export function SingleIndustryView({ industry, projects }: Props) {
     { label: "Contact", href: "#contact" },
   ];
 
+  const { industry, projects, posts } = industryData;
+
   return (
     <>
-      <div className="relative h-[60vh] md:h-[90vh] w-full">
-        {/* Background Image with Gradient Overlays */}
-        <BackgroundImage
-          imageUrl={
-            urlFor(industry.mainImage).url() ??
-            "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
-          }
-          alt="Ocean view with offshore structures"
-        />
-
-        {/* Navigation and Content */}
-
-        <Navigation />
-        <HeroContent
-          title={
-            industry.subtitle ??
-            "Connecting cities and communities with reliable transportation corridors"
-          }
-          industry={industry.title}
-        />
-      </div>
-      <SecondaryNav
-        initialActiveItem="#our-view"
-        navItems={secondaryNavigationItems}
+      <HeroSection
+        title={
+          industry.subtitle ??
+          "Connecting cities and communities with reliable transportation corridors"
+        }
+        page={industry.title}
+        secondaryNavigationItems={secondaryNavigationItems}
+        backgroundImage={
+          urlFor(industry.mainImage).url() ??
+          "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
+        }
       />
+
       {/* What We Do Section */}
       <div id="our-view">
         <IndustryView
@@ -106,7 +95,7 @@ export function SingleIndustryView({ industry, projects }: Props) {
       </div>
       {/* News Section */}
       <div id="news-highlights">
-        <NewsSection />
+        <NewsSection posts={posts} />
       </div>
       {/* Divider */}
       <div className="border-t border-gray-200 mt-10"></div>

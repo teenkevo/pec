@@ -3,7 +3,7 @@ import { formatDistanceToNow, isBefore } from "date-fns";
 import { cn, toTitleCase } from "@/lib/utils";
 import { CheckCircle, Loader } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { projects } from "./mock-projects";
+import { projects } from "../../../../lib/mock-projects";
 
 export function FeatureProjectTracking() {
   return projects.map((item) => (

@@ -5,63 +5,69 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { BlogPostCard } from "@/features/blog/ui/components/blog-post-card";
+import { BlogPosts } from "@/features/blog/lib/queries";
 
 // Define news article data
-const newsArticles = [
-  {
-    id: "seafloor-mapping",
-    category: "Business news",
-    title:
-      "PEC leads large-scale seafloor mapping project to protect Entebbe's coast",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
-    date: "6 Jan 2025",
-  },
-  {
-    id: "coral-reefs",
-    category: "Podcast",
-    title: "Coral reefs, data, and decision making",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1742072211/IMG_7455_2_i3bpiw.webp",
-    date: "28 Nov 2024",
-  },
-  {
-    id: "seismic-imaging",
-    category: "Long read",
-    title: "Marine seismic imaging: the key to robust wind farm foundations",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
-    date: "4 Nov 2024",
-  },
-  {
-    id: "digital-twins",
-    category: "Innovation",
-    title: "Digital twins revolutionizing offshore asset management",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
-    date: "15 Oct 2024",
-  },
-  {
-    id: "autonomous-vessels",
-    category: "Technology",
-    title: "PEC expands fleet of autonomous vessels for ocean exploration",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1742072211/IMG_7455_2_i3bpiw.webp",
-    date: "2 Oct 2024",
-  },
-  {
-    id: "carbon-capture",
-    category: "Sustainability",
-    title: "New geo-data techniques enhance carbon capture site selection",
-    image:
-      "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
-    date: "18 Sep 2024",
-  },
-];
+// const newsArticles = [
+//   {
+//     id: "seafloor-mapping",
+//     category: "Business news",
+//     title:
+//       "PEC leads large-scale seafloor mapping project to protect Entebbe's coast",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
+//     date: "6 Jan 2025",
+//   },
+//   {
+//     id: "coral-reefs",
+//     category: "Podcast",
+//     title: "Coral reefs, data, and decision making",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1742072211/IMG_7455_2_i3bpiw.webp",
+//     date: "28 Nov 2024",
+//   },
+//   {
+//     id: "seismic-imaging",
+//     category: "Long read",
+//     title: "Marine seismic imaging: the key to robust wind farm foundations",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
+//     date: "4 Nov 2024",
+//   },
+//   {
+//     id: "digital-twins",
+//     category: "Innovation",
+//     title: "Digital twins revolutionizing offshore asset management",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
+//     date: "15 Oct 2024",
+//   },
+//   {
+//     id: "autonomous-vessels",
+//     category: "Technology",
+//     title: "PEC expands fleet of autonomous vessels for ocean exploration",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1742072211/IMG_7455_2_i3bpiw.webp",
+//     date: "2 Oct 2024",
+//   },
+//   {
+//     id: "carbon-capture",
+//     category: "Sustainability",
+//     title: "New geo-data techniques enhance carbon capture site selection",
+//     image:
+//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
+//     date: "18 Sep 2024",
+//   },
+// ];
 
-export function NewsSection() {
+interface Props{
+  posts: BlogPosts
+}
+
+export function NewsSection({posts}:Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const maxIndex = Math.max(0, newsArticles.length - 3); // Show 3 articles on desktop
+  const maxIndex = Math.max(0, posts.length - 3); // Show 3 articles on desktop
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const handlePrevious = () => {
@@ -103,12 +109,12 @@ export function NewsSection() {
               className="flex space-x-10 transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
             >
-              {newsArticles.map((article) => (
+              {posts.map((post) => (
                 <div
-                  key={article.id}
+                  key={post._id}
                   className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0"
                 >
-                  <Link href={`/news/${article.id}`} className="block group">
+                  {/* <Link href={`/news/${article.id}`} className="block group">
                     <div className="relative aspect-[4/3] w-full overflow-hidden">
                       <Image
                         src={article.image || "/placeholder.svg"}
@@ -128,7 +134,8 @@ export function NewsSection() {
                         {article.date}
                       </p>
                     </div>
-                  </Link>
+                  </Link> */}
+                  <BlogPostCard post={post} />
                 </div>
               ))}
             </div>

@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { createSlug } from "@/lib/utils";
 
 interface Slide {
   title: string;
@@ -13,11 +12,11 @@ interface Slide {
   industryUrl: string;
 }
 
-interface HeroContentProps {
+interface Props {
   slides: Slide[];
 }
 
-export function HeroContent({ slides }: HeroContentProps) {
+export function HomeHeroContent({ slides }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const slideInterval = 5000; // 5 seconds
@@ -91,7 +90,6 @@ export function HeroContent({ slides }: HeroContentProps) {
           >
             {currentSlideData.description}
           </motion.p>
-
           <div>
             <Link
               href={`/project`}

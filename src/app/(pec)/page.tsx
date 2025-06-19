@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Landing from "@/features/landing/landing";
+
 import { sanityFetch } from "@/sanity/lib/live";
 import {
   PROJECT_TYPE,
@@ -10,6 +10,8 @@ import {
   ALL_INDUSTRIES_QUERY,
   INDUSTRIES,
 } from "@/features/industries/lib/queries";
+import HomeView from "@/features/home/ui/views/home-view";
+import { BlogPosts, TOP_BLOG_POSTS_QUERY } from "@/features/blog/lib/queries";
 
 export const metadata: Metadata = {
   title: "Professional Engineering Consultants (PEC) Limited",
@@ -31,28 +33,34 @@ export const metadata: Metadata = {
 const getHomeData = async (): Promise<{
   projects: PROJECT_TYPE[];
   industries: INDUSTRIES;
+  posts: BlogPosts
 }> => {
-  const [projectsResponse, industriesResponse] = await Promise.all([
-    sanityFetch({
-      query: TOP_PROJECTS_QUERY,
-    }),
-    sanityFetch({
-      query: ALL_INDUSTRIES_QUERY,
-    }),
-  ]);
+  const [projectsResponse, industriesResponse, postsResponse] =
+    await Promise.all([
+      sanityFetch({
+        query: TOP_PROJECTS_QUERY,
+      }),
+      sanityFetch({
+        query: ALL_INDUSTRIES_QUERY,
+      }),
+      sanityFetch({
+        query: TOP_BLOG_POSTS_QUERY,
+      }),
+    ]);
 
   return {
     projects: projectsResponse.data,
     industries: industriesResponse.data,
+    posts: postsResponse.data,
   };
 };
 
 export default async function Page() {
-  const { projects, industries } = await getHomeData();
+  const homeData = await getHomeData();
   return (
     //TODO ADD LOADING SKELETON
     <Suspense fallback={<p>Loading...data</p>}>
-      <Landing projects={projects} industries={industries} />
+      <HomeView homeData={homeData} />
     </Suspense>
   );
 }
