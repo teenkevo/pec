@@ -8,8 +8,11 @@ import { Search, User, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
-import { MegaMenu } from "@/features/landing/mega-menu/mega-menu";
-import { megaMenuData, type MegaMenuData } from "@/features/landing/mega-menu/menu-data";
+import { MegaMenu } from "@/components/mega-menu/mega-menu";
+import {
+  megaMenuData,
+  type MegaMenuData,
+} from "@/components/mega-menu/menu-data";
 
 interface NavigationItem {
   label: string;
@@ -57,7 +60,7 @@ export function Navigation() {
   // Disable/enable scrolling when mega menu is open/closed
   useEffect(() => {
     if (typeof window === "undefined") return;
-    
+
     const disableScroll = () => {
       // Add styles to body to prevent scrolling
       document.body.style.overflow = "hidden";
@@ -83,7 +86,10 @@ export function Navigation() {
 
     // Cleanup function to ensure scrolling is re-enabled
     return () => {
-      if (typeof window !== "undefined" && document.body.style.position === "fixed") {
+      if (
+        typeof window !== "undefined" &&
+        document.body.style.position === "fixed"
+      ) {
         enableScroll();
       }
     };

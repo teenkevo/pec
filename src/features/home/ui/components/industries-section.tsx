@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { INDUSTRIES } from "../industries/lib/queries";
+import { INDUSTRIES } from "../../../industries/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import {
   Carousel,

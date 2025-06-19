@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Landing from "@/features/landing/landing";
+
 import { sanityFetch } from "@/sanity/lib/live";
 import {
   PROJECT_TYPE,
@@ -10,6 +10,7 @@ import {
   ALL_INDUSTRIES_QUERY,
   INDUSTRIES,
 } from "@/features/industries/lib/queries";
+import HomeView from "@/features/home/ui/views/home-view";
 
 export const metadata: Metadata = {
   title: "Professional Engineering Consultants (PEC) Limited",
@@ -52,7 +53,7 @@ export default async function Page() {
   return (
     //TODO ADD LOADING SKELETON
     <Suspense fallback={<p>Loading...data</p>}>
-      <Landing projects={projects} industries={industries} />
+      <HomeView projects={projects} industries={industries} />
     </Suspense>
   );
 }

@@ -1,5 +1,5 @@
-import { CareersSection } from "@/features/landing/careers-section";
-import { ContentSection } from "../../../landing/content-section";
+import { CareersSection } from "@/features/home/ui/components/careers-section";
+import { ContentSection } from "../../../../components/sections/content-section";
 import { HeroSection } from "@/components/hero-section";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
 import { IndustryBanner } from "../components/industry-banner";
@@ -33,7 +33,7 @@ export default function IndustriesView({ projects, industries }: Props) {
         backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1742327657/IMG_7837_qicjiu.webp"
         alt="Ocean view with offshore structures"
       />
-    
+
       {/* What We Do Section */}
       <div id="introduction">
         <ContentSection

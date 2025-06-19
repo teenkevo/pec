@@ -1,25 +1,22 @@
 "use client";
 
-import { BackgroundImageSlideshow } from "./hero/background-image-slide-show";
-import { Navigation } from "../../components/layout/navigation";
-import { HeroContent } from "./hero/hero-content";
-import { SecondaryNav } from "./secondary-nav";
-import { ContentSection } from "./content-section";
-import { IndustriesSection } from "./industries-section";
-import { OrganisationSection } from "./organization-section";
-import { CareersSection } from "./careers-section";
-import { NewsSection } from "../blog/ui/components/news-section";
-import { HistorySection } from "./history-section";
-import { PROJECT_TYPE } from "../projects/lib/queries";
-import { INDUSTRIES } from "../industries/lib/queries";
-import { ProjectsSection } from "../projects/ui/components/projects-section";
+import { INDUSTRIES } from "@/features/industries/lib/queries";
+import { PROJECT_TYPE } from "@/features/projects/lib/queries";
+import { HeroSection } from "@/components/sections/hero-section";
+import { ContentSection } from "@/components/sections/content-section";
+import { IndustriesSection } from "../components/industries-section";
+import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
+import { OrganisationSection } from "../components/organization-section";
+import { CareersSection } from "../components/careers-section";
+import { NewsSection } from "../components/news-section";
+import { HistorySection } from "../components/history-section";
 
 interface Props {
   projects: PROJECT_TYPE[];
   industries: INDUSTRIES;
 }
 
-export default function Landing({ projects, industries }: Props) {
+export default function HomeView({ projects, industries }: Props) {
   const secondaryNavigationItems = [
     { label: "What we do", href: "#what-we-do" },
     { label: "Our industries", href: "#industries" },
@@ -33,8 +30,6 @@ export default function Landing({ projects, industries }: Props) {
   // Content for the "What we do" section
   const whatWeDoContent =
     "Professional Engineering Consultants (PEC) is a limited liability Company, established in Uganda in 2008 by a team of six (6) extensively skilled practicing consulting professionals. Since then, PEC has grown into one of the leading design, engineering and project management consultancies in Uganda, with an establishment of more than 50 staff some of whom have joined its shareholding. PEC’s success is as a result of the firm’s deliberate emphasis on professionalism, quality services and customer satisfaction.";
-
-  // Define the case studies data
 
   const heroSlides = [
     {
@@ -67,7 +62,6 @@ export default function Landing({ projects, industries }: Props) {
     },
   ];
 
-  // Define background images that will change with slides
   const backgroundImages = [
     {
       imageUrl:
@@ -93,18 +87,13 @@ export default function Landing({ projects, industries }: Props) {
 
   return (
     <>
-      <div className="relative h-[620px] md:h-[90vh] w-full">
-        {/* Background Image Slideshow with Gradient Overlays */}
-        <BackgroundImageSlideshow images={backgroundImages} interval={5000} />
-
-        {/* Navigation and Content */}
-
-        <Navigation />
-        <HeroContent slides={heroSlides} />
-      </div>
-      <SecondaryNav
+      <HeroSection
+        secondaryNavigationItems={secondaryNavigationItems}
+        slides={{
+          content: heroSlides,
+          images: backgroundImages,
+        }}
         initialActiveItem="#what-we-do"
-        navItems={secondaryNavigationItems}
       />
       {/* What We Do Section */}
       <div id="what-we-do">

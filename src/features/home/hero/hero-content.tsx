@@ -13,11 +13,11 @@ interface Slide {
   industryUrl: string;
 }
 
-interface HeroContentProps {
+interface Props {
   slides: Slide[];
 }
 
-export function HeroContent({ slides }: HeroContentProps) {
+export function HomeHeroContent({ slides }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const slideInterval = 5000; // 5 seconds
