@@ -65,7 +65,7 @@ export default async function Page({ params }: Props) {
   }: {
     data: SINGLE_INDUSTRY_RESULT;
   } = await sanityFetch({
-    query: SINGLE_INDUSTRY_QUERY,
+  query: SINGLE_INDUSTRY_QUERY,
     params: {
       slug,
     },

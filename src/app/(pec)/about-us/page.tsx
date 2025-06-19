@@ -1,19 +1,35 @@
 import AboutView from "@/features/about-us/ui/views/about-view";
 import { sanityFetch } from "@/sanity/lib/live";
 import { Suspense } from "react";
-import { AboutUs } from "../../../../sanity.types";
+import { type AboutUs } from "../../../../sanity.types";
+import { BlogPosts, TOP_BLOG_POSTS_QUERY } from "@/features/blog/lib/queries";
+
+const getAboutData = async (): Promise<{
+  aboutContent: AboutUs;
+  posts: BlogPosts;
+}> => {
+  const [aboutResponse, postsResponse] = await Promise.all([
+    sanityFetch({
+      query: `*[_type == "aboutUs"][0]`,
+    }),
+
+    sanityFetch({
+      query: TOP_BLOG_POSTS_QUERY,
+    }),
+  ]);
+
+  return {
+    aboutContent: aboutResponse.data,
+    posts: postsResponse.data,
+  };
+};
 
 export default async function Page() {
-  const { data }:{
-    data:AboutUs
-  } = await sanityFetch({
-    query: `*[_type == "aboutUs"][0]`,
-  });
+  const aboutData = await getAboutData();
 
-  console.log(data)
   return (
     <Suspense fallback={<p>Loading...data</p>}>
-      <AboutView aboutData={data} />
+      <AboutView aboutData={aboutData} />
     </Suspense>
   );
 }

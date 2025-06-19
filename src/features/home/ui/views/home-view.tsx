@@ -8,7 +8,7 @@ import { IndustriesSection } from "../components/industries-section";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
 import { OrganisationSection } from "../components/organization-section";
 import { CareersSection } from "../components/careers-section";
-import { NewsSection } from "../components/news-section";
+import { NewsSection } from "../../../../components/sections/news-section";
 import { HistorySection } from "../components/history-section";
 import { BlogPosts } from "@/features/blog/lib/queries";
 

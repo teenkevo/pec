@@ -2,7 +2,7 @@ import { CareersSection } from "@/features/home/ui/components/careers-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { IndustryView } from "../components/industry-view";
 import { IndustryTopProjectBanner } from "../components/industry-top-project-banner";
-import { NewsSection } from "@/features/home/ui/components/news-section";
+import { NewsSection } from "@/components/sections/news-section";
 import { TechnicalPapers } from "../components/industry-technical-papers";
 import { IndustryContactSection } from "../components/industry-contact";
 import { SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
