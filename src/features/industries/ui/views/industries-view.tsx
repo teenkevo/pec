@@ -44,8 +44,8 @@ export default function IndustriesView({ projects, industries }: Props) {
         />
       </div>
       {industries.map((industry) => (
-        <>
-          <div key={industry.slug} id={industry.slug} className="px-4 md:px-14">
+        <div key={industry.slug}>
+          <div id={industry.slug} className="px-4 md:px-14">
             <IndustryBanner industry={industry} />
           </div>
           <div id="projects">
@@ -57,7 +57,7 @@ export default function IndustriesView({ projects, industries }: Props) {
               linkText="Explore all"
             />
           </div>
-        </>
+        </div>
       ))}
 
       {/* Careers Section */}
