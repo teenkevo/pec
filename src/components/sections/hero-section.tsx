@@ -1,8 +1,8 @@
-import { BackgroundImage } from "@/features/home/hero/background-image";
+import { BackgroundImage } from "@/components/background-image";
 import { SecondaryNav } from "@/components/layout/secondary-nav";
 import { Navigation } from "@/components/layout/navigation";
-import { BackgroundImageSlideshow } from "@/features/home/hero/background-image-slide-show";
-import { HomeHeroContent } from "@/features/home/hero/hero-content";
+import { BackgroundImageSlideshow } from "@/features/home/ui/components/background-image-slide-show";
+import { HomeHeroContent } from "@/features/home/ui/components/home-hero-content";
 import { cn } from "@/lib/utils";
 
 interface SlideShowContent {

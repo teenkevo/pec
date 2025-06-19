@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { MegaMenuData } from "./menu-data";
+import type { MegaMenuData } from "../../constants/menu-data";
 import { motion } from "framer-motion";
 
 interface MegaMenuProps {

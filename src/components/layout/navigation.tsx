@@ -8,11 +8,8 @@ import { Search, User, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
-import { MegaMenu } from "@/components/mega-menu/mega-menu";
-import {
-  megaMenuData,
-  type MegaMenuData,
-} from "@/components/mega-menu/menu-data";
+import { MegaMenu } from "@/components/layout/mega-menu";
+import { megaMenuData, type MegaMenuData } from "@/constants/menu-data";
 
 interface NavigationItem {
   label: string;

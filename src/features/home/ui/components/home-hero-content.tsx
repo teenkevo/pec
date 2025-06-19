@@ -90,7 +90,6 @@ export function HomeHeroContent({ slides }: Props) {
           >
             {currentSlideData.description}
           </motion.p>
-
           <div>
             <Link
               href={`/project`}
