@@ -9,23 +9,24 @@ interface Props {
 }
 
 export const BlogView = async ({ blogPosts }: Props) => {
-
   const latestBlogPosts = blogPosts.slice(0, 3);
 
-  const newsCategoriesPosts = megaMenuData["blog"].items.map((item) => ({
-    title: item.title,
-    path: item.href.replace("#", ""),
-    posts: blogPosts
-      .filter((post) => post.category === item.href.replace("#", ""))
-      .slice(0, 3),
-  }));
+  const newsCategoriesPosts = megaMenuData["blog"].items
+    ? megaMenuData["blog"].items.map((item) => ({
+        title: item.title,
+        path: item.href.replace("#", ""),
+        posts: blogPosts
+          .filter((post) => post.category === item.href.replace("#", ""))
+          .slice(0, 3),
+      }))
+    : [];
 
   return (
     <>
       <HeroSection
         title={"Latest news and insights"}
         page={"Blog"}
-        secondaryNavigationItems={megaMenuData["blog"].items}
+        secondaryNavigationItems={megaMenuData["blog"].items ?? []}
         backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
       />
 
