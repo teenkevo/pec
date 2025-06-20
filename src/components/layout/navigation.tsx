@@ -27,7 +27,7 @@ interface Props {
   megaData: MegaMenuData;
 }
 
-export function Navigation({megaData}:Props) {
+export function Navigation({ megaData }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isNavbarWhite, setIsNavbarWhite] = useState(false);
@@ -123,7 +123,7 @@ export function Navigation({megaData}:Props) {
                     className="relative"
                     onMouseEnter={() => handleMouseEnter(item.href)}
                   >
-                    <Link href={item.href} className="py-2">
+                    <Link href={`/${item.href}`} className="py-2">
                       <motion.span
                         className={`${activeMenu === item.href ? "border-b-2 border-[#EB3301] font-medium" : ""}`}
                         animate={{

@@ -22,15 +22,18 @@ interface Props {
 }
 
 export function SingleIndustryView({ industryData }: Props) {
+  const { industry, projects, posts } = industryData;
+
   const secondaryNavigationItems = [
     { title: "Our view", href: "our-view" },
-    { title: "Projects", href: "projects" },
+    ...(projects && projects.length > 0
+      ? [{ title: "Projects", href: "projects" }]
+      : []),
     { title: "Publications", href: "publications" },
-    { title: "News", href: "news" },
+    ...(posts && posts.length > 0 ? [{ title: "News", href: "news" }] : []),
     { title: "Contact", href: "contact" },
   ];
 
-  const { industry, projects, posts } = industryData;
 
   return (
     <>

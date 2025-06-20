@@ -55,7 +55,7 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                       ? `/${menuData.path}#${item.href} `
                       : menuData.path === "projects"
                         ? `/industries/${item.href}`
-                        : item.href
+                        : `/${item.href}`
                   }
                   className="text-gray-700 text-xl font-semibold hover:text-gray-900 hover:underline"
                 >
