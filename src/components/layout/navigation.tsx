@@ -24,7 +24,7 @@ const navigationItems: NavigationItem[] = Object.entries(megaMenuData).map(
 );
 
 interface Props {
-  megaData: MegaMenuData;
+  megaData?: MegaMenuData;
 }
 
 export function Navigation({ megaData }: Props) {
@@ -229,7 +229,7 @@ export function Navigation({ megaData }: Props) {
               paddingTop: "calc(var(--header-height, 30px))",
             }}
           >
-            <MegaMenu activeMenu={activeMenu} data={megaData} />
+            <MegaMenu activeMenu={activeMenu} data={megaData || megaMenuData} />
           </motion.div>
         )}
       </AnimatePresence>
