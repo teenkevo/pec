@@ -12,6 +12,7 @@ interface SlideShowContent {
     title: string;
     description: string;
     industry: string;
+    projectSlug: string;
     industrySlug: string;
   }[];
 }

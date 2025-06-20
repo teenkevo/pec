@@ -37,10 +37,11 @@ export default function HomeView({ homeData }: Props) {
 
   const slides = {
     content: projectPerIndustry(projects).map(
-      ({ title, description, industry }) => {
+      ({ title, slug,industry }) => {
         return {
           title: industry.subtitle,
           description: title,
+          projectSlug: slug,
           industry: industry.title,
           industrySlug: industry.slug,
         };
@@ -88,7 +89,7 @@ export default function HomeView({ homeData }: Props) {
       </div>
       <div id="projects">
         <ProjectsSection
-          projects={projects}
+          projects={projects.slice(0,3)}
           title="Projects"
           linkText="All projects"
         />

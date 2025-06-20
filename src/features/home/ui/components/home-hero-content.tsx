@@ -9,6 +9,7 @@ interface Slide {
   title: string;
   description: string;
   industry: string;
+  projectSlug:string;
   industrySlug: string;
 }
 
@@ -92,7 +93,7 @@ export function HomeHeroContent({ slides }: Props) {
           </motion.p>
           <div>
             <Link
-              href={`/project`}
+              href={`/projects/${currentSlideData.projectSlug}`}
               className={`inline-flex items-center text-white font-medium group`}
             >
               <span className="group-hover:bg-white border border-white p-2 group-hover:translate-x-1 transition-transform mr-5">
