@@ -34,7 +34,6 @@ export function SingleIndustryView({ industryData }: Props) {
     { title: "Contact", href: "contact" },
   ];
 
-
   return (
     <>
       <HeroSection
@@ -45,7 +44,7 @@ export function SingleIndustryView({ industryData }: Props) {
         page={industry.title}
         secondaryNavigationItems={secondaryNavigationItems}
         backgroundImage={
-          urlFor(industry.mainImage).url() ??
+          urlFor(industry.mainImage).format("webp").url() ??
           "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
         }
       />
@@ -98,11 +97,12 @@ export function SingleIndustryView({ industryData }: Props) {
         <TechnicalPapers />
       </div>
       {/* News Section */}
-      {!posts || posts.length < 0 && (
-        <div id="news-highlights">
-          <NewsSection posts={posts} />
-        </div>
-      )}
+      {!posts ||
+        (posts.length < 0 && (
+          <div id="news-highlights">
+            <NewsSection posts={posts} />
+          </div>
+        ))}
       {/* Divider */}
       <div className="border-t border-gray-200 mt-10"></div>
       <div id="contact">

@@ -35,7 +35,7 @@ export function ProjectsSection2({
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-1 gap-6">
             {projectA && (
               <Link
-                href={`/case-studies/${projects[0].slug}`}
+                href={`/projects/${projects[0].slug}`}
                 className="block group"
               >
                 <motion.div
@@ -46,7 +46,11 @@ export function ProjectsSection2({
                   <div className="relative aspect-[4/3] w-full">
                     <Image
                       src={
-                        urlFor(projectA.mainImage).url() || "/placeholder.svg"
+                        urlFor(projectA.mainImage)
+                          .format("webp")
+                          .width(600)
+                          .height(600)
+                          .url() || "/placeholder.svg"
                       }
                       alt={projectA.title}
                       fill
@@ -73,9 +77,9 @@ export function ProjectsSection2({
           </div>
           {/* Featured Case Study (Left) */}
           <div className="lg:col-span-6">
-            {projects[1] && (
+            {featuredProject && (
               <Link
-                href={`/case-studies/${featuredProject.slug}`}
+                href={`/projects/${featuredProject.slug}`}
                 className="block group"
               >
                 <motion.div
@@ -86,8 +90,9 @@ export function ProjectsSection2({
                   <div className="relative aspect-[4/3] w-full">
                     <Image
                       src={
-                        urlFor(featuredProject.mainImage).url() ||
-                        "/placeholder.svg"
+                        urlFor(featuredProject.mainImage)
+                          .format("webp")
+                          .url() || "/placeholder.svg"
                       }
                       alt={featuredProject.title}
                       fill
@@ -95,11 +100,10 @@ export function ProjectsSection2({
                     />
                   </div>
                   <div className="mt-4">
-                    <Link href={featuredProject.industry.slug}>
-                      <span className="text-sm text-gray-500">
-                        {featuredProject.industry.title}
-                      </span>
-                    </Link>
+                    <span className="text-sm text-gray-500">
+                      {featuredProject.industry.title}
+                    </span>
+
                     <h3 className="text-2xl font-bold text-gray-900 mt-1">
                       {featuredProject.title}
                     </h3>
@@ -118,10 +122,7 @@ export function ProjectsSection2({
           {/* Left Card */}
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-1 gap-6">
             {projectB && (
-              <Link
-                href={`/case-studies/${projectB.slug}`}
-                className="block group"
-              >
+              <Link href={`/projects/${projectB.slug}`} className="block group">
                 <motion.div
                   className="relative aspect-[4/3] w-full"
                   whileHover={{ y: -5 }}
@@ -138,11 +139,10 @@ export function ProjectsSection2({
                     />
                   </div>
                   <div className="mt-4">
-                    <Link href={projectB.industry.slug}>
-                      <span className="text-sm text-gray-500">
-                        {projectB.industry.title}
-                      </span>
-                    </Link>
+                    <span className="text-sm text-gray-500">
+                      {projectB.industry.title}
+                    </span>
+
                     <h3 className="text-xl font-bold text-gray-900 mt-1">
                       {projectB.title}
                     </h3>
