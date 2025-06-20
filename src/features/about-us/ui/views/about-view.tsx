@@ -72,7 +72,7 @@ export default function AboutView({ aboutData }: Props) {
       <GraphicSection
         imageUrl={
           aboutContent?.mission?.missionImage
-            ? urlFor(aboutContent?.mission?.missionImage).url()
+            ? urlFor(aboutContent?.mission?.missionImage).format("webp").width(800).height(800).url()
             : ""
         }
         section={aboutContent.mission?.title ?? "Mission"}
