@@ -23,10 +23,11 @@ interface Props {
 
 export function SingleIndustryView({ industryData }: Props) {
   const secondaryNavigationItems = [
-    { label: "Our view", href: "#our-view" },
-    { label: "Projects", href: "#projects" },
-    { label: "Publications", href: "#publications" },
-    { label: "Contact", href: "#contact" },
+    { title: "Our view", href: "our-view" },
+    { title: "Projects", href: "projects" },
+    { title: "Publications", href: "publications" },
+    { title: "News", href: "news" },
+    { title: "Contact", href: "contact" },
   ];
 
   const { industry, projects, posts } = industryData;
@@ -94,9 +95,11 @@ export function SingleIndustryView({ industryData }: Props) {
         <TechnicalPapers />
       </div>
       {/* News Section */}
-      <div id="news-highlights">
-        <NewsSection posts={posts} />
-      </div>
+      {!posts || posts.length < 0 && (
+        <div id="news-highlights">
+          <NewsSection posts={posts} />
+        </div>
+      )}
       {/* Divider */}
       <div className="border-t border-gray-200 mt-10"></div>
       <div id="contact">

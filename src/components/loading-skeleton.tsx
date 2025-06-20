@@ -3,22 +3,22 @@ import { Skeleton } from "@/components/ui/skeleton";
 export function LoadingSkeleton() {
   return (
     <div className="flex min-h-screen fixed z-50 top-0 w-screen flex-col bg-white">
-      <header className="bg-[#1a1a1a]">
+      <header className="bg-gray-400">
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <div className="flex flex-col space-y-1">
-            <Skeleton className="h-7 w-20 bg-gray-700" />
-            <Skeleton className="h-3 w-40 bg-gray-700" />
+            <Skeleton className="h-7 w-20 bg-gray-300" />
+            <Skeleton className="h-3 w-40 bg-gray-300" />
           </div>
 
           <div className="hidden items-center space-x-6 lg:flex">
             {[...Array(6)].map((_, i) => (
-              <Skeleton key={i} className="h-4 w-16 bg-gray-700 md:w-20" />
+              <Skeleton key={i} className="h-4 w-16 bg-gray-300 md:w-20" />
             ))}
           </div>
 
           <div className="flex items-center space-x-4">
-            <Skeleton className="h-5 w-5 rounded-full bg-gray-700" />
-            <Skeleton className="h-5 w-5 rounded-full bg-gray-700" />
+            <Skeleton className="h-5 w-5 rounded-full bg-gray-300" />
+            <Skeleton className="h-5 w-5 rounded-full bg-gray-300" />
             <Skeleton className="h-9 w-24 bg-gray-700" />
           </div>
         </div>
