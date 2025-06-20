@@ -38,7 +38,7 @@ export function SecondaryNav({
 
   // Set up intersection observer to track which section is in view
   useEffect(() => {
-    const sectionIds = navItems.map((item) => item.href.replace("#", ""));
+    const sectionIds = navItems.map((item) => item.href);
 
     const observerOptions = {
       root: null, // viewport
@@ -56,7 +56,7 @@ export function SecondaryNav({
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
       if (visibleEntries.length > 0) {
-        const newActiveItem = `#${visibleEntries[0].target.id}`;
+        const newActiveItem = visibleEntries[0].target.id;
         if (activeItem !== newActiveItem) {
           setActiveItem(newActiveItem);
         }
@@ -88,18 +88,11 @@ export function SecondaryNav({
   }, [navItems, activeItem]);
 
   // Handle navigation item click
-  const handleNavClick = (href: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    setActiveItem(href);
+  const handleNavClick = (targetId: string, e: React.MouseEvent) => {
+    setActiveItem(targetId);
 
-    // Update the browser's address bar
-    window.history.pushState(null, "", href);
-
-    // Set scrolling flag to prevent intersection observer from changing active item during programmatic scroll
     scrollingRef.current = true;
 
-    // Get the target element
-    const targetId = href.replace("#", "");
     const targetElement = document.getElementById(targetId);
 
     if (targetElement) {
@@ -137,7 +130,7 @@ export function SecondaryNav({
           {navItems.map((item, index) => (
             <div key={index} className="relative">
               <Link
-                href={item.href}
+                href={`#${item.href}`}
                 className={`whitespace-nowrap py-4 px-4  hover:text-[#EB3301] transition-colors font-medium block tracking-tight ${
                   activeItem === item.href ? "text-[#EB3300]" : "text-gray-700"
                 }`}

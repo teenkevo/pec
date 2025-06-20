@@ -7,8 +7,9 @@ export interface MegaMenuItem {
 export interface MegaMenuSection {
   title: string;
   description?: string;
-  path: string | null;
+  path: string;
   items: MegaMenuItem[] | null;
+  hasSubsections?: boolean
   featuredImage?: {
     src: string;
     alt: string;
@@ -24,7 +25,7 @@ export const megaMenuData: MegaMenuData = {
   projects: {
     title: "Projects",
     description: "Explore our projects across industries",
-    path: "/projects",
+    path: "projects",
     items: [
       { title: "Transport", href: "transport" },
       { title: "Water and Sanitation", href: "water" },
@@ -64,6 +65,7 @@ export const megaMenuData: MegaMenuData = {
     title: "Careers",
     description: "Join our global team",
     path: "careers",
+    hasSubsections: true,
     items: [
       { title: "Open Positions", href: "positions" },
       { title: "Working at PEC", href: "working" },
@@ -79,6 +81,7 @@ export const megaMenuData: MegaMenuData = {
   blog: {
     title: "Blog",
     path: "blog",
+    hasSubsections: true,
     description: "Latest updates and insights",
     items: [
       { title: "News", href: "news" },
@@ -96,6 +99,7 @@ export const megaMenuData: MegaMenuData = {
     title: "About us",
     description: "Information about the Fugro organisation",
     path: "about-us",
+    hasSubsections: true,
     items: [
       { title: "What we do", href: "what-we-do" },
       { title: "Mission", href: "mission" },
