@@ -12,6 +12,7 @@ import {
 } from "@/features/industries/lib/queries";
 import HomeView from "@/features/home/ui/views/home-view";
 import { BlogPosts, TOP_BLOG_POSTS_QUERY } from "@/features/blog/lib/queries";
+import { LoadingSkeleton } from "@/components/loading-skeleton";
 
 export const metadata: Metadata = {
   title: "Professional Engineering Consultants (PEC) Limited",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 const getHomeData = async (): Promise<{
   projects: PROJECT_TYPE[];
   industries: INDUSTRIES;
-  posts: BlogPosts
+  posts: BlogPosts;
 }> => {
   const [projectsResponse, industriesResponse, postsResponse] =
     await Promise.all([
@@ -58,8 +59,7 @@ const getHomeData = async (): Promise<{
 export default async function Page() {
   const homeData = await getHomeData();
   return (
-    //TODO ADD LOADING SKELETON
-    <Suspense fallback={<p>Loading...data</p>}>
+    <Suspense fallback={<LoadingSkeleton />}>
       <HomeView homeData={homeData} />
     </Suspense>
   );

@@ -36,7 +36,7 @@ export default function AboutView({ aboutData }: Props) {
         secondaryNavigationItems={secondaryNavigationItems}
         backgroundImage={
           aboutContent.hero?.heroImage
-            ? urlFor(aboutContent.hero?.heroImage).url()
+            ? urlFor(aboutContent.hero?.heroImage).format("webp").url()
             : "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
         }
       />

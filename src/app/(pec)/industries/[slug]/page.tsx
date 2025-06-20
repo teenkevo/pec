@@ -15,6 +15,7 @@ import {
   BlogPosts,
   INDUSTRY_BLOG_POSTS_QUERY,
 } from "@/features/blog/lib/queries";
+import { LoadingSkeleton } from "@/components/loading-skeleton";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -82,7 +83,7 @@ export default async function Page({ params }: Props) {
 
   return (
     //TODO: ADD AN ACTUAL LOADING COMPONENT
-    <Suspense fallback={<p>Loading...data</p>}>
+    <Suspense fallback={<LoadingSkeleton />}>
       <SingleIndustryView industryData={{ industry, ...industryData }} />
     </Suspense>
   );

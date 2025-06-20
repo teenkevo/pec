@@ -1,3 +1,4 @@
+import { LoadingSkeleton } from "@/components/loading-skeleton";
 import {
   ALL_BLOG_POSTS_QUERY,
   type BlogPosts,
@@ -14,7 +15,7 @@ export default async function Page() {
 
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<LoadingSkeleton />}>
       <BlogView blogPosts={blogPosts} />
     </Suspense>
   );

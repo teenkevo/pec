@@ -27,9 +27,6 @@ const navigationItems: NavigationItem[] = [
   { label: "Blog", href: "/blog", key: "blog" },
 ];
 
-interface NavigationProps {
-  megaMenuData: MegaMenuData;
-}
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

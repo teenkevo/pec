@@ -1,3 +1,4 @@
+import { LoadingSkeleton } from "@/components/loading-skeleton";
 import {
   ALL_INDUSTRIES_QUERY,
   INDUSTRIES,
@@ -33,7 +34,7 @@ export default async function Page() {
   const data = await getHomeData();
 
   return (
-    <Suspense fallback={<p>Loading...data</p>}>
+    <Suspense fallback={<LoadingSkeleton />}>
       <IndustriesView projects={data.projects} industries={data.industries} />
     </Suspense>
   );

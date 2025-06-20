@@ -75,7 +75,7 @@ export function ProjectsSection({
                         {project.title}
                       </h3>
                       <p className="text-xs text-black mt-1">
-                        <span>{project.location?.city}</span>
+                        <span>{project.location?.city}</span>{", "}
                         <span>{project.location?.country}</span>
                       </p>
                     </div>
