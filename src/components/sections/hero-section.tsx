@@ -72,7 +72,6 @@ export async function HeroSection({
     },
   };
 
-  console.log(megaData);
   return (
     <>
       <div

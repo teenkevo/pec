@@ -59,7 +59,7 @@ export function ProjectsSection({
                     <div className="relative aspect-[4/3] w-full">
                       <Image
                         src={
-                          urlFor(project.mainImage).url() || "/placeholder.svg"
+                          urlFor(project.mainImage).format("webp").url() || "/placeholder.svg"
                         }
                         alt={project.title}
                         fill
