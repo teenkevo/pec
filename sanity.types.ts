@@ -181,6 +181,12 @@ export type BlogPost = {
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "industry";
   };
+  author?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "team";
+  };
 };
 
 export type AboutUs = {
@@ -239,14 +245,14 @@ export type AboutUs = {
     visionStatement?: string;
     description?: string;
   };
-  values?: {
-    title?: string;
-    subtitle?: string;
-    description?: string;
-    valuesList?: Array<{
-      title?: string;
+  values: {
+    title: string;
+    subtitle: string;
+    description: string;
+    valuesList: Array<{
+      title: string;
       description?: string;
-      image?: {
+      image: {
         asset?: {
           _ref: string;
           _type: "reference";

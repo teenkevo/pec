@@ -8,6 +8,7 @@ import { type AboutUs } from "../../../../../sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import { BlogPosts } from "@/features/blog/lib/queries";
 import { NewsSection } from "@/components/sections/news-section";
+import { megaMenuData } from "@/constants/menu-data";
 
 interface Props {
   aboutData: {
@@ -17,14 +18,9 @@ interface Props {
 }
 
 export default function AboutView({ aboutData }: Props) {
-  const secondaryNavigationItems = [
-    { label: "What we do", href: "#what-we-do" },
-    { label: "Mission", href: "#mission" },
-    { label: "Vision", href: "#vision" },
-    { label: "Values", href: "#values" },
-  ];
 
   const { aboutContent, posts } = aboutData;
+
   return (
     <>
       <HeroSection
@@ -33,7 +29,7 @@ export default function AboutView({ aboutData }: Props) {
           "A leading engineering consultancy in Uganda "
         }
         page={aboutContent.hero?.title ?? "About us"}
-        secondaryNavigationItems={secondaryNavigationItems}
+        secondaryNavigationItems={megaMenuData["about-us"].items}
         backgroundImage={
           aboutContent.hero?.heroImage
             ? urlFor(aboutContent.hero?.heroImage).format("webp").url()

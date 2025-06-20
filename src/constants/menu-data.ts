@@ -19,8 +19,7 @@ export interface MegaMenuData {
   [key: string]: MegaMenuSection;
 }
 
-// Sample data for our mega menu
-export const megaMenuData: MegaMenuData = {
+export const megaMenuData = {
   industries: {
     title: "Industries",
     description: "Explore our industry solutions",
@@ -85,15 +84,11 @@ export const megaMenuData: MegaMenuData = {
   "about-us": {
     title: "About us",
     description: "Information about the Fugro organisation",
+    path: "",
     items: [
-      { title: "About us", href: "about-us" },
-      { title: "Purpose", href: "about-us/#purpose" },
-      { title: "Strategy", href: "about-us" },
-      { title: "Our values", href: "about-us/#our-values" },
-      { title: "Governance", href: "about-us" },
-      { title: "Sustainability", href: "about-us" },
-      { title: "Health and safety", href: "about-us" },
-      { title: "Our locations", href: "about-us" },
+      { title: "What we do", href: "#what-we-do" },
+      { title: "Mission", href: "#mission" },
+      { title: "Our Values", href: "#values"},
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_59/v1742877982/maarten-van-den-heuvel-yAsKqYbUQzY-unsplash_ckjwmx.webp",

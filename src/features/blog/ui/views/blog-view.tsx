@@ -2,24 +2,18 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { BlogPosts } from "../../lib/queries";
 import LatestStories from "../components/latest-stories";
 import { BlogCategorySection } from "../components/blog-category-section";
+import { megaMenuData } from "@/constants/menu-data";
 
 interface Props {
   blogPosts: BlogPosts;
 }
 
 export const BlogView = async ({ blogPosts }: Props) => {
-  const secondaryNavigationItems = [
-    { label: "Latest Stories", href: "#latest-stories" },
-    { label: "News", href: "#news" },
-    { label: "Insights", href: "#insights" },
-    { label: "Press Releases", href: "#press" },
-    { label: "Events", href: "#events" },
-  ];
 
   const latestBlogPosts = blogPosts.slice(0, 3);
 
-  const newsCategoriesPosts = secondaryNavigationItems.map((item) => ({
-    title: item.label,
+  const newsCategoriesPosts = megaMenuData["blog"].items.map((item) => ({
+    title: item.title,
     path: item.href.replace("#", ""),
     posts: blogPosts
       .filter((post) => post.category === item.href.replace("#", ""))
@@ -31,8 +25,7 @@ export const BlogView = async ({ blogPosts }: Props) => {
       <HeroSection
         title={"Latest news and insights"}
         page={"Blog"}
-        secondaryNavigationItems={secondaryNavigationItems}
-        initialActiveItem="#news"
+        secondaryNavigationItems={megaMenuData["blog"].items}
         backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
       />
 

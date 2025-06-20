@@ -4,18 +4,18 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { urlFor } from "@/sanity/lib/image";
+import { AboutUs } from "../../../../../sanity.types";
+import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
 // Define the structure for our values
 interface ValueItem {
-  id: string;
-  number: string;
-  title: string;
-  description: string;
-  image: string;
+  title?: string;
+  description?: string;
+  image: SanityAsset;
 }
 
 interface Props {
-  values?: any[];
+  values?: ValueItem[];
 }
 
 export function ValuesSection({ values: valuesData }: Props) {
@@ -25,7 +25,7 @@ export function ValuesSection({ values: valuesData }: Props) {
         number: String(index + 1).padStart(2, "0"),
         title: value.title || `Value ${index + 1}`,
         description: value.description || "Description not available",
-        image: urlFor(value.image).url(),
+        image: urlFor(value.image).format("webp").width(800).height(800).url(),
       }))
     : [];
 

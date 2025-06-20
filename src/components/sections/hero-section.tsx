@@ -20,7 +20,7 @@ interface SlideShowContent {
 interface HeroSectionProps {
   title?: string;
   page?: string;
-  secondaryNavigationItems: { label: string; href: string }[];
+  secondaryNavigationItems: { title: string; href: string }[];
   initialActiveItem?: string;
   backgroundImage?: string;
   isHome?: boolean;

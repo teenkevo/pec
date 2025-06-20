@@ -39,6 +39,7 @@ export const industry = defineType({
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "ourView",
@@ -50,6 +51,7 @@ export const industry = defineType({
           title: "Our View Content",
           type: "text",
           description: "The main content describing your view on this industry",
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: "industryLead",

@@ -7,12 +7,12 @@ import { usePathname } from "next/navigation";
 interface SecondaryNavProps {
   className?: string;
   initialActiveItem?: string;
-  navItems: { label: string; href: string }[];
+  navItems: { title: string; href: string }[];
 }
 
 export function SecondaryNav({
   className = "",
-  initialActiveItem = "#what-we-do",
+  initialActiveItem,
   navItems,
 }: SecondaryNavProps) {
   const [isSticky, setIsSticky] = useState(false);
@@ -143,7 +143,7 @@ export function SecondaryNav({
                 }`}
                 onClick={(e) => handleNavClick(item.href, e)}
               >
-                {item.label}
+                {item.title}
               </Link>
               <div
                 className={`absolute bottom-0 left-4 right-4 h-0.5 bg-[#EB3300] transition-all duration-300 ease-in-out ${
