@@ -18,8 +18,7 @@ export function ProjectsSection2({
   linkText,
 }: ProjectsSectionProps) {
   const [projectA, featuredProject, projectB] = projects;
-  // const featuredProject = projects.find((project) => project.featured);
-  // const nonFeaturedProjects = projects.filter((project) => !project.featured);
+
   return (
     <section>
       <div className="mx-auto px-4 md:px-14">
