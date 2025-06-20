@@ -54,12 +54,9 @@ export function ProjectsSection2({
                     />
                   </div>
                   <div className="mt-4">
-                    <Link
-                      href={`/industries/${projectA.industry.slug}`}
-                      className="text-sm text-gray-500"
-                    >
+                    <span className="text-sm text-gray-500">
                       {projectA.industry.title}
-                    </Link>
+                    </span>
                     <h3 className="text-xl font-bold text-gray-900 mt-1">
                       {projectA.title}
                     </h3>
