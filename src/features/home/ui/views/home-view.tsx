@@ -53,13 +53,13 @@ export default function HomeView({ homeData }: Props) {
   };
 
   const secondaryNavigationItems = [
-    { label: "What we do", href: "#what-we-do" },
-    { label: "Our industries", href: "#industries" },
-    { label: "Projects", href: "#projects" },
-    { label: "Organisation", href: "#organisation" },
-    { label: "Careers", href: "#careers" },
-    { label: "News highlights", href: "#news-highlights" },
-    { label: "History", href: "#history" },
+    { title: "What we do", href: "#what-we-do" },
+    { title: "Our industries", href: "#industries" },
+    { title: "Projects", href: "#projects" },
+    { title: "Organisation", href: "#organisation" },
+    { title: "Careers", href: "#careers" },
+    { title: "News highlights", href: "#news-highlights" },
+    { title: "History", href: "#history" },
   ];
 
   // Content for the "What we do" section
