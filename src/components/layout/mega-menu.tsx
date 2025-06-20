@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { megaMenuData, type MegaMenuData } from "../../constants/menu-data";
+import { type MegaMenuData } from "../../constants/menu-data";
 import { motion } from "framer-motion";
 
 interface MegaMenuProps {
@@ -53,7 +53,9 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                   href={
                     menuData.hasSubsections
                       ? `/${menuData.path}#${item.href} `
-                      : item.href
+                      : menuData.path === "projects"
+                        ? `/industries/${item.href}`
+                        : item.href
                   }
                   className="text-gray-700 text-xl font-semibold hover:text-gray-900 hover:underline"
                 >

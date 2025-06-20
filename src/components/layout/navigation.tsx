@@ -23,7 +23,11 @@ const navigationItems: NavigationItem[] = Object.entries(megaMenuData).map(
   })
 );
 
-export function Navigation() {
+interface Props {
+  megaData: MegaMenuData;
+}
+
+export function Navigation({megaData}:Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isNavbarWhite, setIsNavbarWhite] = useState(false);
@@ -225,7 +229,7 @@ export function Navigation() {
               paddingTop: "calc(var(--header-height, 30px))",
             }}
           >
-            <MegaMenu activeMenu={activeMenu} data={megaMenuData} />
+            <MegaMenu activeMenu={activeMenu} data={megaData} />
           </motion.div>
         )}
       </AnimatePresence>
