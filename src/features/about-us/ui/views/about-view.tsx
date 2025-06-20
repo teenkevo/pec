@@ -18,7 +18,6 @@ interface Props {
 }
 
 export default function AboutView({ aboutData }: Props) {
-
   const { aboutContent, posts } = aboutData;
 
   return (
@@ -29,7 +28,7 @@ export default function AboutView({ aboutData }: Props) {
           "A leading engineering consultancy in Uganda "
         }
         page={aboutContent.hero?.title ?? "About us"}
-        secondaryNavigationItems={megaMenuData["about-us"].items}
+        secondaryNavigationItems={megaMenuData["about-us"].items || []}
         backgroundImage={
           aboutContent.hero?.heroImage
             ? urlFor(aboutContent.hero?.heroImage).format("webp").url()
@@ -72,7 +71,11 @@ export default function AboutView({ aboutData }: Props) {
       <GraphicSection
         imageUrl={
           aboutContent?.mission?.missionImage
-            ? urlFor(aboutContent?.mission?.missionImage).format("webp").width(800).height(800).url()
+            ? urlFor(aboutContent?.mission?.missionImage)
+                .format("webp")
+                .width(800)
+                .height(800)
+                .url()
             : ""
         }
         section={aboutContent.mission?.title ?? "Mission"}
