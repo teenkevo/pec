@@ -2,8 +2,8 @@ import { Metadata } from "next";
 
 import { sanityFetch } from "@/sanity/lib/live";
 import {
-  PROJECT_TYPE,
-  TOP_PROJECTS_QUERY,
+  ALL_PROJECTS_QUERY,
+  type PROJECT_TYPE,
 } from "@/features/projects/lib/queries";
 import { Suspense } from "react";
 import {
@@ -38,7 +38,7 @@ const getHomeData = async (): Promise<{
   const [projectsResponse, industriesResponse, postsResponse] =
     await Promise.all([
       sanityFetch({
-        query: TOP_PROJECTS_QUERY,
+        query: ALL_PROJECTS_QUERY,
       }),
       sanityFetch({
         query: ALL_INDUSTRIES_QUERY,

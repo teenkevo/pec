@@ -9,7 +9,7 @@ interface Slide {
   title: string;
   description: string;
   industry: string;
-  industryUrl: string;
+  industrySlug: string;
 }
 
 interface Props {
@@ -74,7 +74,7 @@ export function HomeHeroContent({ slides }: Props) {
             transition={{ duration: 1 }}
           >
             <Link
-              href={`/industries/${currentSlideData.industryUrl}`}
+              href={`/industries/${currentSlideData.industrySlug}`}
               className="inline-block bg-[#128191] text-white font-bold px-3 py-1 text-base mb-4"
             >
               <span>{currentSlideData.industry}</span>

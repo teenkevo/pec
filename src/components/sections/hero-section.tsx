@@ -4,14 +4,15 @@ import { Navigation } from "@/components/layout/navigation";
 import { BackgroundImageSlideshow } from "@/features/home/ui/components/background-image-slide-show";
 import { HomeHeroContent } from "@/features/home/ui/components/home-hero-content";
 import { cn } from "@/lib/utils";
+import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
 interface SlideShowContent {
-  images: { imageUrl: string; alt: string }[];
+  images: { alt: string; asset: SanityAsset }[];
   content: {
     title: string;
     description: string;
     industry: string;
-    industryUrl: string;
+    industrySlug: string;
   }[];
 }
 

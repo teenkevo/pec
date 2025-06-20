@@ -3,14 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-
-interface BackgroundImage {
-  imageUrl: string;
-  alt: string;
-}
+import { SanityAsset } from "@sanity/image-url/lib/types/types";
+import { urlFor } from "@/sanity/lib/image";
 
 interface BackgroundImageSlideshowProps {
-  images: BackgroundImage[];
+  images: { alt: string; asset: SanityAsset }[];
   interval?: number;
 }
 
@@ -53,7 +50,7 @@ export function BackgroundImageSlideshow({
                     }}
                   >
                     <Image
-                      src={image.imageUrl || "/placeholder.svg"}
+                      src={urlFor(image.asset).url() || "/placeholder.svg"}
                       alt={image.alt}
                       fill
                       priority
