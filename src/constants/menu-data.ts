@@ -7,29 +7,31 @@ export interface MegaMenuItem {
 export interface MegaMenuSection {
   title: string;
   description?: string;
-  items: MegaMenuItem[];
+  path: string;
+  items: MegaMenuItem[] | null;
+  hasSubsections?: boolean
   featuredImage?: {
     src: string;
     alt: string;
     caption: string;
-  };
+  } | null;
 }
 
 export interface MegaMenuData {
   [key: string]: MegaMenuSection;
 }
 
-// Sample data for our mega menu
 export const megaMenuData: MegaMenuData = {
-  industries: {
-    title: "Industries",
-    description: "Explore our industry solutions",
+  projects: {
+    title: "Projects",
+    description: "Explore our projects across industries",
+    path: "projects",
     items: [
-      { title: "Transport", href: "industries/transport" },
-      { title: "Water and Sanitation", href: "industries/water" },
-      { title: "Structures", href: "industries/structures" },
-      { title: "Materials & Geotechnics", href: "industries/materials" },
-      { title: "Surveying", href: "industries/surveying" },
+      { title: "Transport", href: "transport" },
+      { title: "Water and Sanitation", href: "water" },
+      { title: "Structures", href: "structures" },
+      { title: "Materials & Geotechnics", href: "materials" },
+      { title: "Surveying", href: "surveying" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
@@ -41,6 +43,7 @@ export const megaMenuData: MegaMenuData = {
   expertise: {
     title: "Expertise",
     description: "Our technical capabilities",
+    path: "expertise",
     items: [
       { title: "Expertise", href: "expertise" },
       { title: "Publications", href: "publications" },
@@ -51,14 +54,23 @@ export const megaMenuData: MegaMenuData = {
       caption: "Advanced technical capabilities",
     },
   },
+  clients: {
+    title: "Clients",
+    description: "Our technical capabilities",
+    path: "clients",
+    items: null,
+    featuredImage: null,
+  },
   careers: {
     title: "Careers",
     description: "Join our global team",
+    path: "careers",
+    hasSubsections: true,
     items: [
-      { title: "Open Positions", href: "#positions" },
-      { title: "Working at PEC", href: "#working" },
-      { title: "Development", href: "#development" },
-      { title: "Benefits", href: "#benefits" },
+      { title: "Open Positions", href: "positions" },
+      { title: "Working at PEC", href: "working" },
+      { title: "Development", href: "development" },
+      { title: "Benefits", href: "benefits" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742877869/marten-bjork-6dW3xyQvcYE-unsplash_kxslgq.webp",
@@ -66,15 +78,16 @@ export const megaMenuData: MegaMenuData = {
       caption: "Build your career with us",
     },
   },
-
   blog: {
     title: "Blog",
+    path: "blog",
+    hasSubsections: true,
     description: "Latest updates and insights",
     items: [
-      { title: "News", href: "#news" },
-      { title: "Insights", href: "#insights" },
-      { title: "Press Releases", href: "#press" },
-      { title: "Events", href: "#events" },
+      { title: "News", href: "news" },
+      { title: "Insights", href: "insights" },
+      { title: "Press Releases", href: "press" },
+      { title: "Events", href: "events" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
@@ -85,15 +98,12 @@ export const megaMenuData: MegaMenuData = {
   "about-us": {
     title: "About us",
     description: "Information about the Fugro organisation",
+    path: "about-us",
+    hasSubsections: true,
     items: [
-      { title: "About us", href: "about-us" },
-      { title: "Purpose", href: "about-us/#purpose" },
-      { title: "Strategy", href: "about-us" },
-      { title: "Our values", href: "about-us/#our-values" },
-      { title: "Governance", href: "about-us" },
-      { title: "Sustainability", href: "about-us" },
-      { title: "Health and safety", href: "about-us" },
-      { title: "Our locations", href: "about-us" },
+      { title: "What we do", href: "what-we-do" },
+      { title: "Mission", href: "mission" },
+      { title: "Our Values", href: "values" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_59/v1742877982/maarten-van-den-heuvel-yAsKqYbUQzY-unsplash_ckjwmx.webp",

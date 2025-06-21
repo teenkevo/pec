@@ -9,7 +9,8 @@ interface Slide {
   title: string;
   description: string;
   industry: string;
-  industryUrl: string;
+  projectSlug:string;
+  industrySlug: string;
 }
 
 interface Props {
@@ -74,7 +75,7 @@ export function HomeHeroContent({ slides }: Props) {
             transition={{ duration: 1 }}
           >
             <Link
-              href={`/industries/${currentSlideData.industryUrl}`}
+              href={`/industries/${currentSlideData.industrySlug}`}
               className="inline-block bg-[#128191] text-white font-bold px-3 py-1 text-base mb-4"
             >
               <span>{currentSlideData.industry}</span>
@@ -92,7 +93,7 @@ export function HomeHeroContent({ slides }: Props) {
           </motion.p>
           <div>
             <Link
-              href={`/project`}
+              href={`/projects/${currentSlideData.projectSlug}`}
               className={`inline-flex items-center text-white font-medium group`}
             >
               <span className="group-hover:bg-white border border-white p-2 group-hover:translate-x-1 transition-transform mr-5">

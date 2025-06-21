@@ -14,24 +14,20 @@ import { megaMenuData, type MegaMenuData } from "@/constants/menu-data";
 interface NavigationItem {
   label: string;
   href: string;
-  key: string;
 }
 
-const navigationItems: NavigationItem[] = [
-  { label: "Industries", href: "/industries", key: "industries" },
-  { label: "Expertise", href: "/expertise", key: "expertise" },
-  { label: "Projects", href: "/projects", key: "projects" },
-  { label: "Clients", href: "/clients", key: "clients" },
-  { label: "About us", href: "/about-us", key: "about-us" },
-  { label: "Careers", href: "/careers", key: "careers" },
-  { label: "Blog", href: "/blog", key: "blog" },
-];
+const navigationItems: NavigationItem[] = Object.entries(megaMenuData).map(
+  ([key, section]) => ({
+    label: section.title,
+    href: section.path,
+  })
+);
 
-interface NavigationProps {
-  megaMenuData: MegaMenuData;
+interface Props {
+  megaData?: MegaMenuData;
 }
 
-export function Navigation() {
+export function Navigation({ megaData }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isNavbarWhite, setIsNavbarWhite] = useState(false);
@@ -123,13 +119,13 @@ export function Navigation() {
               <nav className="hidden xl:flex items-center space-x-8">
                 {navigationItems.map((item) => (
                   <div
-                    key={item.key}
+                    key={item.href}
                     className="relative"
-                    onMouseEnter={() => handleMouseEnter(item.key)}
+                    onMouseEnter={() => handleMouseEnter(item.href)}
                   >
-                    <Link href={item.href} className="py-2">
+                    <Link href={`/${item.href}`} className="py-2">
                       <motion.span
-                        className={`${activeMenu === item.key ? "border-b-2 border-[#EB3301] font-medium" : ""}`}
+                        className={`${activeMenu === item.href ? "border-b-2 border-[#EB3301] font-medium" : ""}`}
                         animate={{
                           color: isNavbarWhite ? "#374151" : "#ffffff",
                         }}
@@ -233,7 +229,7 @@ export function Navigation() {
               paddingTop: "calc(var(--header-height, 30px))",
             }}
           >
-            <MegaMenu activeMenu={activeMenu} data={megaMenuData} />
+            <MegaMenu activeMenu={activeMenu} data={megaData || megaMenuData} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -251,7 +247,7 @@ export function Navigation() {
             <nav className="flex flex-col space-y-4">
               {navigationItems.map((item) => (
                 <Link
-                  key={item.key}
+                  key={item.href}
                   href={item.href}
                   className="text-white hover:text-gray-300 transition-colors"
                 >

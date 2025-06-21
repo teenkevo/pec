@@ -4,8 +4,8 @@ import { AreasOfExpertise } from "./areas-of-expertise";
 
 export default function Expertise() {
   const secondaryNavigationItems = [
-    { label: "Areas of expertise", href: "#areas-of-expertise" },
-    { label: "Publications", href: "#publications" },
+    { title: "Areas of expertise", href: "#areas-of-expertise" },
+    { title: "Publications", href: "#publications" },
   ];
 
   return (

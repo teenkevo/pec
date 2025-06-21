@@ -151,7 +151,7 @@ export function ProjectView({ projectData }: Props) {
                   <NumericFormat
                     thousandSeparator={true}
                     displayType="text"
-                    prefix={project.currency}
+                    prefix={project.currency + " "}
                     value={project.valueOfServices}
                   />
                 </>

@@ -61,6 +61,30 @@ export const INDUSTRY_PROJECTS_QUERY = `
   }
 `;
 
+export const MENU_INDUSTRIES_QUERY = `
+{
+  "industries": *[_type == "industry"] | order(title asc) {
+    title,
+    "href": slug.current
+  },
+  "latestProject": *[_type == "project"] | order(_createdAt desc)[0] {
+    _id,
+    title,
+    "slug": slug.current,
+    description,
+    mainImage,
+    location {
+      country,
+      city
+    },
+    industry-> {
+      title,
+      "slug": slug.current
+    },
+    _createdAt
+  }
+}
+`;
 
 export type INDUSTRIES = {
   _id: string;
@@ -87,3 +111,11 @@ export type SINGLE_INDUSTRY_RESULT = {
   featuredProject: PROJECT_TYPE | null;
 };
 
+
+export interface INDUSTRIES_MENU_DATA {
+  industries: {
+    title: string;
+    href: string;
+  }[];
+  latestProject: PROJECT_TYPE;
+}

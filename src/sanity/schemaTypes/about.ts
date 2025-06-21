@@ -254,16 +254,22 @@ export default defineType({
                   name: "image",
                   title: "Image",
                   type: "image",
+                  validation: (Rule) => Rule.required(),
                 }),
               ],
               preview: {
                 select: {
                   title: "title",
                   subtitle: "number",
+                  media: "image",
                 },
-                prepare({ title, subtitle }) {
+                prepare({ title, description, media }) {
                   return {
-                    title: `${title}`,
+                    title: title,
+                    subtitle: description
+                      ? `${description.substring(0, 60)}...`
+                      : undefined,
+                    media: media,
                   };
                 },
               },

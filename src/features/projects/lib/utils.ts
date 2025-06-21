@@ -80,7 +80,7 @@ export function transformProjectData(
             title: expertise.title,
             description: expertise.description || "",
             image: expertise.mainImage
-              ? urlFor(expertise.mainImage).url()
+              ? urlFor(expertise.mainImage).format("webp").url()
               : "/placeholder.svg",
           })),
           isInProject: true,

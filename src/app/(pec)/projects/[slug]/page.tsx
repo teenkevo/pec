@@ -1,3 +1,4 @@
+import { LoadingSkeleton } from "@/components/loading-skeleton";
 import {
   SINGLE_PROJECT_QUERY,
   SINGLE_PROJECT_RESULT,
@@ -30,7 +31,7 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <Suspense fallback={<p>Loading...data</p>}>
+    <Suspense fallback={<LoadingSkeleton />}>
       <ProjectView projectData={project} />
     </Suspense>
   );

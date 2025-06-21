@@ -3,6 +3,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { Suspense } from "react";
 import { type AboutUs } from "../../../../sanity.types";
 import { BlogPosts, TOP_BLOG_POSTS_QUERY } from "@/features/blog/lib/queries";
+import { LoadingSkeleton } from "@/components/loading-skeleton";
 
 const getAboutData = async (): Promise<{
   aboutContent: AboutUs;
@@ -28,7 +29,7 @@ export default async function Page() {
   const aboutData = await getAboutData();
 
   return (
-    <Suspense fallback={<p>Loading...data</p>}>
+    <Suspense fallback={<LoadingSkeleton />}>
       <AboutView aboutData={aboutData} />
     </Suspense>
   );

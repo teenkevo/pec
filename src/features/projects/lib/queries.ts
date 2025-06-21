@@ -47,12 +47,14 @@ export const ALL_PROJECTS_QUERY = `
     title,
     "slug": slug.current,
     mainImage,
+    description,
     location {
       country,
       city
     },
     industry-> {
       title,
+       subtitle,
       "slug": slug.current
     }
   }
@@ -63,12 +65,14 @@ export const TOP_PROJECTS_QUERY = `
     title,
     "slug": slug.current,
     mainImage,
+    description,
     location {
       country,
       city
     },
     industry-> {
       title,
+      subtitle,
       "slug": slug.current
     }
   }
@@ -118,12 +122,14 @@ export type PROJECT_TYPE = {
   title: string;
   slug: string;
   mainImage: SanityAsset;
+  description: string;
   location: {
     country: string;
     city: string;
   };
   industry: {
     title: string;
+    subtitle: string;
     slug: string;
   };
 };

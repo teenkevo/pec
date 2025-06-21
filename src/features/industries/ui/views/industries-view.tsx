@@ -13,9 +13,9 @@ interface Props {
 
 export default function IndustriesView({ projects, industries }: Props) {
   const secondaryNavigationItems = [
-    { label: "Introduction", href: "#introduction" },
+    { title: "Introduction", href: "#introduction" },
     ...industries.map((industry) => ({
-      label: industry.title,
+      title: industry.title,
       href: `#${industry.slug}`,
     })),
   ];

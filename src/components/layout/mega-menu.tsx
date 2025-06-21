@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { MegaMenuData } from "../../constants/menu-data";
+import { type MegaMenuData } from "../../constants/menu-data";
 import { motion } from "framer-motion";
 
 interface MegaMenuProps {
@@ -15,7 +15,7 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
 
   const menuData = data[activeMenu];
 
-  console.log(activeMenu);
+  if (!menuData || menuData.items === null) return;
 
   return (
     <div className="absolute left-0 right-0 bg-white shadow-lg z-90 transition-all duration-300 ease-in-out transform origin-top pt-20">
@@ -50,7 +50,13 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 <Link
-                  href={`/${item.href}`}
+                  href={
+                    menuData.hasSubsections
+                      ? `/${menuData.path}#${item.href} `
+                      : menuData.path === "projects"
+                        ? `/industries/${item.href}`
+                        : `/${item.href}`
+                  }
                   className="text-gray-700 text-xl font-semibold hover:text-gray-900 hover:underline"
                 >
                   {item.title}

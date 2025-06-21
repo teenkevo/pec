@@ -4,28 +4,41 @@ import { Navigation } from "@/components/layout/navigation";
 import { BackgroundImageSlideshow } from "@/features/home/ui/components/background-image-slide-show";
 import { HomeHeroContent } from "@/features/home/ui/components/home-hero-content";
 import { cn } from "@/lib/utils";
+import { SanityAsset } from "@sanity/image-url/lib/types/types";
+import { sanityFetch } from "@/sanity/lib/live";
+import {
+  INDUSTRIES_MENU_DATA,
+  MENU_INDUSTRIES_QUERY,
+} from "@/features/industries/lib/queries";
+import {
+  MegaMenuData,
+  megaMenuData,
+  MegaMenuItem,
+} from "@/constants/menu-data";
+import { urlFor } from "@/sanity/lib/image";
 
 interface SlideShowContent {
-  images: { imageUrl: string; alt: string }[];
+  images: { alt: string; asset: SanityAsset }[];
   content: {
     title: string;
     description: string;
     industry: string;
-    industryUrl: string;
+    projectSlug: string;
+    industrySlug: string;
   }[];
 }
 
 interface HeroSectionProps {
   title?: string;
   page?: string;
-  secondaryNavigationItems: { label: string; href: string }[];
+  secondaryNavigationItems: { title: string; href: string }[];
   initialActiveItem?: string;
   backgroundImage?: string;
   isHome?: boolean;
   slides?: SlideShowContent;
 }
 
-export function HeroSection({
+export async function HeroSection({
   title,
   page,
   secondaryNavigationItems,
@@ -34,6 +47,31 @@ export function HeroSection({
   slides,
   isHome = false,
 }: HeroSectionProps) {
+  const {
+    data,
+  }: {
+    data: INDUSTRIES_MENU_DATA;
+  } = await sanityFetch({
+    query: MENU_INDUSTRIES_QUERY,
+  });
+
+  const megaData: MegaMenuData = {
+    ...megaMenuData,
+    projects: {
+      ...megaMenuData["projects"],
+      items: data.industries,
+      featuredImage: {
+        src: urlFor(data.latestProject.mainImage)
+          .format("webp")
+          .width(400)
+          .height(400)
+          .url(),
+        alt: data.latestProject.title,
+        caption: data.latestProject.title,
+      },
+    },
+  };
+
   return (
     <>
       <div
@@ -64,7 +102,7 @@ export function HeroSection({
             </div>
           </>
         )}
-        <Navigation />
+        <Navigation megaData={megaData} />
       </div>
       <SecondaryNav
         initialActiveItem={

@@ -22,14 +22,17 @@ interface Props {
 }
 
 export function SingleIndustryView({ industryData }: Props) {
-  const secondaryNavigationItems = [
-    { label: "Our view", href: "#our-view" },
-    { label: "Projects", href: "#projects" },
-    { label: "Publications", href: "#publications" },
-    { label: "Contact", href: "#contact" },
-  ];
-
   const { industry, projects, posts } = industryData;
+
+  const secondaryNavigationItems = [
+    { title: "Our view", href: "our-view" },
+    ...(projects && projects.length > 0
+      ? [{ title: "Projects", href: "projects" }]
+      : []),
+    { title: "Publications", href: "publications" },
+    ...(posts && posts.length > 0 ? [{ title: "News", href: "news" }] : []),
+    { title: "Contact", href: "contact" },
+  ];
 
   return (
     <>
@@ -41,7 +44,7 @@ export function SingleIndustryView({ industryData }: Props) {
         page={industry.title}
         secondaryNavigationItems={secondaryNavigationItems}
         backgroundImage={
-          urlFor(industry.mainImage).url() ??
+          urlFor(industry.mainImage).format("webp").url() ??
           "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
         }
       />
@@ -94,9 +97,12 @@ export function SingleIndustryView({ industryData }: Props) {
         <TechnicalPapers />
       </div>
       {/* News Section */}
-      <div id="news-highlights">
-        <NewsSection posts={posts} />
-      </div>
+      {!posts ||
+        (posts.length < 0 && (
+          <div id="news-highlights">
+            <NewsSection posts={posts} />
+          </div>
+        ))}
       {/* Divider */}
       <div className="border-t border-gray-200 mt-10"></div>
       <div id="contact">
