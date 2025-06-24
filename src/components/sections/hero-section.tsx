@@ -76,7 +76,7 @@ export async function HeroSection({
     <>
       <div
         className={cn(
-          "relative h-[60vh] w-full isolate",
+          "relative h-[85vh] w-full isolate",
           isHome ? "md:h-[90vh]" : "md:h-[70vh]"
         )}
       >

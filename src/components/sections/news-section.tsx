@@ -7,17 +7,18 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlogPostCard } from "@/features/blog/ui/components/blog-post-card";
 import { BlogPosts } from "@/features/blog/lib/queries";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-
-
-interface Props{
-  posts: BlogPosts
+interface Props {
+  posts: BlogPosts;
 }
 
-export function NewsSection({posts}:Props) {
+export function NewsSection({ posts }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const maxIndex = Math.max(0, posts.length - 3); // Show 3 articles on desktop
   const carouselRef = useRef<HTMLDivElement>(null);
+
+  const isMobile = useIsMobile();
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => Math.max(0, prev - 1));
@@ -55,35 +56,18 @@ export function NewsSection({posts}:Props) {
         <div className="relative mt-8">
           <div ref={carouselRef} className="overflow-hidden">
             <div
-              className="flex space-x-10 transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
+              className="flex flex-col gap-x-10 transition-transform duration-500 ease-in-out"
+              style={
+                isMobile
+                  ? {}
+                  : { transform: `translateX(-${currentIndex * (100 / 3)}%)` }
+              }
             >
               {posts.map((post) => (
                 <div
                   key={post._id}
                   className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0"
                 >
-                  {/* <Link href={`/news/${article.id}`} className="block group">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden">
-                      <Image
-                        src={article.image || "/placeholder.svg"}
-                        alt={article.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="mt-4">
-                      <span className="text-sm text-gray-500">
-                        {article.category}
-                      </span>
-                      <h3 className="text-xl font-bold text-gray-900 mt-1 tracking-tight transition-colors">
-                        {article.title}
-                      </h3>
-                      <p className="text-gray-600 text-xs mt-2">
-                        {article.date}
-                      </p>
-                    </div>
-                  </Link> */}
                   <BlogPostCard post={post} />
                 </div>
               ))}
@@ -91,7 +75,7 @@ export function NewsSection({posts}:Props) {
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex mt-8">
+          <div className="hidden md:flex mt-8">
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
