@@ -13,7 +13,7 @@ export const blockToHtml = (blocks: any) => {
           if (currentListType) {
             html += `</${currentListType}>`;
           }
-          html += `<${tag}>`; // Open new list
+          html += `<${tag}>`;
           currentListType = tag;
         }
 

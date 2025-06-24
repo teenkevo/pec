@@ -45,7 +45,7 @@ export const SINGLE_INDUSTRY_QUERY = `
 
 // excluding featured project
 export const INDUSTRY_PROJECTS_QUERY = `
-  *[_type == "project" && industry->slug.current == $slug && _id != $featuredProjectId] | order(_createdAt desc) {
+  *[_type == "project" && industry->slug.current == $slug] | order(_createdAt desc) {
   _id,
     title,
     "slug": slug.current,
@@ -110,7 +110,6 @@ export type SINGLE_INDUSTRY_RESULT = {
   };
   featuredProject: PROJECT_TYPE | null;
 };
-
 
 export interface INDUSTRIES_MENU_DATA {
   industries: {

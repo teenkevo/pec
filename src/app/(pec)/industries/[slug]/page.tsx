@@ -32,7 +32,6 @@ export async function generateStaticParams() {
 
 const getIndustryData = async (
   industry: string,
-  featuredProject?: string
 ): Promise<{
   projects: PROJECT_TYPE[];
   posts: BlogPosts;
@@ -44,7 +43,6 @@ const getIndustryData = async (
         query: INDUSTRY_PROJECTS_QUERY,
         params: {
           slug: industry,
-          featuredProjectId: featuredProject || null,
         },
       }),
       sanityFetch({
@@ -88,7 +86,6 @@ export default async function Page({ params }: Props) {
 
   const industryData = await getIndustryData(
     industry.slug,
-    industry?.featuredProject?._id
   );
 
   return (

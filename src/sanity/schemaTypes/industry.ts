@@ -30,7 +30,7 @@ export const industry = defineType({
       name: "description",
       title: "Short Description",
       type: "text",
-      validation: (Rule) => Rule.max(120),
+      validation: (Rule) => Rule.max(200),
     }),
     defineField({
       name: "mainImage",
@@ -74,12 +74,6 @@ export const industry = defineType({
           };
         },
       },
-    }),
-    defineField({
-      name: "featuredProject",
-      title: "Featured Project",
-      type: "reference",
-      to: [{ type: "project" }],
     }),
   ],
   preview: {

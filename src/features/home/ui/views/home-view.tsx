@@ -36,30 +36,28 @@ export default function HomeView({ homeData }: Props) {
   const { projects, industries, posts } = homeData;
 
   const slides = {
-    content: projectPerIndustry(projects).map(
-      ({ title, slug,industry }) => {
-        return {
-          title: industry.subtitle,
-          description: title,
-          projectSlug: slug,
-          industry: industry.title,
-          industrySlug: industry.slug,
-        };
-      }
-    ),
+    content: projectPerIndustry(projects).map(({ title, slug, industry }) => {
+      return {
+        title: industry.subtitle,
+        description: title,
+        projectSlug: slug,
+        industry: industry.title,
+        industrySlug: industry.slug,
+      };
+    }),
     images: projectPerIndustry(projects).map(({ mainImage, title }) => {
       return { alt: title, asset: mainImage };
     }),
   };
 
   const secondaryNavigationItems = [
-    { title: "What we do", href: "#what-we-do" },
-    { title: "Our industries", href: "#industries" },
-    { title: "Projects", href: "#projects" },
-    { title: "Organisation", href: "#organisation" },
-    { title: "Careers", href: "#careers" },
-    { title: "News highlights", href: "#news-highlights" },
-    { title: "History", href: "#history" },
+    { title: "What we do", href: "what-we-do" },
+    { title: "Our industries", href: "industries" },
+    { title: "Projects", href: "projects" },
+    { title: "Organisation", href: "organisation" },
+    { title: "Careers", href: "careers" },
+    { title: "News highlights", href: "news-highlights" },
+    { title: "History", href: "history" },
   ];
 
   // Content for the "What we do" section
@@ -89,7 +87,7 @@ export default function HomeView({ homeData }: Props) {
       </div>
       <div id="projects">
         <ProjectsSection
-          projects={projects.slice(0,3)}
+          projects={projects.slice(0, 3)}
           title="Projects"
           linkText="All projects"
         />

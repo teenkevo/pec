@@ -3,12 +3,14 @@ import { GraphicSection } from "@/features/about-us/ui/components/graphic-sectio
 import { AreasOfExpertise } from "../components/areas-of-expertise";
 import { PublicationsSection } from "@/features/publications/ui/components/publications-section";
 import { Publication } from "@/features/publications/lib/queries";
+import { Expertise } from "../../../../../sanity.types";
 
-interface Props{
-  publications: Publication[]
+interface Props {
+  publications: Publication[];
+  expertise: Expertise[];
 }
 
-export default function ExpertiseView({publications}:Props) {
+export default function ExpertiseView({ publications, expertise }: Props) {
   const secondaryNavigationItems = [
     { title: "Areas of expertise", href: "areas-of-expertise" },
     { title: "Publications", href: "publications" },
@@ -25,7 +27,7 @@ export default function ExpertiseView({publications}:Props) {
 
       {/* What We Do Section */}
       <div id="areas-of-expertise">
-        <AreasOfExpertise />
+        <AreasOfExpertise expertise={expertise} />
       </div>
 
       <div id="publications">

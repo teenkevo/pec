@@ -29,5 +29,4 @@ export const expertise = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
-  //We sahll add more fields as needed
 });

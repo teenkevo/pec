@@ -68,10 +68,10 @@ export function SingleIndustryView({ industryData }: Props) {
           industryLeadName={industry.ourView?.industryLead?.name}
         />
       </div>
-      {industry.featuredProject && (
+      {projects && (
         <div id={industry?.slug} className="px-4 md:px-14">
           <IndustryTopProjectBanner
-            featuredProject={industry?.featuredProject}
+            featuredProject={projects[0]}
           />
         </div>
       )}
@@ -79,14 +79,14 @@ export function SingleIndustryView({ industryData }: Props) {
         <>
           <div id="projects">
             <ProjectsSection
-              projects={projects?.slice(0, 3)}
+              projects={projects?.slice(1, 4)}
               title={`${industry?.title} projects`}
               linkText="Explore all"
             />
           </div>
           <div id="projects">
             <ProjectsSection2
-              projects={projects?.slice(3, 6)}
+              projects={projects?.slice(4, 6)}
               title={`${industry?.title} projects`}
               linkText={`All ${industry?.title} projects`}
             />
