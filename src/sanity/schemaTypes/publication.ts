@@ -11,24 +11,14 @@ export default defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "image",
-      title: "Cover Image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
+    // defineField({
+    //   name: "image",
+    //   title: "Cover Image",
+    //   type: "image",
+    //   options: {
+    //     hotspot: true,
+    //   },
+    // }),
     defineField({
       name: "summary",
       title: "Summary",
@@ -117,7 +107,7 @@ export default defineType({
   preview: {
     select: {
       title: "title",
-      type: "type",
+      type: "category",
       date: "publicationDate",
     },
     prepare(selection) {
