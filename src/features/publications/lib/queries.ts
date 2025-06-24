@@ -16,6 +16,24 @@ export const GET_PUBLICATIONS_QUERY = `*[_type == "publication"] | order(publica
   }
 }`;
 
+export const GET_PUBLICATIONS_PAGINATED_QUERY = `*[_type == "publication"][0..5] | order(publicationDate desc) {
+  _id,
+  title,
+  summary,
+  publicationDate,
+  category,
+  publicationType,
+  externalUrl,
+  internalFile {
+    asset-> {
+      url
+    }
+  },
+  industry-> {
+    title
+  }
+}`;
+
 export interface Publication {
   _id: string;
   title: string;

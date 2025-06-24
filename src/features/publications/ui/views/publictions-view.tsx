@@ -132,7 +132,7 @@ export function PublicationsView({ publications }: Props) {
                     className="group flex flex-col md:flex-row md:items-start gap-4 md:gap-6 py-6 cursor-pointer hover:bg-gray-50 transition-colors"
                     onClick={() => handlePublicationClick(publication)}
                   >
-                    {/* Mobile: Date and Type at top */}
+               
                     <div className="flex items-center justify-between md:hidden">
                       <span className="text-sm text-gray-600">
                         {formatDate(publication.publicationDate)}
@@ -153,14 +153,14 @@ export function PublicationsView({ publications }: Props) {
                       </div>
                     </div>
 
-                    {/* Desktop: Date */}
+               
                     <div className="hidden md:block flex-shrink-0 w-24">
                       <span className="text-sm text-gray-600">
                         {formatDate(publication.publicationDate)}
                       </span>
                     </div>
 
-                    {/* Desktop: Type indicator */}
+                   
                     <div className="hidden md:flex flex-shrink-0 items-center gap-2">
                       <div
                         className={`w-2 h-2 ${
@@ -176,7 +176,7 @@ export function PublicationsView({ publications }: Props) {
                       </span>
                     </div>
 
-                    {/* Content */}
+                   
                     <div className="flex-1 min-w-0">
                       <h3 className="text-base font-medium text-gray-900 group-hover:text-[#EB3301] transition-colors">
                         {publication.title}
