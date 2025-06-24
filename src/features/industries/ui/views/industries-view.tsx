@@ -43,7 +43,7 @@ export default function IndustriesView({ projects, industries }: Props) {
         />
       </div>
       {industries.map((industry) => (
-        <div key={industry.slug}>
+        <div key={industry.slug} className="py-8 md:py-2">
           <div id={industry.slug} className="px-4 md:px-14">
             <IndustryBanner industry={industry} />
           </div>

@@ -18,8 +18,10 @@ export function ProjectsSection({
   title,
   linkText,
 }: ProjectsSectionProps) {
+
+  if(!projects || projects.length === 0) return null
   return (
-    <section className="md:py-16 py-5">
+    <section className="pb-8 pt-16 md:pb-16">
       <div className="mx-auto px-4 md:px-14">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-8">
@@ -37,7 +39,7 @@ export function ProjectsSection({
 
         {/* Case Studies Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 "
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
