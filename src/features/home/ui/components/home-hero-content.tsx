@@ -53,7 +53,7 @@ export function HomeHeroContent({ slides }: Props) {
       <div className="flex flex-col md:flex-row justify-between items-end md:gap-4 w-full">
         <div className="w-full md:w-[55%]">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white tracking-tighter leading-10">
-            {currentSlideData.title}
+           Engineering tomorrow's solution
           </h1>
         </div>
 

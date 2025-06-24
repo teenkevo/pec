@@ -12,7 +12,7 @@ import {
 import { sanityFetch } from "@/sanity/lib/live";
 import { Suspense } from "react";
 
-const getHomeData = async (): Promise<{
+const getProjectsData = async (): Promise<{
   projects: PROJECT_TYPE[];
   industries: INDUSTRIES;
 }> => {
@@ -31,7 +31,7 @@ const getHomeData = async (): Promise<{
 };
 
 export default async function Page() {
-  const data = await getHomeData();
+  const data = await getProjectsData();
 
   return (
     <Suspense fallback={<LoadingSkeleton />}>
