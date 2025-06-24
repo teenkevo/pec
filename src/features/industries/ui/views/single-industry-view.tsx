@@ -19,7 +19,7 @@ interface Props {
     industry: SINGLE_INDUSTRY_RESULT;
     projects: PROJECT_TYPE[];
     posts: BlogPosts;
-    publications: Publication[]
+    publications: Publication[];
   };
 }
 
@@ -46,8 +46,9 @@ export function SingleIndustryView({ industryData }: Props) {
         page={industry.title}
         secondaryNavigationItems={secondaryNavigationItems}
         backgroundImage={
-          urlFor(industry.mainImage).format("webp").url() ??
-          "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
+          industry?.mainImage
+            ? urlFor(industry?.mainImage).format("webp").url()
+            : "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
         }
       />
 
@@ -68,11 +69,9 @@ export function SingleIndustryView({ industryData }: Props) {
           industryLeadName={industry.ourView?.industryLead?.name}
         />
       </div>
-      {projects && (
+      {projects && projects.length > 0 && (
         <div id={industry?.slug} className="px-4 md:px-14">
-          <IndustryTopProjectBanner
-            featuredProject={projects[0]}
-          />
+          <IndustryTopProjectBanner featuredProject={projects[0]} />
         </div>
       )}
       {projects && projects.length > 0 && (
