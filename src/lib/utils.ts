@@ -46,5 +46,4 @@ export function createSlug(sentence: string): string {
     .replace(/\s+/g, "-"); // Replace spaces with hyphens
 }
 
-// Example usage
-console.log(createSlug("Create URL Slug from Sentence in LOWERCASE!"));
+

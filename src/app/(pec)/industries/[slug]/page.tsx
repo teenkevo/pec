@@ -16,6 +16,7 @@ import {
   INDUSTRY_BLOG_POSTS_QUERY,
 } from "@/features/blog/lib/queries";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
+import { Publication, PUBLICATIONS_BY_INDUSTRY_QUERY } from "@/features/publications/lib/queries";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -31,30 +32,37 @@ export async function generateStaticParams() {
 
 const getIndustryData = async (
   industry: string,
-  featuredProject?: string
 ): Promise<{
   projects: PROJECT_TYPE[];
   posts: BlogPosts;
+  publications: Publication[]
 }> => {
-  const [projectsResponse, postsResponse] = await Promise.all([
-    sanityFetch({
-      query: INDUSTRY_PROJECTS_QUERY,
-      params: {
-        slug: industry,
-        featuredProjectId: featuredProject || null,
-      },
-    }),
-    sanityFetch({
-      query: INDUSTRY_BLOG_POSTS_QUERY,
-      params: {
-        slug: industry,
-      },
-    }),
-  ]);
+  const [projectsResponse, postsResponse, publicationsResponse] =
+    await Promise.all([
+      sanityFetch({
+        query: INDUSTRY_PROJECTS_QUERY,
+        params: {
+          slug: industry,
+        },
+      }),
+      sanityFetch({
+        query: INDUSTRY_BLOG_POSTS_QUERY,
+        params: {
+          slug: industry,
+        },
+      }),
+      sanityFetch({
+        query: PUBLICATIONS_BY_INDUSTRY_QUERY,
+        params: {
+          slug: industry,
+        },
+      }),
+    ]);
 
   return {
     projects: projectsResponse.data,
     posts: postsResponse.data,
+    publications: publicationsResponse.data
   };
 };
 
@@ -78,7 +86,6 @@ export default async function Page({ params }: Props) {
 
   const industryData = await getIndustryData(
     industry.slug,
-    industry?.featuredProject?._id
   );
 
   return (

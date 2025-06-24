@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { ChevronRightIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BlogPosts } from "../../lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { format } from "date-fns";
+import { categoryMap } from "../../lib/utils";
 
 interface Props {
   post: BlogPosts[number];
@@ -14,12 +13,6 @@ interface Props {
 
 export function BlogPostCard({ post, isFeatured = false }: Props) {
 
-  const categoryMap = {
-    news: "News",
-    insights: "Insights",
-    press: "Press Releases",
-    event: "Event",
-  };
 
   return (
     <Link

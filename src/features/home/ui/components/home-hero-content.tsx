@@ -9,7 +9,7 @@ interface Slide {
   title: string;
   description: string;
   industry: string;
-  projectSlug:string;
+  projectSlug: string;
   industrySlug: string;
 }
 

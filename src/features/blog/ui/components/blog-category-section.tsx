@@ -35,10 +35,10 @@ export function BlogCategorySection({
           <div className="flex justify-between items-end mt-2">
             <h2 className="text-3xl font-bold text-gray-900">{sectionTitle}</h2>
             <Link
-              href={isNewsPage ? "/blog" : `/blog/${path}`}
+              href={!isNewsPage ? "/blog" : `/blog/category/${path}`}
               className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center"
             >
-              <span>ViewAll</span>
+              <span>View All</span>
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>

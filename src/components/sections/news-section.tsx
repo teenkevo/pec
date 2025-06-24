@@ -8,58 +8,7 @@ import { motion } from "framer-motion";
 import { BlogPostCard } from "@/features/blog/ui/components/blog-post-card";
 import { BlogPosts } from "@/features/blog/lib/queries";
 
-// Define news article data
-// const newsArticles = [
-//   {
-//     id: "seafloor-mapping",
-//     category: "Business news",
-//     title:
-//       "PEC leads large-scale seafloor mapping project to protect Entebbe's coast",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
-//     date: "6 Jan 2025",
-//   },
-//   {
-//     id: "coral-reefs",
-//     category: "Podcast",
-//     title: "Coral reefs, data, and decision making",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1742072211/IMG_7455_2_i3bpiw.webp",
-//     date: "28 Nov 2024",
-//   },
-//   {
-//     id: "seismic-imaging",
-//     category: "Long read",
-//     title: "Marine seismic imaging: the key to robust wind farm foundations",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
-//     date: "4 Nov 2024",
-//   },
-//   {
-//     id: "digital-twins",
-//     category: "Innovation",
-//     title: "Digital twins revolutionizing offshore asset management",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
-//     date: "15 Oct 2024",
-//   },
-//   {
-//     id: "autonomous-vessels",
-//     category: "Technology",
-//     title: "PEC expands fleet of autonomous vessels for ocean exploration",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_64/v1742072211/IMG_7455_2_i3bpiw.webp",
-//     date: "2 Oct 2024",
-//   },
-//   {
-//     id: "carbon-capture",
-//     category: "Sustainability",
-//     title: "New geo-data techniques enhance carbon capture site selection",
-//     image:
-//       "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp",
-//     date: "18 Sep 2024",
-//   },
-// ];
+
 
 interface Props{
   posts: BlogPosts

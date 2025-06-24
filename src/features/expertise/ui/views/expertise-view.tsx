@@ -1,11 +1,19 @@
 import { HeroSection } from "@/components/sections/hero-section";
-import { GraphicSection } from "../about-us/ui/components/graphic-section";
-import { AreasOfExpertise } from "./areas-of-expertise";
+import { GraphicSection } from "@/features/about-us/ui/components/graphic-section";
+import { AreasOfExpertise } from "../components/areas-of-expertise";
+import { PublicationsSection } from "@/features/publications/ui/components/publications-section";
+import { Publication } from "@/features/publications/lib/queries";
+import { Expertise } from "../../../../../sanity.types";
 
-export default function Expertise() {
+interface Props {
+  publications: Publication[];
+  expertise: Expertise[];
+}
+
+export default function ExpertiseView({ publications, expertise }: Props) {
   const secondaryNavigationItems = [
-    { title: "Areas of expertise", href: "#areas-of-expertise" },
-    { title: "Publications", href: "#publications" },
+    { title: "Areas of expertise", href: "areas-of-expertise" },
+    { title: "Publications", href: "publications" },
   ];
 
   return (
@@ -19,7 +27,11 @@ export default function Expertise() {
 
       {/* What We Do Section */}
       <div id="areas-of-expertise">
-        <AreasOfExpertise />
+        <AreasOfExpertise expertise={expertise} />
+      </div>
+
+      <div id="publications">
+        <PublicationsSection publications={publications} />
       </div>
 
       <GraphicSection

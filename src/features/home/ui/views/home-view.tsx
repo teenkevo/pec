@@ -36,33 +36,30 @@ export default function HomeView({ homeData }: Props) {
   const { projects, industries, posts } = homeData;
 
   const slides = {
-    content: projectPerIndustry(projects).map(
-      ({ title, slug,industry }) => {
-        return {
-          title: industry.subtitle,
-          description: title,
-          projectSlug: slug,
-          industry: industry.title,
-          industrySlug: industry.slug,
-        };
-      }
-    ),
+    content: projectPerIndustry(projects).map(({ title, slug, industry }) => {
+      return {
+        title: industry.subtitle,
+        description: title,
+        projectSlug: slug,
+        industry: industry.title,
+        industrySlug: industry.slug,
+      };
+    }),
     images: projectPerIndustry(projects).map(({ mainImage, title }) => {
       return { alt: title, asset: mainImage };
     }),
   };
 
   const secondaryNavigationItems = [
-    { title: "What we do", href: "#what-we-do" },
-    { title: "Our industries", href: "#industries" },
-    { title: "Projects", href: "#projects" },
-    { title: "Organisation", href: "#organisation" },
-    { title: "Careers", href: "#careers" },
-    { title: "News highlights", href: "#news-highlights" },
-    { title: "History", href: "#history" },
+    { title: "What we do", href: "what-we-do" },
+    { title: "Our industries", href: "industries" },
+    { title: "Projects", href: "projects" },
+    { title: "Organisation", href: "organisation" },
+    { title: "Careers", href: "careers" },
+    { title: "News highlights", href: "news-highlights" },
+    { title: "History", href: "history" },
   ];
 
-  // Content for the "What we do" section
   const whatWeDoContent =
     "Professional Engineering Consultants (PEC) is a limited liability Company, established in Uganda in 2008 by a team of six (6) extensively skilled practicing consulting professionals. Since then, PEC has grown into one of the leading design, engineering and project management consultancies in Uganda, with an establishment of more than 50 staff some of whom have joined its shareholding. PEC’s success is as a result of the firm’s deliberate emphasis on professionalism, quality services and customer satisfaction.";
 
@@ -74,7 +71,7 @@ export default function HomeView({ homeData }: Props) {
         initialActiveItem="#what-we-do"
         isHome
       />
-      {/* What We Do Section */}
+   
       <div id="what-we-do">
         <ContentSection
           id="what-we-do"
@@ -89,7 +86,7 @@ export default function HomeView({ homeData }: Props) {
       </div>
       <div id="projects">
         <ProjectsSection
-          projects={projects.slice(0,3)}
+          projects={projects.slice(0, 3)}
           title="Projects"
           linkText="All projects"
         />

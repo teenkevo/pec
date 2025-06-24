@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { IndustryView } from "../components/industry-view";
 import { IndustryTopProjectBanner } from "../components/industry-top-project-banner";
 import { NewsSection } from "@/components/sections/news-section";
-import { TechnicalPapers } from "../components/industry-technical-papers";
 import { IndustryContactSection } from "../components/industry-contact";
 import { SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
 
@@ -12,17 +11,20 @@ import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
 import { ProjectsSection2 } from "@/features/projects/ui/components/projects-section-2";
 import { BlogPosts } from "@/features/blog/lib/queries";
+import { PublicationsSection } from "@/features/publications/ui/components/publications-section";
+import { Publication } from "@/features/publications/lib/queries";
 
 interface Props {
   industryData: {
     industry: SINGLE_INDUSTRY_RESULT;
     projects: PROJECT_TYPE[];
     posts: BlogPosts;
+    publications: Publication[];
   };
 }
 
 export function SingleIndustryView({ industryData }: Props) {
-  const { industry, projects, posts } = industryData;
+  const { industry, projects, posts, publications } = industryData;
 
   const secondaryNavigationItems = [
     { title: "Our view", href: "our-view" },
@@ -44,8 +46,9 @@ export function SingleIndustryView({ industryData }: Props) {
         page={industry.title}
         secondaryNavigationItems={secondaryNavigationItems}
         backgroundImage={
-          urlFor(industry.mainImage).format("webp").url() ??
-          "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
+          industry?.mainImage
+            ? urlFor(industry?.mainImage).format("webp").url()
+            : "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
         }
       />
 
@@ -66,25 +69,23 @@ export function SingleIndustryView({ industryData }: Props) {
           industryLeadName={industry.ourView?.industryLead?.name}
         />
       </div>
-      {industry.featuredProject && (
+      {projects && projects.length > 0 && (
         <div id={industry?.slug} className="px-4 md:px-14">
-          <IndustryTopProjectBanner
-            featuredProject={industry?.featuredProject}
-          />
+          <IndustryTopProjectBanner featuredProject={projects[0]} />
         </div>
       )}
       {projects && projects.length > 0 && (
         <>
           <div id="projects">
             <ProjectsSection
-              projects={projects?.slice(0, 3)}
+              projects={projects?.slice(1, 4)}
               title={`${industry?.title} projects`}
               linkText="Explore all"
             />
           </div>
           <div id="projects">
             <ProjectsSection2
-              projects={projects?.slice(3, 6)}
+              projects={projects?.slice(4, 6)}
               title={`${industry?.title} projects`}
               linkText={`All ${industry?.title} projects`}
             />
@@ -94,7 +95,7 @@ export function SingleIndustryView({ industryData }: Props) {
       {/* Divider */}
       <div className="border-t border-gray-200 mt-20"></div>
       <div id="publications">
-        <TechnicalPapers />
+        <PublicationsSection publications={publications} />
       </div>
       {/* News Section */}
       {!posts ||

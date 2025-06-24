@@ -20,7 +20,11 @@ export function IndustryTopProjectBanner({
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src={urlFor(featuredProject.mainImage).url()}
+          src={
+            featuredProject?.mainImage
+              ? urlFor(featuredProject?.mainImage).url()
+              : "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1725968449/D1MqaczXcAUaOuB_o9n01n.webp"
+          }
           alt="Wind turbines on land and sea"
           fill
           className="object-cover"

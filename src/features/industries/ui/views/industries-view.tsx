@@ -13,22 +13,21 @@ interface Props {
 
 export default function IndustriesView({ projects, industries }: Props) {
   const secondaryNavigationItems = [
-    { title: "Introduction", href: "#introduction" },
+    { title: "Introduction", href: "introduction" },
     ...industries.map((industry) => ({
       title: industry.title,
-      href: `#${industry.slug}`,
+      href: `${industry.slug}`,
     })),
   ];
 
-  // Content for the "What we do" section
   const introduction =
     "With our wide range of assets, skills, and solutions tailored to our clients, we serve customers in our 4 key markets: transport, water and sanitation, materials and geotechnics, and structures. Together with our partners and clients, we're pushing for excellence.";
 
   return (
     <>
       <HeroSection
-        title="Our industries of specialization"
-        page="Industries"
+        title="Projects across key industries"
+        page="Projects"
         secondaryNavigationItems={secondaryNavigationItems}
         backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1742327657/IMG_7837_qicjiu.webp"
       />
