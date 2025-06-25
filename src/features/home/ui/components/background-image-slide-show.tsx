@@ -63,7 +63,7 @@ export function BackgroundImageSlideshow({
                   <div className="absolute inset-x-0 top-0 h-80 bg-gradient-to-b from-black to-transparent z-10"></div>
 
                   {/* Bottom gradient overlay */}
-                  <div className="absolute inset-x-0 bottom-0 h-[700px] bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-[800px] bg-gradient-to-t from-black/80 to-transparent z-10"></div>
                 </div>
               </motion.div>
             )

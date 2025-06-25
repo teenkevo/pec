@@ -65,7 +65,7 @@ export function HomeHeroContent({ slides }: Props) {
             }}
             className="flex items-center gap-2"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white tracking-tighter leading-10">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold md:font-medium text-white tracking-tight leading-10">
               {currentSlideData.title}
             </h1>
           </motion.div>
