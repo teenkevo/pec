@@ -16,7 +16,7 @@ export function IndustryTopProjectBanner({
   featuredProject,
 }: IndustryTopProjectBannerProps) {
   return (
-    <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden p-10">
+    <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden px-2 md:px-10 py-10">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -43,7 +43,7 @@ export function IndustryTopProjectBanner({
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-4xl font-semibold text-white tracking-tight mb-6 line-clamp-4">
+            <h2 className="text-2xl md:text-4xl font-semibold text-white tracking-tight mb-6 line-clamp-4">
               {featuredProject.title}
             </h2>
 
