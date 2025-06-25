@@ -77,7 +77,7 @@ export async function HeroSection({
       <div
         className={cn(
           "relative  w-full isolate",
-          isHome ? "h-[50vh] md:h-[90vh]" : "h-[40vh] md:h-[70vh]"
+          isHome ? "h-[70vh] md:h-[90vh]" : "h-[40vh] md:h-[70vh]"
         )}
       >
         {isHome && slides ? (
