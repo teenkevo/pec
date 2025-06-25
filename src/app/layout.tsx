@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`${spaceGrotesk.className} antialiased`}>
         {/* <Suspense fallback={<Loading />}>
           <QueryProvider> */}
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         {children}
         <SanityLive />
         {/* </QueryProvider>
