@@ -9,7 +9,7 @@ export interface MegaMenuSection {
   description?: string;
   path: string;
   items: MegaMenuItem[] | null;
-  hasSubsections?: boolean
+  hasSubsections?: boolean;
   featuredImage?: {
     src: string;
     alt: string;
@@ -22,6 +22,22 @@ export interface MegaMenuData {
 }
 
 export const megaMenuData: MegaMenuData = {
+  "about-us": {
+    title: "About us",
+    description: "Information about the PEC organisation",
+    path: "about-us",
+    hasSubsections: true,
+    items: [
+      { title: "What we do", href: "what-we-do" },
+      { title: "Mission", href: "mission" },
+      { title: "Our Values", href: "values" },
+    ],
+    featuredImage: {
+      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_75/v1743528551/A1B6E84B-AE56-4195-A303-CAA589D0DA76_1_201_a_ww70gd.webp",
+      alt: "About PEC",
+      caption: "Leading civil engineering consultancy",
+    },
+  },
   projects: {
     title: "Projects",
     description: "Explore our projects across industries",
@@ -49,7 +65,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "Publications", href: "publications" },
     ],
     featuredImage: {
-      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_55/v1742876740/william-topa-x9AZgR25G-k-unsplash_pfi9zf.webp",
+      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_73/v1742873852/troy-mortier-eKY6_9W_iqY-unsplash_mrjhs7.webp",
       alt: "Technical expertise",
       caption: "Advanced technical capabilities",
     },
@@ -93,22 +109,6 @@ export const megaMenuData: MegaMenuData = {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_65/v1742072211/IMG_7560_3_imaovc.webp",
       alt: "News and updates",
       caption: "Stay informed with our latest news",
-    },
-  },
-  "about-us": {
-    title: "About us",
-    description: "Information about the Fugro organisation",
-    path: "about-us",
-    hasSubsections: true,
-    items: [
-      { title: "What we do", href: "what-we-do" },
-      { title: "Mission", href: "mission" },
-      { title: "Our Values", href: "values" },
-    ],
-    featuredImage: {
-      src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_59/v1742877982/maarten-van-den-heuvel-yAsKqYbUQzY-unsplash_ckjwmx.webp",
-      alt: "About PEC",
-      caption: "Leading geo-data specialist",
     },
   },
 };

@@ -24,14 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      // style={{ scrollBehavior: "smooth" }}
+      style={{ scrollBehavior: "smooth" }}
       lang="en"
       suppressHydrationWarning
     >
       <body className={`${spaceGrotesk.className} antialiased`}>
         {/* <Suspense fallback={<Loading />}>
           <QueryProvider> */}
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         {children}
         <SanityLive />
         {/* </QueryProvider>

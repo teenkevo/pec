@@ -29,7 +29,7 @@ export default function IndustriesView({ projects, industries }: Props) {
         title="Projects across key industries"
         page="Projects"
         secondaryNavigationItems={secondaryNavigationItems}
-        backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_66/v1742327657/IMG_7837_qicjiu.webp"
+        backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_69/v1750813534/artur-voznenko-k04f4Q-MwCc-unsplash_zbmmtv.webp"
       />
 
       {/* What We Do Section */}

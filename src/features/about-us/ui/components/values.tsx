@@ -5,13 +5,23 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { urlFor } from "@/sanity/lib/image";
 import { AboutUs } from "../../../../../sanity.types";
-import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
-// Define the structure for our values
+// Define the structure for our values to match Sanity types
 interface ValueItem {
   title?: string;
   description?: string;
-  image: SanityAsset;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+    };
+    hotspot?: any;
+    crop?: any;
+    _type: "image";
+  };
+  _type: "value";
+  _key: string;
 }
 
 interface Props {
@@ -25,7 +35,9 @@ export function ValuesSection({ values: valuesData }: Props) {
         number: String(index + 1).padStart(2, "0"),
         title: value.title || `Value ${index + 1}`,
         description: value.description || "Description not available",
-        image: urlFor(value.image).format("webp").width(800).height(800).url(),
+        image: value.image
+          ? urlFor(value.image).format("webp").width(800).height(800).url()
+          : "/placeholder.svg",
       }))
     : [];
 

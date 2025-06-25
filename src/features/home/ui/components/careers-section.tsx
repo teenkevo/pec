@@ -19,7 +19,7 @@ export function CareersSection() {
           {/* Left side - Image */}
           <div className="md:w-1/2 relative h-[500px] md:h-[700px]">
             <Image
-              src="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_59/v1742245950/thisisengineering-vEoMKBdUIzs-unsplash_ybdrsh.webp"
+              src="https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742877869/marten-bjork-6dW3xyQvcYE-unsplash_kxslgq.jpg"
               alt="PEC employee"
               fill
               className="object-cover object-center"
@@ -32,7 +32,7 @@ export function CareersSection() {
               <span className="text-white text-lg">Come work with us</span>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 leading-tight">
-                Help create an impact on a global scale
+                Help build solutions that matter
               </h2>
 
               <div className="mt-auto pt-16">

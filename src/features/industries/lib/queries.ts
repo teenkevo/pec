@@ -2,7 +2,7 @@ import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
 export const ALL_INDUSTRIES_QUERY = `
-  *[_type == "industry"]{
+  *[_type == "industry"]| order(title desc){
   _id,
     title,
     subtitle,

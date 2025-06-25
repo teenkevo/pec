@@ -18,7 +18,7 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
   if (!menuData || menuData.items === null) return;
 
   return (
-    <div className="absolute left-0 right-0 bg-white shadow-lg z-90 transition-all duration-300 ease-in-out transform origin-top pt-20">
+    <div className="absolute left-0 right-0 bg-gray-100 z-90 transition-all duration-300 ease-in-out transform origin-top pt-20">
       <div className="mx-auto px-4 py-10 md:px-14 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Left section - Title and description */}
         <div className="col-span-1">
@@ -82,13 +82,13 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                     <span className="text-xs uppercase tracking-wider bg-white/20 px-2 py-1 rounded-sm mb-2 inline-block">
                       {menuData.title}
                     </span>
-                    <p className="text-lg font-medium">
+                    <p className="text-lg font-medium line-clamp-3">
                       {menuData.featuredImage.caption}
                     </p>
                   </div>
                   <div className="mt-5">
                     <Link
-                      href="/industries"
+                      href="/expertise"
                       className={`inline-flex items-center text-white font-medium group`}
                     >
                       <span className="group-hover:bg-white border border-white p-1 group-hover:translate-x-1 transition-transform mr-5">

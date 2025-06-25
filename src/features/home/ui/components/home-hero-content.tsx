@@ -21,7 +21,7 @@ export function HomeHeroContent({ slides }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const slideInterval = 5000; // 5 seconds
-  const updateInterval = 50; // Update progress every 100ms for smooth animation
+  const updateInterval = 100; // Update progress every 100ms for smooth animation
 
   useEffect(() => {
     // Reset progress when slide changes
@@ -52,9 +52,23 @@ export function HomeHeroContent({ slides }: Props) {
     <div className="px-4 md:px-14 absolute bottom-5 md:bottom-16 w-full z-20">
       <div className="flex flex-col md:flex-row justify-between items-end md:gap-4 w-full">
         <div className="w-full md:w-[55%]">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white tracking-tighter leading-10">
-            {currentSlideData.title}
-          </h1>
+          <motion.div
+            key={`title-${currentSlide}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+              stiffness: 100,
+              damping: 10,
+            }}
+            className="flex items-center gap-2"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white tracking-tighter leading-10">
+              {currentSlideData.title}
+            </h1>
+          </motion.div>
         </div>
 
         <div className="w-full md:w-[35%]">
@@ -73,13 +87,17 @@ export function HomeHeroContent({ slides }: Props) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 1 }}
+            className="flex items-center gap-2"
           >
             <Link
               href={`/industries/${currentSlideData.industrySlug}`}
-              className="inline-block bg-[#128191] text-white font-bold px-3 py-1 text-base mb-4"
+              className="inline-flex items-center bg-[#128191] text-white font-bold px-3 py-1 text-base mb-4"
             >
               <span>{currentSlideData.industry}</span>
             </Link>
+            <p className="text-white mb-4 tracking-tight text-sm">
+              Latest Project
+            </p>
           </motion.div>
           <motion.p
             key={`desc-${currentSlide}`}

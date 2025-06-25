@@ -36,14 +36,14 @@ export function IndustryTopProjectBanner({
 
       {/* Content */}
       <div className="relative z-10 container mx-auto h-full flex flex-col justify-end px-4">
-        <div className="max-w-2xl">
+        <div className="max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-6">
+            <h2 className="text-4xl md:text-4xl font-semibold text-white tracking-tight mb-6 line-clamp-4">
               {featuredProject.title}
             </h2>
 

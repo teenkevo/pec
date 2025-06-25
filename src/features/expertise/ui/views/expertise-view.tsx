@@ -22,7 +22,7 @@ export default function ExpertiseView({ publications, expertise }: Props) {
         title="PEC: An all-round quality civil engineering consultancy"
         page="Expertise"
         secondaryNavigationItems={secondaryNavigationItems}
-        backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_55/v1742876740/william-topa-x9AZgR25G-k-unsplash_pfi9zf.webp"
+        backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/v1750822879/d3867f63-e7bc-4fb3-962e-4c2bd7677a70_j5rzoa.webp"
       />
 
       {/* What We Do Section */}
