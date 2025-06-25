@@ -73,7 +73,7 @@ export function IndustriesSection({ industries }: Props) {
   return (
     <section
       id="our-industries"
-      className="relative w-full h-[600] md:h-[900px] overflow-hidden"
+      className="relative w-full h-[600px] md:h-[900px] overflow-hidden"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -201,13 +201,13 @@ export function IndustriesSection({ industries }: Props) {
             })}
           </CarouselContent>
         </Carousel>
-        <div className="flex p-4 md:right-14 z-10 md:hidden gap-2">
+        <div className="flex p-4 items-center md:justify-center gap-2">
           <Button
             onClick={() => api?.scrollPrev()}
             disabled={!api?.canScrollPrev()}
             size={"icon"}
             variant={"outline"}
-            className="group hover:bg-white border p-2 group-hover:translate-x-1 transition-transform mr-5 rounded-none [&>svg]:text-white "
+            className="group rounded-full hover:bg-white border p-2 group-hover:translate-x-1 transition-transform mr-5 [&>svg]:text-white "
           >
             <ArrowLeft className="group-hover:text-[#EB3300]" />
           </Button>
@@ -216,7 +216,7 @@ export function IndustriesSection({ industries }: Props) {
             disabled={!api?.canScrollNext()}
             size={"icon"}
             variant={"outline"}
-            className="group hover:bg-white border border-white p-2 group-hover:translate-x-1 transition-transform rounded-none [&>svg]:text-white"
+            className="group rounded-full hover:bg-white border border-white p-2 group-hover:translate-x-1 transition-transform [&>svg]:text-white"
           >
             <ArrowRight className="group-hover:text-[#EB3300]" />
           </Button>
