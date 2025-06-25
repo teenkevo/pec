@@ -71,7 +71,7 @@ export default function HomeView({ homeData }: Props) {
         initialActiveItem="#what-we-do"
         isHome
       />
-   
+
       <div id="what-we-do">
         <ContentSection
           id="what-we-do"
