@@ -82,7 +82,25 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
         `Phone: ${formData.phone}\n` +
         `\nQuestion:\n${formData.question}`
     );
-    const mailto = `mailto:info@pec.co.ug?subject=${subject}&body=${body}`;
+// src/components/layout/contact-drawer.tsx
+
+interface ContactDrawerProps {
+  isOpen: boolean;
+  onClose: () => void;
+  recipientEmail?: string;
+}
+
+export function ContactDrawer({
+  isOpen,
+  onClose,
+  recipientEmail = "info@pec.co.ug",
+}: ContactDrawerProps) {
+  // … other hooks and handlers …
+
+  const mailto = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+
+  // … rest of component …
+}
 
     // Open mailto link
     window.open(mailto, "_blank");
