@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MegaMenu } from "@/components/layout/mega-menu";
 import { megaMenuData, type MegaMenuData } from "@/constants/menu-data";
+import { ContactButton } from "./contact-button";
 
 interface NavigationItem {
   label: string;
@@ -122,13 +123,7 @@ function MobileDrawer({
             </span>
           </div>
 
-          <Button
-            variant="outline"
-            className="w-full text-white border-white hover:bg-white transition-colors"
-            onClick={close}
-          >
-            Get in touch
-          </Button>
+          <ContactButton />
         </div>
       </motion.div>
     </AnimatePresence>,
@@ -250,16 +245,7 @@ export function Navigation({ megaData }: Props) {
               <div
                 className={`h-6 w-px ${isNavbarWhite ? "bg-gray-300" : "bg-gray-400"} mx-2`}
               />
-              <Button
-                variant={isNavbarWhite ? "default" : "outline"}
-                className={
-                  isNavbarWhite
-                    ? "bg-[#128191] text-white hover:bg-[#128191]"
-                    : "text-white border-white hover:bg-white"
-                }
-              >
-                Get in touch
-              </Button>
+              <ContactButton />
             </div>
 
             {/* Mobile burger */}
