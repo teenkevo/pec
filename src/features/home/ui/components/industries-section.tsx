@@ -75,38 +75,24 @@ export function IndustriesSection({ industries }: Props) {
       id="our-industries"
       className="relative w-full h-[600] md:h-[900px] overflow-hidden"
     >
-      {isMobile ? (
-        <div
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeIndustry}
           className="absolute inset-0 bg-cover bg-center z-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15, ease: "easeInOut" }}
           style={{
-            backgroundImage: `url('${urlFor(industries[0].mainImage).url()}')`,
+            backgroundImage: `url('${urlFor(activeIndustryData.mainImage).url()}')`,
             backgroundPosition: "center 30%",
           }}
         >
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent z-10"></div>
 
           <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-        </div>
-      ) : (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeIndustry}
-            className="absolute inset-0 bg-cover bg-center z-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            style={{
-              backgroundImage: `url('${urlFor(activeIndustryData.mainImage).url()}')`,
-              backgroundPosition: "center 30%",
-            }}
-          >
-            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent z-10"></div>
-
-            <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-          </motion.div>
-        </AnimatePresence>
-      )}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Section Title */}
       <div className="relative z-10 mx-auto px-4 md:px-14 pt-16">
