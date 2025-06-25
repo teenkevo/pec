@@ -59,6 +59,13 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
     e.preventDefault();
     setError(null);
 
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
     // Validate required fields
     if (
       !formData.firstName ||
