@@ -3,7 +3,7 @@
 import type React from "react";
 import { createPortal } from "react-dom";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -43,6 +43,11 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
     question: "",
   });
   const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -99,6 +104,8 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
     formData.lastName &&
     formData.email &&
     formData.question;
+
+  if (!mounted) return null;
 
   return createPortal(
     <AnimatePresence>
