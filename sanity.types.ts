@@ -53,18 +53,6 @@ export type Publication = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  slug?: Slug;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
   summary?: string;
   publicationDate?: string;
   category?:
@@ -245,14 +233,14 @@ export type AboutUs = {
     visionStatement?: string;
     description?: string;
   };
-  values: {
-    title: string;
-    subtitle: string;
-    description: string;
-    valuesList: Array<{
-      title: string;
+  values?: {
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    valuesList?: Array<{
+      title?: string;
       description?: string;
-      image: {
+      image?: {
         asset?: {
           _ref: string;
           _type: "reference";
@@ -301,44 +289,6 @@ export type Expertise = {
   excerpt?: string;
 };
 
-export type Industry = {
-  _id: string;
-  _type: "industry";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  subtitle?: string;
-  description?: string;
-  mainImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  ourView?: {
-    content?: string;
-    industryLead?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "team";
-    };
-  };
-  featuredProject?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "project";
-  };
-};
-
 export type Project = {
   _id: string;
   _type: "project";
@@ -371,6 +321,9 @@ export type Project = {
     [internalGroqTypeReferenceTo]?: "client";
   };
   funder?: string;
+  startDate?: string;
+  isCompleted?: boolean;
+  endDate?: string;
   valueOfService?: {
     currency?: "EUR" | "USD" | "UGX";
     value?: number;
@@ -404,6 +357,38 @@ export type Project = {
     _type: "projectPhase";
     _key: string;
   }>;
+};
+
+export type Industry = {
+  _id: string;
+  _type: "industry";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  subtitle?: string;
+  description?: string;
+  mainImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  ourView?: {
+    content?: string;
+    industryLead?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "team";
+    };
+  };
 };
 
 export type Team = {
@@ -518,8 +503,8 @@ export type AllSanitySchemaTypes =
   | AboutUs
   | GalleryImage
   | Expertise
-  | Industry
   | Project
+  | Industry
   | Team
   | SanityImageCrop
   | SanityImageHotspot
