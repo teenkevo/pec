@@ -108,7 +108,7 @@ function MobileDrawer({
           <div className="flex items-center space-x-4">
             <a
               aria-label="Webmail"
-              href="https://pec.co.ug/webmail"
+              href="https://webmail.pec.co.ug"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 text-white hover:text-[#EB3301] transition-colors"
@@ -235,7 +235,7 @@ export function Navigation({ megaData }: Props) {
                 animate={{ color: isNavbarWhite ? "#374151" : "#ffffff" }}
                 whileHover={{ color: isNavbarWhite ? "#111827" : "#d1d5db" }}
                 transition={{ duration: 0.2 }}
-                href="https://pec.co.ug/webmail"
+                href="https://webmail.pec.co.ug"
                 target="_blank"
                 rel="noopener noreferrer"
               >

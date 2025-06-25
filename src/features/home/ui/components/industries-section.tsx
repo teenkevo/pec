@@ -109,26 +109,6 @@ export function IndustriesSection({ industries }: Props) {
 
       {/* Cards Container */}
       <div className="absolute bottom-0 left-0 right-0 z-10 pb-8">
-        <div className="hidden absolute -top-20 right-0 md:right-14 z-10 md:flex gap-2">
-          <Button
-            onClick={() => api?.scrollPrev()}
-            disabled={!api?.canScrollPrev()}
-            size={"icon"}
-            variant={"outline"}
-            className="group hover:bg-white border p-2 group-hover:translate-x-1 transition-transform mr-5 rounded-none [&>svg]:text-white "
-          >
-            <ArrowLeft className="group-hover:text-[#EB3300]" />
-          </Button>
-          <Button
-            onClick={() => api?.scrollNext()}
-            disabled={!api?.canScrollNext()}
-            size={"icon"}
-            variant={"outline"}
-            className="group hover:bg-white border border-white p-2 group-hover:translate-x-1 transition-transform rounded-none [&>svg]:text-white"
-          >
-            <ArrowRight className="group-hover:text-[#EB3300]" />
-          </Button>
-        </div>
         <Carousel
           setApi={setApi}
           className="mx-auto px-0 md:px-14 md:pb-16"
