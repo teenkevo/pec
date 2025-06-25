@@ -15,6 +15,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const hideScrollbarStyle = `
 .hide-scrollbar {
@@ -34,6 +35,7 @@ export function IndustriesSection({ industries }: Props) {
   // State to track the active industry
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+  const isMobile = useIsMobile();
   //This is for the background change..
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -71,29 +73,40 @@ export function IndustriesSection({ industries }: Props) {
   return (
     <section
       id="our-industries"
-      className="relative w-full h-[900px] md:h-[900px] overflow-hidden"
+      className="relative w-full h-[600] md:h-[900px] overflow-hidden"
     >
-      {/* <style>{hideScrollbarStyle}</style> */}
-      {/* Background Images with Animation */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeIndustry}
+      {isMobile ? (
+        <div
           className="absolute inset-0 bg-cover bg-center z-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
           style={{
-            backgroundImage: `url('${urlFor(activeIndustryData.mainImage).url()}')`,
+            backgroundImage: `url('${urlFor(industries[0].mainImage).url()}')`,
             backgroundPosition: "center 30%",
           }}
         >
-          {/* Top gradient overlay */}
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent z-10"></div>
-          {/* Bottom gradient overlay */}
+
           <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-        </motion.div>
-      </AnimatePresence>
+        </div>
+      ) : (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndustry}
+            className="absolute inset-0 bg-cover bg-center z-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            style={{
+              backgroundImage: `url('${urlFor(activeIndustryData.mainImage).url()}')`,
+              backgroundPosition: "center 30%",
+            }}
+          >
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent z-10"></div>
+
+            <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+          </motion.div>
+        </AnimatePresence>
+      )}
 
       {/* Section Title */}
       <div className="relative z-10 mx-auto px-4 md:px-14 pt-16">
@@ -109,8 +122,8 @@ export function IndustriesSection({ industries }: Props) {
       </div>
 
       {/* Cards Container */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <div className="absolute -top-20 right-0 md:right-14 z-10 flex gap-2">
+      <div className="absolute bottom-0 left-0 right-0 z-10 pb-8">
+        <div className="hidden absolute -top-20 right-0 md:right-14 z-10 md:flex gap-2">
           <Button
             onClick={() => api?.scrollPrev()}
             disabled={!api?.canScrollPrev()}
@@ -132,7 +145,7 @@ export function IndustriesSection({ industries }: Props) {
         </div>
         <Carousel
           setApi={setApi}
-          className="mx-auto px-4 md:px-14 pb-16"
+          className="mx-auto px-0 md:px-14 md:pb-16"
           opts={{
             align: "start",
             loop: false,
@@ -145,7 +158,7 @@ export function IndustriesSection({ industries }: Props) {
               return (
                 <CarouselItem
                   key={industry._id}
-                  className="md:basis-1/2 lg:basis-1/3"
+                  className="basis-[85%] ml-2 md:basis-1/2 lg:basis-1/3"
                   onClick={() => handleItemClick(index)}
                 >
                   <motion.div
@@ -202,7 +215,26 @@ export function IndustriesSection({ industries }: Props) {
             })}
           </CarouselContent>
         </Carousel>
-        <div></div>
+        <div className="flex p-4 md:right-14 z-10 md:hidden gap-2">
+          <Button
+            onClick={() => api?.scrollPrev()}
+            disabled={!api?.canScrollPrev()}
+            size={"icon"}
+            variant={"outline"}
+            className="group hover:bg-white border p-2 group-hover:translate-x-1 transition-transform mr-5 rounded-none [&>svg]:text-white "
+          >
+            <ArrowLeft className="group-hover:text-[#EB3300]" />
+          </Button>
+          <Button
+            onClick={() => api?.scrollNext()}
+            disabled={!api?.canScrollNext()}
+            size={"icon"}
+            variant={"outline"}
+            className="group hover:bg-white border border-white p-2 group-hover:translate-x-1 transition-transform rounded-none [&>svg]:text-white"
+          >
+            <ArrowRight className="group-hover:text-[#EB3300]" />
+          </Button>
+        </div>
       </div>
     </section>
   );

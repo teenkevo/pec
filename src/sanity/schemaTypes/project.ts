@@ -56,6 +56,33 @@ export const project = defineType({
       title: "Funder",
       type: "string",
     }),
+
+    defineField({
+      name: "startDate",
+      title: "Start Date",
+      type: "date",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "endDate",
+      title: "End Date",
+      type: "date",
+      validation: (Rule) =>
+        Rule.required().custom((endDate, context) => {
+          const { document } = context;
+          const startDate = document?.startDate as string | undefined;
+
+          if (!startDate || !endDate) {
+            return true; 
+          }
+
+          if (new Date(endDate) < new Date(startDate)) {
+            return "End date cannot be before the start date";
+          }
+
+          return true;
+        }),
+    }),
     defineField({
       name: "valueOfService",
       title: "Value of Service",
