@@ -82,7 +82,7 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                     <span className="text-xs uppercase tracking-wider bg-white/20 px-2 py-1 rounded-sm mb-2 inline-block">
                       {menuData.title}
                     </span>
-                    <p className="text-lg font-medium">
+                    <p className="text-lg font-medium line-clamp-3">
                       {menuData.featuredImage.caption}
                     </p>
                   </div>
