@@ -87,15 +87,15 @@ export function HomeHeroContent({ slides }: Props) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 1 }}
-            className="flex items-center gap-2"
+            className="flex items-center"
           >
             <Link
               href={`/industries/${currentSlideData.industrySlug}`}
-              className="inline-flex items-center bg-[#128191] text-white font-bold px-3 py-1 text-base mb-4"
+              className="inline-flex items-center bg-[#EB3300] text-white font-bold px-3 py-1 text-base mb-4"
             >
               <span>{currentSlideData.industry}</span>
             </Link>
-            <p className="text-white mb-4 tracking-tight text-sm">
+            <p className="text-white border-b border-[#EB3300] px-2 mb-4 tracking-tight text-sm">
               Latest Project
             </p>
           </motion.div>
@@ -105,7 +105,7 @@ export function HomeHeroContent({ slides }: Props) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 1 }}
-            className="text-white text-sm md:text-sm mb-1 md:mb-6 h-[100px] md:h-auto"
+            className="text-white line-clamp-3 text-sm md:text-sm mb-1 md:mb-6 h-[100px] md:h-auto"
           >
             {currentSlideData.description}
           </motion.p>
