@@ -56,17 +56,17 @@ export function NewsSection({ posts }: Props) {
         <div className="relative mt-8">
           <div ref={carouselRef} className="overflow-hidden">
             <div
-              className="flex flex-col gap-x-10 transition-transform duration-500 ease-in-out"
+              className="flex flex-row gap-6 transition-transform duration-500 ease-in-out"
               style={
                 isMobile
                   ? {}
-                  : { transform: `translateX(-${currentIndex * (100 / 3)}%)` }
+                  : { transform: `translateX(-${currentIndex * 33.333}%)` }
               }
             >
               {posts.map((post) => (
                 <div
                   key={post._id}
-                  className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0"
+                  className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 pr-6"
                 >
                   <BlogPostCard post={post} />
                 </div>
