@@ -110,7 +110,7 @@ export function ContactDrawer({
 }
 
     // Open mailto link
-    window.open(mailto, "_blank");
+    window.open(mailto);
 
     // Optionally close the drawer and reset form
     setFormData({
