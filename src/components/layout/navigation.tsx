@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
-
-import { Search, User, Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = Object.entries(megaMenuData).map(
-  ([key, section]) => ({
+  ([, section]) => ({
     label: section.title,
     href: section.path,
   })
@@ -27,16 +27,123 @@ interface Props {
   megaData?: MegaMenuData;
 }
 
+/**
+ * Slide‑in drawer + backdrop mounted in a React portal.
+ * The drawer remains outside every intermediate stacking context,
+ * so z‑index bugs disappear.
+ */
+function MobileDrawer({
+  navigationItems,
+  close,
+}: {
+  navigationItems: NavigationItem[];
+  close: () => void;
+}) {
+  return createPortal(
+    <AnimatePresence>
+      {/* Backdrop */}
+      <motion.div
+        key="backdrop"
+        className="fixed inset-0 bg-black/50 z-[60] xl:hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={close}
+      />
+
+      {/* Drawer */}
+      <motion.div
+        key="drawer"
+        className="fixed inset-0 z-[70] flex flex-col bg-[#1a1a1a] xl:hidden"
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between p-6 border-b border-gray-700">
+          <Image
+            src="/PEC-logo-on-dark.svg"
+            width={120}
+            height={120}
+            alt="PEC logo"
+            priority
+          />
+          <button
+            onClick={close}
+            className="text-white hover:text-gray-300 transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+
+        {/* Links */}
+        <nav className="flex-1 px-6 py-8 overflow-y-auto">
+          <div className="space-y-6">
+            {navigationItems.map((item, i) => (
+              <motion.div
+                key={item.href}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ delay: i * 0.1 + 0.2 }}
+              >
+                <Link
+                  href={`/${item.href}`}
+                  className="block text-white text-lg font-medium hover:text-[#EB3301] transition-colors py-2"
+                  onClick={close}
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </nav>
+
+        {/* Footer */}
+        <div className="p-6 border-t border-gray-700 space-y-4">
+          <div className="flex items-center space-x-4">
+            <a
+              aria-label="Webmail"
+              href="https://pec.co.ug/webmail"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-white hover:text-[#EB3301] transition-colors"
+            >
+              <Mail className="h-5 w-5" />
+              <span className=" text-gray-400 hover:text-[#EB3301] text-sm">
+                Webmail
+              </span>
+            </a>
+            <span className="hidden md:block text-gray-400 text-sm">
+              Webmail
+            </span>
+          </div>
+
+          <Button
+            variant="outline"
+            className="w-full text-white border-white hover:bg-white transition-colors"
+            onClick={close}
+          >
+            Get in touch
+          </Button>
+        </div>
+      </motion.div>
+    </AnimatePresence>,
+    document.body
+  );
+}
+
 export function Navigation({ megaData }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isNavbarWhite, setIsNavbarWhite] = useState(false);
   const scrollPositionRef = useRef(0);
-  const navRef = useRef<HTMLDivElement>(null);
 
-  // Handle mouse enter on navigation item
+  // === mega‑menu hover logic (unchanged) ===
   const handleMouseEnter = (key: string) => {
-    // Only store scroll position when first opening the menu
     if (!activeMenu && typeof window !== "undefined") {
       scrollPositionRef.current = window.scrollY;
     }
@@ -44,26 +151,20 @@ export function Navigation({ megaData }: Props) {
     setIsNavbarWhite(true);
   };
 
-  // Handle mouse leave from navigation area
   const handleMouseLeave = () => {
     setActiveMenu(null);
     setIsNavbarWhite(false);
   };
 
-  // Disable/enable scrolling when mega menu is open/closed
+  // === page‑scroll lock when mega‑menu open ===
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
     const disableScroll = () => {
-      // Add styles to body to prevent scrolling
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollPositionRef.current}px`;
       document.body.style.width = "100%";
     };
-
     const enableScroll = () => {
-      // Remove styles from body
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.top = "";
@@ -71,36 +172,24 @@ export function Navigation({ megaData }: Props) {
       window.scrollTo(0, scrollPositionRef.current);
     };
 
-    if (activeMenu) {
-      disableScroll();
-    } else {
-      enableScroll();
-    }
+    if (activeMenu) disableScroll();
+    else enableScroll();
 
-    // Cleanup function to ensure scrolling is re-enabled
-    return () => {
-      if (
-        typeof window !== "undefined" &&
-        document.body.style.position === "fixed"
-      ) {
-        enableScroll();
-      }
-    };
+    return enableScroll;
   }, [activeMenu]);
 
   return (
-    <div className="relative" onMouseLeave={handleMouseLeave} ref={navRef}>
+    <div className="relative" onMouseLeave={handleMouseLeave}>
+      {/* === Header === */}
       <motion.header
-        className={`relative z-50 ${isNavbarWhite ? "bg-white" : "bg-transparent"}`}
-        animate={{
-          backgroundColor: isNavbarWhite ? "#ffffff" : "transparent",
-        }}
+        className="relative z-50"
+        animate={{ backgroundColor: isNavbarWhite ? "#ffffff" : "transparent" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <div className="mx-auto px-4 py-6 md:px-14">
           <div className="flex items-center justify-between">
+            {/* Left cluster */}
             <div className="flex space-x-10">
-              {/* Logo */}
               <Link href="/" className="flex items-center">
                 <Image
                   src={
@@ -115,7 +204,7 @@ export function Navigation({ megaData }: Props) {
                 />
               </Link>
 
-              {/* Desktop Navigation */}
+              {/* Desktop nav */}
               <nav className="hidden xl:flex items-center space-x-8">
                 {navigationItems.map((item) => (
                   <div
@@ -125,7 +214,11 @@ export function Navigation({ megaData }: Props) {
                   >
                     <Link href={`/${item.href}`} className="py-2">
                       <motion.span
-                        className={`${activeMenu === item.href ? "border-b-2 border-[#EB3301] font-medium" : ""}`}
+                        className={
+                          activeMenu === item.href
+                            ? "border-b-2 border-[#EB3301] font-medium"
+                            : ""
+                        }
                         animate={{
                           color: isNavbarWhite ? "#374151" : "#ffffff",
                         }}
@@ -140,31 +233,23 @@ export function Navigation({ megaData }: Props) {
               </nav>
             </div>
 
-            {/* Right Side Icons and Button */}
+            {/* Right cluster */}
             <div className="hidden xl:flex items-center space-x-4">
-              <motion.button
-                aria-label="Search"
-                animate={{
-                  color: isNavbarWhite ? "#374151" : "#ffffff",
-                }}
+              <motion.a
+                aria-label="Webmail"
+                animate={{ color: isNavbarWhite ? "#374151" : "#ffffff" }}
                 whileHover={{ color: isNavbarWhite ? "#111827" : "#d1d5db" }}
                 transition={{ duration: 0.2 }}
+                href="https://pec.co.ug/webmail"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Search className="h-5 w-5" />
-              </motion.button>
-              <motion.button
-                aria-label="User account"
-                animate={{
-                  color: isNavbarWhite ? "#374151" : "#ffffff",
-                }}
-                whileHover={{ color: isNavbarWhite ? "#111827" : "#d1d5db" }}
-                transition={{ duration: 0.2 }}
-              >
-                <User className="h-5 w-5" />
-              </motion.button>
+                <Mail className="h-5 w-5" />
+              </motion.a>
+
               <div
                 className={`h-6 w-px ${isNavbarWhite ? "bg-gray-300" : "bg-gray-400"} mx-2`}
-              ></div>
+              />
               <Button
                 variant={isNavbarWhite ? "default" : "outline"}
                 className={
@@ -177,13 +262,17 @@ export function Navigation({ megaData }: Props) {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile burger */}
             <motion.button
-              className="xl:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="xl:hidden z-[80] relative"
+              onClick={() => setIsMenuOpen(true)}
               aria-label="Toggle menu"
               animate={{
-                color: isNavbarWhite ? "#111827" : "#ffffff",
+                color: isMenuOpen
+                  ? "#ffffff"
+                  : isNavbarWhite
+                    ? "#111827"
+                    : "#ffffff",
               }}
               transition={{ duration: 0.3 }}
             >
@@ -200,7 +289,7 @@ export function Navigation({ megaData }: Props) {
         className={`border-t ${isNavbarWhite ? "border-gray-600" : "border-white"} mx-4 md:mx-14`}
       />
 
-      {/* Mega Menu with Framer Motion */}
+      {/* === Mega menu === */}
       <AnimatePresence mode="wait">
         {activeMenu && (
           <motion.div
@@ -210,74 +299,27 @@ export function Navigation({ megaData }: Props) {
             exit={{
               y: "-100%",
               opacity: 0,
-              transition: {
-                duration: 0.35,
-                ease: [0.4, 0, 0.2, 1],
-              },
+              transition: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
             }}
             transition={{
               duration: 0.8,
               ease: [0.16, 1, 0.3, 1],
-              y: {
-                type: "spring",
-                stiffness: 300,
-                damping: 30,
-              },
+              y: { type: "spring", stiffness: 300, damping: 30 },
             }}
-            style={{
-              top: 0,
-              paddingTop: "calc(var(--header-height, 30px))",
-            }}
+            style={{ top: 0, paddingTop: "calc(var(--header-height, 30px))" }}
           >
             <MegaMenu activeMenu={activeMenu} data={megaData || megaMenuData} />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="xl:hidden absolute top-full left-0 right-0 bg-black p-4 z-30"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <nav className="flex flex-col space-y-4">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-white hover:text-gray-300 transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <div className="flex items-center space-x-4 pt-4">
-                <button
-                  aria-label="Search"
-                  className="text-white hover:text-gray-300 transition-colors"
-                >
-                  <Search className="h-5 w-5" />
-                </button>
-                <button
-                  aria-label="User account"
-                  className="text-white hover:text-gray-300 transition-colors"
-                >
-                  <User className="h-5 w-5" />
-                </button>
-              </div>
-              <Button
-                variant="outline"
-                className="text-white border-white hover:bg-[#128191] mt-4"
-              >
-                Get in touch
-              </Button>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* === Mobile drawer mounted through portal === */}
+      {isMenuOpen && (
+        <MobileDrawer
+          navigationItems={navigationItems}
+          close={() => setIsMenuOpen(false)}
+        />
+      )}
     </div>
   );
 }
