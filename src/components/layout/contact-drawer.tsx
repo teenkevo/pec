@@ -59,13 +59,6 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
     e.preventDefault();
     setError(null);
 
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setError("Please enter a valid email address.");
-      return;
-    }
-
     // Validate required fields
     if (
       !formData.firstName ||
@@ -89,28 +82,10 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
         `Phone: ${formData.phone}\n` +
         `\nQuestion:\n${formData.question}`
     );
-// src/components/layout/contact-drawer.tsx
-
-interface ContactDrawerProps {
-  isOpen: boolean;
-  onClose: () => void;
-  recipientEmail?: string;
-}
-
-export function ContactDrawer({
-  isOpen,
-  onClose,
-  recipientEmail = "info@pec.co.ug",
-}: ContactDrawerProps) {
-  // … other hooks and handlers …
-
-  const mailto = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-
-  // … rest of component …
-}
+    const mailto = `mailto:info@pec.co.ug?subject=${subject}&body=${body}`;
 
     // Open mailto link
-    window.open(mailto);
+    window.open(mailto, "_blank");
 
     // Optionally close the drawer and reset form
     setFormData({
