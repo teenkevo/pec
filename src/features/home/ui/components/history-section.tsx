@@ -19,7 +19,7 @@ export function HistorySection() {
           {/* Left side - Image */}
           <div className="md:w-1/2 relative h-[500px] md:h-[700px]">
             <Image
-              src="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_73/v1742251049/robin-kutesa-QCxS5cBoQQU-unsplash_gdxuu7.webp"
+              src="https://res.cloudinary.com/teenkevo-cloud/image/upload/e_grayscale,q_70/v1750824007/d3867f63-e7bc-4fb3-962e-4c2bd7677a70_urwkog.webp"
               alt="Kampala vintage"
               fill
               className="object-cover object-center"
