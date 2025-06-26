@@ -12,10 +12,10 @@ export function ContactButton() {
     <>
       <Button
         onClick={() => setIsContactOpen(true)}
-        className="bg-[#128191] hover:bg-[#0f6b7a] text-white flex items-center gap-2"
+        className="bg-red-500 hover:bg-[#0f6b7a] text-white flex items-center gap-2"
       >
         <MessageCircle className="h-4 w-4" />
-        Contact Us
+        Reach out to us
       </Button>
       {/* Contact Drawer */}
       <ContactDrawer
