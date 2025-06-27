@@ -79,13 +79,14 @@ export function transformProjectData(
       const mappedStage = PHASE_MAPPING[phase.phase as ProjectPhaseValue];
       if (mappedStage) {
         stageDetails[mappedStage] = {
-          expertise: phase.expertiseApplied.map((expertise) => ({
-            title: expertise.title,
-            description: expertise.description || "",
-            image: expertise.mainImage
-              ? urlFor(expertise.mainImage).format("webp").url()
-              : "/placeholder.svg",
-          })),
+          expertise:
+            phase.expertiseApplied?.map((expertise) => ({
+              title: expertise.title,
+              description: expertise.description || "",
+              image: expertise.mainImage
+                ? urlFor(expertise.mainImage).format("webp").url()
+                : "/placeholder.svg",
+            })) || [],
           isInProject: true,
         };
 
