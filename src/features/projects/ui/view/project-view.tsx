@@ -12,6 +12,7 @@ import {
   Wallet,
   BriefcaseBusiness,
   DollarSign,
+  Calendar,
 } from "lucide-react";
 import { Navigation } from "@/components/layout/navigation";
 
@@ -155,6 +156,22 @@ export function ProjectView({ projectData }: Props) {
                     prefix={project.currency + " "}
                     value={project.valueOfServices}
                   />
+                </>
+              )}
+              {/* TODO: What if value of services is not given? */}
+              {project.startDate && (
+                <>
+                  <div className="flex space-x-2 text-navy-800 mt-6">
+                    <Calendar />
+                    <h2 className="text-navy-800 font-bold mb-1">Start date</h2>
+                  </div>
+
+                  <p className="text-navy-800 tracking-tight">
+                    {new Date(project.startDate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                    })}
+                  </p>
                 </>
               )}
             </div>

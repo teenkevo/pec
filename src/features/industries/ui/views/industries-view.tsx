@@ -51,7 +51,7 @@ export default function IndustriesView({ projects, industries }: Props) {
             <ProjectsSection
               projects={projects
                 .filter((project) => industry.slug === project.industry.slug)
-                .slice(0, 3)}
+                .slice(0, 6)}
               title={`${industry.title} projects`}
               linkText="Explore all"
             />

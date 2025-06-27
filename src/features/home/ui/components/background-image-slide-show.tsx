@@ -45,7 +45,7 @@ export function BackgroundImageSlideshow({
                     initial={{ scale: 1.1, y: 10 }}
                     animate={{ scale: 1, y: 0 }}
                     transition={{
-                      duration: 5,
+                      duration: 8,
                       ease: "easeOut",
                     }}
                   >
