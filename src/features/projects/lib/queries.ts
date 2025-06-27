@@ -37,7 +37,10 @@ export const SINGLE_PROJECT_QUERY = `
         description,
         mainImage
       }
-    }
+    },
+    startDate,
+    endDate,
+    isCompleted
   }
 `;
 
@@ -115,6 +118,9 @@ export type SINGLE_PROJECT_RESULT = {
       mainImage: SanityAsset;
     }[];
   }[];
+  startDate?: string;
+  endDate?: string;
+  isCompleted?: boolean;
 };
 
 export type PROJECT_TYPE = {

@@ -82,7 +82,7 @@ export async function HeroSection({
       >
         {isHome && slides ? (
           <>
-            <BackgroundImageSlideshow images={slides.images} interval={5000} />
+            <BackgroundImageSlideshow images={slides.images} interval={8000} />
             <HomeHeroContent slides={slides.content} />
           </>
         ) : (

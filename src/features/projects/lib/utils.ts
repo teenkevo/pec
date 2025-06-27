@@ -45,6 +45,9 @@ export interface TransformedProject {
   currency?: string;
   challenge?: string;
   solution?: string;
+  startDate?: string;
+  endDate?: string;
+  isCompleted?: boolean;
 }
 
 export function transformProjectData(
@@ -117,5 +120,8 @@ export function transformProjectData(
     currency: project.valueOfService?.currency,
     challenge: project.challenge,
     solution: project.solution,
+    startDate: project.startDate,
+    endDate: project.endDate,
+    isCompleted: project.isCompleted,
   };
 }

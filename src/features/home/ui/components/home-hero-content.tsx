@@ -20,7 +20,7 @@ interface Props {
 export function HomeHeroContent({ slides }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
-  const slideInterval = 5000; // 5 seconds
+  const slideInterval = 8000; // 8 seconds
   const updateInterval = 100; // Update progress every 100ms for smooth animation
 
   useEffect(() => {
