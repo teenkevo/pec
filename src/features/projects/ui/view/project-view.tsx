@@ -139,6 +139,7 @@ export function ProjectView({ projectData }: Props) {
                   </p>
                 </>
               )}
+              {/* TODO: What if value of services is not given? */}
               {project.valueOfServices && (
                 <>
                   <div className="flex space-x-2 text-navy-800 mt-6">
@@ -260,12 +261,7 @@ export function ProjectView({ projectData }: Props) {
             </div>
             <div className="md:col-span-3">
               <p className="text-navy-800 tracking-tight mb-4">
-                The Kampala Northern Bypass Highway, often referred to as the
-                Northern Bypass, is a road in Uganda. It forms a semicircle
-                across the northern suburbs of Kampala, Uganda's capital and
-                largest city. The road was constructed to relieve traffic
-                congestion within the city center, allowing cross-country
-                traffic to bypass the city's downtown area.
+                {project.challenge}
               </p>
             </div>
           </div>
@@ -279,13 +275,7 @@ export function ProjectView({ projectData }: Props) {
             </div>
             <div className="md:col-span-3">
               <p className="text-navy-800 mb-4 tracking-tight">
-                The consultant supervised swamp treatment (excavation,
-                rockfilling, geotextile, consolidation monitoring, and
-                preparation of stable working platforms, etc.) for the entire
-                road, as well as RC bridge works at Sentema Road, Hoima Road,
-                Gayaza Road and Kyebando interchanges, including asphalt trials.
-                The total length of road section whose capacity was improved
-                (dualled) is 17.5 Km
+                {project.solution}
               </p>
             </div>
           </div>
