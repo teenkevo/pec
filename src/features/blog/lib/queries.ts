@@ -82,15 +82,13 @@ export const BLOG_POST_BY_SLUG_QUERY = `
       role
     },
     "nextPost": coalesce(
-      *[_type == "blogPost" && publishedAt > ^.publishedAt] | order(publishedAt asc)[0]{
+    
+      *[_type == "blogPost" && category == ^.category && _id != ^._id && publishedAt < now()] | order(publishedAt desc)[0]{
         title,
         "slug": slug.current
       },
-      *[_type == "blogPost" && category == ^.category && _id != ^._id] | order(_createdAt desc)[0]{
-        title,
-        "slug": slug.current
-      },
-      *[_type == "blogPost" && _id != ^._id] | order(publishedAt desc)[0]{
+  
+      *[_type == "blogPost" && _id != ^._id && publishedAt < now()] | order(publishedAt desc)[0]{
         title,
         "slug": slug.current
       }
