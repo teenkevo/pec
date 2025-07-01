@@ -67,7 +67,6 @@ export const BlogPostView = ({ postData }: Props) => {
           </div>
         </div>
 
-        {/* Full Width Image */}
         <div className="relative min-h-[300px] md:min-h-[500px] w-full mb-12">
           <Image
             src={urlFor(postData.image).format("webp").url()}
@@ -82,30 +81,32 @@ export const BlogPostView = ({ postData }: Props) => {
           <Markdown markdown={postData.content} />
         </div>
 
-       {postData.nextPost && <div className="max-w-4xl mx-auto">
-          <Link
-            href={`/blog/${postData.nextPost?.slug}`}
-            className="block group"
-          >
-            <div className="border border-gray-200 rounded-lg p-6 transition-colors">
-              <div className="flex flex-col gap-y-4">
-                <p className="text-sm text-[#EB3300]/90 font-medium">
-                  Next Read
-                </p>
+        {postData.nextPost && (
+          <div className="max-w-4xl mx-auto">
+            <Link
+              href={`/blog/${postData.nextPost?.slug}`}
+              className="block group"
+            >
+              <div className="border border-gray-200 rounded-lg p-6 transition-colors">
+                <div className="flex flex-col gap-y-4">
+                  <p className="text-sm text-[#EB3300]/90 font-medium">
+                    Next Read
+                  </p>
 
-                <div className="flex items-center justify-between gap-x-6">
-                  <h3 className="text-lg font-semibold text-navy-800">
-                    {postData.nextPost?.title}
-                  </h3>
+                  <div className="flex items-center justify-between gap-x-6">
+                    <h3 className="text-lg font-semibold text-navy-800">
+                      {postData.nextPost?.title}
+                    </h3>
 
-                  <span className="bg-white p-2 group-hover:translate-x-1 transition-transform">
-                    <ArrowRight className="h-4 w-4 text-black" />
-                  </span>
+                    <span className="bg-white p-2 group-hover:translate-x-1 transition-transform">
+                      <ArrowRight className="h-4 w-4 text-black" />
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        </div>}
+            </Link>
+          </div>
+        )}
       </div>
 
       <GraphicSection
