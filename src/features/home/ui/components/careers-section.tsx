@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export function CareersSection() {
   return (
-    <section className="py-10">
+    <section className="pb-10">
       <motion.div
         className="mx-auto px-2 md:px-14"
         initial={{ opacity: 0 }}
