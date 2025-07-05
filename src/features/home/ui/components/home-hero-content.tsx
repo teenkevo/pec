@@ -21,13 +21,12 @@ export function HomeHeroContent({ slides }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const slideInterval = 8000; // 8 seconds
-  const updateInterval = 100; // Update progress every 100ms for smooth animation
+  const updateInterval = 100; 
 
   useEffect(() => {
     // Reset progress when slide changes
     setProgress(0);
 
-    // Progress timer
     const progressTimer = setInterval(() => {
       setProgress((prev) => {
         const newProgress = prev + (updateInterval / slideInterval) * 100;

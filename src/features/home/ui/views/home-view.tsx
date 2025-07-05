@@ -1,5 +1,8 @@
 import { INDUSTRIES } from "@/features/industries/lib/queries";
-import { PROJECT_TYPE } from "@/features/projects/lib/queries";
+import {
+  LATEST_INDUSTRY_PROJECT,
+  PROJECT_TYPE,
+} from "@/features/projects/lib/queries";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ContentSection } from "@/components/sections/content-section";
 import { IndustriesSection } from "../components/industries-section";
@@ -9,45 +12,37 @@ import { CareersSection } from "../components/careers-section";
 import { NewsSection } from "../../../../components/sections/news-section";
 import { HistorySection } from "../components/history-section";
 import { BlogPosts } from "@/features/blog/lib/queries";
+import { SlideShowContent } from "@/components/sections/hero-section";
 
 interface Props {
   homeData: {
+    latestProjects: LATEST_INDUSTRY_PROJECT[];
     projects: PROJECT_TYPE[];
     industries: INDUSTRIES;
     posts: BlogPosts;
   };
 }
 
-function projectPerIndustry(projects: PROJECT_TYPE[]): PROJECT_TYPE[] {
-  const seenIndustries = new Set<string>();
-  const latestProjects = projects.filter((project) => {
-    const industrySlug = project.industry.slug;
-    if (seenIndustries.has(industrySlug)) {
-      return false;
-    }
-    seenIndustries.add(industrySlug);
-    return true;
-  });
-
-  return latestProjects;
-}
-
 export default function HomeView({ homeData }: Props) {
-  const { projects, industries, posts } = homeData;
+  const { latestProjects, projects, industries, posts } = homeData;
 
   const slides = {
-    content: projectPerIndustry(projects).map(({ title, slug, industry }) => {
-      return {
-        title: industry.subtitle,
-        description: title,
-        projectSlug: slug,
-        industry: industry.title,
-        industrySlug: industry.slug,
-      };
-    }),
-    images: projectPerIndustry(projects).map(({ mainImage, title }) => {
-      return { alt: title, asset: mainImage };
-    }),
+    content: latestProjects
+      .filter((project) => project.latestProject != null)
+      .map(({ latestProject }) => {
+        return {
+          title: latestProject?.industry.subtitle,
+          description: latestProject?.title,
+          projectSlug: latestProject?.slug,
+          industry: latestProject?.industry.title,
+          industrySlug: latestProject?.industry.slug,
+        };
+      }),
+    images: latestProjects
+      .filter((project) => project.latestProject != null)
+      .map(({ latestProject }) => {
+        return { alt: latestProject?.title, asset: latestProject?.mainImage };
+      }),
   };
 
   const secondaryNavigationItems = [
@@ -67,7 +62,7 @@ export default function HomeView({ homeData }: Props) {
     <>
       <HeroSection
         secondaryNavigationItems={secondaryNavigationItems}
-        slides={slides}
+        slides={slides as SlideShowContent}
         initialActiveItem="#what-we-do"
         isHome
       />
@@ -86,7 +81,7 @@ export default function HomeView({ homeData }: Props) {
       </div>
       <div id="projects">
         <ProjectsSection
-          projects={projects.slice(0, 3)}
+          projects={projects}
           title="Projects"
           linkText="All projects"
         />

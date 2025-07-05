@@ -2,16 +2,18 @@ import { Metadata } from "next";
 
 import { sanityFetch } from "@/sanity/lib/live";
 import {
-  ALL_PROJECTS_QUERY,
+  type LATEST_INDUSTRY_PROJECT,
+  LATEST_PROJECTS_QUERY,
+  TOP_PROJECTS_QUERY,
   type PROJECT_TYPE,
 } from "@/features/projects/lib/queries";
 import { Suspense } from "react";
 import {
   ALL_INDUSTRIES_QUERY,
-  INDUSTRIES,
+  type INDUSTRIES,
 } from "@/features/industries/lib/queries";
 import HomeView from "@/features/home/ui/views/home-view";
-import { BlogPosts, TOP_BLOG_POSTS_QUERY } from "@/features/blog/lib/queries";
+import { type BlogPosts, TOP_BLOG_POSTS_QUERY } from "@/features/blog/lib/queries";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 
 export const metadata: Metadata = {
@@ -32,24 +34,33 @@ export const metadata: Metadata = {
 };
 
 const getHomeData = async (): Promise<{
+  latestProjects: LATEST_INDUSTRY_PROJECT[];
   projects: PROJECT_TYPE[];
   industries: INDUSTRIES;
   posts: BlogPosts;
 }> => {
-  const [projectsResponse, industriesResponse, postsResponse] =
-    await Promise.all([
-      sanityFetch({
-        query: ALL_PROJECTS_QUERY,
-      }),
-      sanityFetch({
-        query: ALL_INDUSTRIES_QUERY,
-      }),
-      sanityFetch({
-        query: TOP_BLOG_POSTS_QUERY,
-      }),
-    ]);
+  const [
+    latestProjectsResponse,
+    projectsResponse,
+    industriesResponse,
+    postsResponse,
+  ] = await Promise.all([
+    sanityFetch({
+      query: LATEST_PROJECTS_QUERY,
+    }),
+    sanityFetch({
+      query: TOP_PROJECTS_QUERY,
+    }),
+    sanityFetch({
+      query: ALL_INDUSTRIES_QUERY,
+    }),
+    sanityFetch({
+      query: TOP_BLOG_POSTS_QUERY,
+    }),
+  ]);
 
   return {
+    latestProjects: latestProjectsResponse.data,
     projects: projectsResponse.data,
     industries: industriesResponse.data,
     posts: postsResponse.data,
@@ -58,6 +69,7 @@ const getHomeData = async (): Promise<{
 
 export default async function Page() {
   const homeData = await getHomeData();
+ 
   return (
     <Suspense fallback={<LoadingSkeleton />}>
       <HomeView homeData={homeData} />

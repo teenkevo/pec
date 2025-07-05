@@ -60,7 +60,7 @@ export const project = defineType({
     defineField({
       name: "startDate",
       title: "Start Date",
-      type: "date",
+      type: "datetime",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -75,7 +75,7 @@ export const project = defineType({
     defineField({
       name: "endDate",
       title: "End Date",
-      type: "date",
+      type: "datetime",
       hidden: ({ document }: { document: any }) =>
         document && !document.isCompleted,
       validation: (Rule) =>
