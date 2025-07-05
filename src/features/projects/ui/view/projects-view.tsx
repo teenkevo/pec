@@ -2,8 +2,8 @@ import { CareersSection } from "@/features/home/ui/components/careers-section";
 import { ContentSection } from "../../../../components/sections/content-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
-import { IndustryBanner } from "../components/industry-banner";
-import { INDUSTRIES } from "../../lib/queries";
+import { IndustryBanner } from "../../../industries/ui/components/industry-banner";
+import { INDUSTRIES } from "../../../industries/lib/queries";
 import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
   industries: INDUSTRIES;
 }
 
-export default function IndustriesView({ projects, industries }: Props) {
+export default function ProjectsView({ projects, industries }: Props) {
   const secondaryNavigationItems = [
     { title: "Introduction", href: "introduction" },
     ...industries.map((industry) => ({

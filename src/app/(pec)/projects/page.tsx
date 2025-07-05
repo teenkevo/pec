@@ -3,7 +3,7 @@ import {
   ALL_INDUSTRIES_QUERY,
   INDUSTRIES,
 } from "@/features/industries/lib/queries";
-import IndustriesView from "@/features/industries/ui/views/industries-view";
+import ProjectsView from "@/features/projects/ui/view/projects-view";
 import {
   ALL_PROJECTS_QUERY,
   PROJECT_TYPE,
@@ -35,7 +35,7 @@ export default async function Page() {
 
   return (
     <Suspense fallback={<LoadingSkeleton />}>
-      <IndustriesView projects={data.projects} industries={data.industries} />
+      <ProjectsView projects={data.projects} industries={data.industries} />
     </Suspense>
   );
 }

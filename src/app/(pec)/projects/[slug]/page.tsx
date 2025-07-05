@@ -3,7 +3,7 @@ import {
   SINGLE_PROJECT_QUERY,
   SINGLE_PROJECT_RESULT,
 } from "@/features/projects/lib/queries";
-import { ProjectView } from "@/features/projects/ui/view/project-view";
+import { ProjectView } from "@/features/projects/ui/view/single-project-view";
 import { sanityFetch } from "@/sanity/lib/live";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
