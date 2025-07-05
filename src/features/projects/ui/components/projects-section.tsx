@@ -11,12 +11,14 @@ interface ProjectsSectionProps {
   projects: PROJECT_TYPE[];
   title: string;
   linkText: string;
+  linkUrl?: string;
 }
 
 export function ProjectsSection({
   projects,
   title,
   linkText,
+  linkUrl,
 }: ProjectsSectionProps) {
 
   if(!projects || projects.length === 0) return null
@@ -29,7 +31,7 @@ export function ProjectsSection({
             {title}
           </h2>
           <Link
-            href="/projects"
+            href={linkUrl || "/projects"}
             className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center"
           >
             <span>{linkText}</span>
