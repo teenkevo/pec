@@ -32,6 +32,7 @@ export default async function Page({ params }: Props) {
     notFound();
   }
 
+
   return (
     <Suspense fallback={<LoadingSkeleton />}>
       <BlogPostView postData={post} />

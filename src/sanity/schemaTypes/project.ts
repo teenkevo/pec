@@ -1,4 +1,6 @@
 import { defineField, defineType } from "sanity";
+import { customSlugify } from "../utils";
+
 
 export const PROJECT_PHASES = [
   { value: "planning", title: "Planning, feasibility, conceptual design" },
@@ -26,6 +28,7 @@ export const project = defineType({
       options: {
         source: "title",
         maxLength: 96,
+        slugify: customSlugify,
       },
       validation: (Rule) => Rule.required(),
     }),
