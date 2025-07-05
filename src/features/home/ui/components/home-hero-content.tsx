@@ -105,7 +105,7 @@ export function HomeHeroContent({ slides }: Props) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 1 }}
-            className="text-white line-clamp-3 text-sm md:text-sm mb-1 md:mb-6 h-[100px] md:h-auto"
+            className="text-white line-clamp-3 text-sm md:text-sm mb-4 md:mb-6 h-auto leading-6 border"
           >
             {currentSlideData.description}
           </motion.p>
