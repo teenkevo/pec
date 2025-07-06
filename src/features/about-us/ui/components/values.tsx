@@ -95,12 +95,12 @@ export function ValuesSection({ values: valuesData }: Props) {
   return (
     <section className="py-16 bg-white" ref={sectionRef}>
       <div className=" px-4 md:px-14">
-        <h2 className="text-3xl font-bold text-navy-800 mb-12">Our values</h2>
+        {/* <h2 className="text-3xl font-bold text-navy-800 mb-12">Our values</h2> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left side - Sticky image that changes based on active value */}
           <div className="relative">
-            <div className="sticky top-20 h-[400px] md:h-[600px]">
+            <div className="sticky top-20 md:block h-[400px] md:h-[600px]">
               {values.map((value) => (
                 <motion.div
                   key={value.id}
@@ -123,7 +123,7 @@ export function ValuesSection({ values: valuesData }: Props) {
           </div>
 
           {/* Right side - Scrollable values */}
-          <div className="space-y-32">
+          <div className="space-y-12 md:space-y-32 mt-12 md:mt-0">
             {values.map((value, index) => (
               <div
                 key={value.id}
@@ -131,7 +131,7 @@ export function ValuesSection({ values: valuesData }: Props) {
                   valueRefs.current[index] = el;
                 }}
                 data-value-id={value.id}
-                className="min-h-[400px]"
+                className="md:min-h-[400px]"
               >
                 <div className="text-4xl text-gray-400 font-light mb-4">
                   {value.number}

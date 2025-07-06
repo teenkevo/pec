@@ -17,7 +17,7 @@ export function BlogPostCard({ post, isFeatured = false }: Props) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className={cn("w-full block group flex-shrink-0", !isFeatured && "border-b pb-8 border-gray-800")}
+      className={cn("w-full block group flex-shrink-0", !isFeatured && "border-b pb-12 md:pb-8 border-gray-800")}
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <Image

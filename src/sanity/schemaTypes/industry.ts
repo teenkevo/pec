@@ -45,6 +45,7 @@ export const industry = defineType({
       name: "ourView",
       title: "Our View",
       type: "object",
+      validation: (Rule) => Rule.required(),
       fields: [
         defineField({
           name: "content",

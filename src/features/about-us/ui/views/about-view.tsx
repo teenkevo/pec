@@ -100,10 +100,10 @@ export default function AboutView({ aboutData }: Props) {
         />
       </div>
       {/* Divider */}
-      <div className="border-t border-gray-200 mt-10"></div>
+      <div className="border-t border-gray-200 mt-10 mx-2"></div>
       <div id="values">
         <Section
-          section={aboutContent.values?.title ?? "Values"}
+          section={aboutContent.values?.title ?? "Our Values"}
           title={aboutContent.values?.subtitle ?? "Four guiding principles"}
           description={
             aboutContent.values?.description ??
@@ -112,7 +112,7 @@ export default function AboutView({ aboutData }: Props) {
         />
       </div>
       {/* Divider */}
-      <div className="border-t border-gray-200 mt-10"></div>
+      {/* <div className="border-t border-gray-200 mt-10 mx-2"></div> */}
       <ValuesSection values={aboutContent.values?.valuesList} />
       {/* Divider */}
       <div className="border-t border-gray-200 mt-10"></div>
@@ -130,12 +130,13 @@ export default function AboutView({ aboutData }: Props) {
           linkUrl="/industries"
         />
       </div>
+      <div className="border-t border-gray-200 mt-16 mx-2"></div>
       {/* News Section */}
       <div id="news-highlights">
-        <NewsSection posts={posts} />
+        <NewsSection allPosts={posts} />
       </div>
       {/* Divider */}
-      <div className="border-t border-gray-200 my-10"></div>
+      {/* <div className="border-t border-gray-200 my-10 mx-2"></div> */}
       <div id="careers">
         <CareersSection />
       </div>

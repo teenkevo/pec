@@ -21,13 +21,12 @@ export function HomeHeroContent({ slides }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const slideInterval = 8000; // 8 seconds
-  const updateInterval = 100; // Update progress every 100ms for smooth animation
+  const updateInterval = 100; 
 
   useEffect(() => {
     // Reset progress when slide changes
     setProgress(0);
 
-    // Progress timer
     const progressTimer = setInterval(() => {
       setProgress((prev) => {
         const newProgress = prev + (updateInterval / slideInterval) * 100;
@@ -105,7 +104,7 @@ export function HomeHeroContent({ slides }: Props) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 1 }}
-            className="text-white line-clamp-3 text-sm md:text-sm mb-1 md:mb-6 h-[100px] md:h-auto"
+            className="text-white line-clamp-3 text-sm md:text-sm mb-4 md:mb-6 h-auto leading-6"
           >
             {currentSlideData.description}
           </motion.p>

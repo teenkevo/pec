@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
-import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -10,15 +9,24 @@ import { BlogPosts } from "@/features/blog/lib/queries";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Props {
-  posts: BlogPosts;
+  allPosts: BlogPosts;
 }
 
-export function NewsSection({ posts }: Props) {
+export function NewsSection({ allPosts }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [posts, setPosts] = useState<BlogPosts>(allPosts);
   const maxIndex = Math.max(0, posts.length - 3); // Show 3 articles on desktop
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (isMobile) {
+      setPosts(allPosts.slice(0, 3));
+    } else {
+      setPosts(allPosts);
+    }
+  }, [posts, allPosts, isMobile]);
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => Math.max(0, prev - 1));
@@ -29,7 +37,7 @@ export function NewsSection({ posts }: Props) {
   };
 
   return (
-    <section className="md:py-10 py-0 bg-white">
+    <section className="py-16 bg-white">
       <motion.div
         className="mx-auto px-4 md:px-14"
         initial={{ opacity: 0 }}
@@ -39,14 +47,14 @@ export function NewsSection({ posts }: Props) {
       >
         {/* Section Header */}
         <div className="mb-4">
-          <span className="text-gray-700">News</span>
+          <span className="text-gray-700">Blog</span>
           <div className="flex justify-between items-end mt-2">
             <h2 className="text-3xl font-bold text-gray-900">Highlights</h2>
             <Link
               href="/news"
               className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center"
             >
-              <span>All news</span>
+              <span>View All</span>
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
@@ -56,7 +64,7 @@ export function NewsSection({ posts }: Props) {
         <div className="relative mt-8">
           <div ref={carouselRef} className="overflow-hidden">
             <div
-              className="flex flex-row gap-6 transition-transform duration-500 ease-in-out"
+              className="flex flex-col md:flex-row gap-12 md:gap-6 transition-transform duration-500 ease-in-out"
               style={
                 isMobile
                   ? {}

@@ -1,5 +1,26 @@
 import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
+export const LATEST_PROJECTS_QUERY = `
+*[_type == "industry"]{
+  "latestProject": *[_type == "project" && references(^._id)] | order(startDate desc)[0] {
+    _id,
+    title,
+    "slug": slug.current,
+    mainImage,
+    description,
+    location {
+      country,
+      city
+    },
+    industry-> {
+      title,
+      subtitle,
+      "slug": slug.current
+    }
+  }
+}
+`;
+
 export const SINGLE_PROJECT_QUERY = `
   *[_type == "project" && slug.current == $slug][0] {
     _id,
@@ -45,7 +66,7 @@ export const SINGLE_PROJECT_QUERY = `
 `;
 
 export const ALL_PROJECTS_QUERY = `
-  *[_type == "project"] | order(_createdAt desc) {
+  *[_type == "project"] | order(startDate desc) {
     _id,
     title,
     "slug": slug.current,
@@ -64,7 +85,7 @@ export const ALL_PROJECTS_QUERY = `
 `;
 
 export const TOP_PROJECTS_QUERY = `
-  *[_type == "project"] | order(_createdAt desc)[0..2] {
+  *[_type == "project"] | order(startDate desc)[0..2] {
     title,
     "slug": slug.current,
     mainImage,
@@ -138,4 +159,8 @@ export type PROJECT_TYPE = {
     subtitle: string;
     slug: string;
   };
+};
+
+export type LATEST_INDUSTRY_PROJECT = {
+  latestProject: PROJECT_TYPE | null;
 };

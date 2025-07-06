@@ -20,7 +20,7 @@ export function Section({
   linkUrl,
 }: SectionProps) {
   return (
-    <section className="pt-10 bg-white">
+    <section className="pt-16 bg-white">
       <motion.div
         className="px-4 md:px-14 max-w-4xl"
         initial={{ opacity: 0 }}

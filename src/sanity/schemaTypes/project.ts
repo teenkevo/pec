@@ -60,7 +60,7 @@ export const project = defineType({
     defineField({
       name: "startDate",
       title: "Start Date",
-      type: "date",
+      type: "datetime",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -75,7 +75,7 @@ export const project = defineType({
     defineField({
       name: "endDate",
       title: "End Date",
-      type: "date",
+      type: "datetime",
       hidden: ({ document }: { document: any }) =>
         document && !document.isCompleted,
       validation: (Rule) =>
@@ -106,6 +106,7 @@ export const project = defineType({
       name: "valueOfService",
       title: "Value of Service",
       type: "object",
+      validation: (Rule) => Rule.required(),
       options: { columns: 2 },
       fields: [
         defineField({
@@ -162,7 +163,12 @@ export const project = defineType({
       },
     }),
 
-    defineField({ name: "description", title: "Description", type: "text" }),
+    defineField({
+      name: "description",
+      title: "Description",
+      type: "text",
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({ name: "challenge", title: "Challenge", type: "text" }),
     defineField({ name: "solution", title: "Solution", type: "text" }),
 

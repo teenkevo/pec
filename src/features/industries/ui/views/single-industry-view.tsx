@@ -93,19 +93,23 @@ export function SingleIndustryView({ industryData }: Props) {
         </>
       )}
       {/* Divider */}
-      <div className="border-t border-gray-200 mt-20"></div>
-      <div id="publications">
-        <PublicationsSection publications={publications} />
-      </div>
+      { publications && publications.length > 0 && 
+        <>
+          <div className="border-t border-gray-200 mt-16 hidden md:block"></div>
+          <div id="publications">
+            <PublicationsSection publications={publications} />
+          </div>
+        </>
+      }
       {/* News Section */}
-      {!posts ||
-        (posts.length < 0 && (
+      {posts &&
+        (posts.length > 0 && (
           <div id="news-highlights">
-            <NewsSection posts={posts} />
+            <NewsSection allPosts={posts} />
           </div>
         ))}
       {/* Divider */}
-      <div className="border-t border-gray-200 mt-10"></div>
+      <div className="border-t border-gray-200 mt-16 hidden md:block"></div>
       <div id="contact">
         <IndustryContactSection
           industry={industry.title}
@@ -122,7 +126,7 @@ export function SingleIndustryView({ industryData }: Props) {
         />
       </div>
       {/* Divider */}
-      <div className="border-t border-gray-200 my-10"></div>
+      {/* <div className="border-t border-gray-200 my-10 hidden"></div> */}
       <div id="careers">
         <CareersSection />
       </div>

@@ -13,11 +13,10 @@ import {
 import {
   MegaMenuData,
   megaMenuData,
-  MegaMenuItem,
 } from "@/constants/menu-data";
 import { urlFor } from "@/sanity/lib/image";
 
-interface SlideShowContent {
+export interface SlideShowContent {
   images: { alt: string; asset: SanityAsset }[];
   content: {
     title: string;
