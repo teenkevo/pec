@@ -43,11 +43,11 @@ export function PublicationsSection({ publications }: Props) {
         <span className="text-gray-700">Publications</span>
         <div className="flex justify-between items-end mt-2">
           <h2 className="text-3xl font-bold text-gray-900">
-            Latest Research & Insights
+           Latest Research & Insights
           </h2>
           <Link
             href="/publications"
-            className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center transition-colors"
+            className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center transition-colors flex-shrink-0"
           >
             <span>View all</span>
             <ArrowRight className="ml-2 h-5 w-5" />

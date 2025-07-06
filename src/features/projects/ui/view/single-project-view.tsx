@@ -177,82 +177,53 @@ export function ProjectView({ projectData }: Props) {
             </div>
 
             {/* Project Summary */}
-            <div className="md:col-span-3">
-              <p className="text-navy-800 tracking-tight">
-                {project.clientNarrative}
-              </p>
-            </div>
+            {project.clientNarrative && (
+              <div className="md:col-span-3">
+                <p className="text-navy-800 tracking-tight">
+                  {project.clientNarrative}
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Project Timeline */}
-        <div className="px-4 md:px-14 py-8 border-t border-gray-300">
-          <button
-            className="hidden text-navy-800 hover:text-[#EB3300] my-6 underline text-sm md:flex items-center"
-            onClick={() => setIsSheetOpen(true)}
-          >
-            Show full process
-          </button>
-          {/* Horizontal Timeline for Medium and Large screens */}
-          <div className="relative hidden md:block">
-            {/* Timeline Bar */}
-            <div className="h-0.5 bg-black absolute top-3 left-0 right-0 z-0"></div>
-
-            {/* Timeline Stages */}
-            <div className="flex justify-between relative z-10">
-              {allStages.map((stage, index) => {
-                const isActive = stage === project.activeStage;
-
-                return (
-                  <div key={index} className="flex flex-col items-center w-1/5">
-                    <div
-                      className={`w-6 h-6 rounded-full border-2 ${
-                        isActive
-                          ? "bg-black border-black"
-                          : "bg-white border-gray-200"
-                      }`}
-                    >
-                      {isActive && (
-                        <div className="w-2 h-2 bg-white rounded-full m-auto mt-1.5"></div>
-                      )}
-                    </div>
-                    <div
-                      className={`text-sm mt-4 font-semibold ${isActive ? "text-navy-300" : "text-gray-400"}`}
-                    >
-                      {stage}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Vertical Timeline for Small screens */}
-          <div className="md:hidden">
-            <div className="relative">
-              {/* Vertical Timeline Line */}
-              <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-black z-0"></div>
+        {project.stageDetails && (
+          <div className="px-4 md:px-14 py-8 border-t border-gray-300">
+            <button
+              className="hidden text-navy-800 hover:text-[#EB3300] my-6 underline text-sm md:flex items-center"
+              onClick={() => setIsSheetOpen(true)}
+            >
+              Show full process
+            </button>
+            {/* Horizontal Timeline for Medium and Large screens */}
+            <div className="relative hidden md:block">
+              {/* Timeline Bar */}
+              <div className="h-0.5 bg-black absolute top-3 left-0 right-0 z-0"></div>
 
               {/* Timeline Stages */}
-              <div className="space-y-8 relative z-10">
+              <div className="flex justify-between relative z-10">
                 {allStages.map((stage, index) => {
                   const isActive = stage === project.activeStage;
 
                   return (
-                    <div key={index} className="flex items-start">
+                    <div
+                      key={index}
+                      className="flex flex-col items-center w-1/5"
+                    >
                       <div
-                        className={`w-6 h-6 flex-shrink-0 border-2 ${
+                        className={`w-6 h-6 rounded-full border-2 ${
                           isActive
                             ? "bg-black border-black"
-                            : "bg-white border-gray-300"
+                            : "bg-white border-gray-200"
                         }`}
                       >
                         {isActive && (
-                          <div className="w-2 h-2 bg-white m-auto mt-1.5"></div>
+                          <div className="w-2 h-2 bg-white rounded-full m-auto mt-1.5"></div>
                         )}
                       </div>
                       <div
-                        className={`ml-4 text-sm font-semibold ${isActive ? "text-navy-800" : "text-gray-400"}`}
+                        className={`text-sm mt-4 font-semibold ${isActive ? "text-navy-300" : "text-gray-400"}`}
                       >
                         {stage}
                       </div>
@@ -261,42 +232,82 @@ export function ProjectView({ projectData }: Props) {
                 })}
               </div>
             </div>
+
+            {/* Vertical Timeline for Small screens */}
+            <div className="md:hidden">
+              <div className="relative">
+                {/* Vertical Timeline Line */}
+                <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-black z-0"></div>
+
+                {/* Timeline Stages */}
+                <div className="space-y-8 relative z-10">
+                  {allStages.map((stage, index) => {
+                    const isActive = stage === project.activeStage;
+
+                    return (
+                      <div key={index} className="flex items-start">
+                        <div
+                          className={`w-6 h-6 flex-shrink-0 border-2 ${
+                            isActive
+                              ? "bg-black border-black"
+                              : "bg-white border-gray-300"
+                          }`}
+                        >
+                          {isActive && (
+                            <div className="w-2 h-2 bg-white m-auto mt-1.5"></div>
+                          )}
+                        </div>
+                        <div
+                          className={`ml-4 text-sm font-semibold ${isActive ? "text-navy-800" : "text-gray-400"}`}
+                        >
+                          {stage}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            <button
+              className="md:hidden text-navy-800 hover:text-[#EB3300] my-6 underline text-sm flex items-center"
+              onClick={() => setIsSheetOpen(true)}
+            >
+              Show full process
+            </button>
           </div>
-          <button
-            className="md:hidden text-navy-800 hover:text-[#EB3300] my-6 underline text-sm flex items-center"
-            onClick={() => setIsSheetOpen(true)}
-          >
-            Show full process
-          </button>
-        </div>
+        )}
 
         {/* Challenge Section */}
-        <div className="px-4 md:px-14 py-12 border-t border-gray-300">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h2 className="text-2xl font-bold text-navy-800">Challenge</h2>
-            </div>
-            <div className="md:col-span-3">
-              <p className="text-navy-800 tracking-tight mb-4">
-                {project.challenge}
-              </p>
+        {project?.challenge && (
+          <div className="px-4 md:px-14 py-12 border-t border-gray-300">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div>
+                <h2 className="text-2xl font-bold text-navy-800">Challenge</h2>
+              </div>
+              <div className="md:col-span-3">
+                <p className="text-navy-800 tracking-tight mb-4">
+                  {project.challenge}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Solution Section */}
-        <div className="px-4 md:px-14 py-12 border-t border-gray-300">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h2 className="text-2xl font-bold text-navy-800">Solution</h2>
-            </div>
-            <div className="md:col-span-3">
-              <p className="text-navy-800 mb-4 tracking-tight">
-                {project.solution}
-              </p>
+        {project?.solution && (
+          <div className="px-4 md:px-14 py-12 border-t border-gray-300">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div>
+                <h2 className="text-2xl font-bold text-navy-800">Solution</h2>
+              </div>
+              <div className="md:col-span-3">
+                <p className="text-navy-800 mb-4 tracking-tight">
+                  {project.solution}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Project Images Grid */}
         <div className="px-4 md:px-14 py-12 border-t border-gray-300">

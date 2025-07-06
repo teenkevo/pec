@@ -106,6 +106,7 @@ export const project = defineType({
       name: "valueOfService",
       title: "Value of Service",
       type: "object",
+      validation: (Rule) => Rule.required(),
       options: { columns: 2 },
       fields: [
         defineField({
@@ -162,7 +163,12 @@ export const project = defineType({
       },
     }),
 
-    defineField({ name: "description", title: "Description", type: "text" }),
+    defineField({
+      name: "description",
+      title: "Description",
+      type: "text",
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({ name: "challenge", title: "Challenge", type: "text" }),
     defineField({ name: "solution", title: "Solution", type: "text" }),
 
