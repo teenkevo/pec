@@ -26,7 +26,7 @@ export function NewsSection({ allPosts }: Props) {
     } else {
       setPosts(allPosts);
     }
-  }, [posts, allPosts, isMobile]);
+  }, [allPosts, isMobile]);
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => Math.max(0, prev - 1));
