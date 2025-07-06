@@ -100,7 +100,7 @@ export default function HomeView({ homeData }: Props) {
       {/* News Section */}
       {posts && posts.length > 0 && (
         <div id="news-highlights">
-          <NewsSection posts={posts} />
+          <NewsSection allPosts={posts} />
         </div>
       )}
       <div id="history">
