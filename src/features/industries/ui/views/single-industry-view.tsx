@@ -95,7 +95,7 @@ export function SingleIndustryView({ industryData }: Props) {
       {/* Divider */}
       { publications && publications.length > 0 && 
         <>
-          <div className="border-t border-gray-200 mt-20"></div>
+          <div className="border-t border-gray-200 mt-16 hidden md:block"></div>
           <div id="publications">
             <PublicationsSection publications={publications} />
           </div>
@@ -109,7 +109,7 @@ export function SingleIndustryView({ industryData }: Props) {
           </div>
         ))}
       {/* Divider */}
-      <div className="border-t border-gray-200 mt-10"></div>
+      <div className="border-t border-gray-200 mt-16 hidden md:block"></div>
       <div id="contact">
         <IndustryContactSection
           industry={industry.title}
@@ -126,7 +126,7 @@ export function SingleIndustryView({ industryData }: Props) {
         />
       </div>
       {/* Divider */}
-      <div className="border-t border-gray-200 my-10"></div>
+      {/* <div className="border-t border-gray-200 my-10 hidden"></div> */}
       <div id="careers">
         <CareersSection />
       </div>

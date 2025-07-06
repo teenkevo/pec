@@ -20,7 +20,7 @@ export function IndustryContactSection({
   },
 }: IndustryContactSectionProps) {
   return (
-    <section className="py-16 bg-white">
+    <section className=" py-12 md:py-16 bg-white">
       <div className=" mx-auto px-4 md:px-14">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left side - Contact us heading */}

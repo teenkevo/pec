@@ -54,7 +54,7 @@ export default function ProjectsView({ projects, industries }: Props) {
                 .slice(0, 6)}
               title={`${industry.title} projects`}
               linkText="Explore all"
-              linkUrl={`/projects/${industry.slug}`}
+              linkUrl={`/industries/${industry.slug}`}
             />
           </div>
         </div>

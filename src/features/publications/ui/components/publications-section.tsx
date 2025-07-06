@@ -32,7 +32,7 @@ export function PublicationsSection({ publications }: Props) {
 
   return (
     <motion.div
-      className="mx-auto px-4 md:px-14 py-16"
+      className="mx-auto px-4 md:px-14 pt-12 md:py-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
