@@ -45,19 +45,47 @@ export const SINGLE_INDUSTRY_QUERY = `
 
 // excluding featured project
 export const INDUSTRY_PROJECTS_QUERY = `
-  *[_type == "project" && industry->slug.current == $slug] | order(_createdAt desc) {
-  _id,
+  *[_type == "project" && industry->slug.current == $slug] | order(startDate desc) {
+    _id,
     title,
     "slug": slug.current,
     mainImage,
+    industry-> {
+      title,
+      subtitle,
+      "slug": slug.current
+    },
+    client-> {
+      name
+    },
+    funder,
+    valueOfService {
+      currency,
+      value
+    },
     location {
       country,
       city
     },
-    industry-> {
-      title,
-      "slug": slug.current
-    }
+    description,
+    challenge,
+    solution,
+    images[] {
+      image,
+      caption,
+    },
+    involvedPhases[] {
+      phase,
+      expertiseApplied[]-> {
+        _id,
+        title,
+        description,
+        mainImage
+      }
+    },
+    startDate,
+    endDate,
+    isCompleted
   }
 `;
 
@@ -67,7 +95,7 @@ export const MENU_INDUSTRIES_QUERY = `
     title,
     "href": slug.current
   },
-  "latestProject": *[_type == "project"] | order(_createdAt desc)[0] {
+  "latestProject": *[_type == "project"] | order(startDate desc)[0] {
     _id,
     title,
     "slug": slug.current,
