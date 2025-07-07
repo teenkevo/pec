@@ -10,10 +10,7 @@ import {
   INDUSTRIES_MENU_DATA,
   MENU_INDUSTRIES_QUERY,
 } from "@/features/industries/lib/queries";
-import {
-  MegaMenuData,
-  megaMenuData,
-} from "@/constants/menu-data";
+import { MegaMenuData, megaMenuData } from "@/constants/menu-data";
 import { urlFor } from "@/sanity/lib/image";
 
 export interface SlideShowContent {
@@ -59,15 +56,7 @@ export async function HeroSection({
     projects: {
       ...megaMenuData["projects"],
       items: data.industries,
-      featuredImage: {
-        src: urlFor(data.latestProject.mainImage)
-          .format("webp")
-          .width(400)
-          .height(400)
-          .url(),
-        alt: data.latestProject.title,
-        caption: data.latestProject.title,
-      },
+      featuredImage: megaMenuData.projects.featuredImage,
     },
   };
 

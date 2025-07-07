@@ -1,7 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { customSlugify } from "../utils";
 
-
 export const PROJECT_PHASES = [
   { value: "planning", title: "Planning, feasibility, conceptual design" },
   { value: "design", title: "Design" },
@@ -37,7 +36,6 @@ export const project = defineType({
       title: "Main Project Image",
       type: "image",
       options: { hotspot: true },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "industry",
@@ -213,15 +211,23 @@ export const project = defineType({
           preview: {
             select: {
               phase: "phase",
-              expertiseCount: "expertiseApplied.length",
+              expertiseApplied: "expertiseApplied", // grab the whole array-like object
             },
-            prepare({ phase, expertiseCount }) {
+            prepare({ phase, expertiseApplied }) {
               const phaseLabel =
                 PROJECT_PHASES.find((p) => p.value === phase)?.title || phase;
+
+              // works for both true arrays and Sanity’s keyed objects
+              const expertiseCount = expertiseApplied
+                ? Array.isArray(expertiseApplied)
+                  ? expertiseApplied.length
+                  : Object.keys(expertiseApplied).length
+                : 0;
+
               return {
                 title: phaseLabel,
                 subtitle: expertiseCount
-                  ? `${expertiseCount} areas of expertise`
+                  ? `${expertiseCount} area${expertiseCount > 1 ? "s" : ""} of expertise applied`
                   : "No expertise added",
               };
             },

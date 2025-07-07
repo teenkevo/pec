@@ -9,10 +9,10 @@ import { SINGLE_INDUSTRY_RESULT } from "../../lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { ProjectsSection } from "@/features/projects/ui/components/projects-section";
-import { ProjectsSection2 } from "@/features/projects/ui/components/projects-section-2";
 import { BlogPosts } from "@/features/blog/lib/queries";
 import { PublicationsSection } from "@/features/publications/ui/components/publications-section";
 import { Publication } from "@/features/publications/lib/queries";
+import ProjectsTable from "@/features/projects/ui/components/projects-table";
 
 interface Props {
   industryData: {
@@ -35,6 +35,14 @@ export function SingleIndustryView({ industryData }: Props) {
     ...(posts && posts.length > 0 ? [{ title: "News", href: "news" }] : []),
     { title: "Contact", href: "contact" },
   ];
+
+  const featuredProject = projects.find(
+    (project) => project.mainImage
+  ) as PROJECT_TYPE;
+
+  const otherProjectsNotFeatured = featuredProject
+    ? projects.filter((project) => project._id !== featuredProject._id)
+    : projects;
 
   return (
     <>
@@ -69,45 +77,41 @@ export function SingleIndustryView({ industryData }: Props) {
           industryLeadName={industry.ourView?.industryLead?.name}
         />
       </div>
-      {projects && projects.length > 0 && (
+      {featuredProject && (
         <div id={industry?.slug} className="px-4 md:px-14">
-          <IndustryTopProjectBanner featuredProject={projects[0]} />
+          <IndustryTopProjectBanner featuredProject={featuredProject} />
         </div>
       )}
-      {projects && projects.length > 0 && (
+      {otherProjectsNotFeatured && otherProjectsNotFeatured.length > 0 && (
         <>
           <div id="projects">
             <ProjectsSection
-              projects={projects?.slice(1, 4)}
+              projects={otherProjectsNotFeatured}
               title={`${industry?.title} projects`}
-              linkText="Explore all"
+              linkText=""
             />
           </div>
-          <div id="projects">
-            <ProjectsSection2
-              projects={projects?.slice(4, 6)}
-              title={`${industry?.title} projects`}
-              linkText={`All ${industry?.title} projects`}
-            />
+
+          <div id="projects-table">
+            <ProjectsTable industry={industry?.title} projects={projects} />
           </div>
         </>
       )}
       {/* Divider */}
-      { publications && publications.length > 0 && 
+      {publications && publications.length > 0 && (
         <>
           <div className="border-t border-gray-200 mt-16 hidden md:block"></div>
           <div id="publications">
             <PublicationsSection publications={publications} />
           </div>
         </>
-      }
+      )}
       {/* News Section */}
-      {posts &&
-        (posts.length > 0 && (
-          <div id="news-highlights">
-            <NewsSection allPosts={posts} />
-          </div>
-        ))}
+      {posts && posts.length > 0 && (
+        <div id="news-highlights">
+          <NewsSection allPosts={posts} />
+        </div>
+      )}
       {/* Divider */}
       <div className="border-t border-gray-200 mt-16 hidden md:block"></div>
       <div id="contact">
