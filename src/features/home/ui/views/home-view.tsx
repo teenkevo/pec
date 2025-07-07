@@ -29,6 +29,11 @@ export default function HomeView({ homeData }: Props) {
   const slides = {
     content: latestProjects
       .filter((project) => project.latestProject != null)
+      .sort((a, b) =>
+        (b.latestProject?.industry.title || "").localeCompare(
+          a.latestProject?.industry.title || ""
+        )
+      )
       .map(({ latestProject }) => {
         return {
           title: latestProject?.industry.subtitle,
@@ -40,6 +45,11 @@ export default function HomeView({ homeData }: Props) {
       }),
     images: latestProjects
       .filter((project) => project.latestProject != null)
+      .sort((a, b) =>
+        (b.latestProject?.industry.title || "").localeCompare(
+          a.latestProject?.industry.title || ""
+        )
+      )
       .map(({ latestProject }) => {
         return { alt: latestProject?.title, asset: latestProject?.mainImage };
       }),
@@ -56,7 +66,7 @@ export default function HomeView({ homeData }: Props) {
   ];
 
   const whatWeDoContent =
-    "Professional Engineering Consultants (PEC) is a limited liability Company, established in Uganda in 2008 by a team of six (6) extensively skilled practicing consulting professionals. Since then, PEC has grown into one of the leading design, engineering and project management consultancies in Uganda, with an establishment of more than 50 staff some of whom have joined its shareholding. PEC’s success is as a result of the firm’s deliberate emphasis on professionalism, quality services and customer satisfaction.";
+    "Professional Engineering Consultants (PEC) is a limited liability Company, established in Uganda in 2008 by a team of six (6) extensively skilled practicing consulting professionals. Since then, PEC has grown into one of the leading design, engineering and project management consultancies in Uganda, with an establishment of more than 50 staff some of whom have joined its shareholding. PEC's success is as a result of the firm's deliberate emphasis on professionalism, quality services and customer satisfaction.";
 
   return (
     <>
