@@ -40,9 +40,9 @@ export function SingleIndustryView({ industryData }: Props) {
     (project) => project.mainImage
   ) as PROJECT_TYPE;
 
-  const otherProjectsNotFeatured = projects.filter(
-    (project) => project._id !== featuredProject._id
-  );
+  const otherProjectsNotFeatured = featuredProject
+    ? projects.filter((project) => project._id !== featuredProject._id)
+    : projects;
 
   return (
     <>
