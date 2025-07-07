@@ -59,12 +59,17 @@ const formatCurrency = (value: number, currency: string) => {
   return formatCurrencyAsUSD(value, currency);
 };
 
-const formatDate = (date: string) =>
-  new Date(date).toLocaleDateString("en-US", {
+const formatDate = (date: string) => {
+  const dateObj = new Date(date);
+  if (isNaN(dateObj.getTime())) {
+    return "-";
+  }
+  return dateObj.toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
+};
 
 const phaseLabels: Record<string, string> = {
   planning: "Planning",
