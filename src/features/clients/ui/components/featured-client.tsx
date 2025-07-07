@@ -18,7 +18,6 @@ interface Props {
 }
 
 const FeaturedClient = ({ allProjects, clientName }: Props) => {
-  console.log(allProjects);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [projects, setProjects] = useState<PROJECT_TYPE[]>(allProjects);
   const maxIndex = Math.max(0, projects.length - 3); // Show 3 articles on desktop
