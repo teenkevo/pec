@@ -26,33 +26,27 @@ interface Props {
 export default function HomeView({ homeData }: Props) {
   const { latestProjects, projects, industries, posts } = homeData;
 
+  const sortedLatestProjects = latestProjects
+    .filter((project) => project.latestProject != null)
+    .sort((a, b) =>
+      (b.latestProject?.industry.title || "").localeCompare(
+        a.latestProject?.industry.title || ""
+      )
+    );
+
   const slides = {
-    content: latestProjects
-      .filter((project) => project.latestProject != null)
-      .sort((a, b) =>
-        (b.latestProject?.industry.title || "").localeCompare(
-          a.latestProject?.industry.title || ""
-        )
-      )
-      .map(({ latestProject }) => {
-        return {
-          title: latestProject?.industry.subtitle,
-          description: latestProject?.title,
-          projectSlug: latestProject?.slug,
-          industry: latestProject?.industry.title,
-          industrySlug: latestProject?.industry.slug,
-        };
-      }),
-    images: latestProjects
-      .filter((project) => project.latestProject != null)
-      .sort((a, b) =>
-        (b.latestProject?.industry.title || "").localeCompare(
-          a.latestProject?.industry.title || ""
-        )
-      )
-      .map(({ latestProject }) => {
-        return { alt: latestProject?.title, asset: latestProject?.mainImage };
-      }),
+    content: sortedLatestProjects.map(({ latestProject }) => {
+      return {
+        title: latestProject?.industry.subtitle,
+        description: latestProject?.title,
+        projectSlug: latestProject?.slug,
+        industry: latestProject?.industry.title,
+        industrySlug: latestProject?.industry.slug,
+      };
+    }),
+    images: sortedLatestProjects.map(({ latestProject }) => {
+      return { alt: latestProject?.title, asset: latestProject?.mainImage };
+    }),
   };
 
   const secondaryNavigationItems = [
