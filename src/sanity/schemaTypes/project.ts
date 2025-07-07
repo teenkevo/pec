@@ -36,7 +36,6 @@ export const project = defineType({
       title: "Main Project Image",
       type: "image",
       options: { hotspot: true },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "industry",
