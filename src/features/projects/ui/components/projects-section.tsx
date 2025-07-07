@@ -15,6 +15,17 @@ interface ProjectsSectionProps {
   linkUrl?: string;
 }
 
+/**
+ * Renders a section displaying a grid of project cards with animated transitions.
+ *
+ * Shows a header with a title and optional link, followed by a responsive grid of projects. Each project card displays an image, industry, title, location, and a formatted date range. Only projects with a main image are shown. Returns `null` if no projects are provided.
+ *
+ * @param projects - The list of project objects to display
+ * @param title - The section title
+ * @param linkText - The text for the optional header link
+ * @param linkUrl - The URL for the optional header link (defaults to "/projects" if not provided)
+ * @returns The rendered projects section, or `null` if there are no projects
+ */
 export function ProjectsSection({
   projects,
   title,

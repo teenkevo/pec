@@ -11,6 +11,11 @@ interface Props {
   industries: INDUSTRIES;
 }
 
+/**
+ * Renders the projects page organized by industry, including an introduction, industry banners, filtered project sections, and a careers section.
+ *
+ * Displays navigation for each industry, an introductory overview, and lists all projects grouped by their respective industries.
+ */
 export default function ProjectsView({ projects, industries }: Props) {
   const secondaryNavigationItems = [
     { title: "Introduction", href: "introduction" },

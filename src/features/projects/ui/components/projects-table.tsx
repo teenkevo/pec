@@ -84,7 +84,13 @@ const getUniqueIndustries = (projects: PROJECT_TYPE[]) => {
   return [...new Set(industries)].sort();
 };
 
-/* ---------- Project Details Content Component ---------- */
+/**
+ * Displays detailed information about a project, including its description, challenge, solution, location, value of services, start date, completion status, and involved phases with expertise.
+ *
+ * Renders only the sections for which data is available, and formats values such as currency and dates for readability.
+ *
+ * @param project - The project object whose details are to be displayed
+ */
 function ProjectDetailsContent({ project }: { project: PROJECT_TYPE }) {
   return (
     <div className="space-y-4">
@@ -184,7 +190,15 @@ function ProjectDetailsContent({ project }: { project: PROJECT_TYPE }) {
   );
 }
 
-/* ---------- Component ---------- */
+/**
+ * Displays an interactive, filterable, sortable, and paginated table of projects with detailed project views.
+ *
+ * Renders a responsive table with columns for project title, industry, location, value of services, start date, status, and actions. Users can filter projects by title, status, and industry, sort columns, toggle column visibility, and paginate results. Selecting a project opens a detailed view in a modal or bottom sheet, depending on device type.
+ *
+ * @param projects - Array of project objects to display in the table
+ * @param industry - Optional industry name to display in the table header
+ * @returns A React component rendering the projects table and associated controls
+ */
 export default function ProjectsTable({
   projects,
   industry,

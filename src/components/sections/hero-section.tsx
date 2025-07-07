@@ -34,6 +34,20 @@ interface HeroSectionProps {
   slides?: SlideShowContent;
 }
 
+/**
+ * Renders a hero section with dynamic background imagery, navigation, and optional slideshow content.
+ *
+ * Displays either a slideshow with content overlays for the home page or a static background image with title and page text for other pages. Integrates navigation menus with dynamically fetched industry data and renders a secondary navigation bar.
+ *
+ * @param title - The main heading text for the hero section
+ * @param page - The page label or subtitle displayed above the title
+ * @param secondaryNavigationItems - List of secondary navigation items to display below the hero section
+ * @param initialActiveItem - The href of the initially active secondary navigation item; defaults to the first item if not provided
+ * @param backgroundImage - URL of the background image to display when not on the home page
+ * @param slides - Slideshow content and images for the home page hero section
+ * @param isHome - Whether the hero section is rendered on the home page, enabling slideshow mode
+ * @returns The rendered hero section as a React element
+ */
 export async function HeroSection({
   title,
   page,

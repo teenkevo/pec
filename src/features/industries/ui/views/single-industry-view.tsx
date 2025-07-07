@@ -23,6 +23,14 @@ interface Props {
   };
 }
 
+/**
+ * Renders a detailed industry page with sections for industry overview, featured and additional projects, publications, news, contact information, and careers.
+ *
+ * Dynamically displays content based on the presence of projects, publications, and posts, and organizes navigation and featured content accordingly.
+ *
+ * @param industryData - The data object containing industry details, projects, blog posts, and publications to display on the page.
+ * @returns The complete industry page as a React element.
+ */
 export function SingleIndustryView({ industryData }: Props) {
   const { industry, projects, posts, publications } = industryData;
 
