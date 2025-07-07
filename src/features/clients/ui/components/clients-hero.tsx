@@ -9,7 +9,6 @@ import { urlFor } from "@/sanity/lib/image";
 import { cn } from "@/lib/utils";
 import { SecondaryNav } from "@/components/layout/secondary-nav";
 
-// Type for featured projects from your Sanity query
 interface FeaturedProject {
   _id: string;
   title: string;
@@ -27,7 +26,7 @@ interface FeaturedProject {
   description: string;
 }
 
-interface FeaturedProjectsData {
+export interface FeaturedProjectsData {
   earliest: FeaturedProject | null;
   latestTransport: FeaturedProject | null;
   latestWater: FeaturedProject | null;
@@ -39,21 +38,10 @@ interface Props {
   featuredProjects: FeaturedProjectsData;
 }
 
-// Static stats - these never change
-
-// Helper function to format currency
-const formatCurrency = (value: number, currency: string) => {
-  if (currency === "UGX") {
-    return `UGX ${(value / 1000000).toFixed(1)}M`;
-  }
-  return `${currency} ${(value / 1000000).toFixed(1)}M`;
-};
-
 export function ClientsHero({ featuredProjects }: Props) {
   const secondaryNavigationItems = [
-    { title: "Governnment", href: "government" },
-    { title: "Private", href: "private" },
-    { title: "International", href: "International" },
+    { title: "Featured Clients", href: "featured-clients" },
+    { title: "All clients", href: "all" },
   ];
   const stats = useMemo(() => {
     return [
@@ -111,7 +99,7 @@ export function ClientsHero({ featuredProjects }: Props) {
   return (
     <>
       {" "}
-      <div className="w-full bg-center bg-cover h-fit md:h-screen md:max-h-[620px] relative isolate overflow-hidden">
+      <div className="w-full h-fit md:h-screen md:max-h-[620px] relative isolate overflow-hidden">
         <Image
           src={
             urlFor(stats[activeIndex].project?.mainImage).url() ||

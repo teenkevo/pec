@@ -70,3 +70,22 @@ export const CLIENTS_HERO_PROJECTS = `
     description
   }
 }`;
+
+
+export const FEATURED_CLIENTS_QUERY = `
+*[_type == "client" && count(*[_type == "project" && references(^._id)]) > 0] {
+  name,
+  "projects": *[_type == "project" && references(^._id) && defined(mainImage)] {
+    _id,
+    title,
+    "slug":slug.current,
+    mainImage,
+    startDate,
+    endDate,
+    isCompleted,
+    valueOfService,
+    industry-> { title, slug },
+    description
+  },
+  "count": count(*[_type == "project" && references(^._id) && defined(mainImage)])
+} | order(count desc)`;

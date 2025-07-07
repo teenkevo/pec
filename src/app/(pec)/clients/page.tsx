@@ -1,52 +1,57 @@
 import { Navigation } from "@/components/layout/navigation";
-import { CLIENTS_HERO_PROJECTS } from "@/features/clients/lib/queries";
-import { ClientsHero } from "@/features/clients/ui/components/clients-hero";
-
-import { cn } from "@/lib/utils";
+import {
+  CLIENTS_HERO_PROJECTS,
+  FEATURED_CLIENTS_QUERY,
+} from "@/features/clients/lib/queries";
+import { ClientsLoadingSkeleton } from "@/features/clients/ui/components/clients-loading-skeleton";
+import ClientsView from "@/features/clients/ui/views/clients-view";
+import { PROJECT_TYPE } from "@/features/projects/lib/queries";
 import { sanityFetch } from "@/sanity/lib/live";
-import Image from "next/image";
+import { Suspense } from "react";
 
-import React from "react";
-
-const Page = async () => {
+const getClientsData = async () => {
   const { data: featuredProjects } = await sanityFetch({
     query: CLIENTS_HERO_PROJECTS,
   });
-  const stats = [
-    {
-      title: "Infrastrucure Projects",
-      value: "50+",
-      icon: "/client-icons/infrastructure.svg",
-    },
-    {
-      title: "Years of Experience",
-      value: "17+",
-      icon: "/client-icons/experience.svg",
-    },
+  const {
+    data: clientProjects,
+  }: {
+    data: {
+      name: string;
+      count: number;
+      projects: PROJECT_TYPE[];
+    }[];
+  } = await sanityFetch({
+    query: FEATURED_CLIENTS_QUERY,
+  });
 
-    {
-      title: "Water engineering projects",
-      value: "13",
-      icon: "/client-icons/water.svg",
-    },
-    {
-      title: "Cumulative contract Amount",
-      value: "USD 26,500,000+",
-      icon: "/client-icons/money.svg",
-    },
-    {
-      title: "Roads designed and supervised",
-      value: "1000+ kms",
-      icon: "/client-icons/road.svg",
-    },
-  ];
+  const featuredClients = clientProjects.filter(
+    ({ count }: { count: number }) => count >= 3
+  );
+
+  const otherClients = clientProjects.filter(
+    ({ count }: { count: number }) => count < 3
+  );
+
+  return {
+    featuredProjects,
+    featuredClients,
+    otherClients,
+  };
+};
+
+const Page = async () => {
+  const clientsData = await getClientsData();
+
   return (
     <>
       <div className="relative w-full bg-black">
         <Navigation />
       </div>
 
-      <ClientsHero featuredProjects={featuredProjects} />
+      <Suspense fallback={<ClientsLoadingSkeleton />}>
+        <ClientsView clientsData={clientsData} />
+      </Suspense>
     </>
   );
 };

@@ -29,7 +29,7 @@ export function HistorySection() {
           {/* Right side - Content */}
           <div className="md:w-1/2 bg-black p-6 md:p-16 flex flex-col justify-center">
             <div className="max-w-lg">
-              <span className="text-white text-lg">Founded in 2018</span>
+              <span className="text-white text-lg">Founded in 2008</span>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white my-4 leading-tight">
                 Our History
@@ -39,7 +39,7 @@ export function HistorySection() {
               </span>
               <div className="mt-auto pt-16">
                 <Link
-                  href="/careers"
+                  href="/about-us"
                   className="inline-flex items-center text-white font-medium group"
                 >
                   <span>Read more</span>
