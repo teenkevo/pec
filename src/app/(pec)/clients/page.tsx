@@ -44,15 +44,15 @@ const Page = async () => {
   const clientsData = await getClientsData();
 
   return (
-    <>
-      <div className="relative w-full bg-black">
-        <Navigation />
-      </div>
+    <Suspense fallback={<ClientsLoadingSkeleton />}>
+      <>
+        <div className="relative w-full bg-black">
+          <Navigation />
+        </div>
 
-      <Suspense fallback={<ClientsLoadingSkeleton />}>
         <ClientsView clientsData={clientsData} />
-      </Suspense>
-    </>
+      </>
+    </Suspense>
   );
 };
 
