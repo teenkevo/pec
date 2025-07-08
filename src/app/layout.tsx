@@ -34,19 +34,8 @@ export default function RootLayout({
       <head>
         {/* Injects into <head> and executes before hydration */}
         <Script
-          id="ketch-snippet"
+          src="https://global.ketchcdn.com/web/v3/config/pec/website_smart_tag/boot.js"
           strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `!function(){window.semaphore=window.semaphore||[];
-              window.ketch=function(){window.semaphore.push(arguments)};
-              var e=new URLSearchParams(document.location.search),
-                  n=document.createElement("script");
-              n.type="text/javascript";
-              n.src="https://global.ketchcdn.com/web/v3/config/pec/website_smart_tag/boot.js";
-              n.defer = n.async = true;
-              document.getElementsByTagName("head")[0].appendChild(n);
-            }();`,
-          }}
         />
       </head>
       <body className={`${spaceGrotesk.className} antialiased`}>
