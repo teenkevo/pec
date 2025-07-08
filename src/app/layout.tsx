@@ -33,10 +33,7 @@ export default function RootLayout({
     >
       <head>
         {/* Injects into <head> and executes before hydration */}
-        <Script
-          src="https://global.ketchcdn.com/web/v3/config/pec/website_smart_tag/boot.js"
-          strategy="beforeInteractive"
-        />
+        <Script src="https://global.ketchcdn.com/web/v3/config/pec/website_smart_tag/boot.js" />
       </head>
       <body className={`${spaceGrotesk.className} antialiased`}>
         {/* <Suspense fallback={<Loading />}>
