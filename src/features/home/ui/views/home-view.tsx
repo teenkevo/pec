@@ -86,7 +86,7 @@ export default function HomeView({ homeData }: Props) {
       <div id="projects">
         <ProjectsSection
           projects={projects}
-          title="Projects"
+          title="Latest projects"
           linkText="All projects"
         />
       </div>
