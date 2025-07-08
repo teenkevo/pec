@@ -21,7 +21,7 @@ export function HomeHeroContent({ slides }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const slideInterval = 8000; // 8 seconds
-  const updateInterval = 100; 
+  const updateInterval = 100;
 
   useEffect(() => {
     // Reset progress when slide changes
@@ -48,7 +48,7 @@ export function HomeHeroContent({ slides }: Props) {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <div className="px-4 md:px-14 absolute bottom-5 md:bottom-16 w-full z-20">
+    <div className="px-4 md:px-14 absolute bottom-10 md:bottom-16 w-full z-20">
       <div className="flex flex-col md:flex-row justify-between items-end md:gap-4 w-full">
         <div className="w-full md:w-[55%]">
           <motion.div
