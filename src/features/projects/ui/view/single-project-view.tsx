@@ -163,14 +163,23 @@ export function ProjectView({ projectData }: Props) {
                 <>
                   <div className="flex space-x-2 text-navy-800 mt-6">
                     <Calendar />
-                    <h2 className="text-navy-800 font-bold mb-1">Start date</h2>
+                    <h2 className="text-navy-800 font-bold mb-1">
+                      Start / End Dates
+                    </h2>
                   </div>
 
                   <p className="text-navy-800 tracking-tight">
                     {new Date(project.startDate).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
-                    })}
+                    })}{" "}
+                    -{" "}
+                    {project.isCompleted && project.endDate
+                      ? new Date(project.endDate).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                        })
+                      : "Ongoing"}
                   </p>
                 </>
               )}
