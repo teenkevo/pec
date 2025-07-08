@@ -11,7 +11,7 @@ interface Props {
 
 const OtherClientsGrid = ({ otherClients }: Props) => {
   return (
-    <section className="py-4 bg-white">
+    <section className="py-12 bg-white">
       <div className="px-4 md:px-14">
         <motion.h2
           className="text-3xl font-bold text-navy-800 mb-8"

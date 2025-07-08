@@ -127,7 +127,7 @@ export default function AboutView({ aboutData }: Props) {
             "We strive to provide expert civil engineering consultancy services to shape infrastructure that stands the test of time. Our strategy has three strategic priorities:"
           }
           linkText="More about our strategy"
-          linkUrl="/industries"
+          linkUrl="/about-us/strategy"
         />
       </div>
       <div className="border-t border-gray-200 mt-16 mx-2"></div>

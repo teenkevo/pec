@@ -28,7 +28,6 @@ export default function ClientsView({ clientsData }: Props) {
       <div id="featured-clients">
         {featuredClients.map((client, index) => (
           <div key={index}>
-            <div className="border-t border-gray-200 group-hover:border-black group-hover:-translate-y-2 transition-all mt-5"></div>
             <FeaturedClient
               key={index}
               clientName={client.name}
@@ -36,6 +35,7 @@ export default function ClientsView({ clientsData }: Props) {
                 .filter(({ mainImage }) => !!mainImage)
                 .slice(0, 4)}
             />
+            <div className="border-t border-gray-200 group-hover:border-black group-hover:-translate-y-2 transition-all my-5"></div>
           </div>
         ))}
       </div>
