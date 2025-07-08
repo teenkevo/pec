@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
@@ -52,9 +52,11 @@ const FeaturedClient = ({ allProjects, clientName }: Props) => {
       >
         {/* Section Header */}
         <div className="mb-4">
-          <span className="text-gray-700">Key projects by</span>
+          <span className="text-gray-700">Key projects for</span>
           <div className="flex justify-between items-end mt-2">
-            <h2 className="text-3xl font-bold text-gray-900">{clientName}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              {clientName}
+            </h2>
             {/* <Link
               href="/news"
               className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center"
@@ -79,7 +81,7 @@ const FeaturedClient = ({ allProjects, clientName }: Props) => {
               {projects.map((project, index) => (
                 <div
                   key={project.slug + index}
-                  className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 pr-6"
+                  className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 md:pr-6"
                 >
                   <Link
                     href={`/projects/${project.slug}`}
