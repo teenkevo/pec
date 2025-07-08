@@ -3,7 +3,6 @@ import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { SanityLive } from "@/sanity/lib/live";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Professional Engineering Consultants Limited",
@@ -31,10 +30,6 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
-      <head>
-        {/* Injects into <head> and executes before hydration */}
-        <Script src="https://global.ketchcdn.com/web/v3/config/pec/website_smart_tag/boot.js" />
-      </head>
       <body className={`${spaceGrotesk.className} antialiased`}>
         {/* <Suspense fallback={<Loading />}>
           <QueryProvider> */}
