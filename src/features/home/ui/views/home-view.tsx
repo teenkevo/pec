@@ -13,7 +13,6 @@ import { NewsSection } from "../../../../components/sections/news-section";
 import { HistorySection } from "../components/history-section";
 import { BlogPosts } from "@/features/blog/lib/queries";
 import { SlideShowContent } from "@/components/sections/hero-section";
-import ReactCookieBot from "react-cookiebot";
 
 interface Props {
   homeData: {
@@ -65,7 +64,6 @@ export default function HomeView({ homeData }: Props) {
 
   return (
     <>
-      <ReactCookieBot domainGroupId="ff0730e8-6a73-4bd5-b410-33e573978fe3" />
       <HeroSection
         secondaryNavigationItems={secondaryNavigationItems}
         slides={slides as SlideShowContent}

@@ -1,3 +1,4 @@
+import { CookieBot } from "@/components/cookie-bot";
 import { Footer } from "@/components/layout/footer";
 import { Navigation } from "@/components/layout/navigation";
 import { Metadata } from "next";
@@ -16,6 +17,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <main>
+      <CookieBot />
       {children}
       <Footer />
     </main>
