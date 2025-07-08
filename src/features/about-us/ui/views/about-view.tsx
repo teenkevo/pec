@@ -49,7 +49,7 @@ export default function AboutView({ aboutData }: Props) {
             "At PEC Uganda, we provide expert civil engineering consultancy services to shape infrastructure that stands the test of time."
           }
           linkText="Explore our specialty industries"
-          linkUrl="/industries"
+          linkUrl="/projects"
         />
       </div>
       <CompanyStats statistics={aboutContent.statistics} />

@@ -60,7 +60,7 @@ export default function HomeView({ homeData }: Props) {
   ];
 
   const whatWeDoContent =
-    "Professional Engineering Consultants (PEC) is a limited liability Company, established in Uganda in 2008 by a team of six (6) extensively skilled practicing consulting professionals. Since then, PEC has grown into one of the leading design, engineering and project management consultancies in Uganda, with an establishment of more than 50 staff some of whom have joined its shareholding. PEC's success is as a result of the firm's deliberate emphasis on professionalism, quality services and customer satisfaction.";
+    "Professional Engineering Consultants (PEC) is a limited liability Company, established in Uganda in 2008 by a team of five (5) extensively skilled practicing consulting professionals. Since then, PEC has grown into one of the leading design, engineering and project management consultancies in Uganda, with an establishment of more than 50 permanent staff some of whom have joined its shareholding. PEC's success is a result of the firm's deliberate emphasis on professionalism, quality services and customer satisfaction.";
 
   return (
     <>
