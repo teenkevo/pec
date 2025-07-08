@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { ContactButton } from "./contact-button";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,16 +29,10 @@ export function Footer() {
               <div className="md:hidden h-px bg-gray-300 mb-8"></div>
               <nav className="space-y-4">
                 <Link
-                  href="/industries"
+                  href="/about-us"
                   className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
                 >
-                  Industries
-                </Link>
-                <Link
-                  href="/expertise"
-                  className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
-                >
-                  Expertise
+                  About us
                 </Link>
                 <Link
                   href="/projects"
@@ -46,17 +41,18 @@ export function Footer() {
                   Projects
                 </Link>
                 <Link
+                  href="/expertise"
+                  className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
+                >
+                  Expertise
+                </Link>
+                <Link
                   href="/clients"
                   className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
                 >
                   Clients
                 </Link>
-                <Link
-                  href="/about-us"
-                  className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
-                >
-                  About us
-                </Link>
+
                 <Link
                   href="/careers"
                   className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
@@ -64,10 +60,10 @@ export function Footer() {
                   Careers
                 </Link>
                 <Link
-                  href="/newsnews"
+                  href="/blog"
                   className="block text-navy-800 hover:text-gray-500 transition-all text-xl md:text-3xl font-semibold tracking-tight"
                 >
-                  News
+                  Blog
                 </Link>
               </nav>
             </div>
@@ -78,15 +74,9 @@ export function Footer() {
             <div className="md:hidden h-px bg-gray-300 mb-8"></div>
             <div className="mb-8">
               <h3 className="text-lg font-medium tracking-tight text-navy-800 mb-2">
-                Subscribe to news alerts
+                We're ready to execute your next project
               </h3>
-              <Link
-                href="/subscribe"
-                className="inline-flex tracking-tight items-center text-navy-800 hover:text-[#EB3301]"
-              >
-                <span>Sign up now</span>
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              <ContactButton />
             </div>
 
             <div className="h-px bg-gray-300 my-8"></div>
@@ -153,22 +143,6 @@ export function Footer() {
                       className="text-gray-600 tracking-tight hover:text-black"
                     >
                       Our locations
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/talent"
-                      className="text-gray-600 tracking-tight hover:text-black"
-                    >
-                      Talent Community
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/speak-up"
-                      className="text-gray-600 tracking-tight hover:text-black"
-                    >
-                      Speak Up
                     </Link>
                   </li>
                 </ul>
