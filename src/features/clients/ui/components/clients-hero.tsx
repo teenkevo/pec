@@ -117,14 +117,14 @@ export function ClientsHero() {
                 <span className="bg-[#EB3300] px-2 py-0 my-2">trust</span> of
                 our clients
               </h1>
-              <p className="text-lg lg:text-xl text-white/90 mb-8 max-w-3xl leading-relaxed">
+              <p className="text-lg lg:text-xl text-white/90 mb-8 max-w-3xl tracking-tight leading-relaxed">
                 Together, we are building a better future for Uganda and beyond.
               </p>
             </div>
           </div>
 
           {/* Statistics Cards - Positioned at the bottom */}
-          <div className="hidden md:block px-6 lg:px-12 pb-8">
+          <div className="hidden lg:block px-6 lg:px-12 pb-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl">
               {stats.map((stat, index) => (
                 <motion.div
