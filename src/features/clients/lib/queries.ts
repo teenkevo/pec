@@ -71,7 +71,6 @@ export const CLIENTS_HERO_PROJECTS = `
   }
 }`;
 
-
 export const FEATURED_CLIENTS_QUERY = `
 *[_type == "client" && count(*[_type == "project" && references(^._id)]) > 0] {
   name,
@@ -84,6 +83,10 @@ export const FEATURED_CLIENTS_QUERY = `
     endDate,
     isCompleted,
     valueOfService,
+    location {
+      country,
+      city
+    },
     industry-> { title, slug },
     description
   },

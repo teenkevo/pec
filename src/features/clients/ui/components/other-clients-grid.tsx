@@ -11,7 +11,7 @@ interface Props {
 
 const OtherClientsGrid = ({ otherClients }: Props) => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-12 bg-white">
       <div className="px-4 md:px-14">
         <motion.h2
           className="text-3xl font-bold text-navy-800 mb-8"
@@ -20,46 +20,78 @@ const OtherClientsGrid = ({ otherClients }: Props) => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          All Clients
+          All other clients
         </motion.h2>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
-          {otherClients.map((client, index) => (
-            <motion.div
-              key={client.name + index}
-              className="group break-inside-avoid mb-8 bg-gray-100/30 rounded p-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: Math.min(0.1 * index, 0.5),
-              }}
-            >
-              <h3 className="text-xl font-bold text-navy-800 tracking-tight mb-4">
-                {client.name}
-              </h3>
-              {client.count > 0 && (
-                <Link href={client.projects[0].slug}>
-                  <p className="text-gray-700 tracking-tight mb-2 group-hover:underline group-hover:text-[#EB3300]">
-                    {client.projects[0].title}
-                  </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+          <div className="col-span-2">
+            {otherClients.map(
+              (client, index) =>
+                client.count > 0 && (
+                  <Link
+                    key={client.name + index}
+                    href={`/projects/${client.projects[0]?.slug}`}
+                  >
+                    <motion.div
+                      className="border-t border-gray-200 pb-6 pt-6 group"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.5,
+                        delay: Math.min(0.1 * index, 0.5),
+                      }}
+                    >
+                      <h3 className="text-xl font-bold text-navy-800 tracking-tight mb-4">
+                        {client.name}
+                      </h3>
+                      {client.count > 0 && (
+                        <>
+                          <p className="text-gray-700 tracking-tight mb-2">
+                            {client.projects[0].title}
+                          </p>
 
-                  {client.count > 1 && (
-                    <p className="text-sm text-gray-500 mb-4 ">
-                      +{client.count - 1} other project
-                      {client.count - 1 === 1 ? "" : "s"}
-                    </p>
-                  )}
+                          {client.count > 1 && (
+                            <p className="text-sm text-gray-500 mb-4 ">
+                              +{client.count - 1} other project
+                              {client.count - 1 === 1 ? "" : "s"}
+                            </p>
+                          )}
 
-                  <div className="inline-flex items-center text-navy-800 group-hover:text-[#EB3300] font-medium group text-sm">
-                    <span>View project</span>
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
-              )}
-            </motion.div>
-          ))}
+                          <div className="inline-flex items-center text-navy-800 group-hover:text-[#EB3300] font-medium group text-sm">
+                            <span>View project</span>
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </>
+                      )}
+                    </motion.div>
+                  </Link>
+                )
+            )}
+          </div>
+
+          <div className=" col-span-1">
+            {otherClients.map(
+              (client, index) =>
+                client.count === 0 && (
+                  <motion.div
+                    key={client.name + index}
+                    className=" border-gray-200 group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.5,
+                      delay: Math.min(0.1 * index, 0.5),
+                    }}
+                  >
+                    <h3 className=" text-navy-800 tracking-tight mb-4">
+                      {client.name}
+                    </h3>
+                  </motion.div>
+                )
+            )}
+          </div>
         </div>
       </div>
     </section>

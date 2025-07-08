@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -136,6 +137,7 @@ export function Navigation({ megaData }: Props) {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isNavbarWhite, setIsNavbarWhite] = useState(false);
   const scrollPositionRef = useRef(0);
+  const pathname = usePathname();
 
   // === mega‑menu hover logic (unchanged) ===
   const handleMouseEnter = (key: string) => {
@@ -201,30 +203,34 @@ export function Navigation({ megaData }: Props) {
 
               {/* Desktop nav */}
               <nav className="hidden xl:flex items-center space-x-8">
-                {navigationItems.map((item) => (
-                  <div
-                    key={item.href}
-                    className="relative"
-                    onMouseEnter={() => handleMouseEnter(item.href)}
-                  >
-                    <Link href={`/${item.href}`} className="py-2">
-                      <motion.span
-                        className={
-                          activeMenu === item.href
-                            ? "border-b-2 border-[#EB3301] font-medium"
-                            : ""
-                        }
-                        animate={{
-                          color: isNavbarWhite ? "#374151" : "#ffffff",
-                        }}
-                        whileHover={{ color: "#111827" }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {item.label}
-                      </motion.span>
-                    </Link>
-                  </div>
-                ))}
+                {navigationItems.map((item) => {
+                  const isActive =
+                    activeMenu === item.href || pathname === `/${item.href}`;
+                  return (
+                    <div
+                      key={item.href}
+                      className="relative"
+                      onMouseEnter={() => handleMouseEnter(item.href)}
+                    >
+                      <Link href={`/${item.href}`} className="py-2">
+                        <motion.span
+                          className={
+                            isActive
+                              ? "border-b-2 border-[#EB3301] font-medium"
+                              : ""
+                          }
+                          animate={{
+                            color: isNavbarWhite ? "#374151" : "#ffffff",
+                          }}
+                          whileHover={{ color: "#111827" }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {item.label}
+                        </motion.span>
+                      </Link>
+                    </div>
+                  );
+                })}
               </nav>
             </div>
 

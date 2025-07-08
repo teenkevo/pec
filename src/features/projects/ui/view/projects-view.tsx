@@ -49,9 +49,9 @@ export default function ProjectsView({ projects, industries }: Props) {
           </div>
           <div id="projects">
             <ProjectsSection
-              projects={projects.filter(
-                (project) => industry.slug === project.industry.slug
-              )}
+              projects={projects
+                .filter((project) => industry.slug === project.industry.slug)
+                .slice(0, 6)}
               title={`${industry.title} projects`}
               linkText="Explore all"
               linkUrl={`/industries/${industry.slug}`}
