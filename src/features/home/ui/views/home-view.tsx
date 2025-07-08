@@ -80,7 +80,7 @@ export default function HomeView({ homeData }: Props) {
           linkUrl="/about-us"
         />
       </div>
-      <div id="industries" className="px-4 md:px-14 py-16 md:py-0">
+      <div id="industries" className="px-4 md:px-14 pt-16 md:py-0">
         <IndustriesSection industries={industries} />
       </div>
       <div id="projects">

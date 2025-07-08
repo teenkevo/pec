@@ -74,7 +74,7 @@ export function NewsSection({ allPosts }: Props) {
               {posts.map((post) => (
                 <div
                   key={post._id}
-                  className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 pr-6"
+                  className="w-full md:w-1/3 lg:w-1/3 flex-shrink-0 pr-0 md:pr-6"
                 >
                   <BlogPostCard post={post} />
                 </div>

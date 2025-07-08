@@ -9,7 +9,7 @@ export function CareersSection() {
   return (
     <section className="pb-10">
       <motion.div
-        className="mx-auto px-2 md:px-14"
+        className="mx-auto md:px-14"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
