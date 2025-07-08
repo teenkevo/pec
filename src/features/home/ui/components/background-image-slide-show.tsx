@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { SanityAsset } from "@sanity/image-url/lib/types/types";
+import type { SanityAsset } from "@sanity/image-url/lib/types/types";
 import { urlFor } from "@/sanity/lib/image";
 
 interface BackgroundImageSlideshowProps {
@@ -24,6 +24,10 @@ export function BackgroundImageSlideshow({
 
     return () => clearTimeout(timer);
   }, [currentImageIndex, images.length, interval]);
+
+  const handleDotClick = (index: number) => {
+    setCurrentImageIndex(index);
+  };
 
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden bg-black">
@@ -69,6 +73,39 @@ export function BackgroundImageSlideshow({
             )
         )}
       </AnimatePresence>
+
+      {/* Navigation dots and progress bar container */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        {/* Navigation dots */}
+        <div className="flex justify-center items-center gap-2 pb-3">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleDotClick(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 hover:scale-125 ${
+                index === currentImageIndex
+                  ? "bg-white shadow-lg"
+                  : "bg-white/40 hover:bg-white/60"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Progress bar */}
+        <div className="h-1 bg-white/20 backdrop-blur-sm">
+          <motion.div
+            key={`progress-${currentImageIndex}`}
+            className="h-full bg-gradient-to-r from-white/80 to-[#EB3300]/60"
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{
+              duration: interval / 1000,
+              ease: "linear",
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 }
