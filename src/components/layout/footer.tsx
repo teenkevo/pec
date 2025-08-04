@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Locate, Phone } from "lucide-react";
 import { ContactButton } from "./contact-button";
 
 export function Footer() {
@@ -81,9 +81,9 @@ export function Footer() {
 
             <div className="h-px bg-gray-300 my-8"></div>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
               {/* Social Media Links */}
-              <div>
+              {/* <div>
                 <h3 className="text-lg tracking-tight font-bold text-navy-800 mb-4">
                   Social media
                 </h3>
@@ -121,31 +121,46 @@ export function Footer() {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
 
               {/* Contact Links */}
               <div>
                 <h3 className="text-lg font-bold tracking-tight text-navy-800 mb-4">
-                  Contact
+                  Address and contact
                 </h3>
                 <ul className="space-y-2">
                   <li>
-                    <Link
-                      href="/contact"
-                      className="text-gray-600 tracking-tight hover:text-black"
-                    >
-                      General contact
-                    </Link>
+                    <p className="text-gray-600 tracking-tight hover:text-black">
+                      Plot 9, Makajja Close off Ntinda 2 Road, Naguru, Kampala
+                      Uganda , P.O. Box 9529, Kampala Uganda (East Africa).
+                    </p>
                   </li>
                   <li>
-                    <Link
-                      href="/locations"
-                      className="text-gray-600 tracking-tight hover:text-black"
-                    >
-                      Our locations
-                    </Link>
+                    <p className="text-gray-600 tracking-tight hover:text-black">
+                      +256 393 513 038 | pec@pec.co.ug | pecuganda@gmail.com
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-gray-600 tracking-tight hover:text-black">
+                      Mon - Fri: 8:00 - 17:00 | Sat: 8:00 - 1:00 pm
+                    </p>
                   </li>
                 </ul>
+              </div>
+
+              <div className="space-y-4 col-span-4 lg:col-span-4">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7471590056125!2d32.60939757468819!3d0.3422029639864998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbbce848ec8ad%3A0x27348f1dbf13211b!2sProfessional%20Engineering%20Consultants%20Ltd!5e0!3m2!1sen!2sbe!4v1754295540769!5m2!1sen!2sbe"
+                  width="100%"
+                  height="400"
+                  style={{
+                    border: "2px solid #118191",
+                    borderRadius: "10px",
+                  }}
+                  allowFullScreen
+                  loading="eager"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
