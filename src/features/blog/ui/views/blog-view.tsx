@@ -30,9 +30,9 @@ export const BlogView = async ({ blogPosts }: Props) => {
         backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
       />
 
-      <LatestStories posts={latestBlogPosts} />
+      {/* <LatestStories posts={latestBlogPosts} /> */}
 
-      <div className="py-16">
+      <div>
         {newsCategoriesPosts.map((category) => (
           <BlogCategorySection
             key={category.title}
