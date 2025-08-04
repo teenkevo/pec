@@ -176,7 +176,7 @@ export function Footer() {
               >
                 Cookies
               </Link>
-              <Link
+              {/* <Link
                 href="/privacy"
                 className="text-gray-600 text-sm hover:text-black"
               >
@@ -193,7 +193,7 @@ export function Footer() {
                 className="text-gray-600 text-sm hover:text-black"
               >
                 General purchase terms and conditions
-              </Link>
+              </Link> */}
             </div>
             <div className="text-gray-600 text-sm">
               © {currentYear} PEC. All rights reserved.
