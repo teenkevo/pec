@@ -37,7 +37,7 @@ export function OrganisationSection() {
                 </div>
                 <div className="mt-8">
                   <Link
-                    href="/purpose"
+                    href="/about-us"
                     className="inline-flex items-center text-white font-medium group"
                   >
                     <span>Read more</span>
