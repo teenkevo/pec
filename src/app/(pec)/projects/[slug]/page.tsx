@@ -39,7 +39,7 @@ export async function generateMetadata(
       description: project.description,
       images: [
         {
-          url: urlFor(project.mainImage).format("webp").url() || "",
+          url: urlFor(project.mainImage).format("webp").quality(50).url() || "",
         },
       ],
     },
