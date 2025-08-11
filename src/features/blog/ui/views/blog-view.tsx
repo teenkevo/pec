@@ -27,7 +27,7 @@ export const BlogView = async ({ blogPosts }: Props) => {
         title={"Latest news and insights"}
         page={"Blog"}
         secondaryNavigationItems={megaMenuData["blog"].items ?? []}
-        backgroundImage="https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742342734/scott-blake-x-ghf9LjrVg-unsplash_nrmovu.webp"
+        backgroundImage="https://cdn.sanity.io/images/ea9vpu9f/production/afb6a23f01d337767d37859266e9253dad080bcd-5464x3640.jpg"
       />
 
       {/* <LatestStories posts={latestBlogPosts} /> */}
