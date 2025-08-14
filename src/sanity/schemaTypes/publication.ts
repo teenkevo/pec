@@ -39,6 +39,8 @@ export default defineType({
       type: "string",
       options: {
         list: [
+          { title: "Certification", value: "certification" },
+          { title: "Company Profile", value: "company-profile" },
           { title: "Report", value: "report" },
           { title: "Policy Brief", value: "policy-brief" },
           { title: "Research Paper", value: "research-paper" },
