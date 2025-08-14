@@ -153,34 +153,30 @@ export function Navigation({ megaData }: Props) {
     setIsNavbarWhite(false);
   };
 
-  // === page‑scroll lock when mega‑menu open ===
-  useEffect(() => {
-    const disableScroll = () => {
-      document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollPositionRef.current}px`;
-      document.body.style.width = "100%";
-    };
-    const enableScroll = () => {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      window.scrollTo(0, scrollPositionRef.current);
-    };
+  function useBodyScrollLock(locked: boolean) {
+    useEffect(() => {
+      const body = document.body;
+      if (locked) {
+        body.style.overflow = "hidden"; // no position:fixed
+      } else {
+        body.style.overflow = "";
+      }
+      return () => {
+        body.style.overflow = "";
+      };
+    }, [locked]);
+  }
 
-    if (activeMenu) disableScroll();
-    else enableScroll();
-
-    return enableScroll;
-  }, [activeMenu]);
+  useBodyScrollLock(!!activeMenu);
 
   return (
     <div className="relative" onMouseLeave={handleMouseLeave}>
       {/* === Header === */}
       <motion.header
         className="relative z-50"
-        animate={{ backgroundColor: isNavbarWhite ? "#ffffff" : "transparent" }}
+        animate={{
+          backgroundColor: isNavbarWhite ? "#ffffff" : "rgba(0, 0, 0, 0.8)",
+        }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <div className="mx-auto px-4 py-6 md:px-14">
@@ -212,7 +208,11 @@ export function Navigation({ megaData }: Props) {
                       className="relative"
                       onMouseEnter={() => handleMouseEnter(item.href)}
                     >
-                      <Link href={`/${item.href}`} className="py-2">
+                      <Link
+                        href={`/${item.href}`}
+                        className="py-2"
+                        onClick={() => setActiveMenu(null)}
+                      >
                         <motion.span
                           className={
                             isActive
@@ -300,7 +300,11 @@ export function Navigation({ megaData }: Props) {
             }}
             style={{ top: 0, paddingTop: "calc(var(--header-height, 30px))" }}
           >
-            <MegaMenu activeMenu={activeMenu} data={megaData || megaMenuData} />
+            <MegaMenu
+              setActiveMenu={setActiveMenu}
+              activeMenu={activeMenu}
+              data={megaData || megaMenuData}
+            />
           </motion.div>
         )}
       </AnimatePresence>

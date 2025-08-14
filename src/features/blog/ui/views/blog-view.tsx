@@ -3,6 +3,7 @@ import { BlogPosts } from "../../lib/queries";
 import LatestStories from "../components/latest-stories";
 import { BlogCategorySection } from "../components/blog-category-section";
 import { megaMenuData } from "@/constants/menu-data";
+import HashScroll from "@/components/hash-scroll";
 
 interface Props {
   blogPosts: BlogPosts;
@@ -43,6 +44,7 @@ export const BlogView = async ({ blogPosts }: Props) => {
           />
         ))}
       </div>
+      <HashScroll headerOffset={20} />
     </>
   );
 };

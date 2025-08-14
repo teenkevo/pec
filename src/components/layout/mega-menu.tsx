@@ -8,9 +8,10 @@ import { motion } from "framer-motion";
 interface MegaMenuProps {
   activeMenu: string | null;
   data: MegaMenuData;
+  setActiveMenu: (menu: string | null) => void;
 }
 
-export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
+export function MegaMenu({ activeMenu, data, setActiveMenu }: MegaMenuProps) {
   if (!activeMenu || !data[activeMenu]) return null;
 
   const menuData = data[activeMenu];
@@ -52,12 +53,13 @@ export function MegaMenu({ activeMenu, data }: MegaMenuProps) {
                 <Link
                   href={
                     menuData.hasSubsections
-                      ? `/${menuData.path}#${item.href} `
+                      ? `/${menuData.path}#${item.href}`
                       : menuData.path === "projects"
                         ? `/industries/${item.href}`
                         : `/${item.href}`
                   }
                   className="text-gray-700 text-xl font-semibold hover:text-gray-900 hover:underline"
+                  onClick={() => setActiveMenu(null)}
                 >
                   {item.title}
                 </Link>
