@@ -81,8 +81,8 @@ export default function HomeView({ homeData }: Props) {
           id="what-we-do"
           heading="What we do"
           content={whatWeDoContent}
-          linkText="Read more"
-          linkUrl="/about-us"
+          linkText="See company profile"
+          linkUrl={companyProfile?.internalFile?.asset?.url}
         />
       </div>
       <div id="industries" className="px-4 md:px-14 pt-16 md:py-0">
