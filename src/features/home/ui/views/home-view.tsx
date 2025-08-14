@@ -13,6 +13,8 @@ import { NewsSection } from "../../../../components/sections/news-section";
 import { HistorySection } from "../components/history-section";
 import { BlogPosts } from "@/features/blog/lib/queries";
 import { SlideShowContent } from "@/components/sections/hero-section";
+import { CompanyProfileSection } from "@/components/sections/company-profile-section";
+import { Publication } from "@/features/publications/lib/queries";
 
 interface Props {
   homeData: {
@@ -20,11 +22,13 @@ interface Props {
     projects: PROJECT_TYPE[];
     industries: INDUSTRIES;
     posts: BlogPosts;
+    companyProfile: Publication;
   };
 }
 
 export default function HomeView({ homeData }: Props) {
-  const { latestProjects, projects, industries, posts } = homeData;
+  const { latestProjects, projects, industries, posts, companyProfile } =
+    homeData;
 
   const sortedLatestProjects = latestProjects
     .filter((project) => project.latestProject != null)
@@ -54,6 +58,7 @@ export default function HomeView({ homeData }: Props) {
     { title: "Our industries", href: "industries" },
     { title: "Projects", href: "projects" },
     { title: "Organisation", href: "organisation" },
+    { title: "Company Profile", href: "company-profile" },
     { title: "Careers", href: "careers" },
     { title: "News highlights", href: "news-highlights" },
     { title: "History", href: "history" },
@@ -95,12 +100,14 @@ export default function HomeView({ homeData }: Props) {
       <div id="organisation">
         <OrganisationSection />
       </div>
+      <div id="company-profile">
+        <CompanyProfileSection companyProfile={companyProfile} />
+      </div>
 
       {/* Careers Section */}
       <div id="careers">
         <CareersSection />
       </div>
-
       {/* News Section */}
       {posts && posts.length > 0 && (
         <div id="news-highlights">

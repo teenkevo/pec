@@ -11,14 +11,15 @@ export default defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
-    // defineField({
-    //   name: "image",
-    //   title: "Cover Image",
-    //   type: "image",
-    //   options: {
-    //     hotspot: true,
-    //   },
-    // }),
+    defineField({
+      name: "coverImage",
+      title: "Cover Image",
+      description: "This image is an optional cover image for the publication",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    }),
     defineField({
       name: "summary",
       title: "Summary",

@@ -53,9 +53,22 @@ export type Publication = {
   _updatedAt: string;
   _rev: string;
   title?: string;
+  coverImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   summary?: string;
   publicationDate?: string;
   category?:
+    | "certification"
+    | "company-profile"
     | "report"
     | "policy-brief"
     | "research-paper"
