@@ -42,6 +42,7 @@ export default defineType({
         list: [
           { title: "Certification", value: "certification" },
           { title: "Company Profile", value: "company-profile" },
+          { title: "Brand Guidelines", value: "brand-guidelines" },
           { title: "Report", value: "report" },
           { title: "Policy Brief", value: "policy-brief" },
           { title: "Research Paper", value: "research-paper" },

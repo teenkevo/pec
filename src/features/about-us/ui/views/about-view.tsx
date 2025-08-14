@@ -11,6 +11,7 @@ import { NewsSection } from "@/components/sections/news-section";
 import { megaMenuData } from "@/constants/menu-data";
 import { CompanyProfileSection } from "@/components/sections/company-profile-section";
 import { Publication } from "@/features/publications/lib/queries";
+import HashScroll from "@/components/hash-scroll";
 
 interface Props {
   aboutData: {
@@ -148,6 +149,7 @@ export default function AboutView({ aboutData }: Props) {
       <div id="careers">
         <CareersSection />
       </div>
+      <HashScroll headerOffset={10} />
     </>
   );
 }
