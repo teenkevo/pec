@@ -51,7 +51,7 @@ export function NewsSection({ allPosts }: Props) {
           <div className="flex justify-between items-end mt-2">
             <h2 className="text-3xl font-bold text-gray-900">Highlights</h2>
             <Link
-              href="/news"
+              href="/blog"
               className="text-[#EB3300]/90 hover:text-[#EB3300] flex items-center"
             >
               <span>View All</span>
