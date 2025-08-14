@@ -58,7 +58,7 @@ export function CompanyProfileSection({ companyProfile }: Props) {
                   <div className="order-2 lg:order-1">
                     <div
                       onClick={() => handlePublicationClick(companyProfile)}
-                      className="hover:scale-[1.01] transition-all duration-300 rounded-lg overflow-hidden shadow-lg bg-gray-50"
+                      className="hover:scale-[1.01] transition-all duration-300 cursor-pointer rounded-lg overflow-hidden shadow-lg bg-gray-50"
                     >
                       <img
                         src={
