@@ -8,7 +8,9 @@ export const GET_PUBLICATIONS_QUERY = `*[_type == "publication"] | order(publica
   externalUrl,
   internalFile {
     asset-> {
-      url
+      url,
+      size,
+      mimeType
     }
   },
   industry-> {
@@ -26,7 +28,30 @@ export const GET_PUBLICATIONS_PAGINATED_QUERY = `*[_type == "publication"][0..5]
   externalUrl,
   internalFile {
     asset-> {
-      url
+      url,
+      size,
+      mimeType
+    }
+  },
+  industry-> {
+    title
+  }
+}`;
+
+export const GET_COMPANY_PROFILE_QUERY = `*[_type == "publication" && category == "company-profile"][0] {
+  _id,
+  title,
+  summary,
+  publicationDate,
+  category,
+  publicationType,
+  coverImage,
+  externalUrl,
+  internalFile {
+    asset-> {
+      url,
+      size,
+      mimeType
     }
   },
   industry-> {
@@ -44,7 +69,9 @@ export const PUBLICATIONS_BY_INDUSTRY_QUERY = `*[_type == "publication" && indus
   externalUrl,
   internalFile {
     asset-> {
-      url
+      url,
+      size, 
+      mimeType
     }
   },
   industry-> {
@@ -60,6 +87,9 @@ export interface Publication {
   category: string;
   publicationType: "internal" | "external";
   externalUrl?: string;
-  internalFile?: { asset: { url: string } };
+  internalFile?: {
+    asset: { url: string; size: number; mimeType: string };
+  };
   industry?: { title: string };
+  coverImage?: { asset: { url: string } };
 }

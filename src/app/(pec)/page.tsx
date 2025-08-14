@@ -13,8 +13,15 @@ import {
   type INDUSTRIES,
 } from "@/features/industries/lib/queries";
 import HomeView from "@/features/home/ui/views/home-view";
-import { type BlogPosts, TOP_BLOG_POSTS_QUERY } from "@/features/blog/lib/queries";
+import {
+  type BlogPosts,
+  TOP_BLOG_POSTS_QUERY,
+} from "@/features/blog/lib/queries";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
+import {
+  GET_COMPANY_PROFILE_QUERY,
+  Publication,
+} from "@/features/publications/lib/queries";
 
 export const metadata: Metadata = {
   title: "Professional Engineering Consultants (PEC) Limited",
@@ -38,12 +45,14 @@ const getHomeData = async (): Promise<{
   projects: PROJECT_TYPE[];
   industries: INDUSTRIES;
   posts: BlogPosts;
+  companyProfile: Publication;
 }> => {
   const [
     latestProjectsResponse,
     projectsResponse,
     industriesResponse,
     postsResponse,
+    companyProfileResponse,
   ] = await Promise.all([
     sanityFetch({
       query: LATEST_PROJECTS_QUERY,
@@ -57,6 +66,9 @@ const getHomeData = async (): Promise<{
     sanityFetch({
       query: TOP_BLOG_POSTS_QUERY,
     }),
+    sanityFetch({
+      query: GET_COMPANY_PROFILE_QUERY,
+    }),
   ]);
 
   return {
@@ -64,12 +76,13 @@ const getHomeData = async (): Promise<{
     projects: projectsResponse.data,
     industries: industriesResponse.data,
     posts: postsResponse.data,
+    companyProfile: companyProfileResponse.data,
   };
 };
 
 export default async function Page() {
   const homeData = await getHomeData();
- 
+
   return (
     <Suspense fallback={<LoadingSkeleton />}>
       <HomeView homeData={homeData} />

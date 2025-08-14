@@ -31,6 +31,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "What we do", href: "what-we-do" },
       { title: "Mission", href: "mission" },
       { title: "Our Values", href: "values" },
+      { title: "Company Profile", href: "company-profile" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_75/v1743528551/A1B6E84B-AE56-4195-A303-CAA589D0DA76_1_201_a_ww70gd.webp",

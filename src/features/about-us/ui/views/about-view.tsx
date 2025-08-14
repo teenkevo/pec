@@ -9,16 +9,19 @@ import { urlFor } from "@/sanity/lib/image";
 import { BlogPosts } from "@/features/blog/lib/queries";
 import { NewsSection } from "@/components/sections/news-section";
 import { megaMenuData } from "@/constants/menu-data";
+import { CompanyProfileSection } from "@/components/sections/company-profile-section";
+import { Publication } from "@/features/publications/lib/queries";
 
 interface Props {
   aboutData: {
     aboutContent: AboutUs;
     posts: BlogPosts;
+    companyProfile: Publication;
   };
 }
 
 export default function AboutView({ aboutData }: Props) {
-  const { aboutContent, posts } = aboutData;
+  const { aboutContent, posts, companyProfile } = aboutData;
 
   return (
     <>
@@ -129,6 +132,11 @@ export default function AboutView({ aboutData }: Props) {
           linkText="More about our strategy"
           linkUrl="/about-us/strategy"
         />
+      </div>
+      <div className="border-t border-gray-200 mt-16 mx-2"></div>
+      {/* What We Do Section */}
+      <div id="company-profile">
+        <CompanyProfileSection companyProfile={companyProfile} />
       </div>
       <div className="border-t border-gray-200 mt-16 mx-2"></div>
       {/* News Section */}
