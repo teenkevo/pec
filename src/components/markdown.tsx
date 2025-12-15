@@ -15,7 +15,7 @@ const components: PortableTextComponents = {
   block: {
     // Normal paragraph
     normal: ({ children }) => (
-      <p className="text-lg my-4 leading-relaxed last:mb-0">{children}</p>
+      <p className="text-base my-4 leading-relaxed last:mb-0">{children}</p>
     ),
 
     // Headings
