@@ -17,7 +17,6 @@ export default function CareersView({ jobs }: CareersViewProps) {
       <OpenPositionsSection jobs={jobs} />
       <WorkingAtPECSection />
       <DevelopmentSection />
-      {/* <BenefitsSection /> */}
       <div id="history">
         <HistorySection />
       </div>
