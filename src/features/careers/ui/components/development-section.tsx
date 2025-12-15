@@ -60,7 +60,7 @@ export function DevelopmentSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg border-l-4 border-[#EB3300] hover:shadow-lg transition-shadow"
+                  className="bg-gray-50 p-6 rounded-lg border border-gray-200 transition-all"
                 >
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {opportunity.title}
@@ -82,7 +82,7 @@ export function DevelopmentSection() {
               </h3>
               <p className="text-white/90 mb-6">
                 Join a team that values your development and invests in your
-                success. Explore our open positions or reach out to learn more.
+                success. Explore our open positions.
               </p>
               <Link
                 href="#positions"
