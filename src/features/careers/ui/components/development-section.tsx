@@ -82,7 +82,7 @@ export function DevelopmentSection() {
               </h3>
               <p className="text-white/90 mb-6">
                 Join a team that values your development and invests in your
-                success. Explore our open positions or reach out to learn more.
+                success. Explore our open positions.
               </p>
               <Link
                 href="#positions"
