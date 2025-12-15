@@ -4,12 +4,12 @@ import { industry } from "./industry";
 import { team } from "./team";
 import { project } from "./project";
 import { expertise } from "./expertise";
+import { job } from "./job";
 import { galleryImage } from "./gallery-image";
 import aboutUs from "./about";
 import { blockContentType } from "./blockContentType";
 import blogPost from "./blog-post";
 import publication from "./publication";
-
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,6 +18,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     team,
     project,
     expertise,
+    job,
     galleryImage,
     aboutUs,
     blogPost,
