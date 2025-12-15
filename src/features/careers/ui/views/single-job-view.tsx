@@ -32,8 +32,16 @@ export function SingleJobView({ job }: SingleJobViewProps) {
       <div className="relative w-full bg-black">
         <Navigation />
       </div>
-      <section className="bg-slate-950 text-white py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-black text-white py-16 relative">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "url('/Pattern.png')",
+            backgroundRepeat: "repeat",
+            // filter: "brightness(0) invert(1)",
+          }}
+        />
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10">
           <Link
             href="/careers#positions"
             className="inline-flex items-center text-sm text-gray-300 hover:text-white mb-6"
