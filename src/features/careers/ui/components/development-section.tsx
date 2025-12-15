@@ -60,7 +60,7 @@ export function DevelopmentSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg border-l-4 border-[#EB3300] hover:shadow-lg transition-shadow"
+                  className="bg-gray-50 p-6 rounded-lg border border-gray-200 transition-all"
                 >
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {opportunity.title}
