@@ -5,6 +5,7 @@ import { team } from "./team";
 import { project } from "./project";
 import { expertise } from "./expertise";
 import { job } from "./job";
+import { applicant } from "./applicant";
 import { galleryImage } from "./gallery-image";
 import aboutUs from "./about";
 import { blockContentType } from "./blockContentType";
@@ -19,6 +20,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     project,
     expertise,
     job,
+    applicant,
     galleryImage,
     aboutUs,
     blogPost,

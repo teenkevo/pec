@@ -13,6 +13,15 @@ export const job = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "jobId",
+      title: "Job ID",
+      type: "string",
+      description:
+        "System-generated unique identifier for this job (used in URLs and integrations).",
+      initialValue: () => uuidv4().replace(/-/g, "").slice(0, 10),
+      readOnly: true,
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",

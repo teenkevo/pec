@@ -18,13 +18,25 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = await params;
 
+  let baseSlug = slug;
+  let jobId: string | undefined;
+
+  const lastHyphenIndex = slug.lastIndexOf("-");
+  if (lastHyphenIndex > 0) {
+    const possibleId = slug.slice(lastHyphenIndex + 1);
+    if (possibleId.length === 10) {
+      baseSlug = slug.slice(0, lastHyphenIndex);
+      jobId = possibleId;
+    }
+  }
+
   const {
     data: job,
   }: {
     data: SINGLE_JOB_RESULT;
   } = await sanityFetch({
     query: SINGLE_JOB_QUERY,
-    params: { slug },
+    params: { slug: baseSlug, jobId },
   });
 
   if (!job) {
@@ -36,11 +48,32 @@ export async function generateMetadata(
   return {
     title: job.title,
     description: job.aboutTheRole,
+    openGraph: {
+      title: job.title,
+      description: job.aboutTheRole,
+      images: [
+        {
+          url: "https://res.cloudinary.com/teenkevo-cloud/image/upload/v1742780530/og-pec_1_nuscap.png",
+        },
+      ],
+    },
   };
 }
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
+
+  let baseSlug = slug;
+  let jobId: string | undefined;
+
+  const lastHyphenIndex = slug.lastIndexOf("-");
+  if (lastHyphenIndex > 0) {
+    const possibleId = slug.slice(lastHyphenIndex + 1);
+    if (possibleId.length === 10) {
+      baseSlug = slug.slice(0, lastHyphenIndex);
+      jobId = possibleId;
+    }
+  }
 
   const {
     data: job,
@@ -48,7 +81,7 @@ export default async function Page({ params }: Props) {
     data: SINGLE_JOB_RESULT;
   } = await sanityFetch({
     query: SINGLE_JOB_QUERY,
-    params: { slug },
+    params: { slug: baseSlug, jobId },
   });
 
   if (!job) {

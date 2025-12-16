@@ -43,6 +43,7 @@ export function OpenPositionsSection({ jobs = [] }: OpenPositionsSectionProps) {
                         job={{
                           _id: job._id,
                           title: job.title,
+                          jobId: job.jobId,
                           industries: job.industries,
                           location: job.location,
                           type: job.type,
@@ -66,6 +67,7 @@ export function OpenPositionsSection({ jobs = [] }: OpenPositionsSectionProps) {
                           job={{
                             _id: job._id,
                             title: job.title,
+                            jobId: job.jobId,
                             industries: job.industries,
                             location: job.location,
                             type: job.type,
@@ -104,6 +106,7 @@ export function OpenPositionsSection({ jobs = [] }: OpenPositionsSectionProps) {
                           job={{
                             _id: job._id,
                             title: job.title,
+                            jobId: job.jobId,
                             industries: job.industries,
                             location: job.location,
                             type: job.type,
@@ -143,6 +146,7 @@ export function OpenPositionsSection({ jobs = [] }: OpenPositionsSectionProps) {
                           job={{
                             _id: job._id,
                             title: job.title,
+                            jobId: job.jobId,
                             industries: job.industries,
                             location: job.location,
                             type: job.type,
