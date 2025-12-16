@@ -146,6 +146,20 @@ export function OrganisationSection() {
               </Link>
             </div>
           </div>
+          <div className="lg:col-span-4 border border-gray-200 rounded-sm p-8">
+            <div>
+              <h3 className="text-xl tracking-tight font-bold text-gray-900">
+                Equal employment opportunity
+              </h3>
+
+              <p className="text-gray-700 mt-4">
+                PEC is committed to providing equal employment opportunities to
+                all employees and applicants without regard to race, color,
+                religion, sex, national origin, age, disability, or any other
+                protected status.
+              </p>
+            </div>
+          </div>
         </div>
       </motion.div>
     </section>
