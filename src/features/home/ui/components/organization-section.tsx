@@ -136,7 +136,7 @@ export function OrganisationSection() {
 
             <div className="mt-8">
               <Link
-                href="/certifications"
+                href="/blog/pec-achieves-iso-integrated-management-system-certification"
                 className="inline-flex items-center text-gray-900 font-medium group"
               >
                 <span>Read more</span>
