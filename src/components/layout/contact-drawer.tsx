@@ -167,11 +167,7 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
 
                 {/* Name Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                  >
+                  <motion.div>
                     <Label
                       htmlFor="firstName"
                       className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2"
@@ -192,11 +188,7 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                     />
                   </motion.div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 }}
-                  >
+                  <motion.div>
                     <Label
                       htmlFor="lastName"
                       className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2"
@@ -219,11 +211,7 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                 </div>
 
                 {/* Company */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
+                <motion.div>
                   <Label
                     htmlFor="company"
                     className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2"
@@ -244,11 +232,7 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                 </motion.div>
 
                 {/* Email */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.25 }}
-                >
+                <motion.div>
                   <Label
                     htmlFor="email"
                     className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2"
@@ -268,11 +252,7 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                 </motion.div>
 
                 {/* Phone */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
+                <motion.div>
                   <Label
                     htmlFor="phone"
                     className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2"
@@ -291,11 +271,7 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                 </motion.div>
 
                 {/* Question */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35 }}
-                >
+                <motion.div>
                   <Label
                     htmlFor="question"
                     className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2"
@@ -316,12 +292,7 @@ export function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                 </motion.div>
 
                 {/* Submit Button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="pt-4"
-                >
+                <motion.div className="pt-4">
                   <Button
                     type="submit"
                     disabled={!isFormValid}

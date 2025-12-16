@@ -87,7 +87,7 @@ export const megaMenuData: MegaMenuData = {
       { title: "Open Positions", href: "positions" },
       { title: "Working at PEC", href: "working" },
       { title: "Development", href: "development" },
-      { title: "Benefits", href: "benefits" },
+      // { title: "Benefits", href: "benefits" },
     ],
     featuredImage: {
       src: "https://res.cloudinary.com/teenkevo-cloud/image/upload/q_68/v1742877869/marten-bjork-6dW3xyQvcYE-unsplash_kxslgq.webp",

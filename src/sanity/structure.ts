@@ -8,6 +8,7 @@ import {
   DocumentIcon,
   FolderIcon,
 } from "@sanity/icons";
+import { BriefcaseIcon } from "lucide-react";
 
 const SINGLETON_TYPES = new Set(["aboutUs"]);
 
@@ -17,7 +18,7 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title("PEC Content")
     .items([
-      // SINGLETONS 
+      // SINGLETONS
       S.listItem()
         .title("About Us")
         .id(ABOUT_US_ID)
@@ -31,7 +32,7 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
-      //MAIN CONTENT 
+      //MAIN CONTENT
       S.documentTypeListItem("project").title("Projects").icon(ProjectsIcon),
 
       S.documentTypeListItem("industry").title("Industries").icon(CaseIcon),
@@ -49,7 +50,10 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
-      // OTHER CONTENT TYPES 
+      // CAREERS
+      S.documentTypeListItem("job").title("Careers").icon(BriefcaseIcon),
+
+      // OTHER CONTENT TYPES
 
       ...S.documentTypeListItems().filter(
         (listItem) =>
@@ -60,6 +64,7 @@ export const structure: StructureResolver = (S) =>
             "team",
             "client",
             "aboutUs",
+            "job",
           ].includes(listItem.getId()!)
       ),
     ]);

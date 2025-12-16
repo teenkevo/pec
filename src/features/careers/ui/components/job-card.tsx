@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 export interface Job {
   _id: string;
   title: string;
+  jobId?: string;
   industries?: string[];
   location?: string;
   type?: "full-time" | "part-time" | "contract" | "internship";
@@ -39,7 +40,13 @@ export function JobCard({ job, index = 0 }: JobCardProps) {
       className="group"
     >
       <Link
-        href={job.slug ? `/careers/${job.slug}` : "#"}
+        href={
+          job.slug
+            ? job.jobId
+              ? `/careers/${job.slug}-${job.jobId}`
+              : `/careers/${job.slug}`
+            : "#"
+        }
         className="block h-full"
       >
         <div className="h-full bg-white border border-gray-200 rounded-lg p-6 hover:border-[#EB3300] hover:shadow-lg transition-all duration-300 flex flex-col">

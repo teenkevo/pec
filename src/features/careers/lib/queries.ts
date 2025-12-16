@@ -2,9 +2,10 @@ import { groq } from "next-sanity";
 import { BlockContent } from "../../../../sanity.types";
 
 export const SINGLE_JOB_QUERY = groq`
-  *[_type == "job" && slug.current == $slug][0]{
+  *[_type == "job" && (slug.current == $slug || jobId == $jobId)][0]{
     _id,
     title,
+    jobId,
     "industries": industries[]->title,
     location,
     type,
@@ -22,6 +23,7 @@ export const SINGLE_JOB_QUERY = groq`
 export type SINGLE_JOB_RESULT = {
   _id: string;
   title: string;
+  jobId?: string;
   industries?: string[];
   location?: string;
   type?: "full-time" | "part-time" | "contract" | "internship";
@@ -39,6 +41,7 @@ export const ALL_JOBS_QUERY = groq`
   *[_type == "job"] | order(postedDate desc) {
     _id,
     title,
+    jobId,
     "slug": slug.current,
     "industries": industries[]->title,
     location,
@@ -57,6 +60,7 @@ export const ALL_JOBS_QUERY = groq`
 export type ALL_JOBS_RESULT = {
   _id: string;
   title: string;
+  jobId?: string;
   slug?: string;
   industries?: string[];
   location?: string;

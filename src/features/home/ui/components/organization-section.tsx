@@ -136,7 +136,7 @@ export function OrganisationSection() {
 
             <div className="mt-8">
               <Link
-                href="/certifications"
+                href="/blog/pec-achieves-iso-integrated-management-system-certification"
                 className="inline-flex items-center text-gray-900 font-medium group"
               >
                 <span>Read more</span>
@@ -144,6 +144,20 @@ export function OrganisationSection() {
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>
+            </div>
+          </div>
+          <div className="lg:col-span-4 border border-gray-200 rounded-sm p-8">
+            <div>
+              <h3 className="text-xl tracking-tight font-bold text-gray-900">
+                Equal employment opportunity
+              </h3>
+
+              <p className="text-gray-700 mt-4">
+                PEC is committed to providing equal employment opportunities to
+                all employees and applicants without regard to race, color,
+                religion, sex, national origin, age, disability, or any other
+                protected status.
+              </p>
             </div>
           </div>
         </div>

@@ -1,15 +1,20 @@
+"use client";
 import { PortableText } from "@portabletext/react";
 import { ChevronLeft, MapPin, Briefcase, Clock } from "lucide-react";
 import Link from "next/link";
 import { SINGLE_JOB_RESULT } from "@/features/careers/lib/queries";
 import { Navigation } from "@/components/layout/navigation";
 import Markdown from "@/components/markdown";
+import { useState } from "react";
+import { ApplicationDrawer } from "../components/application-drawer";
+import { Button } from "@/components/ui/button";
 
 interface SingleJobViewProps {
   job: SINGLE_JOB_RESULT & { postedDateFormatted?: string };
 }
 
 export function SingleJobView({ job }: SingleJobViewProps) {
+  const [isApplyOpen, setIsApplyOpen] = useState(false);
   const typeLabels: Record<string, string> = {
     "full-time": "Full Time",
     "part-time": "Part Time",
@@ -84,7 +89,7 @@ export function SingleJobView({ job }: SingleJobViewProps) {
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      <section className="py-12 md:py-16 bg-[#f5f5f5]">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[2fr,minmax(260px,1fr)] gap-10 lg:gap-16">
           <article>
             <div className="mb-8 space-y-4">
@@ -167,22 +172,24 @@ export function SingleJobView({ job }: SingleJobViewProps) {
                 Share your CV, a brief introduction, and any relevant project
                 experience that highlights why you&apos;re a great fit for PEC.
               </p>
-              <a
-                href={`mailto:careers@pec.co.ug?subject=Application for ${encodeURIComponent(
-                  job.title
-                )}`}
-                className="inline-flex w-full items-center justify-center rounded-md bg-[#EB3300] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#c52a00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#EB3300]"
+
+              <Button
+                onClick={() => setIsApplyOpen(true)}
+                className="inline-flex w-full hover:bg-[#0f6b7a] items-center justify-center rounded-md bg-[#EB3300] px-4 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#EB3300]"
               >
-                Email your application
-              </a>
-              <p className="text-xs text-gray-500">
-                Prefer a different channel? You can also reach out through our
-                general contact page and reference this role.
-              </p>
+                Submit your application
+              </Button>
             </div>
           </aside>
         </div>
       </section>
+
+      <ApplicationDrawer
+        isOpen={isApplyOpen}
+        onClose={() => setIsApplyOpen(false)}
+        jobId={job._id}
+        jobTitle={job.title}
+      />
     </>
   );
 }
